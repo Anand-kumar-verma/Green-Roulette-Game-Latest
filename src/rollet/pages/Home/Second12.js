@@ -1,0 +1,1459 @@
+
+import { Box, IconButton, Stack, Typography } from '@mui/material';
+import React from 'react'
+import { style } from "./CommonCss";
+import { NavLink } from 'react-router-dom';
+import toast from 'react-hot-toast';
+const Second12 = ({ isSelectedDropBet,removeSingleBetFunction,setOpenDialogBox, bet, setBetFuncton, amount }) => {
+  return (
+    <Stack direction="row" justifyContent="end" sx={{ height: "28.56%" }}>
+      <div className="w-[14%]   " style={{ border: '1px solid white', background: 'yellow' }}>
+        <Box sx={{ width: '100%', height: '50%', background: 'red', ...style.flex }} >
+          <NavLink
+            id="200"
+            onClick={(e) => {
+              if (amount < 10 || amount > 50000)
+                  return toast("Please select amount grater than 10");
+              let isContainsPre = bet?.find((i) => i?.id === 200);
+              if (isContainsPre) {
+                // setOpenDialogBox(200);
+                if (
+                    isContainsPre?.amount + amount > 50000 ||
+                    isContainsPre?.amount < 10
+                  ) {
+                    return toast(
+                      "Bet must be grater than 10 and less that 50000 Rupees"
+                    );
+                  } else {
+                    setBetFuncton(
+                      200, [200],
+                      Number(isContainsPre?.amount) + amount
+                    );
+                  }
+              } else {
+                setBetFuncton(200, [200], amount);
+              }
+              e.stopPropagation();
+            }}>
+            <Typography variant="body1" color="initial" sx={{ color: 'white', fontSize: '12px', fontWeight: '700', transform: 'rotate(90deg)' }}>Red</Typography>
+          </NavLink>
+        </Box>
+        <Box sx={{ width: '100%', height: '50%', background: 'black', ...style.flex }} >
+          <NavLink
+            id="201"
+            onClick={(e) => {
+              if (amount < 10 || amount > 50000)
+                  return toast("Please select amount grater than 10");
+              let isContainsPre = bet?.find((i) => i?.id === 201);
+              if (isContainsPre) {
+                // setOpenDialogBox(201);
+                if (
+                    isContainsPre?.amount + amount > 50000 ||
+                    isContainsPre?.amount < 10
+                  ) {
+                    return toast(
+                      "Bet must be grater than 10 and less that 50000 Rupees"
+                    );
+                  } else {
+                    setBetFuncton(
+                      201, [201],
+                      Number(isContainsPre?.amount) + amount
+                    );
+                  }
+              } else {
+                setBetFuncton(201, [201], amount);
+              }
+              e.stopPropagation();
+            }}
+          >
+            <Typography variant="body1" color="initial" sx={{ color: 'white', fontSize: '12px', fontWeight: '700', transform: 'rotate(90deg)' }}>Black</Typography>
+          </NavLink>
+        </Box>
+
+      </div>
+      <div className="w-[14%] !grid grid-rows-1  !border-white !place-items-center" style={{ ...style.flex, border: '1px solid white' }}>
+        <IconButton
+          className="!p-0"
+          style={{ transform: "rotate(-270deg)" }}
+        >
+          <Typography
+            variant="body1"
+            color="initial"
+          >
+            <span
+              style={{ color: 'white', fontWeight: 800 }}
+              className="whitespace-nowrap !text-[12px] "
+              id="212"
+              onClick={(e) => {
+                if (amount < 10 || amount > 50000)
+                  return toast("Please select amount grater than 10");
+                let isContainsPre = bet?.find((i) => i?.id === 212);
+                if (isContainsPre) {
+                  // setOpenDialogBox(212);
+                  if (
+                    isContainsPre?.amount + amount > 50000 ||
+                    isContainsPre?.amount < 10
+                  ) {
+                    return toast(
+                      "Bet must be grater than 10 and less that 50000 Rupees"
+                    );
+                  } else {
+                    setBetFuncton(
+                      212, [212],
+                      Number(isContainsPre?.amount) + amount
+                    );
+                  }
+                } else {
+                  setBetFuncton(212, [212], amount);
+                }
+                e.stopPropagation();
+              }}
+            >
+              2nd 12
+            </span>
+          </Typography>
+        </IconButton>
+      </div>
+      <Stack
+        sx={{
+          width: "60%",
+          height: "100%",
+          // display: "flex",
+          // flexWrap: "wrap",
+        }}
+        className="!w-full !h-full !grid !grid-cols-3 "
+      >
+        <span className="!grid grid-rows-4 !w-full !h-full relative">
+          <IconButton sx={{ ...style.btn2, ...style.black }}>
+            <p
+              id="24"
+              onClick={(e) => {
+                if (amount < 10 || amount > 50000)
+                  return toast("Please select amount grater than 10");
+                let isContainsPre = bet?.find((i) => i?.id === 24);
+                if (isContainsPre) {
+                  // setOpenDialogBox(24);
+                  if (
+                    isContainsPre?.amount + amount > 5000 ||
+                    isContainsPre?.amount < 2
+                  ) {
+                    return toast(
+                      "Bet must be grater than 2 and less that 5000 Rupees"
+                    );
+                  } else {
+                    setBetFuncton(
+                      24,
+                      [24],
+                      Number(isContainsPre?.amount) + amount
+                    );
+                  }
+                } else {
+                  setBetFuncton(24, [24], amount);
+                }
+                e.stopPropagation();
+              }}
+            >
+              24
+            </p>
+          </IconButton>
+          <p className="absolute top-[18%] left-[28%] h-4 w-4 !rounded-full !z-50 !cursor-pointer !flex !justify-center !items-center">
+            <span
+              id="241000"
+              className="!z-100 h-full w-full !text-[10px]"
+              onClick={(e) => {
+                if (amount < 10 || amount > 50000)
+                  return toast("Please select amount grater than 10");
+                let isContainsPre = bet?.find((i) => i?.id === 241000);
+                if (isContainsPre) {
+                  // setOpenDialogBox(241000);
+                  if (
+                    isContainsPre?.amount + amount > 50000 ||
+                    isContainsPre?.amount < 10
+                  ) {
+                    return toast(
+                      "Bet must be grater than 10 and less that 50000 Rupees"
+                    );
+                  } else {
+                    setBetFuncton(
+                      241000, [21, 24],
+                      Number(isContainsPre?.amount) + amount
+                    );
+                  }
+                } else {
+                  setBetFuncton(241000, [21, 24], amount);
+                }
+                e.stopPropagation();
+              }}
+            ></span>
+          </p>
+          <p className="absolute top-[5%] left-[82%] h-4 w-4 !rounded-full !z-50 !cursor-pointer !flex !justify-center !items-center">
+            <span
+              id="242000"
+              className="!z-100 h-full w-full !text-[10px]"
+              onClick={(e) => {
+                if (amount < 10 || amount > 50000)
+                  return toast("Please select amount grater than 10");
+                let isContainsPre = bet?.find((i) => i?.id === 242000);
+                if (isContainsPre) {
+                  // setOpenDialogBox(242000);
+                  if (
+                    isContainsPre?.amount + amount > 50000 ||
+                    isContainsPre?.amount < 10
+                  ) {
+                    return toast(
+                      "Bet must be grater than 10 and less that 50000 Rupees"
+                    );
+                  } else {
+                    setBetFuncton(
+                      242000, [23, 24],
+                      Number(isContainsPre?.amount) + amount
+                    );
+                  }
+                } else {
+                  setBetFuncton(242000, [23, 24], amount);
+                }
+                e.stopPropagation();
+              }}
+            ></span>
+          </p>
+          <p className="absolute top-[17%] left-[80%] h-4 w-4 !rounded-full !z-50 !cursor-pointer !flex !justify-center !items-center">
+            <span
+              id="243000"
+              className="!z-100 h-full w-full !text-[10px]"
+              onClick={(e) => {
+                if (amount < 10 || amount > 50000)
+                  return toast("Please select amount grater than 10");
+                let isContainsPre = bet?.find((i) => i?.id === 243000);
+                if (isContainsPre) {
+                  // setOpenDialogBox(243000);
+                  if (
+                    isContainsPre?.amount + amount > 50000 ||
+                    isContainsPre?.amount < 10
+                  ) {
+                    return toast(
+                      "Bet must be grater than 10 and less that 50000 Rupees"
+                    );
+                  } else {
+                    setBetFuncton(
+                      243000, [20, 21, 23, 24],
+                      Number(isContainsPre?.amount) + amount
+                    );
+                  }
+                } else {
+                  setBetFuncton(243000, [20, 21, 23, 24], amount);
+                }
+                e.stopPropagation();
+              }}
+            ></span>
+          </p>
+          <IconButton sx={{ ...style.btn2, ...style.red }}>
+            <p
+              id="21"
+              onClick={(e) => {
+                let isContainsPre = bet?.find((i) => i?.id === 21);
+                if (isContainsPre) {
+                  // setOpenDialogBox(21);
+                  if (
+                    isContainsPre?.amount + amount > 5000 ||
+                    isContainsPre?.amount < 2
+                  ) {
+                    return toast(
+                      "Bet must be grater than 2 and less that 5000 Rupees"
+                    );
+                  } else {
+                    setBetFuncton(
+                      21,
+                      [21],
+                      Number(isContainsPre?.amount) + amount
+                    );
+                  }
+                } else {
+                  setBetFuncton(21, [21], amount);
+                }
+                e.stopPropagation();
+              }}
+            >
+              21
+            </p>
+          </IconButton>
+          <p className="absolute top-[43%] left-[28%] h-4 w-4 !rounded-full !z-50 !cursor-pointer !flex !justify-center !items-center">
+            <span
+              id="211000"
+              className="!z-100 h-full w-full !text-[10px]"
+              onClick={(e) => {
+                if (amount < 10 || amount > 50000)
+                  return toast("Please select amount grater than 10");
+                let isContainsPre = bet?.find((i) => i?.id === 211000);
+                if (isContainsPre) {
+                  // setOpenDialogBox(211000);
+                  if (
+                    isContainsPre?.amount + amount > 50000 ||
+                    isContainsPre?.amount < 10
+                  ) {
+                    return toast(
+                      "Bet must be grater than 10 and less that 50000 Rupees"
+                    );
+                  } else {
+                    setBetFuncton(
+                      211000, [18, 21],
+                      Number(isContainsPre?.amount) + amount
+                    );
+                  }
+                } else {
+                  setBetFuncton(211000, [18, 21], amount);
+                }
+                e.stopPropagation();
+              }}
+            ></span>
+          </p>
+          <p className="absolute top-[30%] left-[82%] h-4 w-4 !rounded-full !z-50 !cursor-pointer !flex !justify-center !items-center">
+            <span
+              id="212000"
+              className="!z-100 h-full w-full !text-[10px]"
+              onClick={(e) => {
+                if (amount < 10 || amount > 50000)
+                  return toast("Please select amount grater than 10");
+                let isContainsPre = bet?.find((i) => i?.id === 212000);
+                if (isContainsPre) {
+                  // setOpenDialogBox(212000);
+                  if (
+                    isContainsPre?.amount + amount > 50000 ||
+                    isContainsPre?.amount < 10
+                  ) {
+                    return toast(
+                      "Bet must be grater than 10 and less that 50000 Rupees"
+                    );
+                  } else {
+                    setBetFuncton(
+                      212000, [20, 21],
+                      Number(isContainsPre?.amount) + amount
+                    );
+                  }
+                } else {
+                  setBetFuncton(212000, [20, 21], amount);
+                }
+                e.stopPropagation();
+              }}
+            ></span>
+          </p>
+          <p className="absolute top-[42%] left-[80%] h-4 w-4 !rounded-full !z-50 !cursor-pointer !flex !justify-center !items-center">
+            <span
+              id="213000"
+              className="!z-100 h-full w-full !text-[10px]"
+              onClick={(e) => {
+                if (amount < 10 || amount > 50000)
+                  return toast("Please select amount grater than 10");
+                let isContainsPre = bet?.find((i) => i?.id === 213000);
+                if (isContainsPre) {
+                  // setOpenDialogBox(213000);
+                  if (
+                    isContainsPre?.amount + amount > 50000 ||
+                    isContainsPre?.amount < 10
+                  ) {
+                    return toast(
+                      "Bet must be grater than 10 and less that 50000 Rupees"
+                    );
+                  } else {
+                    setBetFuncton(
+                      213000, [17, 18, 20, 21],
+                      Number(isContainsPre?.amount) + amount
+                    );
+                  }
+                } else {
+                  setBetFuncton(213000, [17, 18, 20, 21], amount);
+                }
+                e.stopPropagation();
+              }}
+            ></span>
+          </p>
+          <IconButton sx={{ ...style.btn2, ...style.red }}>
+            <p
+              id="18"
+              onClick={(e) => {
+                let isContainsPre = bet?.find((i) => i?.id === 18);
+                if (isContainsPre) {
+                  // setOpenDialogBox(18);
+                  if (
+                    isContainsPre?.amount + amount > 5000 ||
+                    isContainsPre?.amount < 2
+                  ) {
+                    return toast(
+                      "Bet must be grater than 2 and less that 5000 Rupees"
+                    );
+                  } else {
+                    setBetFuncton(
+                      18,
+                      [18],
+                      Number(isContainsPre?.amount) + amount
+                    );
+                  }
+                } else {
+                  setBetFuncton(18, [18], amount);
+                }
+                e.stopPropagation();
+              }}
+            >
+              18
+            </p>
+          </IconButton>
+          <p className="absolute top-[68%] left-[28%] h-4 w-4 !rounded-full !z-50 !cursor-pointer !flex !justify-center !items-center">
+            <span
+              id="181000"
+              className="!z-100 h-full w-full !text-[10px]"
+              onClick={(e) => {
+                if (amount < 10 || amount > 50000)
+                  return toast("Please select amount grater than 10");
+                let isContainsPre = bet?.find((i) => i?.id === 181000);
+                if (isContainsPre) {
+                  // setOpenDialogBox(181000);
+                  if (
+                    isContainsPre?.amount + amount > 50000 ||
+                    isContainsPre?.amount < 10
+                  ) {
+                    return toast(
+                      "Bet must be grater than 10 and less that 50000 Rupees"
+                    );
+                  } else {
+                    setBetFuncton(
+                      181000, [15, 18],
+                      Number(isContainsPre?.amount) + amount
+                    );
+                  }
+                } else {
+                  setBetFuncton(181000, [15, 18], amount);
+                }
+                e.stopPropagation();
+              }}
+            ></span>
+          </p>
+          <p className="absolute top-[55%] left-[82%] h-4 w-4 !rounded-full !z-50 !cursor-pointer !flex !justify-center !items-center">
+            <span
+              id="182000"
+              className="!z-100 h-full w-full !text-[10px]"
+              onClick={(e) => {
+                if (amount < 10 || amount > 50000)
+                  return toast("Please select amount grater than 10");
+                let isContainsPre = bet?.find((i) => i?.id === 182000);
+                if (isContainsPre) {
+                  // setOpenDialogBox(182000);
+                  if (
+                    isContainsPre?.amount + amount > 50000 ||
+                    isContainsPre?.amount < 10
+                  ) {
+                    return toast(
+                      "Bet must be grater than 10 and less that 50000 Rupees"
+                    );
+                  } else {
+                    setBetFuncton(
+                      182000, [17, 18],
+                      Number(isContainsPre?.amount) + amount
+                    );
+                  }
+                } else {
+                  setBetFuncton(182000, [17, 18], amount);
+                }
+                e.stopPropagation();
+              }}
+            ></span>
+          </p>
+          <p className="absolute top-[67%] left-[80%] h-4 w-4 !rounded-full !z-50 !cursor-pointer !flex !justify-center !items-center">
+            <span
+              id="183000"
+              className="!z-100 h-full w-full !text-[10px]"
+              onClick={(e) => {
+                if (amount < 10 || amount > 50000)
+                  return toast("Please select amount grater than 10");
+                let isContainsPre = bet?.find((i) => i?.id === 183000);
+                if (isContainsPre) {
+                  // setOpenDialogBox(183000);
+                  if (
+                    isContainsPre?.amount + amount > 50000 ||
+                    isContainsPre?.amount < 10
+                  ) {
+                    return toast(
+                      "Bet must be grater than 10 and less that 50000 Rupees"
+                    );
+                  } else {
+                    setBetFuncton(
+                      183000, [14, 15, 17, 18],
+                      Number(isContainsPre?.amount) + amount
+                    );
+                  }
+                } else {
+                  setBetFuncton(183000, [14, 15, 17, 18], amount);
+                }
+                e.stopPropagation();
+              }}
+            ></span>
+          </p>
+          <IconButton sx={{ ...style.btn2, ...style.black }}>
+            <p
+              id="15"
+              onClick={(e) => {
+                let isContainsPre = bet?.find((i) => i?.id === 15);
+                if (isContainsPre) {
+                  // setOpenDialogBox(15);
+                  if (
+                    isContainsPre?.amount + amount > 5000 ||
+                    isContainsPre?.amount < 2
+                  ) {
+                    return toast(
+                      "Bet must be grater than 2 and less that 5000 Rupees"
+                    );
+                  } else {
+                    setBetFuncton(
+                      15,
+                      [15],
+                      Number(isContainsPre?.amount) + amount
+                    );
+                  }
+                } else {
+                  setBetFuncton(15, [15], amount);
+                }
+                e.stopPropagation();
+              }}
+            >
+              15
+            </p>
+          </IconButton>
+          <p className="absolute top-[93%] left-[28%] h-4 w-4 !rounded-full !z-50 !cursor-pointer !flex !justify-center !items-center">
+            <span
+              id="151000"
+              className="!z-100 h-full w-full !text-[10px]"
+              onClick={(e) => {
+                if (amount < 10 || amount > 50000)
+                  return toast("Please select amount grater than 10");
+                let isContainsPre = bet?.find((i) => i?.id === 151000);
+                if (isContainsPre) {
+                  // setOpenDialogBox(151000);
+                  if (
+                    isContainsPre?.amount + amount > 50000 ||
+                    isContainsPre?.amount < 10
+                  ) {
+                    return toast(
+                      "Bet must be grater than 10 and less that 50000 Rupees"
+                    );
+                  } else {
+                    setBetFuncton(
+                      151000, [12, 15],
+                      Number(isContainsPre?.amount) + amount
+                    );
+                  }
+                } else {
+                  setBetFuncton(151000, [12, 15], amount);
+                }
+                e.stopPropagation();
+              }}
+            ></span>
+          </p>
+          <p className="absolute top-[80%] left-[82%] h-4 w-4 !rounded-full !z-50 !cursor-pointer !flex !justify-center !items-center">
+            <span
+              id="152000"
+              className="!z-100 h-full w-full !text-[10px]"
+              onClick={(e) => {
+                if (amount < 10 || amount > 50000)
+                  return toast("Please select amount grater than 10");
+                let isContainsPre = bet?.find((i) => i?.id === 152000);
+                if (isContainsPre) {
+                  // setOpenDialogBox(152000);
+                  if (
+                    isContainsPre?.amount + amount > 50000 ||
+                    isContainsPre?.amount < 10
+                  ) {
+                    return toast(
+                      "Bet must be grater than 10 and less that 50000 Rupees"
+                    );
+                  } else {
+                    setBetFuncton(
+                      152000, [14, 15],
+                      Number(isContainsPre?.amount) + amount
+                    );
+                  }
+                } else {
+                  setBetFuncton(152000, [14, 15], amount);
+                }
+                e.stopPropagation();
+              }}
+            ></span>
+          </p>
+          <p className="absolute top-[92%] left-[80%] h-4 w-4 !rounded-full !z-50 !cursor-pointer !flex !justify-center !items-center">
+            <span
+              id="153000"
+              className="!z-100 h-full w-full !text-[10px]"
+              onClick={(e) => {
+                if (amount < 10 || amount > 50000)
+                  return toast("Please select amount grater than 10");
+                let isContainsPre = bet?.find((i) => i?.id === 153000);
+                if (isContainsPre) {
+                  // setOpenDialogBox(153000);
+                  if (
+                    isContainsPre?.amount + amount > 50000 ||
+                    isContainsPre?.amount < 10
+                  ) {
+                    return toast(
+                      "Bet must be grater than 10 and less that 50000 Rupees"
+                    );
+                  } else {
+                    setBetFuncton(
+                      153000, [11, 12, 14, 15],
+                      Number(isContainsPre?.amount) + amount
+                    );
+                  }
+                } else {
+                  setBetFuncton(153000, [11, 12, 14, 15], amount);
+                }
+                e.stopPropagation();
+              }}
+            ></span>
+          </p>
+        </span>
+        <span className="!grid grid-rows-4 !w-full !h-full relative">
+          <IconButton sx={{ ...style.btn2, ...style.red }}>
+            <p
+              id="23"
+              onClick={(e) => {
+                let isContainsPre = bet?.find((i) => i?.id === 23);
+                if (isContainsPre) {
+                  // setOpenDialogBox(23);
+                  if (
+                    isContainsPre?.amount + amount > 5000 ||
+                    isContainsPre?.amount < 2
+                  ) {
+                    return toast(
+                      "Bet must be grater than 2 and less that 5000 Rupees"
+                    );
+                  } else {
+                    setBetFuncton(
+                      23,
+                      [23],
+                      Number(isContainsPre?.amount) + amount
+                    );
+                  }
+                } else {
+                  setBetFuncton(23, [23], amount);
+                }
+                e.stopPropagation();
+              }}
+            >
+              23
+            </p>
+          </IconButton>
+          <p className="absolute top-[18%] left-[28%] h-4 w-4 !rounded-full !z-50 !cursor-pointer !flex !justify-center !items-center">
+            <span
+              id="231000"
+              className="!z-100 h-full w-full !text-[10px]"
+              onClick={(e) => {
+                if (amount < 10 || amount > 50000)
+                  return toast("Please select amount grater than 10");
+                let isContainsPre = bet?.find((i) => i?.id === 231000);
+                if (isContainsPre) {
+                  // setOpenDialogBox(231000);
+                  if (
+                    isContainsPre?.amount + amount > 50000 ||
+                    isContainsPre?.amount < 10
+                  ) {
+                    return toast(
+                      "Bet must be grater than 10 and less that 50000 Rupees"
+                    );
+                  } else {
+                    setBetFuncton(
+                      231000, [20, 23],
+                      Number(isContainsPre?.amount) + amount
+                    );
+                  }
+                } else {
+                  setBetFuncton(231000, [20, 23], amount);
+                }
+                e.stopPropagation();
+              }}
+            ></span>
+          </p>
+          <p className="absolute top-[5%] left-[82%] h-4 w-4 !rounded-full !z-50 !cursor-pointer !flex !justify-center !items-center">
+            <span
+              id="232000"
+              className="!z-100 h-full w-full !text-[10px]"
+              onClick={(e) => {
+                if (amount < 10 || amount > 50000)
+                  return toast("Please select amount grater than 10");
+                let isContainsPre = bet?.find((i) => i?.id === 232000);
+                if (isContainsPre) {
+                  // setOpenDialogBox(232000);
+                  if (
+                    isContainsPre?.amount + amount > 50000 ||
+                    isContainsPre?.amount < 10
+                  ) {
+                    return toast(
+                      "Bet must be grater than 10 and less that 50000 Rupees"
+                    );
+                  } else {
+                    setBetFuncton(
+                      232000, [22, 23],
+                      Number(isContainsPre?.amount) + amount
+                    );
+                  }
+                } else {
+                  setBetFuncton(232000, [22, 23], amount);
+                }
+                e.stopPropagation();
+              }}
+            ></span>
+          </p>
+          <p className="absolute top-[17%] left-[80%] h-4 w-4 !rounded-full !z-50 !cursor-pointer !flex !justify-center !items-center">
+            <span
+              id="233000"
+              className="!z-100 h-full w-full !text-[10px]"
+              onClick={(e) => {
+                if (amount < 10 || amount > 50000)
+                  return toast("Please select amount grater than 10");
+                let isContainsPre = bet?.find((i) => i?.id === 233000);
+                if (isContainsPre) {
+                  // setOpenDialogBox(233000);
+                  if (
+                    isContainsPre?.amount + amount > 50000 ||
+                    isContainsPre?.amount < 10
+                  ) {
+                    return toast(
+                      "Bet must be grater than 10 and less that 50000 Rupees"
+                    );
+                  } else {
+                    setBetFuncton(
+                      233000, [19, 20, 22, 23],
+                      Number(isContainsPre?.amount) + amount
+                    );
+                  }
+                } else {
+                  setBetFuncton(233000, [19, 20, 22, 23], amount);
+                }
+                e.stopPropagation();
+              }}
+            ></span>
+          </p>
+          <IconButton sx={{ ...style.btn2, ...style.black }}>
+            <p
+              id="20"
+              onClick={(e) => {
+                let isContainsPre = bet?.find((i) => i?.id === 20);
+                if (isContainsPre) {
+                  // setOpenDialogBox(20);
+                  if (
+                    isContainsPre?.amount + amount > 5000 ||
+                    isContainsPre?.amount < 2
+                  ) {
+                    return toast(
+                      "Bet must be grater than 2 and less that 5000 Rupees"
+                    );
+                  } else {
+                    setBetFuncton(
+                      20,
+                      [20],
+                      Number(isContainsPre?.amount) + amount
+                    );
+                  }
+                } else {
+                  setBetFuncton(20, [20], amount);
+                }
+                e.stopPropagation();
+              }}
+            >
+              20
+            </p>
+          </IconButton>
+          <p className="absolute top-[43%] left-[28%] h-4 w-4 !rounded-full !z-50 !cursor-pointer !flex !justify-center !items-center">
+            <span
+              id="201000"
+              className="!z-100 h-full w-full !text-[10px]"
+              onClick={(e) => {
+                if (amount < 10 || amount > 50000)
+                  return toast("Please select amount grater than 10");
+                let isContainsPre = bet?.find((i) => i?.id === 201000);
+                if (isContainsPre) {
+                  // setOpenDialogBox(201000);
+                  if (
+                    isContainsPre?.amount + amount > 50000 ||
+                    isContainsPre?.amount < 10
+                  ) {
+                    return toast(
+                      "Bet must be grater than 10 and less that 50000 Rupees"
+                    );
+                  } else {
+                    setBetFuncton(
+                      201000, [17, 20],
+                      Number(isContainsPre?.amount) + amount
+                    );
+                  }
+                } else {
+                  setBetFuncton(201000, [17, 20], amount);
+                }
+                e.stopPropagation();
+              }}
+            ></span>
+          </p>
+          <p className="absolute top-[30%] left-[82%] h-4 w-4 !rounded-full !z-50 !cursor-pointer !flex !justify-center !items-center">
+            <span
+              id="202000"
+              className="!z-100 h-full w-full !text-[10px]"
+              onClick={(e) => {
+                if (amount < 10 || amount > 50000)
+                  return toast("Please select amount grater than 10");
+                let isContainsPre = bet?.find((i) => i?.id === 202000);
+                if (isContainsPre) {
+                  // setOpenDialogBox(202000);
+                  if (
+                    isContainsPre?.amount + amount > 50000 ||
+                    isContainsPre?.amount < 10
+                  ) {
+                    return toast(
+                      "Bet must be grater than 10 and less that 50000 Rupees"
+                    );
+                  } else {
+                    setBetFuncton(
+                      202000, [19, 20],
+                      Number(isContainsPre?.amount) + amount
+                    );
+                  }
+                } else {
+                  setBetFuncton(202000, [19, 20], amount);
+                }
+                e.stopPropagation();
+              }}
+            ></span>
+          </p>
+          <p className="absolute top-[42%] left-[80%] h-4 w-4 !rounded-full !z-50 !cursor-pointer !flex !justify-center !items-center">
+            <span
+              id="203000"
+              className="!z-100 h-full w-full !text-[10px]"
+              onClick={(e) => {
+                if (amount < 10 || amount > 50000)
+                  return toast("Please select amount grater than 10");
+                let isContainsPre = bet?.find((i) => i?.id === 203000);
+                if (isContainsPre) {
+                  // setOpenDialogBox(203000);
+                  if (
+                    isContainsPre?.amount + amount > 50000 ||
+                    isContainsPre?.amount < 10
+                  ) {
+                    return toast(
+                      "Bet must be grater than 10 and less that 50000 Rupees"
+                    );
+                  } else {
+                    setBetFuncton(
+                      203000, [16, 17, 19, 20],
+                      Number(isContainsPre?.amount) + amount
+                    );
+                  }
+                } else {
+                  setBetFuncton(203000, [16, 17, 19, 20], amount);
+                }
+                e.stopPropagation();
+              }}
+            ></span>
+          </p>
+          <IconButton sx={{ ...style.btn2, ...style.black }}>
+            <p
+              id="17"
+              onClick={(e) => {
+                let isContainsPre = bet?.find((i) => i?.id === 17);
+                if (isContainsPre) {
+                  // setOpenDialogBox(17);
+                  if (
+                    isContainsPre?.amount + amount > 5000 ||
+                    isContainsPre?.amount < 2
+                  ) {
+                    return toast(
+                      "Bet must be grater than 2 and less that 5000 Rupees"
+                    );
+                  } else {
+                    setBetFuncton(
+                      17,
+                      [17],
+                      Number(isContainsPre?.amount) + amount
+                    );
+                  }
+                } else {
+                  setBetFuncton(17, [17], amount);
+                }
+                e.stopPropagation();
+              }}
+            >
+              17
+            </p>
+          </IconButton>
+          <p className="absolute top-[68%] left-[28%] h-4 w-4 !rounded-full !z-50 !cursor-pointer !flex !justify-center !items-center">
+            <span
+              id="171000"
+              className="!z-100 h-full w-full !text-[10px]"
+              onClick={(e) => {
+                if (amount < 10 || amount > 50000)
+                  return toast("Please select amount grater than 10");
+                let isContainsPre = bet?.find((i) => i?.id === 171000);
+                if (isContainsPre) {
+                  // setOpenDialogBox(171000);
+                  if (
+                    isContainsPre?.amount + amount > 50000 ||
+                    isContainsPre?.amount < 10
+                  ) {
+                    return toast(
+                      "Bet must be grater than 10 and less that 50000 Rupees"
+                    );
+                  } else {
+                    setBetFuncton(
+                      171000, [14, 17],
+                      Number(isContainsPre?.amount) + amount
+                    );
+                  }
+                } else {
+                  setBetFuncton(171000, [14, 17], amount);
+                }
+                e.stopPropagation();
+              }}
+            ></span>
+          </p>
+          <p className="absolute top-[55%] left-[82%] h-4 w-4 !rounded-full !z-50 !cursor-pointer !flex !justify-center !items-center">
+            <span
+              id="172000"
+              className="!z-100 h-full w-full !text-[10px]"
+              onClick={(e) => {
+                if (amount < 10 || amount > 50000)
+                  return toast("Please select amount grater than 10");
+                let isContainsPre = bet?.find((i) => i?.id === 172000);
+                if (isContainsPre) {
+                  // setOpenDialogBox(172000);
+                  if (
+                    isContainsPre?.amount + amount > 50000 ||
+                    isContainsPre?.amount < 10
+                  ) {
+                    return toast(
+                      "Bet must be grater than 10 and less that 50000 Rupees"
+                    );
+                  } else {
+                    setBetFuncton(
+                      172000, [16, 17],
+                      Number(isContainsPre?.amount) + amount
+                    );
+                  }
+                } else {
+                  setBetFuncton(172000, [16, 17], amount);
+                }
+                e.stopPropagation();
+              }}
+            ></span>
+          </p>
+          <p className="absolute top-[67%] left-[80%] h-4 w-4 !rounded-full !z-50 !cursor-pointer !flex !justify-center !items-center">
+            <span
+              id="173000"
+              className="!z-100 h-full w-full !text-[10px]"
+              onClick={(e) => {
+                if (amount < 10 || amount > 50000)
+                  return toast("Please select amount grater than 10");
+                let isContainsPre = bet?.find((i) => i?.id === 173000);
+                if (isContainsPre) {
+                  // setOpenDialogBox(173000);
+                  if (
+                    isContainsPre?.amount + amount > 50000 ||
+                    isContainsPre?.amount < 10
+                  ) {
+                    return toast(
+                      "Bet must be grater than 10 and less that 50000 Rupees"
+                    );
+                  } else {
+                    setBetFuncton(
+                      173000, [13, 14, 16, 17],
+                      Number(isContainsPre?.amount) + amount
+                    );
+                  }
+                } else {
+                  setBetFuncton(173000, [13, 14, 16, 17], amount);
+                }
+                e.stopPropagation();
+              }}
+            ></span>
+          </p>
+          <IconButton sx={{ ...style.btn2, ...style.red }}>
+            <p
+              id="14"
+              onClick={(e) => {
+                let isContainsPre = bet?.find((i) => i?.id === 14);
+                if (isContainsPre) {
+                  // setOpenDialogBox(14);
+                  if (
+                    isContainsPre?.amount + amount > 5000 ||
+                    isContainsPre?.amount < 2
+                  ) {
+                    return toast(
+                      "Bet must be grater than 2 and less that 5000 Rupees"
+                    );
+                  } else {
+                    setBetFuncton(
+                      14,
+                      [14],
+                      Number(isContainsPre?.amount) + amount
+                    );
+                  }
+                } else {
+                  setBetFuncton(14, [14], amount);
+                }
+                e.stopPropagation();
+              }}
+            >
+              14
+            </p>
+          </IconButton>
+          <p className="absolute top-[93%] left-[28%] h-4 w-4 !rounded-full !z-50 !cursor-pointer !flex !justify-center !items-center">
+            <span
+              id="141000"
+              className="!z-100 h-full w-full !text-[10px]"
+              onClick={(e) => {
+                if (amount < 10 || amount > 50000)
+                  return toast("Please select amount grater than 10");
+                let isContainsPre = bet?.find((i) => i?.id === 141000);
+                if (isContainsPre) {
+                  // setOpenDialogBox(141000);
+                  if (
+                    isContainsPre?.amount + amount > 50000 ||
+                    isContainsPre?.amount < 10
+                  ) {
+                    return toast(
+                      "Bet must be grater than 10 and less that 50000 Rupees"
+                    );
+                  } else {
+                    setBetFuncton(
+                      141000, [11, 14],
+                      Number(isContainsPre?.amount) + amount
+                    );
+                  }
+                } else {
+                  setBetFuncton(141000, [11, 14], amount);
+                }
+                e.stopPropagation();
+              }}
+            ></span>
+          </p>
+          <p className="absolute top-[80%] left-[82%] h-4 w-4 !rounded-full !z-50 !cursor-pointer !flex !justify-center !items-center">
+            <span
+              id="142000"
+              className="!z-100 h-full w-full !text-[10px]"
+              onClick={(e) => {
+                if (amount < 10 || amount > 50000)
+                  return toast("Please select amount grater than 10");
+                let isContainsPre = bet?.find((i) => i?.id === 142000);
+                if (isContainsPre) {
+                  // setOpenDialogBox(142000);
+                  if (
+                    isContainsPre?.amount + amount > 50000 ||
+                    isContainsPre?.amount < 10
+                  ) {
+                    return toast(
+                      "Bet must be grater than 10 and less that 50000 Rupees"
+                    );
+                  } else {
+                    setBetFuncton(
+                      142000, [13, 14],
+                      Number(isContainsPre?.amount) + amount
+                    );
+                  }
+                } else {
+                  setBetFuncton(142000, [13, 14], amount);
+                }
+                e.stopPropagation();
+              }}
+            ></span>
+          </p>
+          <p className="absolute top-[92%] left-[80%] h-4 w-4 !rounded-full !z-50 !cursor-pointer !flex !justify-center !items-center">
+            <span
+              id="143000"
+              className="!z-100 h-full w-full !text-[10px]"
+              onClick={(e) => {
+                if (amount < 10 || amount > 50000)
+                  return toast("Please select amount grater than 10");
+                let isContainsPre = bet?.find((i) => i?.id === 143000);
+                if (isContainsPre) {
+                  // setOpenDialogBox(143000);
+                  if (
+                    isContainsPre?.amount + amount > 50000 ||
+                    isContainsPre?.amount < 10
+                  ) {
+                    return toast(
+                      "Bet must be grater than 10 and less that 50000 Rupees"
+                    );
+                  } else {
+                    setBetFuncton(
+                      143000, [10, 11, 13, 14],
+                      Number(isContainsPre?.amount) + amount
+                    );
+                  }
+                } else {
+                  setBetFuncton(143000, [10, 11, 13, 14], amount);
+                }
+                e.stopPropagation();
+              }}
+            ></span>
+          </p>
+        </span>
+        <span className="!grid grid-rows-4 !w-full !h-full relative">
+          <IconButton sx={{ ...style.btn2, ...style.black }}>
+            <p
+              id="22"
+              onClick={(e) => {
+                let isContainsPre = bet?.find((i) => i?.id === 22);
+                if (isContainsPre) {
+                  // setOpenDialogBox(22);
+                  if (
+                    isContainsPre?.amount + amount > 5000 ||
+                    isContainsPre?.amount < 2
+                  ) {
+                    return toast(
+                      "Bet must be grater than 2 and less that 5000 Rupees"
+                    );
+                  } else {
+                    setBetFuncton(
+                      22,
+                      [22],
+                      Number(isContainsPre?.amount) + amount
+                    );
+                  }
+                } else {
+                  setBetFuncton(22, [22], amount);
+                }
+                e.stopPropagation();
+              }}
+            >
+              22
+            </p>
+          </IconButton>
+          <p className="absolute top-[18%] left-[28%] h-4 w-4 !rounded-full !z-50 !cursor-pointer !flex !justify-center !items-center">
+            <span
+              id="221000"
+              className="!z-100 h-full w-full !text-[10px]"
+              onClick={(e) => {
+                if (amount < 10 || amount > 50000)
+                  return toast("Please select amount grater than 10");
+                let isContainsPre = bet?.find((i) => i?.id === 221000);
+                if (isContainsPre) {
+                  // setOpenDialogBox(221000);
+                  if (
+                    isContainsPre?.amount + amount > 50000 ||
+                    isContainsPre?.amount < 10
+                  ) {
+                    return toast(
+                      "Bet must be grater than 10 and less that 50000 Rupees"
+                    );
+                  } else {
+                    setBetFuncton(
+                      221000, [19, 22],
+                      Number(isContainsPre?.amount) + amount
+                    );
+                  }
+                } else {
+                  setBetFuncton(221000, [19, 22], amount);
+                }
+                e.stopPropagation();
+              }}
+            ></span>
+          </p>
+          <p className="absolute top-[5%] left-[82%] h-4 w-4 !rounded-full !z-50 !cursor-pointer !flex !justify-center !items-center">
+            <span
+              id="222000"
+              className="!z-100 h-full w-full !text-[10px]"
+              onClick={(e) => {
+                if (amount < 10 || amount > 50000)
+                  return toast("Please select amount grater than 10");
+                let isContainsPre = bet?.find((i) => i?.id === 222000);
+                if (isContainsPre) {
+                  // setOpenDialogBox(222000);
+                  if (
+                    isContainsPre?.amount + amount > 50000 ||
+                    isContainsPre?.amount < 10
+                  ) {
+                    return toast(
+                      "Bet must be grater than 10 and less that 50000 Rupees"
+                    );
+                  } else {
+                    setBetFuncton(
+                      222000, [22, 23, 24],
+                      Number(isContainsPre?.amount) + amount
+                    );
+                  }
+                } else {
+                  setBetFuncton(222000, [22, 23, 24], amount);
+                }
+                e.stopPropagation();
+              }}
+            ></span>
+          </p>
+          <IconButton sx={{ ...style.btn2, ...style.red }}>
+            <p
+              id="19"
+              onClick={(e) => {
+                let isContainsPre = bet?.find((i) => i?.id === 19);
+                if (isContainsPre) {
+                  // setOpenDialogBox(19);
+                  if (
+                    isContainsPre?.amount + amount > 5000 ||
+                    isContainsPre?.amount < 2
+                  ) {
+                    return toast(
+                      "Bet must be grater than 2 and less that 5000 Rupees"
+                    );
+                  } else {
+                    setBetFuncton(
+                      19,
+                      [19],
+                      Number(isContainsPre?.amount) + amount
+                    );
+                  }
+                } else {
+                  setBetFuncton(19, [19], amount);
+                }
+                e.stopPropagation();
+              }}
+            >
+              19
+            </p>
+          </IconButton>
+          <p className="absolute top-[43%] left-[28%] h-4 w-4 !rounded-full !z-50 !cursor-pointer !flex !justify-center !items-center">
+            <span
+              id="191000"
+              className="!z-100 h-full w-full !text-[10px]"
+              onClick={(e) => {
+                if (amount < 10 || amount > 50000)
+                  return toast("Please select amount grater than 10");
+                let isContainsPre = bet?.find((i) => i?.id === 191000);
+                if (isContainsPre) {
+                  // setOpenDialogBox(191000);
+                  if (
+                    isContainsPre?.amount + amount > 50000 ||
+                    isContainsPre?.amount < 10
+                  ) {
+                    return toast(
+                      "Bet must be grater than 10 and less that 50000 Rupees"
+                    );
+                  } else {
+                    setBetFuncton(
+                      191000, [16, 19],
+                      Number(isContainsPre?.amount) + amount
+                    );
+                  }
+                } else {
+                  setBetFuncton(191000, [16, 19], amount);
+                }
+                e.stopPropagation();
+              }}
+            ></span>
+          </p>
+          <p className="absolute top-[30%] left-[82%] h-4 w-4 !rounded-full !z-50 !cursor-pointer !flex !justify-center !items-center">
+            <span
+              id="192000"
+              className="!z-100 h-full w-full !text-[10px]"
+              onClick={(e) => {
+                if (amount < 10 || amount > 50000)
+                  return toast("Please select amount grater than 10");
+                let isContainsPre = bet?.find((i) => i?.id === 192000);
+                if (isContainsPre) {
+                  // setOpenDialogBox(192000);
+                  if (
+                    isContainsPre?.amount + amount > 50000 ||
+                    isContainsPre?.amount < 10
+                  ) {
+                    return toast(
+                      "Bet must be grater than 10 and less that 50000 Rupees"
+                    );
+                  } else {
+                    setBetFuncton(
+                      192000, [19, 20, 21],
+                      Number(isContainsPre?.amount) + amount
+                    );
+                  }
+                } else {
+                  setBetFuncton(192000, [19, 20, 21], amount);
+                }
+                e.stopPropagation();
+              }}
+            ></span>
+          </p>
+          <IconButton sx={{ ...style.btn2, ...style.red }}>
+            <p
+              id="16"
+              onClick={(e) => {
+                let isContainsPre = bet?.find((i) => i?.id === 16);
+                if (isContainsPre) {
+                  // setOpenDialogBox(16);
+                  if (
+                    isContainsPre?.amount + amount > 5000 ||
+                    isContainsPre?.amount < 2
+                  ) {
+                    return toast(
+                      "Bet must be grater than 2 and less that 5000 Rupees"
+                    );
+                  } else {
+                    setBetFuncton(
+                      16,
+                      [16],
+                      Number(isContainsPre?.amount) + amount
+                    );
+                  }
+                } else {
+                  setBetFuncton(16, [16], amount);
+                }
+                e.stopPropagation();
+              }}
+            >
+              16
+            </p>
+          </IconButton>
+          <p className="absolute top-[68%] left-[28%] h-4 w-4 !rounded-full !z-50 !cursor-pointer !flex !justify-center !items-center">
+            <span
+              id="161000"
+              className="!z-100 h-full w-full !text-[10px]"
+              onClick={(e) => {
+                if (amount < 10 || amount > 50000)
+                  return toast("Please select amount grater than 10");
+                let isContainsPre = bet?.find((i) => i?.id === 161000);
+                if (isContainsPre) {
+                  // setOpenDialogBox(161000);
+                  if (
+                    isContainsPre?.amount + amount > 50000 ||
+                    isContainsPre?.amount < 10
+                  ) {
+                    return toast(
+                      "Bet must be grater than 10 and less that 50000 Rupees"
+                    );
+                  } else {
+                    setBetFuncton(
+                      161000, [13, 16],
+                      Number(isContainsPre?.amount) + amount
+                    );
+                  }
+                } else {
+                  setBetFuncton(161000, [13, 16], amount);
+                }
+                e.stopPropagation();
+              }}
+            ></span>
+          </p>
+          <p className="absolute top-[55%] left-[82%] h-4 w-4 !rounded-full !z-50 !cursor-pointer !flex !justify-center !items-center">
+            <span
+              id="162000"
+              className="!z-100 h-full w-full !text-[10px]"
+              onClick={(e) => {
+                if (amount < 10 || amount > 50000)
+                  return toast("Please select amount grater than 10");
+                let isContainsPre = bet?.find((i) => i?.id === 162000);
+                if (isContainsPre) {
+                  // setOpenDialogBox(162000);
+                  if (
+                    isContainsPre?.amount + amount > 50000 ||
+                    isContainsPre?.amount < 10
+                  ) {
+                    return toast(
+                      "Bet must be grater than 10 and less that 50000 Rupees"
+                    );
+                  } else {
+                    setBetFuncton(
+                      162000, [16, 17, 18],
+                      Number(isContainsPre?.amount) + amount
+                    );
+                  }
+                } else {
+                  setBetFuncton(162000, [16, 17, 18], amount);
+                }
+                e.stopPropagation();
+              }}
+            ></span>
+          </p>
+          <IconButton sx={{ ...style.btn2, ...style.black }}>
+            <p
+              id="13"
+              onClick={(e) => {
+                let isContainsPre = bet?.find((i) => i?.id === 13);
+                if (isContainsPre) {
+                  // setOpenDialogBox(13);
+                  if (
+                    isContainsPre?.amount + amount > 5000 ||
+                    isContainsPre?.amount < 2
+                  ) {
+                    return toast(
+                      "Bet must be grater than 2 and less that 5000 Rupees"
+                    );
+                  } else {
+                    setBetFuncton(
+                      13,
+                      [13],
+                      Number(isContainsPre?.amount) + amount
+                    );
+                  }
+                } else {
+                  setBetFuncton(13, [13], amount);
+                }
+                e.stopPropagation();
+              }}
+            >
+              13
+            </p>
+          </IconButton>
+          <p className="absolute top-[93%] left-[28%] h-4 w-4 !rounded-full !z-50 !cursor-pointer !flex !justify-center !items-center">
+            <span
+              id="131000"
+              className="!z-100 h-full w-full !text-[10px]"
+              onClick={(e) => {
+                if (amount < 10 || amount > 50000)
+                  return toast("Please select amount grater than 10");
+                let isContainsPre = bet?.find((i) => i?.id === 131000);
+                if (isContainsPre) {
+                  // setOpenDialogBox(131000);
+                  if (
+                    isContainsPre?.amount + amount > 50000 ||
+                    isContainsPre?.amount < 10
+                  ) {
+                    return toast(
+                      "Bet must be grater than 10 and less that 50000 Rupees"
+                    );
+                  } else {
+                    setBetFuncton(
+                      131000, [10, 13],
+                      Number(isContainsPre?.amount) + amount
+                    );
+                  }
+                } else {
+                  setBetFuncton(131000, [10, 13], amount);
+                }
+                e.stopPropagation();
+              }}
+            ></span>
+          </p>
+          <p className="absolute top-[80%] left-[82%] h-4 w-4 !rounded-full !z-50 !cursor-pointer !flex !justify-center !items-center">
+            <span
+              id="132000"
+              className="!z-100 h-full w-full !text-[10px]"
+              onClick={(e) => {
+                if (amount < 10 || amount > 50000)
+                  return toast("Please select amount grater than 10");
+                let isContainsPre = bet?.find((i) => i?.id === 132000);
+                if (isContainsPre) {
+                  // setOpenDialogBox(132000);
+                  if (
+                    isContainsPre?.amount + amount > 50000 ||
+                    isContainsPre?.amount < 10
+                  ) {
+                    return toast(
+                      "Bet must be grater than 10 and less that 50000 Rupees"
+                    );
+                  } else {
+                    setBetFuncton(
+                      132000, [13, 14, 15],
+                      Number(isContainsPre?.amount) + amount
+                    );
+                  }
+                } else {
+                  setBetFuncton(132000, [13, 14, 15], amount);
+                }
+                e.stopPropagation();
+              }}
+            ></span>
+          </p>
+        </span>
+      </Stack>
+    </Stack>
+  )
+}
+
+export default Second12
