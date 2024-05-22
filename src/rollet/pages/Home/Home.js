@@ -18,7 +18,7 @@ import {
 } from "@mui/material";
 import axios from "axios";
 import CryptoJS from "crypto-js";
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import toast from "react-hot-toast";
 import { useQuery } from "react-query";
 import { NavLink, useNavigate } from "react-router-dom";
@@ -38,6 +38,7 @@ import Second12 from "./Second12";
 import SvgCircle from "./SvgCircle";
 import Third12 from "./Third12";
 import Zero from "./Zero";
+import Rolletball from "../Rolletball";
 function Home() {
   const socket = useSocket();
   const value =
@@ -285,6 +286,7 @@ function Home() {
       setOne_min_time(onemin);
     };
     const handleOneMinrolletresult = (onemin) => {
+      console.log("Hiii anand",onemin)
       spinFunction(onemin);
       setTimeout(() => {
         setresult_rollet(onemin);
@@ -438,28 +440,29 @@ function Home() {
               <p
                 id="336"
                 onClick={(e) => {
-                  if(isSelectedDropBet){
-                removeSingleBetFunction(336)
-                    return
+                  if (isSelectedDropBet) {
+                    removeSingleBetFunction(336);
+                    return;
                   }
                   if (amount < 10 || amount > 50000)
-                  return toast("Please select amount grater than 10");
+                    return toast("Please select amount grater than 10");
                   let isContainsPre = bet?.find((i) => i?.id === 336);
                   if (isContainsPre) {
                     // setOpenDialogBox(336);
                     if (
-                    isContainsPre?.amount + amount > 50000 ||
-                    isContainsPre?.amount < 10
-                  ) {
-                    return toast(
-                      "Bet must be grater than 10 and less that 50000 Rupees"
-                    );
-                  } else {
-                    setBetFuncton(
-                      336, [336],
-                      Number(isContainsPre?.amount) + amount
-                    );
-                  }
+                      isContainsPre?.amount + amount > 50000 ||
+                      isContainsPre?.amount < 10
+                    ) {
+                      return toast(
+                        "Bet must be grater than 10 and less that 50000 Rupees"
+                      );
+                    } else {
+                      setBetFuncton(
+                        336,
+                        [336],
+                        Number(isContainsPre?.amount) + amount
+                      );
+                    }
                   } else {
                     setBetFuncton(336, [336], amount);
                   }
@@ -473,28 +476,29 @@ function Home() {
               <p
                 id="235"
                 onClick={(e) => {
-                  if(isSelectedDropBet){
-                removeSingleBetFunction(235)
-                    return
+                  if (isSelectedDropBet) {
+                    removeSingleBetFunction(235);
+                    return;
                   }
                   if (amount < 10 || amount > 50000)
-                  return toast("Please select amount grater than 10");
+                    return toast("Please select amount grater than 10");
                   let isContainsPre = bet?.find((i) => i?.id === 235);
                   if (isContainsPre) {
                     // setOpenDialogBox(235);
                     if (
-                    isContainsPre?.amount + amount > 50000 ||
-                    isContainsPre?.amount < 10
-                  ) {
-                    return toast(
-                      "Bet must be grater than 10 and less that 50000 Rupees"
-                    );
-                  } else {
-                    setBetFuncton(
-                      235, [235],
-                      Number(isContainsPre?.amount) + amount
-                    );
-                  }
+                      isContainsPre?.amount + amount > 50000 ||
+                      isContainsPre?.amount < 10
+                    ) {
+                      return toast(
+                        "Bet must be grater than 10 and less that 50000 Rupees"
+                      );
+                    } else {
+                      setBetFuncton(
+                        235,
+                        [235],
+                        Number(isContainsPre?.amount) + amount
+                      );
+                    }
                   } else {
                     setBetFuncton(235, [235], amount);
                   }
@@ -508,28 +512,29 @@ function Home() {
               <p
                 id="134"
                 onClick={(e) => {
-                  if(isSelectedDropBet){
-                removeSingleBetFunction(134)
-                    return
+                  if (isSelectedDropBet) {
+                    removeSingleBetFunction(134);
+                    return;
                   }
                   if (amount < 10 || amount > 50000)
-                  return toast("Please select amount grater than 10");
+                    return toast("Please select amount grater than 10");
                   let isContainsPre = bet?.find((i) => i?.id === 134);
                   if (isContainsPre) {
                     // setOpenDialogBox(134);
                     if (
-                    isContainsPre?.amount + amount > 50000 ||
-                    isContainsPre?.amount < 10
-                  ) {
-                    return toast(
-                      "Bet must be grater than 10 and less that 50000 Rupees"
-                    );
-                  } else {
-                    setBetFuncton(
-                      134, [134],
-                      Number(isContainsPre?.amount) + amount
-                    );
-                  }
+                      isContainsPre?.amount + amount > 50000 ||
+                      isContainsPre?.amount < 10
+                    ) {
+                      return toast(
+                        "Bet must be grater than 10 and less that 50000 Rupees"
+                      );
+                    } else {
+                      setBetFuncton(
+                        134,
+                        [134],
+                        Number(isContainsPre?.amount) + amount
+                      );
+                    }
                   } else {
                     setBetFuncton(134, [134], amount);
                   }
@@ -542,294 +547,59 @@ function Home() {
           </span>
         </Stack>
         <Third12
-        isSelectedDropBet={isSelectedDropBet}
-        removeSingleBetFunction={removeSingleBetFunction}
+          isSelectedDropBet={isSelectedDropBet}
+          removeSingleBetFunction={removeSingleBetFunction}
           setOpenDialogBox={setOpenDialogBox}
           bet={bet}
           setBetFuncton={setBetFuncton}
           amount={amount}
         />
         <Second12
-        isSelectedDropBet={isSelectedDropBet}
-        removeSingleBetFunction={removeSingleBetFunction}
+          isSelectedDropBet={isSelectedDropBet}
+          removeSingleBetFunction={removeSingleBetFunction}
           setOpenDialogBox={setOpenDialogBox}
           bet={bet}
           setBetFuncton={setBetFuncton}
           amount={amount}
         />
         <First12
-        isSelectedDropBet={isSelectedDropBet}
-        removeSingleBetFunction={removeSingleBetFunction}
+          isSelectedDropBet={isSelectedDropBet}
+          removeSingleBetFunction={removeSingleBetFunction}
           setOpenDialogBox={setOpenDialogBox}
           bet={bet}
           setBetFuncton={setBetFuncton}
           amount={amount}
         />
         <Zero
-        isSelectedDropBet={isSelectedDropBet}
-        removeSingleBetFunction={removeSingleBetFunction}
+          isSelectedDropBet={isSelectedDropBet}
+          removeSingleBetFunction={removeSingleBetFunction}
           setOpenDialogBox={setOpenDialogBox}
           bet={bet}
           setBetFuncton={setBetFuncton}
           amount={amount}
         />
       </Box>
-      <div className="absolute !top-0 !right-0" onClick={() => spinFunction()}>
-        SPIN
-      </div>
-      <div
-        style={{
-          width: "200px",
-          height: "200px",
-          position: "absolute",
-          // borderRadius: "50%",
-          bottom: "1%",
-          right: "1%",
-        }}
-        className=" !flex !justify-center !items-center animation_image"
-      >
-        {/* animation_image */}
-        <img src={roulette} className="!h-full !w-full !bg-no-repeat " />
 
-        {/* [30, 8, 23, 10, 5, 24, 16, 33, 1, 20, 14, 31] */}
-        {/* {[0, 9, 18, 10, 5, 24, 16, 33, 1, 20, 14, 31]?.map((i,index) => {
-          return (
-            <p
-              id={`${i}_rotate`}
-              className={`rotate-[${i}deg] absolute !h-[50%] !w-[50%] hidden `}
-            >
-              <p className="!bg-white !h-2 !w-2 !rounded-full !absolute !bottom-0 !left-0 "></p>
-            </p>
-          );
-        })} */}
+      {useMemo(() => {
+        return (
+          <div
+            style={{
+              width: "200px",
+              height: "200px",
+              position: "absolute",
+              // borderRadius: "50%",
+              bottom: "1%",
+              right: "1%",
+            }}
+            className=" !flex !justify-center !items-center animation_image"
+          >
+            {/* animation_image */}
+            <img src={roulette} className="!h-full !w-full !bg-no-repeat " />
 
-        <p id="30_rotate" className="absolute !h-[50%] !w-[50%] hidden ">
-          <p className="!bg-white !h-2 !w-2 !rounded-full !absolute !bottom-0 !left-0  "></p>
-        </p>
-        <p
-          id="8_rotate"
-          className=" rotate-[9deg] absolute !h-[50%] !w-[50%] hidden "
-        >
-          <p className="!bg-white !h-2 !w-2 !rounded-full !absolute !bottom-0 !left-0 "></p>
-        </p>
-        <p
-          id="23_rotate"
-          className=" rotate-[19deg] absolute !h-[50%] !w-[50%] hidden "
-        >
-          <p className="!bg-white !h-2 !w-2 !rounded-full !absolute !bottom-0 !left-0 "></p>
-        </p>
-        <p
-          id="10_rotate"
-          className=" rotate-[28deg] absolute !h-[50%] !w-[50%] hidden "
-        >
-          <p className="!bg-white !h-2 !w-2 !rounded-full !absolute !bottom-0 !left-0 "></p>
-        </p>
-        <p
-          id="5_rotate"
-          className=" rotate-[39deg] absolute !h-[50%] !w-[50%] hidden "
-        >
-          <p className="!bg-white !h-2 !w-2 !rounded-full !absolute !bottom-0 !left-0 "></p>
-        </p>
-        <p
-          id="24_rotate"
-          className=" rotate-[49deg] absolute !h-[50%] !w-[50%] hidden "
-        >
-          <p className="!bg-white !h-2 !w-2 !rounded-full !absolute !bottom-0 !left-0 "></p>
-        </p>
-        <p
-          id="16_rotate"
-          className=" rotate-[59deg] absolute !h-[50%] !w-[50%] hidden "
-        >
-          <p className="!bg-white !h-2 !w-2 !rounded-full !absolute !bottom-0 !left-0 "></p>
-        </p>
-        <p
-          id="33_rotate"
-          className=" rotate-[69deg] absolute !h-[50%] !w-[50%] hidden "
-        >
-          <p className="!bg-white !h-2 !w-2 !rounded-full !absolute !bottom-0 !left-0 "></p>
-        </p>
-        <p
-          id="1_rotate"
-          className=" rotate-[78deg] absolute !h-[50%] !w-[50%] hidden "
-        >
-          <p className="!bg-white !h-2 !w-2 !rounded-full !absolute !bottom-0 !left-0 "></p>
-        </p>
-        <p
-          id="20_rotate"
-          className=" rotate-[88deg] absolute !h-[50%] !w-[50%] hidden "
-        >
-          <p className="!bg-white !h-2 !w-2 !rounded-full !absolute !bottom-0 !left-0 "></p>
-        </p>
-        <p
-          id="14_rotate"
-          className=" rotate-[98deg] absolute !h-[50%] !w-[50%] hidden "
-        >
-          <p className="!bg-white !h-2 !w-2 !rounded-full !absolute !bottom-0 !left-0 "></p>
-        </p>
-        <p
-          id="31_rotate"
-          className=" rotate-[108deg] absolute !h-[50%] !w-[50%] hidden "
-        >
-          <p className="!bg-white !h-2 !w-2 !rounded-full !absolute !bottom-0 !left-0 "></p>
-        </p>
-        <p
-          id="9_rotate"
-          className=" rotate-[118deg] absolute !h-[50%] !w-[50%] hidden "
-        >
-          <p className="!bg-white !h-2 !w-2 !rounded-full !absolute !bottom-0 !left-0 "></p>
-        </p>
-        <p
-          id="22_rotate"
-          className=" rotate-[128deg] absolute !h-[50%] !w-[50%] hidden "
-        >
-          <p className="!bg-white !h-2 !w-2 !rounded-full !absolute !bottom-0 !left-0 "></p>
-        </p>
-        <p
-          id="18_rotate"
-          className=" rotate-[137deg] absolute !h-[50%] !w-[50%] hidden "
-        >
-          <p className="!bg-white !h-2 !w-2 !rounded-full !absolute !bottom-0 !left-0 "></p>
-        </p>
-        <p
-          id="29_rotate"
-          className=" rotate-[147deg] absolute !h-[50%] !w-[50%] hidden "
-        >
-          <p className="!bg-white !h-2 !w-2 !rounded-full !absolute !bottom-0 !left-0 "></p>
-        </p>
-        <p
-          id="7_rotate"
-          className=" rotate-[157deg] absolute !h-[50%] !w-[50%] hidden "
-        >
-          <p className="!bg-white !h-2 !w-2 !rounded-full !absolute !bottom-0 !left-0 "></p>
-        </p>
-        <p
-          id="28_rotate"
-          className=" rotate-[167deg] absolute !h-[50%] !w-[50%] hidden "
-        >
-          <p className="!bg-white !h-2 !w-2 !rounded-full !absolute !bottom-0 !left-0 "></p>
-        </p>
-        <p
-          id="12_rotate"
-          className=" rotate-[176deg] absolute !h-[50%] !w-[50%] hidden "
-        >
-          <p className="!bg-white !h-2 !w-2 !rounded-full !absolute !bottom-0 !left-0 "></p>
-        </p>
-        <p
-          id="35_rotate"
-          className=" rotate-[186deg] absolute !h-[50%] !w-[50%] hidden "
-        >
-          <p className="!bg-white !h-2 !w-2 !rounded-full !absolute !bottom-0 !left-0 "></p>
-        </p>
-        <p
-          id="3_rotate"
-          className=" rotate-[196deg] absolute !h-[50%] !w-[50%] hidden "
-        >
-          <p className="!bg-white !h-2 !w-2 !rounded-full !absolute !bottom-0 !left-0 "></p>
-        </p>
-        <p
-          id="26_rotate"
-          className=" rotate-[206deg] absolute !h-[50%] !w-[50%] hidden "
-        >
-          <p className="!bg-white !h-2 !w-2 !rounded-full !absolute !bottom-0 !left-0 "></p>
-        </p>
-        <p
-          id="0_rotate"
-          className=" rotate-[215deg] absolute !h-[50%] !w-[50%] hidden "
-        >
-          <p className="!bg-white !h-2 !w-2 !rounded-full !absolute !bottom-0 !left-0 "></p>
-        </p>
-        <p
-          id="32_rotate"
-          className=" rotate-[225deg] absolute !h-[50%] !w-[50%] hidden "
-        >
-          <p className="!bg-white !h-2 !w-2 !rounded-full !absolute !bottom-0 !left-0 "></p>
-        </p>
-        <p
-          id="15_rotate"
-          className=" rotate-[235deg] absolute !h-[50%] !w-[50%] hidden "
-        >
-          <p className="!bg-white !h-2 !w-2 !rounded-full !absolute !bottom-0 !left-0 "></p>
-        </p>
-        <p
-          id="19_rotate"
-          className=" rotate-[245deg] absolute !h-[50%] !w-[50%] hidden "
-        >
-          <p className="!bg-white !h-2 !w-2 !rounded-full !absolute !bottom-0 !left-0 "></p>
-        </p>
-        <p
-          id="4_rotate"
-          className=" rotate-[255deg] absolute !h-[50%] !w-[50%] hidden "
-        >
-          <p className="!bg-white !h-2 !w-2 !rounded-full !absolute !bottom-0 !left-0 "></p>
-        </p>
-        <p
-          id="21_rotate"
-          className=" rotate-[264deg] absolute !h-[50%] !w-[50%] hidden "
-        >
-          <p className="!bg-white !h-2 !w-2 !rounded-full !absolute !bottom-0 !left-0 "></p>
-        </p>
-        <p
-          id="2_rotate"
-          className=" rotate-[274deg] absolute !h-[50%] !w-[50%] hidden "
-        >
-          <p className="!bg-white !h-2 !w-2 !rounded-full !absolute !bottom-0 !left-0 "></p>
-        </p>
-        <p
-          id="25_rotate"
-          className=" rotate-[283deg] absolute !h-[50%] !w-[50%] hidden "
-        >
-          <p className="!bg-white !h-2 !w-2 !rounded-full !absolute !bottom-0 !left-0 "></p>
-        </p>
-        <p
-          id="17_rotate"
-          className=" rotate-[293deg] absolute !h-[50%] !w-[50%] hidden "
-        >
-          <p className="!bg-white !h-2 !w-2 !rounded-full !absolute !bottom-0 !left-0 "></p>
-        </p>
-        <p
-          id="34_rotate"
-          className=" rotate-[302deg] absolute !h-[50%] !w-[50%] hidden "
-        >
-          <p className="!bg-white !h-2 !w-2 !rounded-full !absolute !bottom-0 !left-0 "></p>
-        </p>
-        <p
-          id="6_rotate"
-          className=" rotate-[312deg] absolute !h-[50%] !w-[50%] hidden "
-        >
-          <p className="!bg-white !h-2 !w-2 !rounded-full !absolute !bottom-0 !left-0 "></p>
-        </p>
-        <p
-          id="27_rotate"
-          className=" rotate-[322deg] absolute !h-[50%] !w-[50%] hidden "
-        >
-          <p className="!bg-white !h-2 !w-2 !rounded-full !absolute !bottom-0 !left-0 "></p>
-        </p>
-        <p
-          id="13_rotate"
-          className=" rotate-[331deg] absolute !h-[50%] !w-[50%] hidden "
-        >
-          <p className="!bg-white !h-2 !w-2 !rounded-full !absolute !bottom-0 !left-0 "></p>
-        </p>
-        <p
-          id="36_rotate"
-          className=" rotate-[340deg] absolute !h-[50%] !w-[50%] hidden "
-        >
-          <p className="!bg-white !h-2 !w-2 !rounded-full !absolute !bottom-0 !left-0 "></p>
-        </p>
-        <p
-          id="11_rotate"
-          className=" rotate-[350deg] absolute !h-[50%] !w-[50%] hidden "
-        >
-          <p className="!bg-white !h-2 !w-2 !rounded-full !absolute !bottom-0 !left-0 "></p>
-        </p>
-
-        {/* <Box component="img" src={roulette} className="rotating-element">
-
-      </Box> */}
-        {/* <div className="h-[200px] w-[200px]">
-        <RolletIFrame />
-      </div> */}
-      </div>
+            <Rolletball />
+          </div>
+        );
+      }, [])}
       <Box
         sx={{
           width: "25px",
