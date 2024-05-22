@@ -20,56 +20,65 @@ import g3k from '../../assets/images/3k.png'
 
 import { NavLink } from 'react-router-dom'
 
-const Coin = ({ setAmount, amount,setisSelectedDropBet }) => {
+const Coin = ({ setAmount, amount, setisSelectedDropBet }) => {
   return (
     <Box className=" !absolute transform rotate-90 "
       sx={{
         display: 'flex',
         justifyContent: 'space-between',
         position: 'absolute',
-        top: '30%',
+        top: '38%',
         left: '-18%',
         width: '80%',
+        transform: 'rotate(84.5deg)',
         // backgroundColor: 'black',
       }}>
       <NavLink onClick={() => {
         setisSelectedDropBet(false);
-        setAmount(2)}}>
+        setAmount(2)
+      }}>
         <Box component='img' src={amount === 2 ? g2 : two} width={30} ></Box>
       </NavLink>
       <NavLink onClick={() => {
         setisSelectedDropBet(false);
-        setAmount(5)}}>
+        setAmount(5)
+      }}>
         <Box component='img' src={amount === 5 ? g5 : five} width={30} ></Box>
       </NavLink>
       <NavLink onClick={() => {
         setisSelectedDropBet(false);
-        setAmount(10)}}>
+        setAmount(10)
+      }}>
         <Box component='img' src={amount === 10 ? g10 : ten} width={30} ></Box>
       </NavLink>
       <NavLink onClick={() => {
         setisSelectedDropBet(false);
-        setAmount(50)}}>
+        setAmount(50)
+      }}>
         <Box component='img' src={amount === 50 ? g50 : pachas} width={30} ></Box>
       </NavLink>
       <NavLink onClick={() => {
         setisSelectedDropBet(false);
-        setAmount(100)}}>
+        setAmount(100)
+      }}>
         <Box component='img' src={amount === 100 ? g100 : soo} width={30} ></Box>
       </NavLink>
       <NavLink onClick={() => {
         setisSelectedDropBet(false);
-        setAmount(500)}}>
+        setAmount(500)
+      }}>
         <Box component='img' src={amount === 500 ? g500 : panso} width={30} ></Box>
       </NavLink>
       <NavLink onClick={() => {
         setisSelectedDropBet(false);
-        setAmount(1000)}}>
+        setAmount(1000)
+      }}>
         <Box component='img' src={amount === 1000 ? g1k : hazar} width={30} ></Box>
       </NavLink>
       <NavLink onClick={() => {
         setisSelectedDropBet(false);
-        setAmount(3000)}}>
+        setAmount(3000)
+      }}>
         <Box component='img' src={amount === 3000 ? g3k : k3} width={30} ></Box>
       </NavLink>
     </Box>

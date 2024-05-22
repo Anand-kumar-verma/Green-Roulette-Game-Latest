@@ -30,6 +30,7 @@ import {
 } from "../../../services/apicalling";
 import { endpoint } from "../../../services/urls";
 import roulette from "../../assets/images/rolette.png";
+import watch from "../../assets/images/watch.png";
 import Coin from "./Coin";
 import { style } from "./CommonCss";
 import First12 from "./First12";
@@ -115,9 +116,8 @@ function Home() {
     let newelement = element.querySelector("span");
 
     if (newelement) {
-      newelement.innerHTML = `${
-        amount >= 1000 ? String(amount / 1000) + "k" : amount
-      }`;
+      newelement.innerHTML = `${amount >= 1000 ? String(amount / 1000) + "k" : amount
+        }`;
     } else {
       newelement = document.createElement("span");
       let vlaue = `${amount >= 1000 ? String(amount / 1000) + "k" : amount}`;
@@ -155,14 +155,12 @@ function Home() {
     let element = document.getElementById(`${id}`);
     let span = element.querySelector("span");
     if (span) {
-      span.innerHTML = `${
-        bet?.find((i) => i?.id === openDialogBox)?.amount + 1
-      }`;
+      span.innerHTML = `${bet?.find((i) => i?.id === openDialogBox)?.amount + 1
+        }`;
     } else {
       let newelement = document.createElement("span");
-      newelement.innerHTML = `${
-        bet?.find((i) => i?.id === openDialogBox)?.amount
-      }`;
+      newelement.innerHTML = `${bet?.find((i) => i?.id === openDialogBox)?.amount
+        }`;
       newelement.style.height = "10px";
       newelement.style.width = "10px";
       newelement.style.backgroundColor = "white";
@@ -416,6 +414,33 @@ function Home() {
               99
             </Typography>
           </Box>
+          <Box sx={style.winnerLooserList}>
+            <Typography variant="body1" color="initial" sx={{ color: "red" }}>
+              {bet_history_Data?.data?.[4]?.win
+                ? bet_history_Data?.data?.[1]?.win
+                : "L"}
+            </Typography>
+            <Typography variant="body1" color="initial" sx={{ color: "red" }}>
+              99
+            </Typography>
+            <Typography variant="body1" color="initial" sx={{ color: "red" }}>
+              99
+            </Typography>
+          </Box>
+          <Box sx={style.winnerLooserList}>
+            <Typography variant="body1" color="initial" sx={{ color: "red" }}>
+              {bet_history_Data?.data?.[4]?.win
+                ? bet_history_Data?.data?.[1]?.win
+                : "L"}
+            </Typography>
+            <Typography variant="body1" color="initial" sx={{ color: "red" }}>
+              99
+            </Typography>
+            <Typography variant="body1" color="initial" sx={{ color: "red" }}>
+              99
+            </Typography>
+          </Box>
+
         </Box>
       </Box>
       <Box
@@ -458,8 +483,7 @@ function Home() {
                       );
                     } else {
                       setBetFuncton(
-                        336,
-                        [336],
+                        336, [336],
                         Number(isContainsPre?.amount) + amount
                       );
                     }
@@ -477,8 +501,8 @@ function Home() {
                 id="235"
                 onClick={(e) => {
                   if (isSelectedDropBet) {
-                    removeSingleBetFunction(235);
-                    return;
+                    removeSingleBetFunction(235)
+                    return
                   }
                   if (amount < 10 || amount > 50000)
                     return toast("Please select amount grater than 10");
@@ -494,8 +518,7 @@ function Home() {
                       );
                     } else {
                       setBetFuncton(
-                        235,
-                        [235],
+                        235, [235],
                         Number(isContainsPre?.amount) + amount
                       );
                     }
@@ -513,8 +536,8 @@ function Home() {
                 id="134"
                 onClick={(e) => {
                   if (isSelectedDropBet) {
-                    removeSingleBetFunction(134);
-                    return;
+                    removeSingleBetFunction(134)
+                    return
                   }
                   if (amount < 10 || amount > 50000)
                     return toast("Please select amount grater than 10");
@@ -530,8 +553,7 @@ function Home() {
                       );
                     } else {
                       setBetFuncton(
-                        134,
-                        [134],
+                        134, [134],
                         Number(isContainsPre?.amount) + amount
                       );
                     }
@@ -662,7 +684,7 @@ function Home() {
           }}
         >
           <Typography variant="body1" color="initial">
-            <LoginIcon />
+            LEAVE TABLE
           </Typography>
         </Box>
         <Box sx={style.naiming5} className={"!flex "}>
@@ -673,7 +695,7 @@ function Home() {
           >
             BET CONFIRM
           </Typography>
-          <Typography
+          {/* <Typography
             onClick={() => {
               setisSelectedDropBet(true);
             }}
@@ -682,7 +704,7 @@ function Home() {
             className="!bg-red-800"
           >
             Clear
-          </Typography>
+          </Typography> */}
         </Box>
         <Box sx={style.naiming7} className={"!flex "}>
           <Typography
@@ -697,7 +719,7 @@ function Home() {
 
       <Box
         // countdown
-        sx={style.countdownOuter}
+        sx={{ ...style.countdownOuter, backgroundImage: `url(${watch})`, backgroundSize: '100%' }}
         className=" !flex !justify-center !items-center"
       >
         <div
