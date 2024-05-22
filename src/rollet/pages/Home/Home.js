@@ -116,8 +116,9 @@ function Home() {
     let newelement = element.querySelector("span");
 
     if (newelement) {
-      newelement.innerHTML = `${amount >= 1000 ? String(amount / 1000) + "k" : amount
-        }`;
+      newelement.innerHTML = `${
+        amount >= 1000 ? String(amount / 1000) + "k" : amount
+      }`;
     } else {
       newelement = document.createElement("span");
       let vlaue = `${amount >= 1000 ? String(amount / 1000) + "k" : amount}`;
@@ -155,12 +156,14 @@ function Home() {
     let element = document.getElementById(`${id}`);
     let span = element.querySelector("span");
     if (span) {
-      span.innerHTML = `${bet?.find((i) => i?.id === openDialogBox)?.amount + 1
-        }`;
+      span.innerHTML = `${
+        bet?.find((i) => i?.id === openDialogBox)?.amount + 1
+      }`;
     } else {
       let newelement = document.createElement("span");
-      newelement.innerHTML = `${bet?.find((i) => i?.id === openDialogBox)?.amount
-        }`;
+      newelement.innerHTML = `${
+        bet?.find((i) => i?.id === openDialogBox)?.amount
+      }`;
       newelement.style.height = "10px";
       newelement.style.width = "10px";
       newelement.style.backgroundColor = "white";
@@ -284,7 +287,7 @@ function Home() {
       setOne_min_time(onemin);
     };
     const handleOneMinrolletresult = (onemin) => {
-      console.log("Hiii anand",onemin)
+      console.log("Hiii anand", onemin);
       spinFunction(onemin);
       setTimeout(() => {
         setresult_rollet(onemin);
@@ -440,7 +443,6 @@ function Home() {
               99
             </Typography>
           </Box>
-
         </Box>
       </Box>
       <Box
@@ -483,7 +485,8 @@ function Home() {
                       );
                     } else {
                       setBetFuncton(
-                        336, [336],
+                        336,
+                        [336],
                         Number(isContainsPre?.amount) + amount
                       );
                     }
@@ -501,8 +504,8 @@ function Home() {
                 id="235"
                 onClick={(e) => {
                   if (isSelectedDropBet) {
-                    removeSingleBetFunction(235)
-                    return
+                    removeSingleBetFunction(235);
+                    return;
                   }
                   if (amount < 10 || amount > 50000)
                     return toast("Please select amount grater than 10");
@@ -518,7 +521,8 @@ function Home() {
                       );
                     } else {
                       setBetFuncton(
-                        235, [235],
+                        235,
+                        [235],
                         Number(isContainsPre?.amount) + amount
                       );
                     }
@@ -536,8 +540,8 @@ function Home() {
                 id="134"
                 onClick={(e) => {
                   if (isSelectedDropBet) {
-                    removeSingleBetFunction(134)
-                    return
+                    removeSingleBetFunction(134);
+                    return;
                   }
                   if (amount < 10 || amount > 50000)
                     return toast("Please select amount grater than 10");
@@ -553,7 +557,8 @@ function Home() {
                       );
                     } else {
                       setBetFuncton(
-                        134, [134],
+                        134,
+                        [134],
                         Number(isContainsPre?.amount) + amount
                       );
                     }
@@ -687,24 +692,25 @@ function Home() {
             LEAVE TABLE
           </Typography>
         </Box>
-        <Box sx={style.naiming5} className={"!flex "}>
+        <Box sx={style.naiming5} className={"!flex !gap-1"}>
           <Typography
+            className="!bg-[#15158f] !p-2"
             onClick={() => confirmBet()}
             variant="body1"
             color="initial"
           >
-            BET CONFIRM
+            CONFIRM
           </Typography>
-          {/* <Typography
+          <Typography
+            className="!bg-[#15158f] !p-2 !text-white"
             onClick={() => {
               setisSelectedDropBet(true);
             }}
             variant="body1"
             color="initial"
-            className="!bg-red-800"
           >
-            Clear
-          </Typography> */}
+            DROP
+          </Typography>
         </Box>
         <Box sx={style.naiming7} className={"!flex "}>
           <Typography
@@ -719,7 +725,11 @@ function Home() {
 
       <Box
         // countdown
-        sx={{ ...style.countdownOuter, backgroundImage: `url(${watch})`, backgroundSize: '100%' }}
+        sx={{
+          ...style.countdownOuter,
+          backgroundImage: `url(${watch})`,
+          backgroundSize: "100%",
+        }}
         className=" !flex !justify-center !items-center"
       >
         <div

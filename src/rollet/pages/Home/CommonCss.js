@@ -235,12 +235,12 @@ export const style = {
     },
   },
   naiming5: {
-    background: '#15158f',
+    // background: '#15158f',
     transform: "rotate(90deg)",
     position: "absolute",
     bottom: "25%",
-    left: "-6.3%",
-    padding: "10px",
+    left: "-10.3%",
+    // padding: "10px",
     borderRadius: "5px",
     "&>p:nth-child(1)": {
       color: "white",
