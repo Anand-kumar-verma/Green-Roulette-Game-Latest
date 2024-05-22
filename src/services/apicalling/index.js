@@ -30,6 +30,15 @@ export const getHistoryRollet = async () => {
     console.log(e);
   }
 };
+export const getResultOfRollet = async () => {
+  try {
+    const response = await axios.get(endpoint?.rollet?.game_result+'?limit=10');
+    return response;
+  } catch (e) {
+    toast(e?.message);
+    console.log(e);
+  }
+};
 
 export const MyProfileDataFn = async () => {
   try {

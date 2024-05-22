@@ -71,6 +71,7 @@ export const endpoint = {
     login: baseUrl + "/api/roulette-login",
     bet_now:baseUrl+"/api/bet-now",
     profile:baseUrl+"/api/roulette-profile",
-    history:baseUrl+"/api/get-bet-history"
+    history:baseUrl+"/api/get-bet-history",
+    game_result:baseUrl+"/api/roulette-results-history"
   }
 };

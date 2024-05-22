@@ -74,7 +74,7 @@ const SvgCircle = () => {
   React.useEffect(() => {
     const handleOneMin = (onemin) => {
       // setOne_min_time(onemin);
-      setAngle(onemin === 0 ? 360 : (onemin + 1) * 6);
+      setAngle(onemin === 0 ? 0 : ((60-onemin+1)) * 6);
       setTime(onemin);
       if (onemin === 30) {
         handlePlaySound();
@@ -108,9 +108,9 @@ const SvgCircle = () => {
           d={arcPath}
           fill={
             time + 1 <= 30 && time + 1 >= 10
-              ? "#008000a6"
+              ? "#ffff0080"
               : time + 1 <= 10
-                ? "#008000a6"
+                ? "#ff000080"
                 : "#008000a6"
           }
         />

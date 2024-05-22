@@ -20,13 +20,14 @@ import axios from "axios";
 import CryptoJS from "crypto-js";
 import { useEffect, useMemo, useState } from "react";
 import toast from "react-hot-toast";
-import { useQuery } from "react-query";
+import { useQuery, useQueryClient } from "react-query";
 import { NavLink, useNavigate } from "react-router-dom";
 import { checkTokenValidity } from "../../../Shared/CookieStorage";
 import { useSocket } from "../../../Shared/SocketContext";
 import {
   getHistoryRollet,
   getProfileRollet,
+  getResultOfRollet,
 } from "../../../services/apicalling";
 import { endpoint } from "../../../services/urls";
 import roulette from "../../assets/images/rolette.png";
@@ -40,7 +41,9 @@ import SvgCircle from "./SvgCircle";
 import Third12 from "./Third12";
 import Zero from "./Zero";
 import Rolletball from "../Rolletball";
+import thumbs_bg from '../../assets/images/thumbs_bg.jpg'
 function Home() {
+  const client  = useQueryClient();
   const socket = useSocket();
   const value =
     (localStorage.getItem("logindataen") &&
@@ -81,6 +84,21 @@ function Home() {
   );
 
   const bet_history_Data = bet_history?.data?.data || 0;
+
+  const { isLoading: bet_result_history_loding, data: bet_result_history } = useQuery(
+    ["history_rollet_result"],
+    () => getResultOfRollet(),
+    {
+      refetchOnMount: false,
+      refetchOnReconnect: true,
+    }
+  );
+
+  const bet_result_history_Data = useMemo(()=>{
+    return bet_result_history?.data?.data?.slice(0,10) || []
+  },[bet_result_history]);
+ 
+
   function removeSingleBetFunction(id) {
     let filterArray = bet?.filter((i) => i?.id !== id);
     setBet(filterArray);
@@ -91,6 +109,7 @@ function Home() {
     }
   }
 
+   
   function setBetFuncton(id, number, amount) {
     console.log(id, number, amount);
     const obj = {
@@ -285,12 +304,17 @@ function Home() {
   useEffect(() => {
     const handleOneMin = (onemin) => {
       setOne_min_time(onemin);
+      if(onemin === 0){
+        setresult_rollet(0);
+      }
     };
     const handleOneMinrolletresult = (onemin) => {
       console.log("Hiii anand", onemin);
       spinFunction(onemin);
       setTimeout(() => {
         setresult_rollet(onemin);
+        client.refetchQueries("history_rollet_result")
+        client.refetchQueries("history_rollet")
       }, 10000);
     };
     socket.on("oneminrollet", handleOneMin);
@@ -328,6 +352,7 @@ function Home() {
     setTimeout(() => {
       element.classList.remove("animation_image_30");
       element.classList.add("hidden");
+      setresult_rollet(0);
     }, 50 * 1000);
   }
 
@@ -367,6 +392,19 @@ function Home() {
         <Box direction={"row"} sx={style.winnerlooserouter2}>
           <Box sx={style.winnerLooserList}>
             <Typography variant="body1" color="initial" sx={{ color: "red" }}>
+              {bet_history_Data?.data?.[5]?.win
+                ? bet_history_Data?.data?.[5]?.win
+                : "L"}
+            </Typography>
+            <Typography variant="body1" color="initial" sx={{ color: "red" }}>
+              99
+            </Typography>
+            <Typography variant="body1" color="initial" sx={{ color: "red" }}>
+              {bet_result_history_Data?.[5]?.number}
+            </Typography>
+          </Box>
+          <Box sx={style.winnerLooserList}>
+            <Typography variant="body1" color="initial" sx={{ color: "red" }}>
               {bet_history_Data?.data?.[4]?.win
                 ? bet_history_Data?.data?.[4]?.win
                 : "L"}
@@ -375,12 +413,12 @@ function Home() {
               99
             </Typography>
             <Typography variant="body1" color="initial" sx={{ color: "red" }}>
-              99
+            {bet_result_history_Data?.[4]?.number}
             </Typography>
           </Box>
           <Box sx={style.winnerLooserList}>
             <Typography variant="body1" color="initial" sx={{ color: "red" }}>
-              {bet_history_Data?.data?.[4]?.win
+              {bet_history_Data?.data?.[3]?.win
                 ? bet_history_Data?.data?.[3]?.win
                 : "L"}
             </Typography>
@@ -388,25 +426,25 @@ function Home() {
               99
             </Typography>
             <Typography variant="body1" color="initial" sx={{ color: "red" }}>
-              99
+            {bet_result_history_Data?.[3]?.number}
             </Typography>
           </Box>
           <Box sx={style.winnerLooserList}>
             <Typography variant="body1" color="initial" sx={{ color: "red" }}>
-              {bet_history_Data?.data?.[4]?.win
-                ? bet_history_Data?.data?.[3]?.win
+              {bet_history_Data?.data?.[2]?.win
+                ? bet_history_Data?.data?.[2]?.win
                 : "L"}
             </Typography>
             <Typography variant="body1" color="initial" sx={{ color: "red" }}>
               99
             </Typography>
             <Typography variant="body1" color="initial" sx={{ color: "red" }}>
-              99
+            {bet_result_history_Data?.[2]?.number}
             </Typography>
           </Box>
           <Box sx={style.winnerLooserList}>
             <Typography variant="body1" color="initial" sx={{ color: "red" }}>
-              {bet_history_Data?.data?.[4]?.win
+              {bet_history_Data?.data?.[1]?.win
                 ? bet_history_Data?.data?.[1]?.win
                 : "L"}
             </Typography>
@@ -414,12 +452,12 @@ function Home() {
               99
             </Typography>
             <Typography variant="body1" color="initial" sx={{ color: "red" }}>
-              99
+            {bet_result_history_Data?.[1]?.number}
             </Typography>
           </Box>
           <Box sx={style.winnerLooserList}>
             <Typography variant="body1" color="initial" sx={{ color: "red" }}>
-              {bet_history_Data?.data?.[4]?.win
+              {bet_history_Data?.data?.[1]?.win
                 ? bet_history_Data?.data?.[1]?.win
                 : "L"}
             </Typography>
@@ -427,20 +465,7 @@ function Home() {
               99
             </Typography>
             <Typography variant="body1" color="initial" sx={{ color: "red" }}>
-              99
-            </Typography>
-          </Box>
-          <Box sx={style.winnerLooserList}>
-            <Typography variant="body1" color="initial" sx={{ color: "red" }}>
-              {bet_history_Data?.data?.[4]?.win
-                ? bet_history_Data?.data?.[1]?.win
-                : "L"}
-            </Typography>
-            <Typography variant="body1" color="initial" sx={{ color: "red" }}>
-              99
-            </Typography>
-            <Typography variant="body1" color="initial" sx={{ color: "red" }}>
-              99
+            {bet_result_history_Data?.[0]?.number}
             </Typography>
           </Box>
         </Box>
