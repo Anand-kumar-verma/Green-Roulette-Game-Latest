@@ -108,13 +108,11 @@ const SvgCircle = () => {
           d={arcPath}
           fill={
             time + 1 <= 30 && time + 1 >= 10
-              ? "yellow"
+              ? "#008000a6"
               : time + 1 <= 10
-              ? "red"
-              : "green"
+                ? "#008000a6"
+                : "#008000a6"
           }
-          stroke="black"
-          strokeWidth="5"
         />
       </svg>
     </div>
