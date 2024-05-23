@@ -48,7 +48,7 @@ function CricketRegistrationForm() {
         referral_code: fk.values.referral_code,
         privacy_policy: false,
       };
-
+      // 
       //   signupFunction(reqbody);
     },
   });

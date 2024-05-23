@@ -2,14 +2,14 @@ import { IconButton, Stack, Typography } from "@mui/material";
 import React from "react";
 import { style } from "./CommonCss";
 import toast from "react-hot-toast";
-const Third12 = ({ isSelectedDropBet,removeSingleBetFunction,setOpenDialogBox, bet, setBetFuncton, amount }) => {
+const Third12 = ({ isSelectedDropBet, removeSingleBetFunction, setOpenDialogBox, bet, setBetFuncton, amount }) => {
   return (
     <Stack direction="row" justifyContent="end" sx={{ height: "28.56%" }}>
       <div
         className="w-[14%]  !grid grid-rows-2 !place-items-center "
         style={{ border: "1px solid white", ...style.flex }}
       >
-        <div className="!p-0" style={{ transform: "rotate(-270deg)" }}>
+        <div className="!p-0" style={{ width: "52%", height: '100%', border: '1px solid white' }}>
           <div
             variant="body1"
             color="initial"
@@ -17,13 +17,13 @@ const Third12 = ({ isSelectedDropBet,removeSingleBetFunction,setOpenDialogBox, b
           >
             <span
               id="1936"
-              style={{ fontWeight: 700 }}
+              style={{ fontWeight: 700, transform: 'rotate(90deg)', marginTop: '100%' }}
               className="whitespace-nowrap !text-[12px] !text-white "
               onClick={(e) => {
-                if(isSelectedDropBet){
-                removeSingleBetFunction(1936)
-                    return
-                  }
+                if (isSelectedDropBet) {
+                  removeSingleBetFunction(1936)
+                  return
+                }
                 if (amount < 10 || amount > 50000)
                   return toast("Please select amount grater than 10");
                 let isContainsPre = bet?.find((i) => i?.id === 1936);
@@ -62,10 +62,10 @@ const Third12 = ({ isSelectedDropBet,removeSingleBetFunction,setOpenDialogBox, b
               id="202"
               className="whitespace-nowrap !text-[12px]  !text-white"
               onClick={(e) => {
-                if(isSelectedDropBet){
-                removeSingleBetFunction(202)
-                    return
-                  }
+                if (isSelectedDropBet) {
+                  removeSingleBetFunction(202)
+                  return
+                }
                 if (amount < 10 || amount > 50000)
                   return toast("Please select amount grater than 10");
                 let isContainsPre = bet?.find((i) => i?.id === 202);
@@ -106,10 +106,10 @@ const Third12 = ({ isSelectedDropBet,removeSingleBetFunction,setOpenDialogBox, b
               className="whitespace-nowrap !text-[12px] !text-white"
               id="312"
               onClick={(e) => {
-                if(isSelectedDropBet){
-                removeSingleBetFunction(312)
-                    return
-                  }
+                if (isSelectedDropBet) {
+                  removeSingleBetFunction(312)
+                  return
+                }
                 if (amount < 10 || amount > 50000)
                   return toast("Please select amount grater than 10");
                 let isContainsPre = bet?.find((i) => i?.id === 312);
@@ -154,10 +154,10 @@ const Third12 = ({ isSelectedDropBet,removeSingleBetFunction,setOpenDialogBox, b
             <p
               id="36"
               onClick={(e) => {
-                if(isSelectedDropBet){
-                removeSingleBetFunction(36)
-                    return
-                  }
+                if (isSelectedDropBet) {
+                  removeSingleBetFunction(36)
+                  return
+                }
                 let isContainsPre = bet?.find((i) => i?.id === 36);
                 if (isContainsPre) {
                   // setOpenDialogBox(36);
@@ -190,10 +190,10 @@ const Third12 = ({ isSelectedDropBet,removeSingleBetFunction,setOpenDialogBox, b
               id="361000"
               className="!z-100 h-full w-full !text-[10px]"
               onClick={(e) => {
-                if(isSelectedDropBet){
-                removeSingleBetFunction(361000)
-                    return
-                  }
+                if (isSelectedDropBet) {
+                  removeSingleBetFunction(361000)
+                  return
+                }
                 if (amount < 10 || amount > 50000)
                   return toast("Please select amount grater than 10");
                 let isContainsPre = bet?.find((i) => i?.id === 361000);
@@ -226,10 +226,10 @@ const Third12 = ({ isSelectedDropBet,removeSingleBetFunction,setOpenDialogBox, b
               id="362000"
               className="!z-100 h-full w-full !text-[10px]"
               onClick={(e) => {
-                if(isSelectedDropBet){
-                removeSingleBetFunction(362000)
-                    return
-                  }
+                if (isSelectedDropBet) {
+                  removeSingleBetFunction(362000)
+                  return
+                }
                 if (amount < 10 || amount > 50000)
                   return toast("Please select amount grater than 10");
                 let isContainsPre = bet?.find((i) => i?.id === 362000);
@@ -262,10 +262,10 @@ const Third12 = ({ isSelectedDropBet,removeSingleBetFunction,setOpenDialogBox, b
               id="363000"
               className="!z-100 h-full w-full !text-[10px]"
               onClick={(e) => {
-                if(isSelectedDropBet){
-                removeSingleBetFunction(363000)
-                    return
-                  }
+                if (isSelectedDropBet) {
+                  removeSingleBetFunction(363000)
+                  return
+                }
                 if (amount < 10 || amount > 50000)
                   return toast("Please select amount grater than 10");
                 let isContainsPre = bet?.find((i) => i?.id === 363000);
@@ -296,10 +296,10 @@ const Third12 = ({ isSelectedDropBet,removeSingleBetFunction,setOpenDialogBox, b
             <p
               id="33"
               onClick={(e) => {
-                if(isSelectedDropBet){
-                removeSingleBetFunction(33)
-                    return
-                  }
+                if (isSelectedDropBet) {
+                  removeSingleBetFunction(33)
+                  return
+                }
                 let isContainsPre = bet?.find((i) => i?.id === 33);
                 if (isContainsPre) {
                   // setOpenDialogBox(33);
@@ -332,10 +332,10 @@ const Third12 = ({ isSelectedDropBet,removeSingleBetFunction,setOpenDialogBox, b
               id="331000"
               className="!z-100 h-full w-full !text-[10px]"
               onClick={(e) => {
-                if(isSelectedDropBet){
-                removeSingleBetFunction(331000)
-                    return
-                  }
+                if (isSelectedDropBet) {
+                  removeSingleBetFunction(331000)
+                  return
+                }
                 if (amount < 10 || amount > 50000)
                   return toast("Please select amount grater than 10");
                 let isContainsPre = bet?.find((i) => i?.id === 331000);
@@ -368,10 +368,10 @@ const Third12 = ({ isSelectedDropBet,removeSingleBetFunction,setOpenDialogBox, b
               id="332000"
               className="!z-100 h-full w-full !text-[10px]"
               onClick={(e) => {
-                if(isSelectedDropBet){
-                removeSingleBetFunction(332000)
-                    return
-                  }
+                if (isSelectedDropBet) {
+                  removeSingleBetFunction(332000)
+                  return
+                }
                 if (amount < 10 || amount > 50000)
                   return toast("Please select amount grater than 10");
                 let isContainsPre = bet?.find((i) => i?.id === 332000);
@@ -404,10 +404,10 @@ const Third12 = ({ isSelectedDropBet,removeSingleBetFunction,setOpenDialogBox, b
               id="333000"
               className="!z-100 h-full w-full !text-[10px]"
               onClick={(e) => {
-                if(isSelectedDropBet){
-                removeSingleBetFunction(333000)
-                    return
-                  }
+                if (isSelectedDropBet) {
+                  removeSingleBetFunction(333000)
+                  return
+                }
                 if (amount < 10 || amount > 50000)
                   return toast("Please select amount grater than 10");
                 let isContainsPre = bet?.find((i) => i?.id === 333000);
@@ -438,10 +438,10 @@ const Third12 = ({ isSelectedDropBet,removeSingleBetFunction,setOpenDialogBox, b
             <p
               id="30"
               onClick={(e) => {
-                if(isSelectedDropBet){
-                removeSingleBetFunction(30)
-                    return
-                  }
+                if (isSelectedDropBet) {
+                  removeSingleBetFunction(30)
+                  return
+                }
                 let isContainsPre = bet?.find((i) => i?.id === 30);
                 if (isContainsPre) {
                   // setOpenDialogBox(30);
@@ -474,10 +474,10 @@ const Third12 = ({ isSelectedDropBet,removeSingleBetFunction,setOpenDialogBox, b
               id="301000"
               className="!z-100 h-full w-full !text-[10px]"
               onClick={(e) => {
-                if(isSelectedDropBet){
-                removeSingleBetFunction(301000)
-                    return
-                  }
+                if (isSelectedDropBet) {
+                  removeSingleBetFunction(301000)
+                  return
+                }
                 if (amount < 10 || amount > 50000)
                   return toast("Please select amount grater than 10");
                 let isContainsPre = bet?.find((i) => i?.id === 301000);
@@ -510,10 +510,10 @@ const Third12 = ({ isSelectedDropBet,removeSingleBetFunction,setOpenDialogBox, b
               id="302000"
               className="!z-100 h-full w-full !text-[10px]"
               onClick={(e) => {
-                if(isSelectedDropBet){
-                removeSingleBetFunction(302000)
-                    return
-                  }
+                if (isSelectedDropBet) {
+                  removeSingleBetFunction(302000)
+                  return
+                }
                 if (amount < 10 || amount > 50000)
                   return toast("Please select amount grater than 10");
                 let isContainsPre = bet?.find((i) => i?.id === 302000);
@@ -546,10 +546,10 @@ const Third12 = ({ isSelectedDropBet,removeSingleBetFunction,setOpenDialogBox, b
               id="303000"
               className="!z-100 h-full w-full !text-[10px]"
               onClick={(e) => {
-                if(isSelectedDropBet){
-                removeSingleBetFunction(303000)
-                    return
-                  }
+                if (isSelectedDropBet) {
+                  removeSingleBetFunction(303000)
+                  return
+                }
                 if (amount < 10 || amount > 50000)
                   return toast("Please select amount grater than 10");
                 let isContainsPre = bet?.find((i) => i?.id === 303000);
@@ -580,10 +580,10 @@ const Third12 = ({ isSelectedDropBet,removeSingleBetFunction,setOpenDialogBox, b
             <p
               id="27"
               onClick={(e) => {
-                if(isSelectedDropBet){
-                removeSingleBetFunction(27)
-                    return
-                  }
+                if (isSelectedDropBet) {
+                  removeSingleBetFunction(27)
+                  return
+                }
                 let isContainsPre = bet?.find((i) => i?.id === 27);
                 if (isContainsPre) {
                   // setOpenDialogBox(27);
@@ -616,10 +616,10 @@ const Third12 = ({ isSelectedDropBet,removeSingleBetFunction,setOpenDialogBox, b
               id="271000"
               className="!z-100 h-full w-full !text-[10px]"
               onClick={(e) => {
-                if(isSelectedDropBet){
-                removeSingleBetFunction(271000)
-                    return
-                  }
+                if (isSelectedDropBet) {
+                  removeSingleBetFunction(271000)
+                  return
+                }
                 if (amount < 10 || amount > 50000)
                   return toast("Please select amount grater than 10");
                 let isContainsPre = bet?.find((i) => i?.id === 271000);
@@ -652,10 +652,10 @@ const Third12 = ({ isSelectedDropBet,removeSingleBetFunction,setOpenDialogBox, b
               id="272000"
               className="!z-100 h-full w-full !text-[10px]"
               onClick={(e) => {
-                if(isSelectedDropBet){
-                removeSingleBetFunction(272000)
-                    return
-                  }
+                if (isSelectedDropBet) {
+                  removeSingleBetFunction(272000)
+                  return
+                }
                 if (amount < 10 || amount > 50000)
                   return toast("Please select amount grater than 10");
                 let isContainsPre = bet?.find((i) => i?.id === 272000);
@@ -688,10 +688,10 @@ const Third12 = ({ isSelectedDropBet,removeSingleBetFunction,setOpenDialogBox, b
               id="273000"
               className="!z-100 h-full w-full !text-[10px]"
               onClick={(e) => {
-                if(isSelectedDropBet){
-                removeSingleBetFunction(273000)
-                    return
-                  }
+                if (isSelectedDropBet) {
+                  removeSingleBetFunction(273000)
+                  return
+                }
                 if (amount < 10 || amount > 50000)
                   return toast("Please select amount grater than 10");
                 let isContainsPre = bet?.find((i) => i?.id === 273000);
@@ -724,10 +724,10 @@ const Third12 = ({ isSelectedDropBet,removeSingleBetFunction,setOpenDialogBox, b
             <p
               id="35"
               onClick={(e) => {
-                if(isSelectedDropBet){
-                removeSingleBetFunction(35)
-                    return
-                  }
+                if (isSelectedDropBet) {
+                  removeSingleBetFunction(35)
+                  return
+                }
                 let isContainsPre = bet?.find((i) => i?.id === 35);
                 if (isContainsPre) {
                   // setOpenDialogBox(35);
@@ -760,10 +760,10 @@ const Third12 = ({ isSelectedDropBet,removeSingleBetFunction,setOpenDialogBox, b
               id="351000"
               className="!z-100 h-full w-full !text-[10px]"
               onClick={(e) => {
-                if(isSelectedDropBet){
-                removeSingleBetFunction(351000)
-                    return
-                  }
+                if (isSelectedDropBet) {
+                  removeSingleBetFunction(351000)
+                  return
+                }
                 if (amount < 10 || amount > 50000)
                   return toast("Please select amount grater than 10");
                 let isContainsPre = bet?.find((i) => i?.id === 351000);
@@ -796,10 +796,10 @@ const Third12 = ({ isSelectedDropBet,removeSingleBetFunction,setOpenDialogBox, b
               id="352000"
               className="!z-100 h-full w-full !text-[10px]"
               onClick={(e) => {
-                if(isSelectedDropBet){
-                removeSingleBetFunction(352000)
-                    return
-                  }
+                if (isSelectedDropBet) {
+                  removeSingleBetFunction(352000)
+                  return
+                }
                 if (amount < 10 || amount > 50000)
                   return toast("Please select amount grater than 10");
                 let isContainsPre = bet?.find((i) => i?.id === 352000);
@@ -832,10 +832,10 @@ const Third12 = ({ isSelectedDropBet,removeSingleBetFunction,setOpenDialogBox, b
               id="353000"
               className="!z-100 h-full w-full !text-[10px]"
               onClick={(e) => {
-                if(isSelectedDropBet){
-                removeSingleBetFunction(353000)
-                    return
-                  }
+                if (isSelectedDropBet) {
+                  removeSingleBetFunction(353000)
+                  return
+                }
                 if (amount < 10 || amount > 50000)
                   return toast("Please select amount grater than 10");
                 let isContainsPre = bet?.find((i) => i?.id === 353000);
@@ -866,10 +866,10 @@ const Third12 = ({ isSelectedDropBet,removeSingleBetFunction,setOpenDialogBox, b
             <p
               id="32"
               onClick={(e) => {
-                if(isSelectedDropBet){
-                removeSingleBetFunction(32)
-                    return
-                  }
+                if (isSelectedDropBet) {
+                  removeSingleBetFunction(32)
+                  return
+                }
                 let isContainsPre = bet?.find((i) => i?.id === 32);
                 if (isContainsPre) {
                   // setOpenDialogBox(32);
@@ -902,10 +902,10 @@ const Third12 = ({ isSelectedDropBet,removeSingleBetFunction,setOpenDialogBox, b
               id="321000"
               className="!z-100 h-full w-full !text-[10px]"
               onClick={(e) => {
-                if(isSelectedDropBet){
-                removeSingleBetFunction(321000)
-                    return
-                  }
+                if (isSelectedDropBet) {
+                  removeSingleBetFunction(321000)
+                  return
+                }
                 if (amount < 10 || amount > 50000)
                   return toast("Please select amount grater than 10");
                 let isContainsPre = bet?.find((i) => i?.id === 321000);
@@ -938,10 +938,10 @@ const Third12 = ({ isSelectedDropBet,removeSingleBetFunction,setOpenDialogBox, b
               id="322000"
               className="!z-100 h-full w-full !text-[10px]"
               onClick={(e) => {
-                if(isSelectedDropBet){
-                removeSingleBetFunction(322000)
-                    return
-                  }
+                if (isSelectedDropBet) {
+                  removeSingleBetFunction(322000)
+                  return
+                }
                 if (amount < 10 || amount > 50000)
                   return toast("Please select amount grater than 10");
                 let isContainsPre = bet?.find((i) => i?.id === 322000);
@@ -974,10 +974,10 @@ const Third12 = ({ isSelectedDropBet,removeSingleBetFunction,setOpenDialogBox, b
               id="323000"
               className="!z-100 h-full w-full !text-[10px]"
               onClick={(e) => {
-                if(isSelectedDropBet){
-                removeSingleBetFunction(323000)
-                    return
-                  }
+                if (isSelectedDropBet) {
+                  removeSingleBetFunction(323000)
+                  return
+                }
                 if (amount < 10 || amount > 50000)
                   return toast("Please select amount grater than 10");
                 let isContainsPre = bet?.find((i) => i?.id === 323000);
@@ -1008,10 +1008,10 @@ const Third12 = ({ isSelectedDropBet,removeSingleBetFunction,setOpenDialogBox, b
             <p
               id="29"
               onClick={(e) => {
-                if(isSelectedDropBet){
-                removeSingleBetFunction(29)
-                    return
-                  }
+                if (isSelectedDropBet) {
+                  removeSingleBetFunction(29)
+                  return
+                }
                 let isContainsPre = bet?.find((i) => i?.id === 29);
                 if (isContainsPre) {
                   // setOpenDialogBox(29);
@@ -1044,10 +1044,10 @@ const Third12 = ({ isSelectedDropBet,removeSingleBetFunction,setOpenDialogBox, b
               id="291000"
               className="!z-100 h-full w-full !text-[10px]"
               onClick={(e) => {
-                if(isSelectedDropBet){
-                removeSingleBetFunction(291000)
-                    return
-                  }
+                if (isSelectedDropBet) {
+                  removeSingleBetFunction(291000)
+                  return
+                }
                 if (amount < 10 || amount > 50000)
                   return toast("Please select amount grater than 10");
                 let isContainsPre = bet?.find((i) => i?.id === 291000);
@@ -1080,10 +1080,10 @@ const Third12 = ({ isSelectedDropBet,removeSingleBetFunction,setOpenDialogBox, b
               id="292000"
               className="!z-100 h-full w-full !text-[10px]"
               onClick={(e) => {
-                if(isSelectedDropBet){
-                removeSingleBetFunction(292000)
-                    return
-                  }
+                if (isSelectedDropBet) {
+                  removeSingleBetFunction(292000)
+                  return
+                }
                 if (amount < 10 || amount > 50000)
                   return toast("Please select amount grater than 10");
                 let isContainsPre = bet?.find((i) => i?.id === 292000);
@@ -1116,10 +1116,10 @@ const Third12 = ({ isSelectedDropBet,removeSingleBetFunction,setOpenDialogBox, b
               id="293000"
               className="!z-100 h-full w-full !text-[10px]"
               onClick={(e) => {
-                if(isSelectedDropBet){
-                removeSingleBetFunction(293000)
-                    return
-                  }
+                if (isSelectedDropBet) {
+                  removeSingleBetFunction(293000)
+                  return
+                }
                 if (amount < 10 || amount > 50000)
                   return toast("Please select amount grater than 10");
                 let isContainsPre = bet?.find((i) => i?.id === 293000);
@@ -1150,10 +1150,10 @@ const Third12 = ({ isSelectedDropBet,removeSingleBetFunction,setOpenDialogBox, b
             <p
               id="26"
               onClick={(e) => {
-                if(isSelectedDropBet){
-                removeSingleBetFunction(26)
-                    return
-                  }
+                if (isSelectedDropBet) {
+                  removeSingleBetFunction(26)
+                  return
+                }
                 let isContainsPre = bet?.find((i) => i?.id === 26);
                 if (isContainsPre) {
                   // setOpenDialogBox(26);
@@ -1186,10 +1186,10 @@ const Third12 = ({ isSelectedDropBet,removeSingleBetFunction,setOpenDialogBox, b
               id="261000"
               className="!z-100 h-full w-full !text-[10px]"
               onClick={(e) => {
-                if(isSelectedDropBet){
-                removeSingleBetFunction(261000)
-                    return
-                  }
+                if (isSelectedDropBet) {
+                  removeSingleBetFunction(261000)
+                  return
+                }
                 if (amount < 10 || amount > 50000)
                   return toast("Please select amount grater than 10");
                 let isContainsPre = bet?.find((i) => i?.id === 261000);
@@ -1222,10 +1222,10 @@ const Third12 = ({ isSelectedDropBet,removeSingleBetFunction,setOpenDialogBox, b
               id="262000"
               className="!z-100 h-full w-full !text-[10px]"
               onClick={(e) => {
-                if(isSelectedDropBet){
-                removeSingleBetFunction(262000)
-                    return
-                  }
+                if (isSelectedDropBet) {
+                  removeSingleBetFunction(262000)
+                  return
+                }
                 if (amount < 10 || amount > 50000)
                   return toast("Please select amount grater than 10");
                 let isContainsPre = bet?.find((i) => i?.id === 262000);
@@ -1258,10 +1258,10 @@ const Third12 = ({ isSelectedDropBet,removeSingleBetFunction,setOpenDialogBox, b
               id="263000"
               className="!z-100 h-full w-full !text-[10px]"
               onClick={(e) => {
-                if(isSelectedDropBet){
-                removeSingleBetFunction(263000)
-                    return
-                  }
+                if (isSelectedDropBet) {
+                  removeSingleBetFunction(263000)
+                  return
+                }
                 if (amount < 10 || amount > 50000)
                   return toast("Please select amount grater than 10");
                 let isContainsPre = bet?.find((i) => i?.id === 263000);
@@ -1294,10 +1294,10 @@ const Third12 = ({ isSelectedDropBet,removeSingleBetFunction,setOpenDialogBox, b
             <p
               id="34"
               onClick={(e) => {
-                if(isSelectedDropBet){
-                removeSingleBetFunction(34)
-                    return
-                  }
+                if (isSelectedDropBet) {
+                  removeSingleBetFunction(34)
+                  return
+                }
                 let isContainsPre = bet?.find((i) => i?.id === 34);
                 if (isContainsPre) {
                   // setOpenDialogBox(34);
@@ -1330,10 +1330,10 @@ const Third12 = ({ isSelectedDropBet,removeSingleBetFunction,setOpenDialogBox, b
               id="341000"
               className="!z-100 h-full w-full !text-[10px]"
               onClick={(e) => {
-                if(isSelectedDropBet){
-                removeSingleBetFunction(341000)
-                    return
-                  }
+                if (isSelectedDropBet) {
+                  removeSingleBetFunction(341000)
+                  return
+                }
                 if (amount < 10 || amount > 50000)
                   return toast("Please select amount grater than 10");
                 let isContainsPre = bet?.find((i) => i?.id === 341000);
@@ -1366,10 +1366,10 @@ const Third12 = ({ isSelectedDropBet,removeSingleBetFunction,setOpenDialogBox, b
               id="342000"
               className="!z-100 h-full w-full !text-[10px]"
               onClick={(e) => {
-                if(isSelectedDropBet){
-                removeSingleBetFunction(342000)
-                    return
-                  }
+                if (isSelectedDropBet) {
+                  removeSingleBetFunction(342000)
+                  return
+                }
                 if (amount < 10 || amount > 50000)
                   return toast("Please select amount grater than 10");
                 let isContainsPre = bet?.find((i) => i?.id === 342000);
@@ -1400,10 +1400,10 @@ const Third12 = ({ isSelectedDropBet,removeSingleBetFunction,setOpenDialogBox, b
             <p
               id="31"
               onClick={(e) => {
-                if(isSelectedDropBet){
-                removeSingleBetFunction(31)
-                    return
-                  }
+                if (isSelectedDropBet) {
+                  removeSingleBetFunction(31)
+                  return
+                }
                 let isContainsPre = bet?.find((i) => i?.id === 31);
                 if (isContainsPre) {
                   // setOpenDialogBox(31);
@@ -1436,10 +1436,10 @@ const Third12 = ({ isSelectedDropBet,removeSingleBetFunction,setOpenDialogBox, b
               id="311000"
               className="!z-100 h-full w-full !text-[10px]"
               onClick={(e) => {
-                if(isSelectedDropBet){
-                removeSingleBetFunction(311000)
-                    return
-                  }
+                if (isSelectedDropBet) {
+                  removeSingleBetFunction(311000)
+                  return
+                }
                 if (amount < 10 || amount > 50000)
                   return toast("Please select amount grater than 10");
                 let isContainsPre = bet?.find((i) => i?.id === 311000);
@@ -1472,10 +1472,10 @@ const Third12 = ({ isSelectedDropBet,removeSingleBetFunction,setOpenDialogBox, b
               id="312000"
               className="!z-100 h-full w-full !text-[10px]"
               onClick={(e) => {
-                if(isSelectedDropBet){
-                removeSingleBetFunction(312000)
-                    return
-                  }
+                if (isSelectedDropBet) {
+                  removeSingleBetFunction(312000)
+                  return
+                }
                 if (amount < 10 || amount > 50000)
                   return toast("Please select amount grater than 10");
                 let isContainsPre = bet?.find((i) => i?.id === 312000);
@@ -1506,10 +1506,10 @@ const Third12 = ({ isSelectedDropBet,removeSingleBetFunction,setOpenDialogBox, b
             <p
               id="28"
               onClick={(e) => {
-                if(isSelectedDropBet){
-                removeSingleBetFunction(28)
-                    return
-                  }
+                if (isSelectedDropBet) {
+                  removeSingleBetFunction(28)
+                  return
+                }
                 let isContainsPre = bet?.find((i) => i?.id === 28);
                 if (isContainsPre) {
                   // setOpenDialogBox(28);
@@ -1542,10 +1542,10 @@ const Third12 = ({ isSelectedDropBet,removeSingleBetFunction,setOpenDialogBox, b
               id="281000"
               className="!z-100 h-full w-full !text-[10px]"
               onClick={(e) => {
-                if(isSelectedDropBet){
-                removeSingleBetFunction(281000)
-                    return
-                  }
+                if (isSelectedDropBet) {
+                  removeSingleBetFunction(281000)
+                  return
+                }
                 if (amount < 10 || amount > 50000)
                   return toast("Please select amount grater than 10");
                 let isContainsPre = bet?.find((i) => i?.id === 281000);
@@ -1578,10 +1578,10 @@ const Third12 = ({ isSelectedDropBet,removeSingleBetFunction,setOpenDialogBox, b
               id="282000"
               className="!z-100 h-full w-full !text-[10px]"
               onClick={(e) => {
-                if(isSelectedDropBet){
-                removeSingleBetFunction(282000)
-                    return
-                  }
+                if (isSelectedDropBet) {
+                  removeSingleBetFunction(282000)
+                  return
+                }
                 if (amount < 10 || amount > 50000)
                   return toast("Please select amount grater than 10");
                 let isContainsPre = bet?.find((i) => i?.id === 282000);
@@ -1612,10 +1612,10 @@ const Third12 = ({ isSelectedDropBet,removeSingleBetFunction,setOpenDialogBox, b
             <p
               id="25"
               onClick={(e) => {
-                if(isSelectedDropBet){
-                removeSingleBetFunction(25)
-                    return
-                  }
+                if (isSelectedDropBet) {
+                  removeSingleBetFunction(25)
+                  return
+                }
                 let isContainsPre = bet?.find((i) => i?.id === 25);
                 if (isContainsPre) {
                   // setOpenDialogBox(25);
@@ -1648,10 +1648,10 @@ const Third12 = ({ isSelectedDropBet,removeSingleBetFunction,setOpenDialogBox, b
               id="251000"
               className="!z-100 h-full w-full !text-[10px]"
               onClick={(e) => {
-                if(isSelectedDropBet){
-                removeSingleBetFunction(251000)
-                    return
-                  }
+                if (isSelectedDropBet) {
+                  removeSingleBetFunction(251000)
+                  return
+                }
                 if (amount < 10 || amount > 50000)
                   return toast("Please select amount grater than 10");
                 let isContainsPre = bet?.find((i) => i?.id === 251000);
@@ -1684,10 +1684,10 @@ const Third12 = ({ isSelectedDropBet,removeSingleBetFunction,setOpenDialogBox, b
               id="252000"
               className="!z-100 h-full w-full !text-[10px]"
               onClick={(e) => {
-                if(isSelectedDropBet){
-                removeSingleBetFunction(252000)
-                    return
-                  }
+                if (isSelectedDropBet) {
+                  removeSingleBetFunction(252000)
+                  return
+                }
                 if (amount < 10 || amount > 50000)
                   return toast("Please select amount grater than 10");
                 let isContainsPre = bet?.find((i) => i?.id === 252000);

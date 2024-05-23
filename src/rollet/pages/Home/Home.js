@@ -43,7 +43,7 @@ import Zero from "./Zero";
 import Rolletball from "../Rolletball";
 import thumbs_bg from '../../assets/images/thumbs_bg.jpg'
 function Home() {
-  const client  = useQueryClient();
+  const client = useQueryClient();
   const socket = useSocket();
   const value =
     (localStorage.getItem("logindataen") &&
@@ -94,10 +94,10 @@ function Home() {
     }
   );
 
-  const bet_result_history_Data = useMemo(()=>{
-    return bet_result_history?.data?.data?.slice(0,10) || []
-  },[bet_result_history]);
- 
+  const bet_result_history_Data = useMemo(() => {
+    return bet_result_history?.data?.data?.slice(0, 10) || []
+  }, [bet_result_history]);
+
 
   function removeSingleBetFunction(id) {
     let filterArray = bet?.filter((i) => i?.id !== id);
@@ -109,7 +109,7 @@ function Home() {
     }
   }
 
-   
+
   function setBetFuncton(id, number, amount) {
     console.log(id, number, amount);
     const obj = {
@@ -135,9 +135,8 @@ function Home() {
     let newelement = element.querySelector("span");
 
     if (newelement) {
-      newelement.innerHTML = `${
-        amount >= 1000 ? String(amount / 1000) + "k" : amount
-      }`;
+      newelement.innerHTML = `${amount >= 1000 ? String(amount / 1000) + "k" : amount
+        }`;
     } else {
       newelement = document.createElement("span");
       let vlaue = `${amount >= 1000 ? String(amount / 1000) + "k" : amount}`;
@@ -175,14 +174,12 @@ function Home() {
     let element = document.getElementById(`${id}`);
     let span = element.querySelector("span");
     if (span) {
-      span.innerHTML = `${
-        bet?.find((i) => i?.id === openDialogBox)?.amount + 1
-      }`;
+      span.innerHTML = `${bet?.find((i) => i?.id === openDialogBox)?.amount + 1
+        }`;
     } else {
       let newelement = document.createElement("span");
-      newelement.innerHTML = `${
-        bet?.find((i) => i?.id === openDialogBox)?.amount
-      }`;
+      newelement.innerHTML = `${bet?.find((i) => i?.id === openDialogBox)?.amount
+        }`;
       newelement.style.height = "10px";
       newelement.style.width = "10px";
       newelement.style.backgroundColor = "white";
@@ -304,7 +301,7 @@ function Home() {
   useEffect(() => {
     const handleOneMin = (onemin) => {
       setOne_min_time(onemin);
-      if(onemin === 0){
+      if (onemin === 0) {
         setresult_rollet(0);
       }
     };
@@ -389,6 +386,24 @@ function Home() {
           position: "absolute",
         }}
       >
+        <Box direction={"row"} sx={style.wunningamount}>
+          <Box sx={style.winnerLooserList4}>
+            <Typography variant="body1" color="initial" sx={{ color: "red" }}>
+              Total bet amount - ₹ <span style={{ color: 'red' }}>5000</span>
+            </Typography>
+            <Typography variant="body1" color="initial" sx={{ color: "red" }}>
+              You Win - ₹ <span style={{ color: '#15158F !important' }}>3570</span>
+            </Typography>
+          </Box>
+        </Box>
+      </Box>
+      <Box
+        sx={{
+          width: "100%",
+          height: "100%",
+          position: "absolute",
+        }}
+      >
         <Box direction={"row"} sx={style.winnerlooserouter2}>
           <Box sx={style.winnerLooserList}>
             <Typography variant="body1" color="initial" sx={{ color: "red" }}>
@@ -413,7 +428,7 @@ function Home() {
               99
             </Typography>
             <Typography variant="body1" color="initial" sx={{ color: "red" }}>
-            {bet_result_history_Data?.[4]?.number}
+              {bet_result_history_Data?.[4]?.number}
             </Typography>
           </Box>
           <Box sx={style.winnerLooserList}>
@@ -426,7 +441,7 @@ function Home() {
               99
             </Typography>
             <Typography variant="body1" color="initial" sx={{ color: "red" }}>
-            {bet_result_history_Data?.[3]?.number}
+              {bet_result_history_Data?.[3]?.number}
             </Typography>
           </Box>
           <Box sx={style.winnerLooserList}>
@@ -439,7 +454,7 @@ function Home() {
               99
             </Typography>
             <Typography variant="body1" color="initial" sx={{ color: "red" }}>
-            {bet_result_history_Data?.[2]?.number}
+              {bet_result_history_Data?.[2]?.number}
             </Typography>
           </Box>
           <Box sx={style.winnerLooserList}>
@@ -452,7 +467,7 @@ function Home() {
               99
             </Typography>
             <Typography variant="body1" color="initial" sx={{ color: "red" }}>
-            {bet_result_history_Data?.[1]?.number}
+              {bet_result_history_Data?.[1]?.number}
             </Typography>
           </Box>
           <Box sx={style.winnerLooserList}>
@@ -465,7 +480,7 @@ function Home() {
               99
             </Typography>
             <Typography variant="body1" color="initial" sx={{ color: "red" }}>
-            {bet_result_history_Data?.[0]?.number}
+              {bet_result_history_Data?.[0]?.number}
             </Typography>
           </Box>
         </Box>
@@ -717,9 +732,10 @@ function Home() {
             LEAVE TABLE
           </Typography>
         </Box>
-        <Box sx={style.naiming5} className={"!flex !gap-1"}>
+        <Box sx={style.naiming5} className={"!flex !gap-3"}>
           <Typography
-            className="!bg-[#15158f] !p-2"
+            className="!bg-[#15158f] !p-1"
+            sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '11px', borderRadius: "5px" }}
             onClick={() => confirmBet()}
             variant="body1"
             color="initial"
@@ -727,7 +743,8 @@ function Home() {
             CONFIRM
           </Typography>
           <Typography
-            className="!bg-[#15158f] !p-2 !text-white"
+            className="!bg-[#FF0000] !p-1 !text-white"
+            sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '11px', borderRadius: "5px" }}
             onClick={() => {
               setisSelectedDropBet(true);
             }}
