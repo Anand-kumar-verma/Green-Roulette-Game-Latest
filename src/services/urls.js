@@ -5,14 +5,13 @@ export const baseUrl = "https://web.vegusgain.com";
 // export const fron_end_main_domain = "https://sunlottery.fun";
 export const fron_end_main_domain = "https://vegusgain.com";
 
-
 // export const domain = "https://sun-lottery-timer-tlhr.onrender.com/";
 export const domain = "https://rollet-node-backend.onrender.com/";
 // export const domain = "http://localhost:9000/"
 
-export const support_mail = ""
+export const support_mail = "";
 // `support@sunlottrey.fun`;
-export const telegram_url = ""
+export const telegram_url = "";
 // `https://t.me/SunLottaryOfficial`;
 
 export const endpoint = {
@@ -53,8 +52,8 @@ export const endpoint = {
   recharge_call_bakc: `${baseUrl}/api/deposits-user-request`,
   cricket_get_url_id_pass: `${baseUrl}/api/cricket-details`,
   // trx api's
-  trx_game_history:`${baseUrl}/api/trx-auto-genrated-result`,
-  trx_game_bet:`${baseUrl}/api/trx-bet`,
+  trx_game_history: `${baseUrl}/api/trx-auto-genrated-result`,
+  trx_game_bet: `${baseUrl}/api/trx-bet`,
   my_history_all_trx: `${baseUrl}/api/trx-getColourBets`,
   my_history_all_trx_pending: `${baseUrl}/api/trx-getColourBets-results`,
   // aviator api's
@@ -68,11 +67,11 @@ export const endpoint = {
   bet_now: `${baseUrl}/api/aviator/bet_now`,
   cash_out: `${baseUrl}/api/aviator/cash_out`,
 
-  rollet : {
+  rollet: {
     login: baseUrl + "/api/roulette-login",
-    bet_now:baseUrl+"/api/bet-now",
-    profile:baseUrl+"/api/roulette-profile",
-    history:baseUrl+"/api/get-bet-history",
-    game_result:baseUrl+"/api/roulette-results-history"
-  }
+    bet_now: baseUrl + "/api/bet-now",
+    profile: baseUrl + "/api/roulette-profile",
+    history: baseUrl + "/api/get-bet-history",
+    game_result: baseUrl + "/api/roulette-results-history",
+  },
 };
