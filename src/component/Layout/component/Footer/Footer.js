@@ -1,14 +1,14 @@
 import { Box, Stack, Typography } from "@mui/material";
 import { useLocation, useNavigate } from "react-router-dom";
 import home from '../../../../assets/images/home.png';
-import homeact from '../../../../assets/images/homeact.png';
-import promotionact from '../../../../assets/images/megaphone (1).png';
+import homeact from '../../../../rollet/assets/images/home.png';
+import promotionact from '../../../../rollet/assets/images/megaphone.png';
 import promotion from '../../../../assets/images/megaphone.png';
-import puzzleact from '../../../../assets/images/puzzle (1).png';
+import puzzleact from '../../../../rollet/assets/images/puzzle.png';
 import puzzle from '../../../../assets/images/puzzle.png';
-import useract from '../../../../assets/images/user (1).png';
+import useract from '../../../../rollet/assets/images/user.png';
 import user from '../../../../assets/images/user.png';
-import walletact from '../../../../assets/images/wallet-filled-money-tool (1).png';
+import walletact from '../../../../rollet/assets/images/wallet-filled-money-tool.png';
 import wallet from '../../../../assets/images/wallet-filled-money-tool.png';
 
 
@@ -71,7 +71,7 @@ export default Footer;
 
 const style = {
   root: {
-    background: '#0f0232',
+    background: '#007F15',
     borderRadius: "10px 10px 0px 0px",
     padding: "10px 20px",
     maxWidth: "575px",

@@ -36,18 +36,19 @@ import aviator_game_image from "../../assets/aviator_game_image.png";
 // import one from "../../assets/images/1.jpg";
 // import two from "../../assets/images/2.jpg";
 // import three from "../../assets/images/123.png";
-import one from "../../rollet/assets/images/one.jpg";
+import one from '../../assets/images/Green.png';
 import two from "../../rollet/assets/images/two.jpeg";
 import three from "../../rollet/assets/images/three.jpg";
 import four from "../../rollet/assets/images/four.jpg";
 import five from "../../rollet/assets/images/five.jpg";
-import cash from "../../assets/images/cash-withdrawal.png";
-import deposit from "../../assets/images/deposit (1).png";
-import megaphone from "../../assets/images/megaphone.png";
+import cash from "../../rollet/assets/images/atm.png";
+import deposit from "../../rollet/assets/images/deposit.png";
+import megaphone from "../../rollet/assets/images/megaphone.png";
 import position2 from "../../assets/images/positio2.png";
 import position3 from "../../assets/images/position3.png";
 import position1 from "../../assets/images/positoin1.png";
-import stage from "../../assets/images/stage-podium1.jpeg";
+import stage from "../../assets/images/stage-podium1.png";
+import game from "../../assets/images/image-removebg-preview.png";
 import winp4 from "../../assets/images/winp4.jpg";
 import sajid from "../../assets/sajid.PNG";
 import tanveer from "../../assets/tanveer.PNG";
@@ -74,6 +75,7 @@ import Original from "./DashboadSubcomponent/Original";
 import Sports from "./DashboadSubcomponent/Sports";
 import Notification from "./Notification";
 import green_roulette from '../../rollet/assets/images/green_roulette.webp'
+import { object } from "yup";
 const Transition = React.forwardRef(function Transition(props, ref) {
   return <Slide direction="up" ref={ref} {...props} />;
 });
@@ -329,42 +331,6 @@ function Dashboard() {
                   sx={styles.swiperImage}
                 />
               </SwiperSlide>
-              <SwiperSlide>
-                <Box
-                  className="!h-[310px] !w-[100%]"
-                  component="img"
-                  src={two}
-                  alt="Slide 2"
-                  sx={styles.swiperImage}
-                />
-              </SwiperSlide>
-              <SwiperSlide>
-                <Box
-                  className="!h-[310px] !w-[100%]"
-                  component="img"
-                  src={three}
-                  alt="Slide 3"
-                  sx={styles.swiperImage}
-                />
-              </SwiperSlide>
-              <SwiperSlide>
-                <Box
-                  className="!h-[310px] !w-[100%]"
-                  component="img"
-                  src={five}
-                  alt="Slide 3"
-                  sx={styles.swiperImage}
-                />
-              </SwiperSlide>
-              <SwiperSlide>
-                <Box
-                  className="!h-[310px] !w-[100%]"
-                  component="img"
-                  src={four}
-                  alt="Slide 3"
-                  sx={styles.swiperImage}
-                />
-              </SwiperSlide>
             </Swiper>
           </Box>
           <Box className="!px-2">
@@ -379,42 +345,42 @@ function Dashboard() {
             >
               {allWithdrawlCashUserFnLoding
                 ? [1, 2]?.map((i) => {
-                    return (
-                      <SwiperSlide>
-                        <CircularProgress className="!text-white" />
-                      </SwiperSlide>
-                    );
-                  })
+                  return (
+                    <SwiperSlide>
+                      <CircularProgress className="!text-white" />
+                    </SwiperSlide>
+                  );
+                })
                 : allWithdrawl_CashData?.map((i, index) => {
-                    return (
-                      <SwiperSlide key={index}>
-                        <div className="!h-20 !w-full  !flex !items-center ">
-                          <div className="!w-full grid grid-cols-2 place-items-center !bg-gradient-to-l from-[#0F0232] via-[#4939C1]  to-[#0F0232] !py-6">
-                            <div className="flex items-center justify-between gap-3">
-                              <Avatar alt="Remy Sharp" sizes="large">
-                                {i?.full_name?.substring(0, 1) || ""}
-                              </Avatar>
-                              <p className=" !text-white !text-lg !whitespace-nowrap">
-                                {i?.full_name || ""}
-                              </p>
-                            </div>
-                            <p className=" !text-white">
-                              Withdraw {rupees}{" "}
-                              <spna className={"!font-bold !text-[#FB8356]"}>
-                                {Number(i?.amount || 0).toFixed(2)}
-                              </spna>
+                  return (
+                    <SwiperSlide key={index}>
+                      <div className="!h-20 !w-full  !flex !items-center ">
+                        <div className="!w-full grid grid-cols-2 place-items-center !bg-gradient-to-l from-[#0F0232] via-[#4939C1]  to-[#0F0232] !py-6">
+                          <div className="flex items-center justify-between gap-3">
+                            <Avatar alt="Remy Sharp" sizes="large">
+                              {i?.full_name?.substring(0, 1) || ""}
+                            </Avatar>
+                            <p className=" !text-white !text-lg !whitespace-nowrap">
+                              {i?.full_name || ""}
                             </p>
                           </div>
+                          <p className=" !text-white">
+                            Withdraw {rupees}{" "}
+                            <spna className={"!font-bold !text-[#FB8356]"}>
+                              {Number(i?.amount || 0).toFixed(2)}
+                            </spna>
+                          </p>
                         </div>
-                      </SwiperSlide>
-                    );
-                  })}
+                      </div>
+                    </SwiperSlide>
+                  );
+                })}
             </Swiper>
           </Box>
           <Box
             sx={{
               display: "flex",
-              alignItems: "start",
+              alignItems: "center",
               justifyContent: "space-between",
               width: "95%",
               marginLeft: "2.5%",
@@ -424,16 +390,16 @@ function Dashboard() {
               padding: "10px 10px",
             }}
           >
-            <Box sx={{ width: "10%" }}>
+            <Box sx={{ width: "20%" }}>
               <Box component="img" src={megaphone} width={30}></Box>
             </Box>
             <Box
-              sx={{ width: "90%", "&>p": { fontSize: "13px", color: "white" } }}
+              sx={{ width: "80%", "&>p": { fontSize: "13px", color: "white" } }}
             >
               <Typography
                 variant="body1"
                 color="initial"
-                className="!text-[#FB8356]"
+                className="!text-[#BA903B]"
               >
                 See the Installation page for additional docs about how to make
                 sure everything is set up correctly.
@@ -536,18 +502,10 @@ function Dashboard() {
                   <Box sx={styles.socialButtonText}>Telegram</Box>
                 </Stack>
               </Button>
-              <Button className="supportbtn" sx={styles.supportButton}>
-                <a href={`mailto:${support_mail}`}>
-                  <Stack>
-                    <HelpOutlineIcon sx={styles.socialIconinfo} />
-                    <Box sx={styles.socialButtonText}>Support</Box>
-                  </Stack>
-                </a>
-              </Button>
             </Stack>
           </Box>
           <div
-            className="mt-2 w-full grid grid-cols-3 gap-[2%] o"
+            className="mt-2 w-full "
             style={{
               width: "95%",
               marginLeft: "2.5%",
@@ -561,24 +519,29 @@ function Dashboard() {
                   onClick={() => {
                     if (i.name === "Green Roulette") navigate("/rollet");
                     else return toast("Comming Soon !");
-                    // scrollToSection("games");
-                    // settype_of_game(i?.name);
                   }}
                   href={`#${i?.name}`}
                   style={{
-                    // background:
-                    //   zubgmid,
-                    background: zubgbackgrad,
+                    background: '#BA903B',
+                    backgroundSize: '100%',
                     padding: "10px",
                     marginBottom: "10px",
-                    width: "95%",
+                    width: "100%",
+                    display: 'flex', alignItems: 'center', justifyContent: 'space-between',
                   }}
-                  className="cursor-pointer rounded-lg  flex flex-col items-center justify-center"
+                  className="cursor-pointer rounded-lg "
                 >
-                  <img className="w-[90px] h-[90px] " src={i?.img} />
-                  <p className="!text-sm font-bold" style={{ color: "white" }}>
-                    {i?.name}
-                  </p>
+                  <Box sx={{ width: '70%' }}>
+                    <p className=" font-bold" style={{ color: "#007F15", fontSize: '30px' }}>
+                      {i?.name}
+                    </p>
+                    <p style={{ color: zubgmid, fontSize: '12px' }}>
+                      Take your gaming experience to the next level with new Roulette – Casino Style.
+                    </p>
+                  </Box>
+                  <Box sx={{ width: '30%' }}>
+                    <img className="w-[100px] h-[100px] " src={game} />
+                  </Box>
                 </div>
               );
             })}
@@ -626,26 +589,25 @@ function Dashboard() {
                           Math.floor(Math.random() * 5) + 1 === 1
                             ? "https://mui.com/static/images/avatar/4.jpg"
                             : Math.floor(Math.random() * 5) + 1 === 2
-                            ? "https://lh3.googleusercontent.com/a/ACg8ocJ_lQQ7XjcLthKctAe1u5A6Fv8JJUQ0ugECmc7RkiZmKfI=s360-c-no"
-                            : Math.floor(Math.random() * 5) + 1 === 3
-                            ? "https://sunlottery.fun/static/media/tanveer.03fd8989206194114777.PNG"
-                            : Math.floor(Math.random() * 5) + 1 === 4
-                            ? "https://sunlottery.fun/static/media/sajid.e6abfd6b30c0fa7d3b1a.PNG"
-                            : ""
+                              ? "https://lh3.googleusercontent.com/a/ACg8ocJ_lQQ7XjcLthKctAe1u5A6Fv8JJUQ0ugECmc7RkiZmKfI=s360-c-no"
+                              : Math.floor(Math.random() * 5) + 1 === 3
+                                ? "https://sunlottery.fun/static/media/tanveer.03fd8989206194114777.PNG"
+                                : Math.floor(Math.random() * 5) + 1 === 4
+                                  ? "https://sunlottery.fun/static/media/sajid.e6abfd6b30c0fa7d3b1a.PNG"
+                                  : ""
                         } // Close the src attribute here
-                        className={`capitalize ${
-                          i.id % 2 === 0 ? "!bg-[#2350BF]" : "!bg-green-700"
-                        }`}
+                        className={`capitalize ${i.id % 2 === 0 ? "!bg-[#2350BF]" : "!bg-green-700"
+                          }`}
                       >
                         {i?.email?.split("@")[0]?.substring(0, 1)}
                       </Avatar>
                       <Typography variant="body1">
                         {i?.email
                           ? i.email.split("@")[0].substring(0, 2) +
-                            "**" +
-                            (i.email.split("@")[0].length > 2
-                              ? i.email.split("@")[0].substring(2, 4)
-                              : "")
+                          "**" +
+                          (i.email.split("@")[0].length > 2
+                            ? i.email.split("@")[0].substring(2, 4)
+                            : "")
                           : "**"}
                       </Typography>
                     </Stack>
@@ -762,28 +724,27 @@ function Dashboard() {
                           Math.floor(Math.random() * 5) + 1 === 1
                             ? "https://mui.com/static/images/avatar/4.jpg"
                             : Math.floor(Math.random() * 5) + 1 === 2
-                            ? "https://lh3.googleusercontent.com/a/ACg8ocJ_lQQ7XjcLthKctAe1u5A6Fv8JJUQ0ugECmc7RkiZmKfI=s360-c-no"
-                            : Math.floor(Math.random() * 5) + 1 === 3
-                            ? "https://sunlottery.fun/static/media/tanveer.03fd8989206194114777.PNG"
-                            : Math.floor(Math.random() * 5) + 1 === 4
-                            ? "https://sunlottery.fun/static/media/sajid.e6abfd6b30c0fa7d3b1a.PNG"
-                            : Math.floor(Math.random() * 5) + 1 === 5
-                            ? "https://res.cloudinary.com/do7kimovl/image/upload/v1711806164/WhatsApp_Image_2024-03-30_at_6.53.33_PM_qo99n4.jpg"
-                            : ""
+                              ? "https://lh3.googleusercontent.com/a/ACg8ocJ_lQQ7XjcLthKctAe1u5A6Fv8JJUQ0ugECmc7RkiZmKfI=s360-c-no"
+                              : Math.floor(Math.random() * 5) + 1 === 3
+                                ? "https://sunlottery.fun/static/media/tanveer.03fd8989206194114777.PNG"
+                                : Math.floor(Math.random() * 5) + 1 === 4
+                                  ? "https://sunlottery.fun/static/media/sajid.e6abfd6b30c0fa7d3b1a.PNG"
+                                  : Math.floor(Math.random() * 5) + 1 === 5
+                                    ? "https://res.cloudinary.com/do7kimovl/image/upload/v1711806164/WhatsApp_Image_2024-03-30_at_6.53.33_PM_qo99n4.jpg"
+                                    : ""
                         } // Close the src attribute here
-                        className={`capitalize ${
-                          i.id % 2 === 0 ? "!bg-[#2350BF]" : "!bg-green-700"
-                        }`}
+                        className={`capitalize ${i.id % 2 === 0 ? "!bg-[#2350BF]" : "!bg-green-700"
+                          }`}
                       >
                         {i?.email?.split("@")[0]?.substring(0, 1)}
                       </Avatar>
                       <Typography variant="body1">
                         {i?.email
                           ? i.email.split("@")[0].substring(0, 2) +
-                            "**" +
-                            (i.email.split("@")[0].length > 2
-                              ? i.email.split("@")[0].substring(2, 4)
-                              : "")
+                          "**" +
+                          (i.email.split("@")[0].length > 2
+                            ? i.email.split("@")[0].substring(2, 4)
+                            : "")
                           : "**"}
                       </Typography>
                     </Stack>
@@ -893,7 +854,7 @@ const styles = {
     fontSize: "21px",
     fontWeight: "500",
   },
-  swiperImage: { width: "100%", height: "auto" },
+  swiperImage: { width: "100%", height: "auto", objectFit: 'fill' },
   depositWithdrawContainer: {
     alignItems: "center",
     justifyContent: "space-between",
@@ -938,7 +899,6 @@ const styles = {
   },
   socialButtonIcon: {
     margin: "auto",
-    background: "white",
     borderRadius: "50%",
     width: "25px",
     height: "25px",
@@ -946,7 +906,7 @@ const styles = {
     alignItems: "center",
     justifyContent: "center",
   },
-  socialIcon: { fontSize: "20px", "&>path": { color: "#6da7f4 !important" } },
+  socialIcon: { fontSize: "30px", "&>path": { color: "#BA903B !important" } },
   socialIconinfo: {
     fontSize: "27px",
     margin: "auto",
@@ -1034,7 +994,7 @@ const styles = {
     color: "#8f5206",
     fontSize: "13px",
     fontWeight: 500,
-    background: "linear-gradient(180deg, #FAE59F 0%, #C4933F 100%)",
+    background: zubgbackgrad,
     padding: "6px 5px",
     borderRadius: "20px",
   },

@@ -143,7 +143,7 @@ function Withdrawl() {
       return toast(
         "We are upgrading for smooth and fast payout please wait..."
       );
-      
+
       Number(first_rechange) === 1
         ? withdraw_payment_Function(fd)
         : toast("You must be sure that , your first deposit is done.");
@@ -286,8 +286,8 @@ function Withdrawl() {
               {type
                 ? Number(amount?.cricket_wallet || 0).toFixed(2)
                 : Number(
-                    Number(amount?.wallet || 0) + Number(amount?.winning || 0)
-                  )?.toFixed(2)}
+                  Number(amount?.wallet || 0) + Number(amount?.winning || 0)
+                )?.toFixed(2)}
             </Typography>
             <CachedIcon sx={{ color: "white" }} />
           </Stack>
@@ -430,10 +430,8 @@ function Withdrawl() {
                   onKeyDown={(e) => e.key === "Enter" && fk.handleSubmit()}
                   InputProps={{
                     style: {
-                      borderColor: "#4939c1",
-                      borderWidth: "1px",
                       color: "white",
-                      background: "#281970",
+                      background: "#007f1592",
                       borderRadius: "10px",
                     },
                   }}
@@ -507,7 +505,7 @@ function Withdrawl() {
                   value={fk.values.description}
                   onChange={fk.handleChange}
                   placeholder="Enter description *"
-                  className="withdrawalfield !border-[2px] !border-[#ff82823d] !bg-[#281970] !rounded-[10px] no-scrollbar !text-white"
+                  className="withdrawalfield !border-[2px] !border-[#ff82823d] !bg-[#007f1592] !rounded-[10px] no-scrollbar !text-white"
                   InputProps={{
                     style: {
                       color: "white", // Text color

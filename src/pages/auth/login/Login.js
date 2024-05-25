@@ -7,12 +7,12 @@ import {
 import React, { useEffect, useState } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 import logo from "../../../assets/images/logo.png";
-import poster from "../../../assets/images/poster2.jpg";
+import poster from "../../../rollet/assets/images/poster.jpg";
 import LoginWithEmail from "./LoginWithEmail";
 import LoginWithMobile from "./LoginWithMobile";
 import { get_user_data_fn } from "../../../services/apicalling";
 import CryptoJS from 'crypto-js'
-import { useDispatch,useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 function Login() {
   const navigate = useNavigate()
   const [Nav, setNav] = useState(1);
@@ -26,16 +26,16 @@ function Login() {
   const logindata = localStorage.getItem("logindataen") && CryptoJS.AES.decrypt(localStorage.getItem("logindataen"), "anand")?.toString(CryptoJS.enc.Utf8) || null
   // const aviator_data = localStorage.getItem("aviator_data")
 
-  
+
   // useEffect(() => {
   //   !aviator_login_data && get_user_data_fn(dispatch);
   // }, []);
 
 
-  useEffect(()=>{
+  useEffect(() => {
     (logindata) && navigate('/dashboard')
-  },[])
-  
+  }, [])
+
   return (
     <Container
       sx={{
@@ -108,7 +108,7 @@ function Login() {
                 </Box>
               </Stack>
             </Box>
-            {Nav === 1 ? <LoginWithMobile/>:<LoginWithEmail/>}
+            {Nav === 1 ? <LoginWithMobile /> : <LoginWithEmail />}
           </Box>
         </Box>
       </Box>

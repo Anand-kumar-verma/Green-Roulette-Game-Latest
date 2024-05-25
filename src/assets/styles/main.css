@@ -58,7 +58,7 @@ img {
 
 
 .activeNav>h3 {
-  color: blue !important;
+  color: #12e135 !important;
 }
 
 
@@ -75,7 +75,7 @@ img {
 }
 
 .loginfields>div>input {
-  background-color: #0f0232cc !important;
+  background-color: #007f15cc !important;
   border-radius: 10px;
   border: 1px solid #ff82823d;
 }
@@ -107,7 +107,7 @@ img {
 }
 
 .btnLogin {
-  background: #4939c1 !important;
+  background: #083105 !important;
   font-size: 14px !important;
   font-weight: 600 !important;
   text-transform: capitalize !important;
@@ -117,7 +117,7 @@ img {
 }
 
 .btnregister {
-  background: #0F0232 !important;
+  background: #007f15 !important;
   font-size: 14px !important;
   font-weight: 600 !important;
   text-transform: capitalize !important;
@@ -127,7 +127,7 @@ img {
 }
 
 .btnregistertwo {
-  background: #0F0232 !important;
+  background: #007f15 !important;
   font-size: 15px !important;
   font-weight: 500 !important;
   text-transform: capitalize !important;
@@ -142,7 +142,7 @@ img {
 .loginfields>div>input {
   background-color: transparent !important;
   border-radius: 5px;
-  border: 1px solid #4939c1 !important;
+  border: 1px solid #083105 !important;
 }
 
 .loginfields>div>input.MuiInputBase-input {
@@ -168,7 +168,7 @@ img {
 .loginfieldspass {
   background: transparent !important;
   border-radius: 5px !important;
-  border: 1px solid #4939c1;
+  border: 1px solid #083105;
   padding: 0px 10px;
 }
 
@@ -230,7 +230,7 @@ img {
   display: block;
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: fill;
 }
 
 /* / end swipre css / */
@@ -238,7 +238,7 @@ img {
 .serv-item {
   width: 45px;
   height: 45px;
-  border: 1px solid white !important;
+  border: 1px solid #BA903B !important;
   padding: 5px;
   box-sizing: border-box;
   border-radius: 5px;
@@ -257,7 +257,7 @@ img {
 
 .b-val {
   margin: 0 !important;
-  color: white !important;
+  color: #BA903B !important;
   line-height: 1 !important;
   margin-bottom: 5px !important;
   font-size: 32px !important;
@@ -269,11 +269,11 @@ img {
   margin-bottom: 0 !important;
   font-size: 12px !important;
   text-align: center;
-  color: #fff !important;
+  color: #BA903B !important;
 }
 
 .whitebtn {
-  background: linear-gradient(1turn, #ec038b, #fb6468 44%, #fbb936) !important;
+  background: '#007F15' !important;
   padding: 20px 27px !important;
   height: 35px !important;
   color: white !important;
@@ -281,7 +281,7 @@ img {
 }
 
 .dbinput>div>input {
-  background-color: #0F0232 !important;
+  background-color: #007f15 !important;
   border-radius: 5px !important;
   height: 6px !important;
   color: white !important;
@@ -294,8 +294,8 @@ img {
 }
 
 .telegrambtn {
-  background: #EE1285 !important;
-  width: 49%;
+  background: #007F15 !important;
+  width: 100%;
   padding: 10px;
 }
 
@@ -358,7 +358,7 @@ img {
 }
 
 .bgcardboxda {
-  background: linear-gradient(1turn, #ec038b, #fb6468 44%, #fbb936);
+  background: '#BA903B';
   width: 32%;
   border-radius: 10px;
   height: 160px;
@@ -400,7 +400,7 @@ img {
 }
 
 .activewinNav {
-  background: #4939c1;
+  background: #083105;
   border-radius: 5px;
   padding: 10px;
 }
@@ -434,7 +434,7 @@ img {
 }
 
 .activewinNavtwo {
-  background: linear-gradient(1turn, #ec038b, #fb6468 44%, #fbb936);
+  background: '#BA903B';
   border-radius: 5px;
   padding: 15px;
 }
@@ -447,7 +447,7 @@ img {
 
 
 .countdownbg {
-  background: #4939c1;
+  background: #083105;
   background-size: 100% 100%;
   background-position: center;
   padding: 15px 10px;
@@ -518,7 +518,7 @@ img {
 .timerBox {
   width: 25px !important;
   height: 25px !important;
-  background: linear-gradient(1turn, #ec038b, #fb6468 44%, #fbb936);
+  background: '#BA903B';
   margin-right: 5px;
   margin-left: 5px;
   display: flex;
@@ -532,7 +532,7 @@ img {
 .timerBoxone {
   width: 25px !important;
   height: 25px !important;
-  background: linear-gradient(1turn, #ec038b, #fb6468 44%, #fbb936);
+  background: '#BA903B';
   margin-right: 5px;
   margin-left: 5px;
   display: flex;
@@ -547,7 +547,7 @@ img {
 .timerBoxfour {
   width: 25px !important;
   height: 25px !important;
-  background: linear-gradient(1turn, #ec038b, #fb6468 44%, #fbb936);
+  background: '#BA903B';
   margin-right: 5px;
   margin-left: 5px;
   display: flex;
@@ -609,7 +609,7 @@ img {
 .tableBox {
   width: 95%;
   margin-left: 2.5%;
-  background-color: #4939c1 !important;
+  background-color: #083105 !important;
   border-radius: 10px;
   margin-bottom: 70px !important;
   padding: 10px !important;
@@ -618,7 +618,7 @@ img {
 .tableBox_wingo {
   width: 95%;
   margin-left: 2.5%;
-  background-color: #4939c1 !important;
+  background-color: #083105 !important;
   border-radius: 10px;
   padding: 10px !important;
   margin-bottom: 20px;
@@ -645,7 +645,7 @@ img {
 }
 
 .wintable>thead {
-  background: linear-gradient(1turn, #ec038b, #fb6468 44%, #fbb936);
+  background: '#BA903B';
 }
 
 .wintable>tbody>tr>td {
@@ -851,7 +851,7 @@ img {
 }
 
 .dialogsmall>div>div {
-  background: #4939c1;
+  background: #083105;
   max-width: 100% !important;
 }
 
@@ -866,7 +866,7 @@ img {
 }
 
 .dialog-header-policy {
-  background: linear-gradient(1turn, #ec038b, #fb6468 44%, #fbb936);
+  background: '#BA903B';
   color: #ffffff !important;
   border: 0 !important;
   display: flex !important;
@@ -885,7 +885,7 @@ img {
 }
 
 .dialog-text {
-  background-color: #0F0232 !important;
+  background-color: #007f15 !important;
   border-bottom-left-radius: 10px !important;
   border-bottom-right-radius: 10px !important;
 }
@@ -940,7 +940,7 @@ img {
   padding: 0.5rem 0.75rem;
   line-height: 1.17333rem;
   color: #ffffff;
-  background-color: #0F0232;
+  background-color: #007f15;
   border-radius: 0.26667rem;
   border: 0 !important;
   text-align: center;
@@ -1012,7 +1012,7 @@ img {
   flex-direction: row;
   flex-wrap: wrap;
   border-radius: 15px;
-  background: linear-gradient(1turn, #ec038b, #fb6468 44%, #fbb936);
+  background: '#BA903B';
   color: white;
   scrollbar-color: transparent transparent;
 }
@@ -1041,7 +1041,7 @@ img {
 }
 
 .search>input {
-  background-color: #4939c193 !important;
+  background-color: #08310593 !important;
   border-radius: 10px;
   color: white;
 }
@@ -1070,7 +1070,7 @@ img {
   text-transform: capitalize !important;
   color: white !important;
   border-radius: 20px !important;
-  background: linear-gradient(1turn, #ec038b, #fb6468 44%, #fbb936) !important;
+  background: '#BA903B' !important;
   padding: 5px 30px !important;
   margin-left: 20px !important;
 }
@@ -1084,7 +1084,7 @@ img {
   text-transform: capitalize !important;
   color: white !important;
   border-radius: 20px !important;
-  background: linear-gradient(1turn, #ec038b, #fb6468 44%, #fbb936) !important;
+  background: '#BA903B' !important;
   padding: 5px 20px !important;
 }
 
@@ -1101,7 +1101,7 @@ img {
 
 .trx-play-box {
   padding: 5px;
-  background-color: #4939c1 !important;
+  background-color: #083105 !important;
   width: 95%;
   margin: auto;
   margin-top: 15px;
@@ -1151,11 +1151,11 @@ img {
 .trx-bet-size>button {
   color: white !important;
   text-transform: capitalize;
-  background: linear-gradient(1turn, #ec038b, #fb6468 44%, #fbb936);
+  background: '#BA903B';
 }
 
 .trx-bet-size>p {
-  background: #4939c1 !important;
+  background: #083105 !important;
   padding: 5px 10px;
   border-radius: 5px;
   color: white;
@@ -1195,7 +1195,7 @@ img {
   font-size: 35px !important;
   font-weight: 900 !important;
   font-family: Trade Winds !important;
-  background: linear-gradient(1turn, #ec038b, #fb6468 44%, #fbb936) !important;
+  background: '#BA903B' !important;
   -webkit-background-clip: text !important;
   -webkit-text-fill-color: transparent !important;
 }
@@ -1253,12 +1253,12 @@ img {
   margin: auto;
   padding: 10px 10px;
   border-radius: 10px;
-  background-color: #4939c1;
+  background-color: #083105;
   margin-top: 20px;
 }
 
 .wallet-textfield {
-  background-color: #0F0232 !important;
+  background-color: #007f15 !important;
   border-radius: 10px;
   text-align: center;
   color: white;
@@ -1281,7 +1281,7 @@ img {
 
 
 .withdrawalfield>div>input {
-  background-color: #0f023292 !important;
+  background-color: #007f1592 !important;
   border-radius: 10px;
   border: 1px solid #ff82823d;
 }

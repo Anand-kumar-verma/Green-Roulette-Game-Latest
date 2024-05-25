@@ -9,7 +9,7 @@ import toast from "react-hot-toast";
 import { useQuery } from "react-query";
 import { NavLink } from "react-router-dom";
 import CustomCircularProgress from "../../Shared/CustomCircularProgress";
-import { zubgback, zubgbackgrad, zubgmid } from "../../Shared/color";
+import { zubgback, zubgmid } from "../../Shared/color";
 import customer from "../../assets/images/24-hours-service.png";
 import copyIimage from "../../assets/images/copy.png";
 import sort from "../../assets/images/data-flow.png";
@@ -22,7 +22,7 @@ import { MypromotionDataFn } from "../../services/apicalling";
 import { fron_end_main_domain } from "../../services/urls";
 
 function Promotion() {
-  const [openDialogBoxHomeBanner, setopenDialogBoxHomeBanner] =useState(false);
+  const [openDialogBoxHomeBanner, setopenDialogBoxHomeBanner] = useState(false);
 
   const { isLoading, data } = useQuery(
     ["promotion_data"],
@@ -43,7 +43,7 @@ function Promotion() {
   return (
     <Layout>
       <Container>
-      <CustomCircularProgress isLoading={isLoading}/>
+        <CustomCircularProgress isLoading={isLoading} />
         <Box sx={style.header}>
           <Typography variant="body1" color="initial">
             {" "}
@@ -61,7 +61,7 @@ function Promotion() {
               {result?.today_turnover}
             </Typography>
             <Typography variant="body1" color="initial" className="!text-white">
-             Today's Turnover
+              Today's Turnover
             </Typography>
             <Typography variant="body1" color="initial" className="!text-white">
               Upgrade the level to increase turnover
@@ -108,7 +108,7 @@ function Promotion() {
                     color="initial"
                     className="!text-white"
                   >
-                   {result?.deposit_member || 0}
+                    {result?.deposit_member || 0}
                   </Typography>
                   <Typography
                     variant="body1"
@@ -125,7 +125,7 @@ function Promotion() {
                     color="initial"
                     className="!text-white"
                   >
-                   {result?.deposit_recharge || 0}
+                    {result?.deposit_recharge || 0}
                   </Typography>
                   <Typography
                     variant="body1"
@@ -158,7 +158,7 @@ function Promotion() {
               <Box sx={style.innerBoxStylestwo}>
                 <Box sx={style.subcordinatelist}>
                   <Typography variant="body1" color="initial">
-                  {result?.teamcount || 0}
+                    {result?.teamcount || 0}
                   </Typography>
                   <Typography variant="body1" color="initial">
                     {" "}
@@ -167,7 +167,7 @@ function Promotion() {
                 </Box>
                 <Box sx={style.subcordinatelist}>
                   <Typography variant="body1" color="initial">
-                  {result?.deposit_member_team || 0}
+                    {result?.deposit_member_team || 0}
                   </Typography>
                   <Typography variant="body1" color="initial">
                     {" "}
@@ -176,7 +176,7 @@ function Promotion() {
                 </Box>
                 <Box sx={style.subcordinatelist}>
                   <Typography variant="body1" color="initial">
-                  {result?.deposit_recharge_team || 0}
+                    {result?.deposit_recharge_team || 0}
                   </Typography>
                   <Typography variant="body1" color="initial">
                     {" "}
@@ -196,9 +196,9 @@ function Promotion() {
             </Box>
             <Box sx={style.invitebtn}>
               <NavLink
-              //  to="/promotion/PromotionShare"
-              onClick={() => functionTOCopy(`${fron_end_main_domain}/register?ref=${result?.referral_code}`)}
-               >
+                //  to="/promotion/PromotionShare"
+                onClick={() => functionTOCopy(`${fron_end_main_domain}/register?ref=${result?.referral_code}`)}
+              >
                 <Typography sx={{}}>INVITATION LINK</Typography>
               </NavLink>
             </Box>
@@ -333,15 +333,15 @@ function Promotion() {
               <Stack direction="row">
                 <Box>
                   <Typography variant="body1" color="initial">
-                  {Number(Number(result?.turnover || 0)+Number(result?.today_turnover || 0))?.toFixed(2)}
+                    {Number(Number(result?.turnover || 0) + Number(result?.today_turnover || 0))?.toFixed(2)}
                   </Typography>
                   <Typography variant="body1" color="initial">
-                   Total Turnover
+                    Total Turnover
                   </Typography>
                 </Box>
                 <Box>
                   <Typography variant="body1" color="initial">
-                  {result?.commission || 0}
+                    {result?.commission || 0}
                   </Typography>
                   <Typography variant="body1" color="initial">
                     Total Commission
@@ -351,7 +351,7 @@ function Promotion() {
               <Stack direction="row">
                 <Box>
                   <Typography variant="body1" color="initial">
-                  {result?.count || 0}
+                    {result?.count || 0}
                   </Typography>
                   <Typography variant="body1" color="initial">
                     Direct subordinate
@@ -359,7 +359,7 @@ function Promotion() {
                 </Box>
                 <Box>
                   <Typography variant="body1" color="initial">
-                  {result?.teamcount || 0}
+                    {result?.teamcount || 0}
                   </Typography>
                   <Typography variant="body1" color="initial">
                     Total number of <br />
@@ -372,7 +372,7 @@ function Promotion() {
           </Box>
         </Box>
         {openDialogBoxHomeBanner && (
-          <Dialog PaperProps={{width:"500px",height:"500px"}} open={openDialogBoxHomeBanner}>
+          <Dialog PaperProps={{ width: "500px", height: "500px" }} open={openDialogBoxHomeBanner}>
             <div>
               <p>
                 <IconButton onClick={() => setopenDialogBoxHomeBanner(false)}>
@@ -380,7 +380,7 @@ function Promotion() {
                 </IconButton>
               </p>
               <p>
-                <img  src={sunlotteryhomebanner} />
+                <img src={sunlotteryhomebanner} />
               </p>
             </div>
           </Dialog>
@@ -395,7 +395,7 @@ export default Promotion;
 const style = {
   header: {
     padding: "15px 8px",
-    background: zubgback,
+    background: '#007F15',
     display: "flex",
     alignItems: "center",
     justifyContent: "space-between",
@@ -422,7 +422,7 @@ const style = {
       fontSize: "13px",
       fontWeight: "400",
       padding: "5px 0px",
-      background: zubgbackgrad,
+      background: '#BA903B',
       borderRadius: "20px",
     },
     "&>p:nth-child(3)": {
@@ -438,7 +438,7 @@ const style = {
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
-    background: zubgbackgrad,
+    background: '#BA903B',
     borderTopLeftRadius: "10px",
     borderRight: "2px solid black",
     "&>svg": { color: "white", fontSize: "25px", marginRight: "10px" },
@@ -451,7 +451,7 @@ const style = {
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
-    background: zubgbackgrad,
+    background: '#BA903B',
     borderTopRightRadius: "10px",
     "&>svg": { color: "white", fontSize: "25px", marginRight: "10px" },
     "&>p": { color: "white", fontSize: "14px", fontWeight: "500" },
@@ -491,7 +491,7 @@ const style = {
       borderRadius: "20px",
       textAlign: "center",
       padding: "10px",
-      background: zubgbackgrad,
+      background: '#BA903B',
       color: "white",
       fontSize: "17px",
       fontWeight: 600,

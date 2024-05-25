@@ -55,7 +55,7 @@ function Activity() {
     <Layout>
       <Container
         sx={{
-          background: zubgback,
+          background: '#174119',
           width: "100%",
           height: "100vh",
           overflow: "auto",
@@ -115,7 +115,7 @@ function Activity() {
           })}
         </Box>
         {openDialogBoxHomeBanner && (
-          <Dialog PaperProps={{width:"500px",height:"500px"}} open={openDialogBoxHomeBanner}>
+          <Dialog PaperProps={{ width: "500px", height: "500px" }} open={openDialogBoxHomeBanner}>
             <div>
               <p>
                 <IconButton onClick={() => setopenDialogBoxHomeBanner(false)}>
@@ -123,7 +123,7 @@ function Activity() {
                 </IconButton>
               </p>
               <p>
-                <img  src={sunlotteryhomebanner} />
+                <img src={sunlotteryhomebanner} />
               </p>
             </div>
           </Dialog>
@@ -138,9 +138,10 @@ export default Activity;
 const style = {
   header: {
     padding: "8px",
-    background: zubgback,
+    background: '#007F15',
     display: "flex",
     alignItems: "center",
+    mb: 3,
     justifyContent: "space-between",
     "&>p": { color: "white !important", ml: "-30px" },
     "&>a>svg": { color: "white", fontSize: "25px" },
