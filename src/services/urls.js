@@ -1,6 +1,7 @@
 export const rupees = "₹";
 
-export const baseUrl = "https://admin.sunlottery.fun";
+export const baseUrl = "https://web.vegusgain.com";
+// export const baseUrl = "https://admin.sunlottery.fun";
 // export const fron_end_main_domain = "https://sunlottery.fun";
 export const fron_end_main_domain = "https://vegusgain.com";
 

@@ -2,7 +2,14 @@ import React from "react";
 import { Box, IconButton, Stack, Typography } from "@mui/material";
 import { style } from "./CommonCss";
 import toast from "react-hot-toast";
-const Zero = ({ isSelectedDropBet, removeSingleBetFunction, setOpenDialogBox, bet, setBetFuncton, amount }) => {
+const Zero = ({
+  isSelectedDropBet,
+  removeSingleBetFunction,
+  setOpenDialogBox,
+  bet,
+  setBetFuncton,
+  amount,
+}) => {
   return (
     <Stack direction="row" justifyContent="end" sx={{ height: "7.14%" }}>
       <Box
@@ -30,24 +37,28 @@ const Zero = ({ isSelectedDropBet, removeSingleBetFunction, setOpenDialogBox, be
           <span
             id="0"
             className="whitespace-nowrap !text-[13px]  !text-white"
-            style={{ fontWeight: '500' }}
+            style={{ fontWeight: "500" }}
             onClick={(e) => {
               if (isSelectedDropBet) {
-                removeSingleBetFunction("0")
-                return
+                removeSingleBetFunction("0");
+                return;
               }
               let isContainsPre = bet?.find((i) => i?.id === "0");
               if (isContainsPre) {
                 // setOpenDialogBox("0");
                 if (
-                  (isContainsPre?.amount + amount) > 5000 ||
+                  isContainsPre?.amount + amount > 5000 ||
                   isContainsPre?.amount < 2
                 ) {
                   return toast(
                     "Bet must be grater than 2 and less that 5000 Rupees"
                   );
                 } else {
-                  setBetFuncton("0", [0], Number(isContainsPre?.amount) + amount);
+                  setBetFuncton(
+                    "0",
+                    [0],
+                    Number(isContainsPre?.amount) + amount
+                  );
                 }
               } else {
                 setBetFuncton("0", [0], amount);

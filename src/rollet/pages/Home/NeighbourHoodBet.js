@@ -3,6 +3,7 @@ import { Box } from "@mui/material";
 import React from "react";
 import { NavLink } from "react-router-dom";
 import rollatesidebar from "../../assets/images/roulettesidebar.png";
+import toast from "react-hot-toast";
 const NeighbourHoodBet = ({
   setOpenDialogBox,
   bet,
@@ -10,6 +11,8 @@ const NeighbourHoodBet = ({
   amount,
   open,
   setOpen,
+  isSelectedDropBet,
+  removeSingleBetFunction,
 }) => {
   return (
     <Box sx={{ width: "100%", height: "100%", position: "relative" }}>
@@ -47,22 +50,40 @@ const NeighbourHoodBet = ({
               width: "143px",
               height: "62px",
               position: "absolute",
-              top: "33%",
+              top: "12%",
               left: "7%",
               clipPath: "polygon(0 0, 65% 0, 100% 100%, 0% 100%)",
               // background: 'red',
             }}
-            className={"!flex !justify-center !items-center"}
+            className={"!flex !justify-center !items-center "}
           >
             <span
               className="whitespace-nowrap !h-full !w-full !text-[10px] !text-white"
               id="101"
               onClick={(e) => {
-                let isContainsPre = bet?.find((i) => i?.id === 101);
+                if (isSelectedDropBet) {
+                  removeSingleBetFunction("101");
+                  return;
+                }
+                let isContainsPre = bet?.find((i) => i?.id === "101");
                 if (isContainsPre) {
-                  setOpenDialogBox(101);
+                  // setOpenDialogBox("0");
+                  if (
+                    isContainsPre?.amount + amount > 5000 ||
+                    isContainsPre?.amount < 2
+                  ) {
+                    return toast(
+                      "Bet must be grater than 2 and less that 5000 Rupees"
+                    );
+                  } else {
+                    setBetFuncton(
+                      "101",
+                      [101],
+                      Number(isContainsPre?.amount) + amount
+                    );
+                  }
                 } else {
-                  setBetFuncton(101, [101], amount);
+                  setBetFuncton("101", [101], amount);
                 }
                 e.stopPropagation();
               }}
@@ -74,23 +95,41 @@ const NeighbourHoodBet = ({
               width: 133,
               height: 62,
               position: "absolute",
-              top: "33%",
+              top: "12%",
               left: "26%",
               clipPath: "polygon(0 0, 100% 0, 100% 100%, 35% 100%)",
               WebkitClipPath: "polygon(0 0, 100% 0, 100% 100%, 35% 100%)",
               // backgroundColor: 'green',
             }}
-            className={"!flex !justify-center !items-center"}
+            className={"!flex !justify-center !items-center "}
           >
             <span
               className="whitespace-nowrap !h-full !w-full !text-[10px] !text-white"
               id="102"
               onClick={(e) => {
-                let isContainsPre = bet?.find((i) => i?.id === 102);
+                if (isSelectedDropBet) {
+                  removeSingleBetFunction("102");
+                  return;
+                }
+                let isContainsPre = bet?.find((i) => i?.id === "102");
                 if (isContainsPre) {
-                  setOpenDialogBox(102);
+                  // setOpenDialogBox("0");
+                  if (
+                    isContainsPre?.amount + amount > 5000 ||
+                    isContainsPre?.amount < 2
+                  ) {
+                    return toast(
+                      "Bet must be grater than 2 and less that 5000 Rupees"
+                    );
+                  } else {
+                    setBetFuncton(
+                      "102",
+                      [102],
+                      Number(isContainsPre?.amount) + amount
+                    );
+                  }
                 } else {
-                  setBetFuncton(102, [102], amount);
+                  setBetFuncton("102", [102], amount);
                 }
                 e.stopPropagation();
               }}
@@ -102,7 +141,7 @@ const NeighbourHoodBet = ({
               width: 125,
               height: 62,
               position: "absolute",
-              top: "33%",
+              top: "12%",
               left: "53%",
               // backgroundColor: 'yellow',
             }}
@@ -112,11 +151,29 @@ const NeighbourHoodBet = ({
               className="whitespace-nowrap !h-full !w-full !text-[10px] !text-white"
               id="103"
               onClick={(e) => {
-                let isContainsPre = bet?.find((i) => i?.id === 103);
+                if (isSelectedDropBet) {
+                  removeSingleBetFunction("103");
+                  return;
+                }
+                let isContainsPre = bet?.find((i) => i?.id === "103");
                 if (isContainsPre) {
-                  setOpenDialogBox(103);
+                  // setOpenDialogBox("0");
+                  if (
+                    isContainsPre?.amount + amount > 5000 ||
+                    isContainsPre?.amount < 2
+                  ) {
+                    return toast(
+                      "Bet must be grater than 2 and less that 5000 Rupees"
+                    );
+                  } else {
+                    setBetFuncton(
+                      "103",
+                      [103],
+                      Number(isContainsPre?.amount) + amount
+                    );
+                  }
                 } else {
-                  setBetFuncton(103, [103], amount);
+                  setBetFuncton("103", [103], amount);
                 }
                 e.stopPropagation();
               }}
@@ -128,7 +185,7 @@ const NeighbourHoodBet = ({
               width: 73,
               height: 62,
               position: "absolute",
-              top: "33%",
+              top: "12%",
               right: "7%",
               // backgroundColor: 'black',
               borderRadius: "25px",
@@ -139,11 +196,29 @@ const NeighbourHoodBet = ({
               className="whitespace-nowrap !h-full !w-full !text-[10px] !text-white"
               id="104"
               onClick={(e) => {
-                let isContainsPre = bet?.find((i) => i?.id === 104);
+                if (isSelectedDropBet) {
+                  removeSingleBetFunction("104");
+                  return;
+                }
+                let isContainsPre = bet?.find((i) => i?.id === "104");
                 if (isContainsPre) {
-                  setOpenDialogBox(104);
+                  // setOpenDialogBox("0");
+                  if (
+                    isContainsPre?.amount + amount > 5000 ||
+                    isContainsPre?.amount < 2
+                  ) {
+                    return toast(
+                      "Bet must be grater than 2 and less that 5000 Rupees"
+                    );
+                  } else {
+                    setBetFuncton(
+                      "104",
+                      [104],
+                      Number(isContainsPre?.amount) + amount
+                    );
+                  }
                 } else {
-                  setBetFuncton(104, [104], amount);
+                  setBetFuncton("104", [104], amount);
                 }
                 e.stopPropagation();
               }}
