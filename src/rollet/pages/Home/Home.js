@@ -34,7 +34,7 @@ import SvgCircle from "./SvgCircle";
 import MyTableComponent from "./Tablehistory";
 import Third12 from "./Third12";
 import Zero from "./Zero";
-import win_cap from "../../assets/images/winner_cap.PNG";
+import win_cap from "../../assets/images/pwin.png";
 function Home() {
   const client = useQueryClient();
   const socket = useSocket();
@@ -325,7 +325,7 @@ function Home() {
       newelement.style.alignItems = "center"; // Center content vertically
       newelement.style.justifyContent = "center"; // Center content horizontally
       newelement.style.textAlign = "center";
-      newelement.style.height = "30px"; // Ensure height is sufficient
+      newelement.style.height = "40px"; // Ensure height is sufficient
       newelement.style.width = "30px"; // Ensure width is sufficient
       imgElement.style.transform = "rotate(180deg)"; // Rotate the image
       newelement.appendChild(imgElement);
@@ -416,16 +416,19 @@ function Home() {
           // }}
         >
           <Box
-            sx={{
+          className ="!text-yellow-500 !font-extrabold  "
+          
+          sx={{
               // width: "100%",
               // height: "50%",
-              background: "white",
+              background: "black !important ",
               transform: "rotate(90deg)",
               borderRadius: "10px",
-              padding: "20px",
+              padding: "10px",
+              
             }}
           >
-            Let's Complete Previous Round.
+           PLEASE &nbsp; WAIT&nbsp; TO &nbsp;COMPLETE &nbsp; LAST &nbsp; GAME
           </Box>
         </Drawer>
         <Box direction={"row"} sx={style.winnerlooserouter}>

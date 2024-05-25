@@ -266,6 +266,21 @@ function Dashboard() {
     //   img: "https://ossimg.bdgadminbdg.com/IndiaBDG/gamecategory/gamecategory_20240110061909hwqs.png",
     // },
   ];
+  // const handlePlaySoundLast = async () => {
+  //   try {
+  //     if (audioRefMusiclast?.current?.pause) {
+  //       await audioRefMusiclast?.current?.play();
+  //     } else {
+  //       await audioRefMusiclast?.current?.pause();
+  //     }
+  //   } catch (error) {
+  //     // Handle any errors during play
+  //     console.error("Error during play:", error);
+  //   }
+  // };
+
+  // if (game_data?.[0].name === "Green Roulette") handlePlaySoundLast();
+
   return (
     <Layout>
       <Box sx={styles.root}>
