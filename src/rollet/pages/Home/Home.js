@@ -9,7 +9,7 @@ import {
 } from "@mui/material";
 import axios from "axios";
 import CryptoJS from "crypto-js";
-import { useEffect, useMemo, useRef, useState } from "react";
+import React, { useEffect, useMemo, useRef, useState } from "react";
 import toast from "react-hot-toast";
 import { useQuery, useQueryClient } from "react-query";
 import { NavLink, useNavigate } from "react-router-dom";
@@ -35,6 +35,7 @@ import MyTableComponent from "./Tablehistory";
 import Third12 from "./Third12";
 import Zero from "./Zero";
 import win_cap from "../../assets/images/pwin.png";
+import CustomConfirmDialog from "../Customdialog";
 function Home() {
   const client = useQueryClient();
   const socket = useSocket();
@@ -61,8 +62,11 @@ function Home() {
   const [open, setOpen] = useState(false);
   const [bet, setBet] = useState([]);
   const [openDialogBox, setOpenDialogBox] = useState("");
+  const [open1, setOpen1] = useState("");
   const [amount, setAmount] = useState(10);
   const navigate = useNavigate();
+  const audioRefMusic = React.useRef(null);
+
   const { isLoading: wallet_amont_lodin, data: wallet_amount } = useQuery(
     ["walletamount"],
     () => walletamount(),
@@ -140,9 +144,8 @@ function Home() {
     let newelement = element.querySelector("span");
 
     if (newelement) {
-      newelement.innerHTML = `${
-        amount >= 1000 ? String(amount / 1000) + "k" : amount
-      }`;
+      newelement.innerHTML = `${amount >= 1000 ? String(amount / 1000) + "k" : amount
+        }`;
     } else {
       newelement = document.createElement("span");
       let vlaue = `${amount >= 1000 ? String(amount / 1000) + "k" : amount}`;
@@ -231,10 +234,9 @@ function Home() {
     if (Number(total_amount_bet || 0) > Number(wallet_amount_data?.wallet || 0))
       return toast(
         <span className="!px-4 !py-2 !bg-blue-700 !text-white !border-2 !border-red-700 !rotate-90 !rounded-full">
-          {`Your bet amount is Rs. ${
-            Number(total_amount_bet || 0) -
+          {`Your bet amount is Rs. ${Number(total_amount_bet || 0) -
             Number(wallet_amount_data?.wallet || 0)
-          }, grater than your wallet amount.`}
+            }, grater than your wallet amount.`}
         </span>
       );
     try {
@@ -378,7 +380,33 @@ function Home() {
       console.error("Speech Synthesis is not supported in this browser.");
     }
   };
+  //   const handlePlaySoundLast = async () => {
+  //     try {
+  //       if (audioRefMusic?.current?.pause) {
+  //         await audioRefMusic?.current?.play();
+  //       } else {
+  //         await audioRefMusic?.current?.pause();
+  //       }
+  //     } catch (error) {
+  //       // Handle any errors during play
+  //       console.error("Error during play:", error);
+  //     }
+  //   };
 
+  //   useEffect=(()=>{
+  //  handlePlaySoundLast()
+  //   },[])
+
+
+  const handleConfirm = () => {
+    setOpen1(false);
+    window.location.href = '/dashboard';
+  };
+
+  const handleCancel = () => {
+    setOpen1(false);
+  };
+  
   return (
     <Box className="home" sx={style.root}>
       {/* {useMemo(() => {
@@ -411,24 +439,24 @@ function Home() {
           }}
           anchor="top"
           open={isOpenPreRoundDialogBox}
-          // onClose={() => {
-          //   setopenDialogBoxhistory(!openDialogBoxhistory);
-          // }}
+        // onClose={() => {
+        //   setopenDialogBoxhistory(!openDialogBoxhistory);
+        // }}
         >
           <Box
-          className ="!text-yellow-500 !font-extrabold  "
-          
-          sx={{
+            className="!text-yellow-500 !font-extrabold  "
+
+            sx={{
               // width: "100%",
               // height: "50%",
               background: "black !important ",
               transform: "rotate(90deg)",
               borderRadius: "10px",
               padding: "10px",
-              
+
             }}
           >
-           PLEASE &nbsp; WAIT&nbsp; TO &nbsp;COMPLETE &nbsp; LAST &nbsp; GAME
+            PLEASE &nbsp; WAIT&nbsp; TO &nbsp;COMPLETE &nbsp; LAST &nbsp; GAME
           </Box>
         </Drawer>
         <Box direction={"row"} sx={style.winnerlooserouter}>
@@ -760,18 +788,63 @@ function Home() {
             GAME HISTORY
           </Typography>
         </Box>
+
         <Box
           sx={style.naiming4}
-          onClick={() => {
-            // sessionStorage.clear();
-            // localStorage.clear();
-            navigate("/dashboard");
-          }}
+          // onClick={() => {
+          //   // sessionStorage.clear();
+          //   // localStorage.clear();
+          //   navigate("/dashboard");
+          // }}
+          onClick={() => setOpen1(true)}
         >
-          <Typography variant="body1" color="initial">
+          <Typography variant="body1" color="initial" >
             LEAVE TABLE
           </Typography>
+         </Box>
+
+         <Drawer
+        sx={{
+          "&>div": {
+            background: "transparent",
+            width: "400px",
+            height: "85vh",
+            ...style.flex,
+          },
+        }}
+        anchor="top"
+        open={open1}
+        onClose={() => {
+          setOpen1(open1);
+        }}
+       
+      >
+        <Box
+          sx={{
+            width: "350px",
+            height: "150px",
+            background: "black",
+            transform: "rotate(90deg)",
+            borderRadius: "10px",
+            padding: "20px",
+            color:"yellow",
+            borderColor:"yellow  !important",
+          }}
+        >
+        
+          <div className=" !flex flex-col !justify-center !items-center mt-4">
+        <div>
+          <p className="text-2xl font-bold ">Are you sure want to exit</p>
+        </div>
+        <div className="!flex !justify-center gap-12 mt-4">
+          <button onClick={handleConfirm} className="font-bold text-xl rounded border border-yellow-300 px-4">OK</button>
+           <button onClick={handleCancel} className="font-bold text-xl rounded border border-yellow-300 px-4">Cancel</button>
+          </div>
+          </div>
+         
         </Box>
+      </Drawer>
+
         {one_min_time > 10 && (
           <Box sx={style.naiming5} className={"!flex !gap-3"}>
             <Typography

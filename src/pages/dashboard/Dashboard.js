@@ -101,6 +101,7 @@ function Dashboard() {
   const [openbannerurl, setopenbannerurl] = useState("");
   const [loding, setloding] = useState(false);
   const [lodingBanner, setlodingBanner] = useState(false);
+  const audioRefMusic = React.useRef(null);
 
   useEffect(() => {
     if (!checkTokenValidity()) {
@@ -268,10 +269,10 @@ function Dashboard() {
   ];
   // const handlePlaySoundLast = async () => {
   //   try {
-  //     if (audioRefMusiclast?.current?.pause) {
-  //       await audioRefMusiclast?.current?.play();
+  //     if (audioRefMusic?.current?.pause) {
+  //       await audioRefMusic?.current?.play();
   //     } else {
-  //       await audioRefMusiclast?.current?.pause();
+  //       await audioRefMusic?.current?.pause();
   //     }
   //   } catch (error) {
   //     // Handle any errors during play
@@ -279,11 +280,20 @@ function Dashboard() {
   //   }
   // };
 
-  // if (game_data?.[0].name === "Green Roulette") handlePlaySoundLast();
-
+  // if (game_data?.[0]?.name === "Green Roulette") handlePlaySoundLast();
+  // console.log(game_data?.[0]?.name, "klkl")
   return (
     <Layout>
       <Box sx={styles.root}>
+      {/* {React.useMemo(() => {
+              return (
+                <>
+                  <audio ref={audioRefMusic} hidden>
+                    <source src={`${game_data?.[0]?.name === "Green Roulette"}`} type="audio/mp3" />
+                  </audio>
+                </>
+              );
+            }, [audioRefMusic])} */}
         <Container
           className="!h-[100%] !overflow-auto no-scrollbar"
           sx={{ background: zubgback }}
@@ -379,36 +389,36 @@ function Dashboard() {
             >
               {allWithdrawlCashUserFnLoding
                 ? [1, 2]?.map((i) => {
-                    return (
-                      <SwiperSlide>
-                        <CircularProgress className="!text-white" />
-                      </SwiperSlide>
-                    );
-                  })
+                  return (
+                    <SwiperSlide>
+                      <CircularProgress className="!text-white" />
+                    </SwiperSlide>
+                  );
+                })
                 : allWithdrawl_CashData?.map((i, index) => {
-                    return (
-                      <SwiperSlide key={index}>
-                        <div className="!h-20 !w-full  !flex !items-center ">
-                          <div className="!w-full grid grid-cols-2 place-items-center !bg-gradient-to-l from-[#0F0232] via-[#4939C1]  to-[#0F0232] !py-6">
-                            <div className="flex items-center justify-between gap-3">
-                              <Avatar alt="Remy Sharp" sizes="large">
-                                {i?.full_name?.substring(0, 1) || ""}
-                              </Avatar>
-                              <p className=" !text-white !text-lg !whitespace-nowrap">
-                                {i?.full_name || ""}
-                              </p>
-                            </div>
-                            <p className=" !text-white">
-                              Withdraw {rupees}{" "}
-                              <spna className={"!font-bold !text-[#FB8356]"}>
-                                {Number(i?.amount || 0).toFixed(2)}
-                              </spna>
+                  return (
+                    <SwiperSlide key={index}>
+                      <div className="!h-20 !w-full  !flex !items-center ">
+                        <div className="!w-full grid grid-cols-2 place-items-center !bg-gradient-to-l from-[#0F0232] via-[#4939C1]  to-[#0F0232] !py-6">
+                          <div className="flex items-center justify-between gap-3">
+                            <Avatar alt="Remy Sharp" sizes="large">
+                              {i?.full_name?.substring(0, 1) || ""}
+                            </Avatar>
+                            <p className=" !text-white !text-lg !whitespace-nowrap">
+                              {i?.full_name || ""}
                             </p>
                           </div>
+                          <p className=" !text-white">
+                            Withdraw {rupees}{" "}
+                            <spna className={"!font-bold !text-[#FB8356]"}>
+                              {Number(i?.amount || 0).toFixed(2)}
+                            </spna>
+                          </p>
                         </div>
-                      </SwiperSlide>
-                    );
-                  })}
+                      </div>
+                    </SwiperSlide>
+                  );
+                })}
             </Swiper>
           </Box>
           <Box
@@ -555,14 +565,16 @@ function Dashboard() {
               mb: "20px",
             }}
           >
+            
             {game_data?.map((i) => {
               return (
                 <div
                   onClick={() => {
-                    if (i.name === "Green Roulette") navigate("/rollet");
+                    if (i.name === "Green Roulette") navigate("/rollet") ;
                     else return toast("Comming Soon !");
                     // scrollToSection("games");
                     // settype_of_game(i?.name);
+                    // handlePlaySoundLast();
                   }}
                   href={`#${i?.name}`}
                   style={{
@@ -626,26 +638,25 @@ function Dashboard() {
                           Math.floor(Math.random() * 5) + 1 === 1
                             ? "https://mui.com/static/images/avatar/4.jpg"
                             : Math.floor(Math.random() * 5) + 1 === 2
-                            ? "https://lh3.googleusercontent.com/a/ACg8ocJ_lQQ7XjcLthKctAe1u5A6Fv8JJUQ0ugECmc7RkiZmKfI=s360-c-no"
-                            : Math.floor(Math.random() * 5) + 1 === 3
-                            ? "https://sunlottery.fun/static/media/tanveer.03fd8989206194114777.PNG"
-                            : Math.floor(Math.random() * 5) + 1 === 4
-                            ? "https://sunlottery.fun/static/media/sajid.e6abfd6b30c0fa7d3b1a.PNG"
-                            : ""
+                              ? "https://lh3.googleusercontent.com/a/ACg8ocJ_lQQ7XjcLthKctAe1u5A6Fv8JJUQ0ugECmc7RkiZmKfI=s360-c-no"
+                              : Math.floor(Math.random() * 5) + 1 === 3
+                                ? "https://sunlottery.fun/static/media/tanveer.03fd8989206194114777.PNG"
+                                : Math.floor(Math.random() * 5) + 1 === 4
+                                  ? "https://sunlottery.fun/static/media/sajid.e6abfd6b30c0fa7d3b1a.PNG"
+                                  : ""
                         } // Close the src attribute here
-                        className={`capitalize ${
-                          i.id % 2 === 0 ? "!bg-[#2350BF]" : "!bg-green-700"
-                        }`}
+                        className={`capitalize ${i.id % 2 === 0 ? "!bg-[#2350BF]" : "!bg-green-700"
+                          }`}
                       >
                         {i?.email?.split("@")[0]?.substring(0, 1)}
                       </Avatar>
                       <Typography variant="body1">
                         {i?.email
                           ? i.email.split("@")[0].substring(0, 2) +
-                            "**" +
-                            (i.email.split("@")[0].length > 2
-                              ? i.email.split("@")[0].substring(2, 4)
-                              : "")
+                          "**" +
+                          (i.email.split("@")[0].length > 2
+                            ? i.email.split("@")[0].substring(2, 4)
+                            : "")
                           : "**"}
                       </Typography>
                     </Stack>
@@ -762,28 +773,27 @@ function Dashboard() {
                           Math.floor(Math.random() * 5) + 1 === 1
                             ? "https://mui.com/static/images/avatar/4.jpg"
                             : Math.floor(Math.random() * 5) + 1 === 2
-                            ? "https://lh3.googleusercontent.com/a/ACg8ocJ_lQQ7XjcLthKctAe1u5A6Fv8JJUQ0ugECmc7RkiZmKfI=s360-c-no"
-                            : Math.floor(Math.random() * 5) + 1 === 3
-                            ? "https://sunlottery.fun/static/media/tanveer.03fd8989206194114777.PNG"
-                            : Math.floor(Math.random() * 5) + 1 === 4
-                            ? "https://sunlottery.fun/static/media/sajid.e6abfd6b30c0fa7d3b1a.PNG"
-                            : Math.floor(Math.random() * 5) + 1 === 5
-                            ? "https://res.cloudinary.com/do7kimovl/image/upload/v1711806164/WhatsApp_Image_2024-03-30_at_6.53.33_PM_qo99n4.jpg"
-                            : ""
+                              ? "https://lh3.googleusercontent.com/a/ACg8ocJ_lQQ7XjcLthKctAe1u5A6Fv8JJUQ0ugECmc7RkiZmKfI=s360-c-no"
+                              : Math.floor(Math.random() * 5) + 1 === 3
+                                ? "https://sunlottery.fun/static/media/tanveer.03fd8989206194114777.PNG"
+                                : Math.floor(Math.random() * 5) + 1 === 4
+                                  ? "https://sunlottery.fun/static/media/sajid.e6abfd6b30c0fa7d3b1a.PNG"
+                                  : Math.floor(Math.random() * 5) + 1 === 5
+                                    ? "https://res.cloudinary.com/do7kimovl/image/upload/v1711806164/WhatsApp_Image_2024-03-30_at_6.53.33_PM_qo99n4.jpg"
+                                    : ""
                         } // Close the src attribute here
-                        className={`capitalize ${
-                          i.id % 2 === 0 ? "!bg-[#2350BF]" : "!bg-green-700"
-                        }`}
+                        className={`capitalize ${i.id % 2 === 0 ? "!bg-[#2350BF]" : "!bg-green-700"
+                          }`}
                       >
                         {i?.email?.split("@")[0]?.substring(0, 1)}
                       </Avatar>
                       <Typography variant="body1">
                         {i?.email
                           ? i.email.split("@")[0].substring(0, 2) +
-                            "**" +
-                            (i.email.split("@")[0].length > 2
-                              ? i.email.split("@")[0].substring(2, 4)
-                              : "")
+                          "**" +
+                          (i.email.split("@")[0].length > 2
+                            ? i.email.split("@")[0].substring(2, 4)
+                            : "")
                           : "**"}
                       </Typography>
                     </Stack>
