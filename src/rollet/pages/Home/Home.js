@@ -55,6 +55,7 @@ function Home() {
     2, 4, 6, 8, 10, 11, 13, 15, 17, 20, 22, 24, 26, 28, 29, 31, 33, 35,
   ];
 
+  const [open1, setOpen1] = useState();
   const [isPlaying, setIsPlaying] = useState(false);
   const [isOpenPreRoundDialogBox, setisOpenPreRoundDialogBox] = useState(false);
   const [isSelectedDropBet, setisSelectedDropBet] = useState(false);
@@ -183,10 +184,6 @@ function Home() {
     setBet([]);
   }
 
-
-
-
-
   useEffect(() => {
     if (!checkTokenValidity()) {
       localStorage.clear();
@@ -194,8 +191,6 @@ function Home() {
       window.location.href = "/"; // Redirect to login page
     }
   }, []);
-
-
 
   const speakMessage = (message) => {
     if ("speechSynthesis" in window) {
@@ -306,6 +301,15 @@ function Home() {
       bet_history_Data?.reduce((a, b) => a + Number(b?.win || 0), 0) || 0
     )?.toFixed(2),
   ]);
+
+  const handleConfirm = () => {
+    setOpen1(false);
+    window.location.href = "/dashboard";
+  };
+
+  const handleCancel = () => {
+    setOpen1(false);
+  };
   return (
     <Box className="home" sx={style.root}>
       {useMemo(() => {
@@ -327,6 +331,54 @@ function Home() {
           position: "absolute",
         }}
       >
+        <Drawer
+          sx={{
+            "&>div": {
+              background: "transparent",
+              width: "400px",
+              height: "85vh",
+              ...style.flex,
+            },
+          }}
+          anchor="top"
+          open={open1}
+          onClose={() => {
+            setOpen1(open1);
+          }}
+        >
+          <Box
+            sx={{
+              width: "350px",
+              height: "150px",
+              background: "black",
+              transform: "rotate(90deg)",
+              borderRadius: "10px",
+              padding: "20px",
+              color: "yellow",
+              borderColor: "yellow  !important",
+            }}
+          >
+            <div className=" !flex flex-col !justify-center !items-center mt-4">
+              <div>
+                <p className="text-2xl font-bold ">Are you sure want to exit</p>
+              </div>
+              <div className="!flex !justify-center gap-12 mt-4">
+                <button
+                  onClick={handleConfirm}
+                  className="font-bold text-xl rounded border border-yellow-300 px-4"
+                >
+                  OK
+                </button>
+                <button
+                  onClick={handleCancel}
+                  className="font-bold text-xl rounded border border-yellow-300 px-4"
+                >
+                  Cancel
+                </button>
+              </div>
+            </div>
+          </Box>
+        </Drawer>
         <Drawer
           sx={{
             "&>div": {
@@ -685,14 +737,7 @@ function Home() {
             GAME HISTORY
           </Typography>
         </Box>
-        <Box
-          sx={style.naiming4}
-          onClick={() => {
-            // sessionStorage.clear();
-            // localStorage.clear();
-            navigate("/dashboard");
-          }}
-        >
+        <Box sx={style.naiming4} onClick={() => setOpen1(true)}>
           <Typography variant="body1" color="initial">
             LEAVE TABLE
           </Typography>
@@ -708,7 +753,9 @@ function Home() {
                 fontSize: "11px",
                 borderRadius: "5px",
               }}
-              onClick={() => confirmBet(bet,user_id,wallet_amount_data,client)}
+              onClick={() =>
+                confirmBet(bet, user_id, wallet_amount_data, client)
+              }
               variant="body1"
               color="initial"
             >
