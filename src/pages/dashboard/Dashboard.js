@@ -97,8 +97,6 @@ function Dashboard() {
   const navigate = useNavigate();
   const [poicy, setpoicy] = React.useState(false);
   const [type_of_game, settype_of_game] = React.useState("");
-  // const login_data = localStorage.getItem("logindata");
-  const user_id = value && JSON.parse(value).UserID;
   const [winnner_data, setwinnerdata] = useState([]);
   const [openbannerurl, setopenbannerurl] = useState("");
   const [loding, setloding] = useState(false);

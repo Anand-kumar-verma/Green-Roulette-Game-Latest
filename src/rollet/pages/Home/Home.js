@@ -19,6 +19,7 @@ import {
   getHistoryRollet,
   getProfileRollet,
   getResultOfRollet,
+  walletamount,
 } from "../../../services/apicalling";
 import { endpoint } from "../../../services/urls";
 import roulette from "../../assets/images/rolette.png";
@@ -35,8 +36,6 @@ import Third12 from "./Third12";
 import Zero from "./Zero";
 import win_cap from "../../assets/images/winner_cap.PNG";
 function Home() {
-  const audioRefMusic = useRef(null);
-  const audioRefMusicPlaceBet = useRef(null);
   const client = useQueryClient();
   const socket = useSocket();
   const value =
@@ -64,6 +63,16 @@ function Home() {
   const [openDialogBox, setOpenDialogBox] = useState("");
   const [amount, setAmount] = useState(10);
   const navigate = useNavigate();
+  const { isLoading: wallet_amont_lodin, data: wallet_amount } = useQuery(
+    ["walletamount"],
+    () => walletamount(),
+    {
+      refetchOnMount: false,
+      refetchOnReconnect: true,
+    }
+  );
+
+  const wallet_amount_data = wallet_amount?.data?.data || 0;
   const { isLoading, data } = useQuery(
     ["profile_rollet"],
     () => getProfileRollet(),
@@ -85,7 +94,7 @@ function Home() {
   );
 
   const bet_history_Data = bet_history?.data?.data || [];
-  console.log(bet_history_Data);
+  // console.log(bet_history_Data);
   const { isLoading: bet_result_history_loding, data: bet_result_history } =
     useQuery(["history_rollet_result"], () => getResultOfRollet(), {
       refetchOnMount: false,
@@ -215,14 +224,31 @@ function Home() {
       userid: user_id,
       amount: 10,
     };
-    console.log(updatedBet);
+    const total_amount_bet = updatedBet?.reduce(
+      (a, b) => a + Number(b?.amount || 0),
+      0
+    );
+    if (Number(total_amount_bet || 0) > Number(wallet_amount_data?.wallet || 0))
+      return toast(
+        <span className="!px-4 !py-2 !bg-blue-700 !text-white !border-2 !border-red-700 !rotate-90 !rounded-full">
+          {`Your bet amount is Rs. ${
+            Number(total_amount_bet || 0) -
+            Number(wallet_amount_data?.wallet || 0)
+          }, grater than your wallet amount.`}
+        </span>
+      );
     try {
       const res = await axios.post(endpoint?.rollet?.bet_now, reqbody);
       toast(
-        <span className="!bg-blue-800 !py-2 !px-4 !text-white !border-2 !border-red-800 !rounded-full" style={{ display: "inline-block", transform: "rotate(90deg)" }}>
+        <span
+          className="!bg-blue-800 !py-2 !px-4 !text-white !border-2 !border-red-800 !rounded-full"
+          style={{ display: "inline-block", transform: "rotate(90deg)" }}
+        >
           {res?.data?.msg}
         </span>
       );
+      client.refetchQueries("history_rollet_result");
+      client.refetchQueries("walletamount");
       // if (res?.data?.error === "200") removeBetFunctonAll();
     } catch (e) {
       console.log(e);
@@ -251,14 +277,15 @@ function Home() {
     };
     const handleOneMinrolletresult = (onemin) => {
       spinFunction(onemin);
-
+      console.log(onemin, "hii anand");
       localStorage.setItem("result_rollet", onemin);
       setTimeout(() => {
         setresult_rollet(onemin);
         client.refetchQueries("history_rollet_result");
         client.refetchQueries("history_rollet");
+        client.refetchQueries("walletamount");
         speakMessage(onemin);
-        addWinCap(onemin)
+        addWinCap(onemin);
         setTimeout(() => {
           if (bet_history_Data?.[0]?.win) {
             setOpenDialogBox(true);
@@ -303,7 +330,7 @@ function Home() {
       imgElement.style.transform = "rotate(180deg)"; // Rotate the image
       newelement.appendChild(imgElement);
       element.appendChild(newelement);
-  
+
       // Use setTimeout to remove the elements after 2 seconds
       setTimeout(() => {
         if (element.contains(newelement)) {
@@ -312,7 +339,6 @@ function Home() {
       }, 4000);
     }
   }
-  
 
   useEffect(() => {
     if (!checkTokenValidity()) {
@@ -431,17 +457,23 @@ function Home() {
             <Typography variant="body1" color="initial" sx={{ color: "red" }}>
               Total bet amount - ₹{" "}
               <span style={{ color: "red" }}>
-                {bet_history_Data?.reduce((a, b) => a + Number(b?.amount), 0) ||
-                  0}
+                {(
+                  bet_history_Data?.reduce(
+                    (a, b) => a + Number(b?.amount || 0),
+                    0
+                  ) || 0
+                ).toFixed(2)}
               </span>
             </Typography>
             <Typography variant="body1" color="initial" sx={{ color: "red" }}>
               You Win - ₹{" "}
               <span style={{ color: "#15158F !important" }}>
-                {bet_history_Data?.reduce(
-                  (a, b) => a + Number(b?.win || 0),
-                  0
-                ) || 0}
+                {Number(
+                  bet_history_Data?.reduce(
+                    (a, b) => a + Number(b?.win || 0),
+                    0
+                  ) || 0
+                )?.toFixed(2)}
               </span>
             </Typography>
           </Box>
