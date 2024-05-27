@@ -706,7 +706,7 @@ function Home() {
             POINT BALANCE
           </Typography>
           <Typography variant="body1" color="initial">
-            0.08
+          {wallet_amount?.data?.data?.wallet}
           </Typography>
         </Box>
         <Box sx={style.naiming2}>
