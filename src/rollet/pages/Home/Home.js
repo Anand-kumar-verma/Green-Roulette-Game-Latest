@@ -7,7 +7,6 @@ import {
   Stack,
   Typography,
 } from "@mui/material";
-import axios from "axios";
 import CryptoJS from "crypto-js";
 import { useEffect, useMemo, useRef, useState } from "react";
 import toast from "react-hot-toast";
@@ -21,9 +20,10 @@ import {
   getResultOfRollet,
   walletamount,
 } from "../../../services/apicalling";
-import { endpoint } from "../../../services/urls";
 import roulette from "../../assets/images/rolette.png";
+import wheel_roulette from "../../assets/images/roulettewheel.mp3";
 import watch from "../../assets/images/watch.png";
+import { addWinCap, confirmBet, spinFunction } from "../../sharedFunction";
 import Rolletball from "../Rolletball";
 import Coin from "./Coin";
 import { style } from "./CommonCss";
@@ -34,8 +34,6 @@ import SvgCircle from "./SvgCircle";
 import MyTableComponent from "./Tablehistory";
 import Third12 from "./Third12";
 import Zero from "./Zero";
-import wheel_roulette from "../../assets/images/roulettewheel.mp3";
-import { addWinCap, confirmBet, spinFunction } from "../../sharedFunction";
 function Home() {
   let interval_music;
   const client = useQueryClient();
@@ -68,7 +66,12 @@ function Home() {
   const [bet, setBet] = useState([]);
   const [openDialogBox, setOpenDialogBox] = useState("");
   const [amount, setAmount] = useState(10);
-  const navigate = useNavigate();
+  const [rebet, setrebet] = useState([]);
+  const [preBetHandle, setIsPreBetHandle] = useState(false);
+
+  useEffect(() => {
+    localStorage?.setItem("isPreBet", false);
+  }, []);
   const { isLoading: wallet_amont_lodin, data: wallet_amount } = useQuery(
     ["walletamount"],
     () => walletamount(),
@@ -121,14 +124,17 @@ function Home() {
   }
 
   function setBetFuncton(id, number, amount) {
+    console.log(id, number, amount, "all data");
     if (one_min_time <= 10) return;
     const obj = {
       id: id,
       number: number,
       amount: amount,
     };
+    console.log(obj);
     let isContainsPre = bet?.find((i) => i?.id === id);
     if (isContainsPre) {
+      console.log("inside if");
       const updatedArray = bet.map((item) => {
         if (item.id === id) {
           return { ...item, amount: amount };
@@ -137,9 +143,10 @@ function Home() {
       });
       setBet(updatedArray);
     } else {
+      console.log("inside else");
       setBet([...bet, obj]);
     }
-
+    console.log(bet);
     let element = document.getElementById(`${id}`);
     element.style.position = "relative"; // Ensure the parent is positioned relatively
     let newelement = element.querySelector("span");
@@ -231,6 +238,7 @@ function Home() {
     const handleOneMin = (onemin) => {
       setOne_min_time(onemin);
 
+      if (onemin === 58 || onemin === 57) setIsPreBetHandle(true);
       if (onemin === 0) {
         handlePlaySound();
         interval_music = setInterval(() => {
@@ -304,12 +312,93 @@ function Home() {
 
   const handleConfirm = () => {
     setOpen1(false);
+    localStorage.setItem("isPreBet",false)
     window.location.href = "/dashboard";
   };
 
   const handleCancel = () => {
     setOpen1(false);
   };
+
+  function rebetFuncton() {
+    // setBet([]);
+    bet?.forEach((ele) => {
+      let element = document.getElementById(`${ele?.id}`);
+      let span = element.querySelector("span");
+      if (span) {
+        element.removeChild(span);
+      }
+    });
+    console.log(rebet, "his is");
+    rebet?.forEach((ele) => {
+      forPlaceCoin(ele?.id, ele?.amount);
+    });
+    setBet(rebet);
+    // setrebet
+  }
+
+  function forPlaceCoin(id, amount) {
+    let element = document.getElementById(`${id}`);
+    element.style.position = "relative"; // Ensure the parent is positioned relatively
+    let newelement = element.querySelector("span");
+
+    if (newelement) {
+      newelement.innerHTML = `${
+        amount >= 1000 ? String(amount / 1000) + "k" : amount
+      }`;
+    } else {
+      newelement = document.createElement("span");
+      let vlaue = `${amount >= 1000 ? String(amount / 1000) + "k" : amount}`;
+      newelement.innerHTML = `${vlaue}`;
+      newelement.style.position = "absolute"; // Make the span position absolute
+      newelement.style.top = "50%"; // Center vertically
+      newelement.style.left = "50%"; // Center horizontally
+      newelement.style.transform = "translate(-50%, -50%)"; // Adjust position to center
+      newelement.style.display = "flex"; // Use flexbox for centering content
+      newelement.style.alignItems = "center"; // Center content vertically
+      newelement.style.justifyContent = "center"; // Center content horizontally
+      newelement.style.textAlign = "center";
+      newelement.style.height = "15px"; // Ensure height is sufficient
+      newelement.style.width = "15px"; // Ensure width is sufficient
+      newelement.style.backgroundColor = "white";
+      newelement.style.color = "black";
+      newelement.style.border = "1px solid blue";
+      newelement.style.borderRadius = "50%";
+      newelement.style.padding = "3px";
+      newelement.style.fontSize = "8px"; // Adjust font size for better visibility
+    }
+
+    element.appendChild(newelement);
+  }
+
+  function justDouble() {
+    bet?.forEach((ele) => {
+      let element = document.getElementById(`${ele?.id}`);
+      let span = element.querySelector("span");
+      if (span) {
+        element.removeChild(span);
+      }
+    });
+
+    let newUpdateAmountArray = bet?.map((ele) => {
+      return {
+        ...ele,
+        amount: [...black_array, ...red_array]?.includes(Number(ele?.id))
+          ? Number(ele?.amount) * 2 > 5000
+            ? ele?.amount
+            : Number(ele?.amount) * 2
+          : Number(ele?.amount) * 2 > 10000
+          ? ele?.amount
+          : Number(ele?.amount) * 2,
+      };
+    });
+    console.log(newUpdateAmountArray, "update array");
+    newUpdateAmountArray?.forEach((ele) => {
+      forPlaceCoin(ele?.id, ele?.amount);
+    });
+    setBet(newUpdateAmountArray);
+  }
+  console.log(bet, "final");
   return (
     <Box className="home" sx={style.root}>
       {useMemo(() => {
@@ -447,7 +536,7 @@ function Home() {
             </Typography>
             <Typography variant="body1" color="initial" sx={{ color: "red" }}>
               You Win :{" "}
-              <span style={{color: "#15158F !important" }}>
+              <span style={{ color: "#15158F !important" }}>
                 {Number(
                   bet_history_Data?.reduce(
                     (a, b) => a + Number(b?.win || 0),
@@ -737,6 +826,29 @@ function Home() {
             GAME HISTORY
           </Typography>
         </Box>
+        {preBetHandle && localStorage.getItem("isPreBet") && (
+          <>
+            <Box sx={style.naiming3} className={"!ml-10"}>
+              <Typography
+                variant="body1"
+                color="initial"
+                onClick={() => rebetFuncton()}
+              >
+                Rebet
+              </Typography>
+            </Box>
+            <Box className={"!absolute !bg-red-700 !mr-0 !mb-0"}>
+              <Typography
+                variant="body1"
+                color="initial"
+                className="!bg-red-600 !text-red-700 !cursor-pointer"
+                onClick={() => justDouble()}
+              >
+                2XXXX
+              </Typography>
+            </Box>
+          </>
+        )}
         <Box sx={style.naiming4} onClick={() => setOpen1(true)}>
           <Typography variant="body1" color="initial">
             LEAVE TABLE
@@ -754,7 +866,15 @@ function Home() {
                 borderRadius: "5px",
               }}
               onClick={() =>
-                confirmBet(bet, user_id, wallet_amount_data, client)
+                confirmBet(
+                  rebet,
+                  setrebet,
+                  bet,
+                  setBet,
+                  user_id,
+                  wallet_amount_data,
+                  client
+                )
               }
               variant="body1"
               color="initial"
