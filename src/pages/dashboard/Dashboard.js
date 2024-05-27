@@ -1,6 +1,5 @@
 import CloudDownloadIcon from "@mui/icons-material/CloudDownload";
 import FitbitIcon from "@mui/icons-material/Fitbit";
-import HelpOutlineIcon from "@mui/icons-material/HelpOutline";
 import TelegramIcon from "@mui/icons-material/Telegram";
 import {
   Avatar,
@@ -32,23 +31,15 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { checkTokenValidity } from "../../Shared/CookieStorage";
 import CustomCircularProgress from "../../Shared/CustomCircularProgress";
 import { gray, zubgback, zubgbackgrad, zubgmid } from "../../Shared/color";
-import aviator_game_image from "../../assets/aviator_game_image.png";
 // import one from "../../assets/images/1.jpg";
 // import two from "../../assets/images/2.jpg";
 // import three from "../../assets/images/123.png";
 import one from '../../assets/images/Green.png';
-import two from "../../rollet/assets/images/two.jpeg";
-import three from "../../rollet/assets/images/three.jpg";
-import four from "../../rollet/assets/images/four.jpg";
-import five from "../../rollet/assets/images/five.jpg";
-import cash from "../../rollet/assets/images/atm.png";
-import deposit from "../../rollet/assets/images/deposit.png";
-import megaphone from "../../rollet/assets/images/megaphone.png";
+import game from "../../assets/images/image-removebg-preview.png";
 import position2 from "../../assets/images/positio2.png";
 import position3 from "../../assets/images/position3.png";
 import position1 from "../../assets/images/positoin1.png";
 import stage from "../../assets/images/stage-podium1.png";
-import game from "../../assets/images/image-removebg-preview.png";
 import winp4 from "../../assets/images/winp4.jpg";
 import sajid from "../../assets/sajid.PNG";
 import tanveer from "../../assets/tanveer.PNG";
@@ -57,6 +48,10 @@ import {
   please_reconnect_the_serverFun,
   waitingAviatorFun,
 } from "../../redux/slices/counterSlice";
+import cash from "../../rollet/assets/images/atm.png";
+import deposit from "../../rollet/assets/images/deposit.png";
+// import green_roulette from '../../rollet/assets/images/green_roulette.webp';
+import megaphone from "../../rollet/assets/images/megaphone.png";
 import {
   MyProfileDataFn,
   allWithdrawlCashUserFn,
@@ -67,15 +62,12 @@ import {
   endpoint,
   fron_end_main_domain,
   rupees,
-  support_mail,
-  telegram_url,
+  telegram_url
 } from "../../services/urls";
 import Lottery from "./DashboadSubcomponent/Lottery";
 import Original from "./DashboadSubcomponent/Original";
 import Sports from "./DashboadSubcomponent/Sports";
 import Notification from "./Notification";
-import green_roulette from '../../rollet/assets/images/green_roulette.webp'
-import { object } from "yup";
 const Transition = React.forwardRef(function Transition(props, ref) {
   return <Slide direction="up" ref={ref} {...props} />;
 });
@@ -245,7 +237,7 @@ function Dashboard() {
   const game_data = [
     {
       name: "Green Roulette",
-      img: green_roulette,
+      // img: green_roulette,
     },
     // {
     //   name: "Aviator",
