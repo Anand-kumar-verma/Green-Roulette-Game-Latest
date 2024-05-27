@@ -145,9 +145,8 @@ function Home() {
     let newelement = element.querySelector("span");
 
     if (newelement) {
-      newelement.innerHTML = `${
-        amount >= 1000 ? String(amount / 1000) + "k" : amount
-      }`;
+      newelement.innerHTML = `${amount >= 1000 ? String(amount / 1000) + "k" : amount
+        }`;
     } else {
       newelement = document.createElement("span");
       let vlaue = `${amount >= 1000 ? String(amount / 1000) + "k" : amount}`;
@@ -390,9 +389,9 @@ function Home() {
           }}
           anchor="top"
           open={isOpenPreRoundDialogBox}
-          // onClose={() => {
-          //   setopenDialogBoxhistory(!openDialogBoxhistory);
-          // }}
+        // onClose={() => {
+        //   setopenDialogBoxhistory(!openDialogBoxhistory);
+        // }}
         >
           <Box
             className="!text-yellow-500 !font-extrabold  "
@@ -447,7 +446,7 @@ function Home() {
             </Typography>
             <Typography variant="body1" color="initial" sx={{ color: "red" }}>
               You Win :{" "}
-              <span style={{color: "#15158F !important" }}>
+              <span style={{ color: "#15158F !important" }}>
                 {Number(
                   bet_history_Data?.reduce(
                     (a, b) => a + Number(b?.win || 0),
@@ -529,7 +528,12 @@ function Home() {
                     return;
                   }
                   if (amount < 10 || amount > 50000)
-                    return toast("Please select amount grater than 10");
+                    return toast(
+                      <span className="!bg-black !p-2 !rounded"
+                      style={{ fontWeight: 700, transform: 'rotate(90deg)' ,marginTop: '100%' , backgroundColor: 'black'}}>
+                        Please select amount grater than 10
+                      </span>
+                    )
                   let isContainsPre = bet?.find((i) => i?.id === 336);
                   if (isContainsPre) {
                     // setOpenDialogBox(336);
@@ -538,7 +542,8 @@ function Home() {
                       isContainsPre?.amount < 10
                     ) {
                       return toast(
-                        "Bet must be grater than 10 and less that 50000 Rupees"
+                        <span className="!bg-black !p-2 !rounded"
+                         style={{ fontWeight: 700, transform: 'rotate(90deg)' ,marginTop: '100%' , backgroundColor: 'black'}}> Bet must be grater than 10 and less that 50000 Rupees</span>
                       );
                     } else {
                       setBetFuncton(
@@ -565,7 +570,8 @@ function Home() {
                     return;
                   }
                   if (amount < 10 || amount > 50000)
-                    return toast("Please select amount grater than 10");
+                    return toast(<span className="!bg-black !p-2 !rounded"
+                      style={{ fontWeight: 700, transform: 'rotate(90deg)' ,marginTop: '100%' , backgroundColor: 'black'}}>Please select amount grater than 10</span>);
                   let isContainsPre = bet?.find((i) => i?.id === 235);
                   if (isContainsPre) {
                     // setOpenDialogBox(235);
@@ -574,7 +580,9 @@ function Home() {
                       isContainsPre?.amount < 10
                     ) {
                       return toast(
-                        "Bet must be grater than 10 and less that 50000 Rupees"
+                        <span className="!bg-black !p-2 !rounded"
+                      style={{ fontWeight: 700, transform: 'rotate(90deg)' ,marginTop: '100%' , backgroundColor: 'black'}}>
+                          Bet must be grater than 10 and less that 50000 Rupees</span>
                       );
                     } else {
                       setBetFuncton(
@@ -601,7 +609,10 @@ function Home() {
                     return;
                   }
                   if (amount < 10 || amount > 50000)
-                    return toast("Please select amount grater than 10");
+                    return toast(
+                      <span className="!bg-black !p-2 !rounded"
+                      style={{ fontWeight: 700, transform: 'rotate(90deg)' ,marginTop: '100%' , backgroundColor: 'black'}}>Please select amount grater than 10
+                      </span>);
                   let isContainsPre = bet?.find((i) => i?.id === 134);
                   if (isContainsPre) {
                     // setOpenDialogBox(134);
@@ -610,7 +621,9 @@ function Home() {
                       isContainsPre?.amount < 10
                     ) {
                       return toast(
-                        "Bet must be grater than 10 and less that 50000 Rupees"
+                        <span className="!bg-black !p-2 !rounded"
+                      style={{ fontWeight: 700, transform: 'rotate(90deg)' ,marginTop: '100%'  }}>
+                          Bet must be grater than 10 and less that 50000 Rupees</span>
                       );
                     } else {
                       setBetFuncton(
@@ -706,7 +719,10 @@ function Home() {
             POINT BALANCE
           </Typography>
           <Typography variant="body1" color="initial">
-          {wallet_amount?.data?.data?.wallet}
+
+            {Number(
+              Number(wallet_amount?.data?.data?.wallet || 0) + Number(wallet_amount?.data?.data?.winning || 0)
+            )?.toFixed(2)}
           </Typography>
         </Box>
         <Box sx={style.naiming2}>

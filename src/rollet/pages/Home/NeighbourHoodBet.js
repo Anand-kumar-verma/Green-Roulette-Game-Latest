@@ -73,7 +73,9 @@ const NeighbourHoodBet = ({
                     isContainsPre?.amount < 2
                   ) {
                     return toast(
-                      "Bet must be grater than 2 and less that 5000 Rupees"
+                      <span className="!bg-black !p-2 !rounded"
+                      style={{ fontWeight: 700, transform: 'rotate(90deg)' ,marginTop: '100%' , backgroundColor: 'black'}}>
+                          Bet must be grater than 10 and less that 50000 Rupees</span>
                     );
                   } else {
                     setBetFuncton(
@@ -119,7 +121,9 @@ const NeighbourHoodBet = ({
                     isContainsPre?.amount < 2
                   ) {
                     return toast(
-                      "Bet must be grater than 2 and less that 5000 Rupees"
+                      <span className="!bg-black !p-2 !rounded"
+                      style={{ fontWeight: 700, transform: 'rotate(90deg)' ,marginTop: '100%' , backgroundColor: 'black'}}>
+                          Bet must be grater than 10 and less that 50000 Rupees</span>
                     );
                   } else {
                     setBetFuncton(
@@ -163,7 +167,9 @@ const NeighbourHoodBet = ({
                     isContainsPre?.amount < 2
                   ) {
                     return toast(
-                      "Bet must be grater than 2 and less that 5000 Rupees"
+                      <span className="!bg-black !p-2 !rounded"
+                      style={{ fontWeight: 700, transform: 'rotate(90deg)' ,marginTop: '100%' , backgroundColor: 'black'}}>
+                          Bet must be grater than 10 and less that 50000 Rupees</span>
                     );
                   } else {
                     setBetFuncton(
@@ -208,7 +214,9 @@ const NeighbourHoodBet = ({
                     isContainsPre?.amount < 2
                   ) {
                     return toast(
-                      "Bet must be grater than 2 and less that 5000 Rupees"
+                      <span className="!bg-black !p-2 !rounded"
+                      style={{ fontWeight: 700, transform: 'rotate(90deg)' ,marginTop: '100%' , backgroundColor: 'black'}}>
+                          Bet must be grater than 10 and less that 50000 Rupees</span>
                     );
                   } else {
                     setBetFuncton(
