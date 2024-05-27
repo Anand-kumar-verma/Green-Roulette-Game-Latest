@@ -4,16 +4,12 @@ import copy from "clipboard-copy";
 import { useFormik } from "formik";
 import React, { useEffect, useState } from "react";
 import toast from "react-hot-toast";
-import { useNavigate } from "react-router-dom";
-import CustomCircularProgress from "../../Shared/CustomCircularProgress";
 import { signupSchemaValidataon } from "../../Shared/Validation";
 import logo from "../../assets/images/club-8-copyright.png";
 import { Cricket_id_passFunction } from "../../services/apicalling";
 function CricketRegistrationForm() {
-  const navigate = useNavigate();
   const [openDialogBox, setOpenDialogBox] = useState(false);
   const [id_pass, set_id_pass] = useState(" _ ");
-  const [loding, setloding] = useState(false);
   const [id_pass_data, setId_pass_data] = useState({
     id: "",
     pass: "",
@@ -266,7 +262,7 @@ function CricketRegistrationForm() {
           </Box>
         </Dialog>
       )}
-      <CustomCircularProgress isLoading={loding} />
+      {/* <CustomCircularProgress isLoading={loding} /> */}
     </Container>
   );
 }

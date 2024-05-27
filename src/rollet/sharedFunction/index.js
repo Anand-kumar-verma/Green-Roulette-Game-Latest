@@ -46,7 +46,15 @@ export const spinFunction = (id) => {
   }, 50 * 1000);
 };
 
-export const confirmBet = async (bet, user_id, wallet_amount_data, client) => {
+export const confirmBet = async (
+  rebet,
+  setrebet,
+  bet,
+  setBet,
+  user_id,
+  wallet_amount_data,
+  client
+) => {
   const isAlreadyAppliedBet = localStorage.getItem("rollet_bet_placed");
   if (isAlreadyAppliedBet === "true")
     return toast(
@@ -118,6 +126,7 @@ export const confirmBet = async (bet, user_id, wallet_amount_data, client) => {
     );
   try {
     const res = await axios.post(endpoint?.rollet?.bet_now, reqbody);
+
     toast(
       <span
         className="!bg-blue-800 !py-2 !px-4 !text-white !border-2 !border-red-800 !rounded-full"
@@ -127,7 +136,17 @@ export const confirmBet = async (bet, user_id, wallet_amount_data, client) => {
       </span>
     );
     if (res?.data?.msg === "Bet Successfully") {
+      setrebet(bet);
+      bet?.forEach((ele) => {
+        let element = document.getElementById(`${ele?.id}`);
+        let span = element.querySelector("span");
+        if (span) {
+          element.removeChild(span);
+        }
+      });
+      setBet([]);
       localStorage?.setItem("rollet_bet_placed", true);
+      localStorage?.setItem("isPreBet", true);
     }
     client.refetchQueries("history_rollet_result");
     client.refetchQueries("walletamount");
@@ -136,5 +155,3 @@ export const confirmBet = async (bet, user_id, wallet_amount_data, client) => {
     console.log(e);
   }
 };
-
-
