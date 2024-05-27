@@ -35,6 +35,7 @@ import { gray, zubgback, zubgbackgrad, zubgmid } from "../../Shared/color";
 // import two from "../../assets/images/2.jpg";
 // import three from "../../assets/images/123.png";
 import one from "../../assets/images/Green.png";
+// import one from '../../assets/images/Green.png';
 import game from "../../assets/images/image-removebg-preview.png";
 import position2 from "../../assets/images/positio2.png";
 import position3 from "../../assets/images/position3.png";
@@ -50,7 +51,8 @@ import {
 } from "../../redux/slices/counterSlice";
 import cash from "../../rollet/assets/images/atm.png";
 import deposit from "../../rollet/assets/images/deposit.png";
-import green_roulette from "../../rollet/assets/images/green_roulette.webp";
+// import green_roulette from "../../rollet/assets/images/green_roulette.webp";
+// import green_roulette from '../../rollet/assets/images/green_roulette.png';
 import megaphone from "../../rollet/assets/images/megaphone.png";
 import {
   MyProfileDataFn,
@@ -62,7 +64,8 @@ import {
   endpoint,
   fron_end_main_domain,
   rupees,
-  telegram_url,
+  // telegram_url,
+  telegram_url
 } from "../../services/urls";
 import Lottery from "./DashboadSubcomponent/Lottery";
 import Original from "./DashboadSubcomponent/Original";
@@ -238,7 +241,7 @@ function Dashboard() {
   const game_data = [
     {
       name: "Green Roulette",
-      img: green_roulette,
+      // img: green_roulette,
     },
     // {
     //   name: "Aviator",

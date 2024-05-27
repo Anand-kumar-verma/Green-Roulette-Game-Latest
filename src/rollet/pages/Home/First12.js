@@ -17,11 +17,7 @@ const First12 = ({
         style={{ border: "1px solid white", ...style.flex }}
       >
         <div className="!p-0" style={{ width: "75%", height: '100%', border: '1px solid white' }}>
-          <div
-            variant="body1"
-            color="initial"
-            className="!flex !justify-center !items-center "
-          >
+          <div variant="body1" color="initial" className="!flex !justify-center !items-center ">
             <span
               style={{ fontWeight: 700, transform: 'rotate(90deg)', marginTop: '100%' }}
               className="whitespace-nowrap !text-[12px] !text-white  "

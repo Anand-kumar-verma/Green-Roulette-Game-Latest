@@ -38,12 +38,20 @@ export const style = {
     },
   },
   bettable: {
+    // width: "32%",
+    // height: "52%",
+    // position: "absolute",
+    // left: "31%",
+    // top: "12%",
+    // transform: 'skew(31deg, -45deg)',
+
     width: "44%",
-    height: "70%",
+    height: "58%",
     position: "absolute",
-    left: "28%",
-    top: "3%",
-    transform: 'rotate(-6deg)',
+    left: "24%",
+    top: "10%",
+    transform: 'rotate(-0deg)',
+
   },
   btn1: {
     padding: 0,
@@ -132,11 +140,12 @@ export const style = {
       textAlign: 'center',
     },
   },
+
   naiming6: {
     transform: "rotate(90deg)",
     position: "absolute",
-    top: "36%",
-    left: "-4.5%",
+    top: "6.2%",
+    left: "6.5%",
     borderRadius: "5px",
     textAlign: "center",
     border: '3px solid #CEAE5E',
@@ -152,6 +161,7 @@ export const style = {
       lineHeight: '12px',
     },
   },
+
   naiming2: {
     background:
       "linear-gradient(to right,#BF953F, #FCF6BA, #B38728, #FBF5B7, #AA771C)",
@@ -182,15 +192,17 @@ export const style = {
       textAlign: 'center',
     },
   },
+
   naiming3: {
     transform: "rotate(90deg)",
     position: "absolute",
-    top: "51.5%",
-    left: "-4.5%",
+    top: "74.5%",
+    left: "-7.5%",
     borderRadius: "5px",
     textAlign: "center",
     border: '3px solid #CEAE5E',
     width: "90px",
+    opacity: '0',
     "&>p:nth-child(1)": {
       color: "black",
       fontSize: "10px",
@@ -202,15 +214,17 @@ export const style = {
       lineHeight: '12px',
     },
   },
+
   naiming4: {
     background: "red",
-    width: "100px",
+    width: "70px",
     transform: "rotate(90deg)",
     position: "absolute",
     bottom: "8.7%",
-    left: "-7%",
+    left: "-6%",
     borderRadius: "2px",
     padding: '5px 0px',
+    opacity: 0,
     "&>p:nth-child(1)": {
       color: "white",
       fontSize: "10px",
@@ -219,13 +233,14 @@ export const style = {
       textAlign: 'center;'
     },
   },
+
   naiming7: {
     background: 'red',
     transform: "rotate(90deg)",
     position: "absolute",
-    bottom: "26%",
-    left: "3.5%",
-    padding: "10px 31px",
+    bottom: "57.5%",
+    left: "-8.3%",
+    padding: "10px 32px",
     borderRadius: "5px",
     "&>p:nth-child(1)": {
       color: "white",
@@ -234,37 +249,50 @@ export const style = {
       textAlign: "center",
     },
   },
-  naiming5: {
-    // background: '#15158f',
+
+  naiming8: {
+    background: 'red',
     transform: "rotate(90deg)",
     position: "absolute",
-    bottom: "26%",
-    left: "-8.3%",
-    // padding: "10px",
+    bottom: "39.5%",
+    left: "-8.1%",
+    padding: "6px 32px",
     borderRadius: "5px",
+    "&>p:nth-child(1)": {
+      color: "white",
+      fontSize: "10px",
+      fontWeight: "600",
+      textAlign: "center",
+    },
+  },
+
+  naiming5: {
+    transform: "rotate(90deg)",
+    position: "absolute",
+    bottom: "22.5%",
+    left: "7%",
+    borderRadius: "5px",
+    width: '100px',
+    height: '27px',
+    opacity: '0',
     "&>p:nth-child(1)": {
       color: "white",
       fontWeight: "600",
       textAlign: "center",
-      padding: '9px 5px !important'
-    },
-    "&>p:nth-child(2)": {
-      color: "white",
-      fontWeight: "600",
-      textAlign: "center",
-      padding: '9px 5px !important'
+      padding: '9px 5px !important',
+      width: '100%',
     },
   },
 
 
   countdownOuter: {
     position: "absolute",
-    width: "75px",
-    height: "75px",
+    width: "60px",
+    height: "60px",
     background: "black",
-    bottom: "5%",
-    left: "12.5%",
-    border: "2px solid white",
+    bottom: "5.5%",
+    left: "7.5%",
+    border: "1px solid white",
     borderRadius: "10px",
     outline: "10px solid black",
     boxSizing: "border-box",
@@ -273,19 +301,21 @@ export const style = {
     padding: "2px",
     border: "2px solid #C9A553",
     position: "absolute",
-    right: "-2%",
+    right: "0%",
     transform: "rotate(90deg)",
-    top: "18%",
-    width: "120px",
+    top: "11%",
+    width: "131px",
     borderRadius: "5px",
+    background: 'black',
+    height: '118px',
   },
   wunningamount: {
     padding: "10px",
     border: "2px solid #C9A553",
     position: "absolute",
-    right: "-11%",
+    right: "-16%",
     transform: "rotate(90deg)",
-    bottom: "40%",
+    bottom: "42%",
     // width: "120px",
     borderRadius: "5px",
   },
@@ -293,23 +323,26 @@ export const style = {
     padding: "2px",
     border: "2px solid #C9A553",
     position: "absolute",
-    right: "7%",
+    right: "14%",
     transform: "rotate(90deg)",
-    top: "0%",
-    width: "70px",
+    top: "-5%",
+    width: "54px",
     borderRadius: "5px",
+    background: 'black',
   },
   winnerlooserouter3: {
     padding: "0px",
     border: "2px solid #C9A553",
     position: "absolute",
-    right: "3%",
+    right: "1.5%",
     transform: "rotate(90deg)",
-    top: "34.5%",
+    top: "32.5%",
     width: "50px",
     height: "47px",
     borderRadius: "5px",
     background: "black",
+
+
   },
   winnerLooserList: {
     display: "flex",

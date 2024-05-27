@@ -15,8 +15,8 @@ const Zero = ({
       <Box
         sx={{
           background: "white",
-          width: "100%",
-          border: "1px solid white",
+          width: "71%",
+          border: "2px solid white",
           transform: "rotate(180deg)",
           position: "relative",
           clipPath: "polygon(50% 0%, 100% 50%, 100% 100%, 0 100%, 0 50%)",
