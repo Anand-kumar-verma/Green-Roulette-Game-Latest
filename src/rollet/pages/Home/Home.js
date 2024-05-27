@@ -435,7 +435,7 @@ function Home() {
         <Box direction={"row"} sx={style.wunningamount}>
           <Box sx={style.winnerLooserList4}>
             <Typography variant="body1" color="initial" sx={{ color: "red" }}>
-              Total bet amount - ₹{" "}
+              Total bet amount :{" "}
               <span style={{ color: "red" }}>
                 {(
                   bet_history_Data?.reduce(
@@ -446,8 +446,8 @@ function Home() {
               </span>
             </Typography>
             <Typography variant="body1" color="initial" sx={{ color: "red" }}>
-              You Win - ₹{" "}
-              <span style={{ color: "#15158F !important" }}>
+              You Win :{" "}
+              <span style={{color: "#15158F !important" }}>
                 {Number(
                   bet_history_Data?.reduce(
                     (a, b) => a + Number(b?.win || 0),
