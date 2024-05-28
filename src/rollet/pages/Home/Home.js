@@ -90,6 +90,8 @@ function Home() {
 
   const wallet_amount_data = wallet_amount?.data?.data || 0;
 
+  console.log(wallet_amount_data);
+  
   const { isLoading, data } = useQuery(
     ["profile_rollet"],
     () => getProfileRollet(),

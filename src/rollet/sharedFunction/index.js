@@ -115,8 +115,14 @@ export const confirmBet = async (
     (a, b) => a + Number(b?.amount || 0),
     0
   );
-  if (Number(total_amount_bet || 0) > Number(wallet_amount_data?.wallet || 0))
-    return toast(
+  if (
+    Number(total_amount_bet || 0) >
+    Number(
+      Number(wallet_amount_data?.wallet || 0) +
+        Number(wallet_amount_data?.winning || 0)
+    )
+  ) {
+    toast(
       <span className="!px-4 !py-2 !bg-blue-700 !text-white !border-2 !border-red-700 !rotate-90 !rounded-full">
         {`Your bet amount is Rs. ${
           Number(total_amount_bet || 0) -
@@ -124,37 +130,38 @@ export const confirmBet = async (
         }, greater than your wallet amount.`}
       </span>
     );
-  try {
-    const res = await axios.post(endpoint?.rollet?.bet_now, reqbody);
-
-    console.log(res);
-    toast(
-      <span
-        className="!bg-blue-800 !py-2 !px-4 !text-white !border-2 !border-red-800 !rounded-full"
-        style={{ display: "inline-block", transform: "rotate(90deg)" }}
-      >
-        {res?.data?.msg}
-      </span>
-    );
-    if (res?.data?.msg === "Bet Successfully") {
-      setrebet(bet);
-      localStorage.setItem("betlen",bet?.length || 0)
-      bet?.forEach((ele) => {
-        let element = document.getElementById(`${ele?.id}`);
-        let span = element.querySelector("span");
-        if (span) {
-          element.removeChild(span);
-        }
-      });
-      setBet([]);
-      localStorage.setItem("total_amount_bet",total_amount_bet);
-      localStorage?.setItem("rollet_bet_placed", true);
-      localStorage?.setItem("isPreBet", true);
+    return;
+  } else {
+    try {
+      const res = await axios.post(endpoint?.rollet?.bet_now, reqbody);
+      toast(
+        <span
+          className="!bg-blue-800 !py-2 !px-4 !text-white !border-2 !border-red-800 !rounded-full"
+          style={{ display: "inline-block", transform: "rotate(90deg)" }}
+        >
+          {res?.data?.msg}
+        </span>
+      );
+      if (res?.data?.msg === "Bet Successfully") {
+        setrebet(bet);
+        localStorage.setItem("betlen", bet?.length || 0);
+        bet?.forEach((ele) => {
+          let element = document.getElementById(`${ele?.id}`);
+          let span = element.querySelector("span");
+          if (span) {
+            element.removeChild(span);
+          }
+        });
+        setBet([]);
+        localStorage.setItem("total_amount_bet", total_amount_bet);
+        localStorage?.setItem("rollet_bet_placed", true);
+        localStorage?.setItem("isPreBet", true);
+      }
+      client.refetchQueries("history_rollet_result");
+      client.refetchQueries("walletamount");
+      // if (res?.data?.error === "200") removeBetFunctonAll();
+    } catch (e) {
+      console.log(e);
     }
-    client.refetchQueries("history_rollet_result");
-    client.refetchQueries("walletamount");
-    // if (res?.data?.error === "200") removeBetFunctonAll();
-  } catch (e) {
-    console.log(e);
   }
 };
