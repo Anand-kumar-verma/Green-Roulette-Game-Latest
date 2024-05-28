@@ -145,6 +145,7 @@ const Third12 = ({ isSelectedDropBet, removeSingleBetFunction, setOpenDialogBox,
           width: "64%",
           height: "100%",
           borderRight: "2px solid white",
+          borderLeft: "2px solid white",
         }}
         className=" !h-full !grid !grid-cols-3 "
       >

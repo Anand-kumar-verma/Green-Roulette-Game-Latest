@@ -150,6 +150,7 @@ const First12 = ({
           width: "64% !important",
           height: "100%",
           borderRight: "2px solid white",
+          borderLeft: "2px solid white",
         }}
         className=" !h-full !grid !grid-cols-3 "
       >
