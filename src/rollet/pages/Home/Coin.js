@@ -27,8 +27,8 @@ const Coin = ({ setAmount, amount, setisSelectedDropBet }) => {
         display: 'flex',
         justifyContent: 'space-between',
         position: 'absolute',
-        top: '48%',
-        left: '-11%',
+        top: '51%',
+        left: '-8%',
         width: '73%',
         transform: 'rotate(59deg)',
       }}>
