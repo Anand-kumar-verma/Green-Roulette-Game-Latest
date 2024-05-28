@@ -90,7 +90,6 @@ function Home() {
 
   const wallet_amount_data = wallet_amount?.data?.data || 0;
 
-  console.log(wallet_amount_data);
   
   const { isLoading, data } = useQuery(
     ["profile_rollet"],
@@ -315,11 +314,11 @@ function Home() {
       );
 
       const newupdatedArray = response?.data?.data?.slice(0, betlen) || [];
-      console.log(betlen, newupdatedArray, "This is updated array");
+      // console.log(betlen, newupdatedArray, "This is updated array");
       win_amount =
         newupdatedArray?.reduce((a, b) => a + Number(b?.win || 0), 0) || 0;
 
-      console.log(isPlaced, win_amount, "THis is win ammount");
+      // console.log(isPlaced, win_amount, "THis is win ammount");
       if (win_amount > 0 && isPlaced === "true") {
         setOpenDialogBox(win_amount);
         setTimeout(() => {

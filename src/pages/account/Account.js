@@ -38,8 +38,12 @@ import trans from "../../assets/images/translation.png";
 import s from "../../assets/images/wallet.png";
 import sunlotteryhomebanner from "../../assets/sunlotteryhomebanner.jpg";
 import Layout from "../../component/Layout/Layout";
-import { MyProfileDataFn } from "../../services/apicalling";
+import {
+  MyProfileDataFn,
+  logOutFunctoinRoulette,
+} from "../../services/apicalling";
 import axios from "axios";
+import { endpoint } from "../../services/urls";
 function Account() {
   const location = useLocation();
   const searchParams = new URLSearchParams(location.search);
@@ -68,7 +72,7 @@ function Account() {
         `https://admin.sunlottery.fun/api/deposit-collback?orderid=${transactionId}`
       );
       if (res?.data?.status === "200") {
-        window.location.href = "https://sunlottery.fun/account"
+        window.location.href = "https://sunlottery.fun/account";
       }
       console.log(res);
     } catch (e) {
@@ -82,7 +86,6 @@ function Account() {
       sendUrlCallBackToBackend(transactionId);
     }
   }, []);
-
 
   return (
     <Layout>
@@ -471,8 +474,7 @@ function Account() {
               borderRadius: "10px",
             }}
             onClick={() => {
-              localStorage.clear();
-              navigate("/");
+              logOutFunctoinRoulette(navigate);
             }}
           >
             Logout

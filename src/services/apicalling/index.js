@@ -3,6 +3,7 @@ import { endpoint } from "../urls";
 import toast from "react-hot-toast";
 import { aviator_login_data_fn } from "../../redux/slices/counterSlice";
 import CryptoJS from "crypto-js";
+import { Navigate } from "react-router-dom";
 const value =
   (localStorage.getItem("logindataen") &&
     CryptoJS.AES.decrypt(
@@ -12,9 +13,25 @@ const value =
   null;
 const user_id = value && JSON.parse(value)?.UserID;
 
+export const logOutFunctoinRoulette = async (navigate) => {
+  const reqBody = { userid: user_id };
+  try {
+    const res = await axios.post(endpoint?.rollet?.logout, reqBody);
+    console.log(res);
+    if (res?.data?.error === "200") {
+      localStorage.clear();
+      navigate("/")
+    }
+  } catch (e) {
+    console.log(e);
+  }
+};
+
 export const getProfileRollet = async () => {
   try {
-    const response = await axios.get(endpoint?.rollet?.profile + `?id=${user_id}`);
+    const response = await axios.get(
+      endpoint?.rollet?.profile + `?id=${user_id}`
+    );
     return response;
   } catch (e) {
     toast(e?.message);
@@ -23,7 +40,9 @@ export const getProfileRollet = async () => {
 };
 export const getHistoryRollet = async () => {
   try {
-    const response = await axios.get(endpoint?.rollet?.history + `?userid=${user_id}&limit=0`);
+    const response = await axios.get(
+      endpoint?.rollet?.history + `?userid=${user_id}&limit=0`
+    );
     return response;
   } catch (e) {
     toast(e?.message);
@@ -32,7 +51,9 @@ export const getHistoryRollet = async () => {
 };
 export const getResultOfRollet = async () => {
   try {
-    const response = await axios.get(endpoint?.rollet?.game_result+'?limit=10');
+    const response = await axios.get(
+      endpoint?.rollet?.game_result + "?limit=10"
+    );
     return response;
   } catch (e) {
     toast(e?.message);
@@ -242,7 +263,7 @@ export const registrationBonusFn = async () => {
     const response = await axios.get(
       `${endpoint.registration_bonus}?user_id=${user_id}`
     );
-    console.log(response)
+    console.log(response);
     return response;
   } catch (e) {
     toast(e?.message);
@@ -254,7 +275,7 @@ export const team_trading_bonus_functoin = async () => {
     const response = await axios.get(
       `${endpoint.team_trading_bonus}?user_id=${user_id}`
     );
-    console.log(response)
+    console.log(response);
     return response;
   } catch (e) {
     toast(e?.message);
@@ -306,7 +327,7 @@ export const dailyWalletIncomeFn = async () => {
   }
 };
 export const dailySalaryIncomeFn = async () => {
-  // 
+  //
   try {
     const response = await axios.get(
       `${endpoint.daily_salary_income}?user_id=${user_id}`
@@ -318,7 +339,7 @@ export const dailySalaryIncomeFn = async () => {
   }
 };
 export const teamRewartBonus = async () => {
-  // 
+  //
   try {
     const response = await axios.get(
       `${endpoint.team_reward_bonus}?user_id=${user_id}`

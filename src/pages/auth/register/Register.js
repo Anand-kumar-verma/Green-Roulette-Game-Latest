@@ -106,7 +106,7 @@ function Register() {
           // Add any other headers you may need, such as authorization
         },
       });
-
+  console.log(response);
       if (response?.data?.status === "200") {
         const value = CryptoJS.AES.encrypt(
           JSON.stringify(response?.data),
