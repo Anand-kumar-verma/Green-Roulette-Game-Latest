@@ -157,9 +157,8 @@ function Home() {
     let newelement = element.querySelector("span");
 
     if (newelement) {
-      newelement.innerHTML = `${
-        amount >= 1000 ? String(amount / 1000) + "k" : amount
-      }`;
+      newelement.innerHTML = `${amount >= 1000 ? String(amount / 1000) + "k" : amount
+        }`;
     } else {
       newelement = document.createElement("span");
       let vlaue = `${amount >= 1000 ? String(amount / 1000) + "k" : amount}`;
@@ -355,9 +354,8 @@ function Home() {
     let newelement = element.querySelector("span");
 
     if (newelement) {
-      newelement.innerHTML = `${
-        amount >= 1000 ? String(amount / 1000) + "k" : amount
-      }`;
+      newelement.innerHTML = `${amount >= 1000 ? String(amount / 1000) + "k" : amount
+        }`;
     } else {
       newelement = document.createElement("span");
       let vlaue = `${amount >= 1000 ? String(amount / 1000) + "k" : amount}`;
@@ -400,8 +398,8 @@ function Home() {
             ? ele?.amount
             : Number(ele?.amount) * 2
           : Number(ele?.amount) * 2 > 50000
-          ? ele?.amount
-          : Number(ele?.amount) * 2,
+            ? ele?.amount
+            : Number(ele?.amount) * 2,
       };
     });
     console.log(newUpdateAmountArray, "update array");
@@ -512,9 +510,9 @@ function Home() {
               }}
               anchor="top"
               open={isOpenPreRoundDialogBox}
-              // onClose={() => {
-              //   setopenDialogBoxhistory(!openDialogBoxhistory);
-              // }}
+            // onClose={() => {
+            //   setopenDialogBoxhistory(!openDialogBoxhistory);
+            // }}
             >
               <Box
                 className="!text-yellow-500 !font-extrabold  "
@@ -538,33 +536,27 @@ function Home() {
                   color="initial"
                   sx={{ color: "red" }}
                 >
-                  Min-Play
+                  Total bet amount:{" "}
+                  <span style={{ color: "red" }}>
+                    {total_amount_bet ? total_amount_bet || 0 : 0}
+                  </span>
                 </Typography>
                 <Typography
                   variant="body1"
                   color="initial"
                   sx={{ color: "red" }}
                 >
-                  in 1 0 out 10
-                </Typography>
-                <Typography
-                  variant="body1"
-                  color="initial"
-                  sx={{ color: "red" }}
-                >
-                  Max-play
-                </Typography>
-                <Typography
-                  variant="body1"
-                  color="initial"
-                  sx={{ color: "red" }}
-                >
-                  in 5000 out 50000
+                  You Win :{" "}
+                  <span style={{ color: "#15158F !important" }}>
+                    {(openDialogBox &&
+                      Number(bet_history?.data?.data?.[0]?.win || 0)) ||
+                      0}
+                  </span>
                 </Typography>
               </Box>
             </Box>
           </Box>
-          <Box
+          {/* <Box
             sx={{
               width: "100%",
               height: "100%",
@@ -597,7 +589,7 @@ function Home() {
                 </Typography>
               </Box>
             </Box>
-          </Box>
+          </Box> */}
           <Box
             sx={{
               width: "100%",
@@ -668,7 +660,7 @@ function Home() {
                 direction="row"
                 justifyContent="end"
               >
-                <span className="!grid !grid-cols-3  !w-[71%] !h-[30px]">
+                <span className="!grid !grid-cols-3  !w-[64%] !h-[30px]" style={{ border: '2px solid white' }}>
                   <IconButton sx={style.btn1}>
                     <p
                       id="336"
@@ -910,7 +902,7 @@ function Home() {
               <Typography variant="body1" color="initial">
                 {Number(
                   Number(wallet_amount_data?.wallet || 0) +
-                    Number(wallet_amount_data?.winning || 0)
+                  Number(wallet_amount_data?.winning || 0)
                 )?.toFixed(2)}
               </Typography>
             </Box>
@@ -1069,9 +1061,8 @@ function Home() {
             />
           </Drawer> */}
           <div
-            className={`${
-              open ? "!z-50" : "!-z-50"
-            } !absolute !bg-red-900 !top-[25%] !-left-[32%] `}
+            className={`${open ? "!z-50" : "!-z-50"
+              } !absolute !bg-red-900 !top-[25%] !-left-[32%] `}
           >
             <NeighbourHoodBet
               isSelectedDropBet={isSelectedDropBet}

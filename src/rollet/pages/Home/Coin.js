@@ -27,11 +27,10 @@ const Coin = ({ setAmount, amount, setisSelectedDropBet }) => {
         display: 'flex',
         justifyContent: 'space-between',
         position: 'absolute',
-        top: '38%',
-        left: '-22%',
-        width: '80%',
-        transform: 'rotate(90deg)',
-        // backgroundColor: 'black',
+        top: '48%',
+        left: '-11%',
+        width: '73%',
+        transform: 'rotate(59deg)',
       }}>
       <NavLink onClick={() => {
         setisSelectedDropBet(false);

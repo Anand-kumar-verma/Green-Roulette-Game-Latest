@@ -45,17 +45,16 @@ export const style = {
     // top: "12%",
     // transform: 'skew(31deg, -45deg)',
 
-    width: "44%",
+    width: "50%",
     height: "58%",
     position: "absolute",
-    left: "24%",
-    top: "10%",
-    transform: 'rotate(-0deg)',
-
+    left: "28%",
+    top: "11%",
+    transform: 'rotate(-31deg)',
   },
   btn1: {
     padding: 0,
-    border: "1px solid white",
+    borderRight: "1px solid white",
     // width: "20%",
     borderRadius: "0px",
     height: "100%",
@@ -308,6 +307,9 @@ export const style = {
     borderRadius: "5px",
     background: 'black',
     height: '118px',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
   },
   wunningamount: {
     padding: "10px",

@@ -13,7 +13,7 @@ const First12 = ({
   return (
     <Stack direction="row" justifyContent="end" sx={{ height: "28.56%" }}>
       <div
-        className="w-[14%]  !grid grid-rows-2 !place-items-center "
+        className="w-[18%]  !grid grid-rows-2 !place-items-center "
         style={{ border: "1px solid white", ...style.flex }}
       >
         <div className="!p-0" style={{ width: "75%", height: '100%', border: '1px solid white' }}>
@@ -101,7 +101,7 @@ const First12 = ({
         </div>
       </div>
       <div
-        className="w-[14%]  !grid grid-rows-1  !border-white !place-items-center"
+        className="w-[18%]  !grid grid-rows-1  !border-white !place-items-center"
         style={{ ...style.flex, border: "1px solid white" }}
       >
         <IconButton className="!p-0" style={{ transform: "rotate(-270deg)" }}>
@@ -147,12 +147,11 @@ const First12 = ({
       </div>
       <Stack
         sx={{
-          width: "60%",
+          width: "64% !important",
           height: "100%",
-          // display: "flex",
-          // flexWrap: "wrap",
+          borderRight: "2px solid white",
         }}
-        className="!w-full !h-full !grid !grid-cols-3 "
+        className=" !h-full !grid !grid-cols-3 "
       >
         <span className="!grid grid-rows-4 !w-full !h-full relative">
           <IconButton sx={{ ...style.btn2, ...style.red }}>
