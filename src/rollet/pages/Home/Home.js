@@ -581,8 +581,8 @@ function Home() {
                 >
                   You Win :{" "}
                   <span style={{ color: "#15158F !important" }}>
-                    {(openDialogBox &&
-                      Number(bet_history?.data?.data?.[0]?.win || 0)) ||
+                    {openDialogBox ? openDialogBox :
+
                       0}
                   </span>
                 </Typography>
@@ -691,7 +691,7 @@ function Home() {
                 direction="row"
                 justifyContent="end"
               >
-                <span className="!grid !grid-cols-3  !w-[64%] !h-[30px]" style={{ border: '2px solid white' }}>
+                <span className="!grid !grid-cols-3  !w-[64%] !h-[30px]" style={{ border: '3px solid white' }}>
                   <IconButton sx={style.btn1}>
                     <p
                       id="336"
@@ -899,7 +899,7 @@ function Home() {
             {preBetHandle && isPreBet === "true" && one_min_time > 10 && (
               <>
                 <Box
-                  sx={style.naiming6}
+                  sx={style.naiming10}
                   component={NavLink}
                   className={"!ml-10"}
                 >
@@ -908,11 +908,11 @@ function Home() {
                     variant="body1"
                     color="initial"
                   >
-                    2xxxx
+                    2 X
                   </Typography>
                 </Box>
                 <Box
-                  sx={style.naiming6}
+                  sx={style.naiming11}
                   component={NavLink}
                   className={"!ml-16"}
                 >
@@ -921,7 +921,7 @@ function Home() {
                     variant="body1"
                     color="initial"
                   >
-                    Rebet
+                    Re - bet
                   </Typography>
                 </Box>
               </>
@@ -1004,7 +1004,7 @@ function Home() {
                 </Box>
                 {bet?.length > 0 && (
                   <>
-                    <Box sx={style.naiming8} className={"!flex !gap-3"}>
+                    <Box sx={style.naiming12} className={"!flex !gap-3"}>
                       <Typography
                         className="!bg-[#FF0000] !p-1 !text-white"
                         sx={{
@@ -1023,7 +1023,7 @@ function Home() {
                         Remove
                       </Typography>
                     </Box>
-                    <Box sx={style.naiming7} className={"!flex "}>
+                    <Box sx={style.naiming13} className={"!flex "}>
                       <Typography
                         onClick={() => removeBetFunctonAll()}
                         variant="body1"

@@ -7,7 +7,10 @@ import toast from 'react-hot-toast';
 const Second12 = ({ isSelectedDropBet, removeSingleBetFunction, setOpenDialogBox, bet, setBetFuncton, amount }) => {
   return (
     <Stack direction="row" justifyContent="end" sx={{ height: "28.56%" }}>
-      <div className="w-[18%]   " style={{ border: '1px solid white', background: 'yellow' }}>
+      <div className="w-[18%]   " style={{
+        background: 'yellow', borderTop: '3.5px solid white',
+        borderLeft: '3.5px solid white',
+      }}>
         <Box sx={{ width: '100%', height: '50%', background: 'red', ...style.flex }} >
           <NavLink
             id="200"
@@ -79,7 +82,11 @@ const Second12 = ({ isSelectedDropBet, removeSingleBetFunction, setOpenDialogBox
         </Box>
 
       </div>
-      <div className="w-[18%] !grid grid-rows-1  !border-white !place-items-center" style={{ ...style.flex, border: '1px solid white' }}>
+      <div className="w-[18%] !grid grid-rows-1   !place-items-center" style={{
+        ...style.flex,
+        borderTop: '3.5px solid white',
+        borderLeft: '1px solid white',
+      }}>
         <IconButton
           className="!p-0"
           style={{ transform: "rotate(-270deg)" }}
@@ -130,8 +137,8 @@ const Second12 = ({ isSelectedDropBet, removeSingleBetFunction, setOpenDialogBox
         sx={{
           width: "64% !important",
           height: "100%",
-          borderRight: "2px solid white",
-          borderLeft: "2px solid white",
+          borderRight: "3px solid white",
+          borderLeft: "3px solid white",
         }}
         className=" !h-full !grid !grid-cols-3 "
       >

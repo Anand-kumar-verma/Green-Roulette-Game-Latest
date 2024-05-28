@@ -1,15 +1,20 @@
-import { IconButton, Stack, Typography } from "@mui/material";
+import { Box, IconButton, Stack, Typography } from "@mui/material";
 import React from "react";
 import { style } from "./CommonCss";
 import toast from "react-hot-toast";
+import { NavLink } from "react-router-dom";
 const Third12 = ({ isSelectedDropBet, removeSingleBetFunction, setOpenDialogBox, bet, setBetFuncton, amount }) => {
   return (
     <Stack direction="row" justifyContent="end" sx={{ height: "28.56%" }}>
-      <div
+      {/* <div
         className="w-[18%]  !grid grid-rows-2 !place-items-center "
-        style={{ border: "1px solid white", ...style.flex }}
+        style={{
+          ...style.flex, borderTop: '3.5px solid white',
+          borderLeft: '3.5px solid white',
+        }}
       >
-        <div className="!p-0" style={{ width: "52%", height: '100%', border: '1px solid white' }}>
+
+        <div className="!p-0" style={{ width: "52%", height: '100%', }}>
           <div
             variant="body1"
             color="initial"
@@ -94,10 +99,88 @@ const Third12 = ({ isSelectedDropBet, removeSingleBetFunction, setOpenDialogBox,
             </span>
           </div>
         </div>
+      </div> */}
+      <div className="w-[18%]   " style={{
+        borderTop: '3.5px solid white',
+        borderLeft: '3.5px solid white',
+      }}>
+        <Box sx={{ width: '100%', height: '50%', ...style.flex, borderBottom: '1px solid white' }} >
+          <NavLink
+            id="1936"
+            onClick={(e) => {
+              if (isSelectedDropBet) {
+                removeSingleBetFunction(1936)
+                return
+              }
+              if (amount < 10 || amount > 50000)
+                return toast("Please select amount greater than 10");
+              let isContainsPre = bet?.find((i) => i?.id === 1936);
+              if (isContainsPre) {
+                // setOpenDialogBox(1936);
+                if (
+                  isContainsPre?.amount + amount > 50000 ||
+                  isContainsPre?.amount < 10
+                ) {
+                  return toast(
+                    "Bet must be greater than 10 and less that 50000 Rupees"
+                  );
+                } else {
+                  setBetFuncton(
+                    1936, [1936],
+                    Number(isContainsPre?.amount) + amount
+                  );
+                }
+              } else {
+                setBetFuncton(1936, [1936], amount);
+              }
+              e.stopPropagation();
+            }}
+          >
+            <Typography variant="body1" color="initial" sx={{ width: '50px', textAlign: 'center', color: 'white', fontSize: '12px', fontWeight: '700', transform: 'rotate(90deg)' }}>19 to 36</Typography>
+          </NavLink>
+        </Box>
+        <Box sx={{ width: '100%', height: '50%', ...style.flex }} >
+          <NavLink
+            id="202"
+            onClick={(e) => {
+              if (isSelectedDropBet) {
+                removeSingleBetFunction(202)
+                return
+              }
+              if (amount < 10 || amount > 50000)
+                return toast("Please select amount greater than 10");
+              let isContainsPre = bet?.find((i) => i?.id === 202);
+              if (isContainsPre) {
+                // setOpenDialogBox(202);
+                if (
+                  isContainsPre?.amount + amount > 50000 ||
+                  isContainsPre?.amount < 10
+                ) {
+                  return toast(
+                    "Bet must be greater than 10 and less that 50000 Rupees"
+                  );
+                } else {
+                  setBetFuncton(
+                    202, [202],
+                    Number(isContainsPre?.amount) + amount
+                  );
+                }
+              } else {
+                setBetFuncton(202, [202], amount);
+              }
+              e.stopPropagation();
+            }}
+          >
+            <Typography variant="body1" color="initial" sx={{ color: 'white', fontSize: '12px', fontWeight: '700', transform: 'rotate(90deg)' }}>ODD</Typography>
+          </NavLink>
+        </Box>
       </div>
       <div
-        className="w-[18%] !grid grid-rows-1  !border-white !place-items-center"
-        style={{ ...style.flex, border: "1px solid white" }}
+        className="w-[18%] !grid grid-rows-1   !place-items-center"
+        style={{
+          ...style.flex, borderTop: '3.5px solid white',
+          borderLeft: '1px solid white',
+        }}
       >
         <IconButton className="!p-0" style={{ transform: "rotate(-270deg)" }}>
           <Typography variant="body1" color="initial">
@@ -144,8 +227,8 @@ const Third12 = ({ isSelectedDropBet, removeSingleBetFunction, setOpenDialogBox,
         sx={{
           width: "64%",
           height: "100%",
-          borderRight: "2px solid white",
-          borderLeft: "2px solid white",
+          borderRight: "3px solid white",
+          borderLeft: "3px solid white",
         }}
         className=" !h-full !grid !grid-cols-3 "
       >
