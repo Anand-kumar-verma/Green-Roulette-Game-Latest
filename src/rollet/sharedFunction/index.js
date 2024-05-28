@@ -138,6 +138,7 @@ export const confirmBet = async (
     );
     if (res?.data?.msg === "Bet Successfully") {
       setrebet(bet);
+      localStorage.setItem("betlen",bet?.length || 0)
       bet?.forEach((ele) => {
         let element = document.getElementById(`${ele?.id}`);
         let span = element.querySelector("span");

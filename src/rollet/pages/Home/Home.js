@@ -38,6 +38,8 @@ import roulette from "../../assets/images/roulette-wheel-vector-89242.png";
 import roulettebg from "../../assets/images/roulettebg.png";
 import table2 from "../../assets/images/table2.png";
 import table from "../../assets/images/table.png";
+import axios from "axios";
+import { endpoint } from "../../../services/urls";
 function Home() {
   let interval_music;
   let isPreBet = localStorage.getItem("isPreBet");
@@ -74,7 +76,6 @@ function Home() {
   const [amount, setAmount] = useState(10);
   const [rebet, setrebet] = useState([]);
   const [preBetHandle, setIsPreBetHandle] = useState(false);
-
   useEffect(() => {
     localStorage?.setItem("isPreBet", false);
   }, []);
@@ -246,6 +247,7 @@ function Home() {
       if (onemin === 58 || onemin === 57) {
         setIsPreBetHandle(true);
         localStorage.setItem("total_amount_bet", 0);
+        localStorage?.setItem("rollet_bet_placed", false);
       }
       if (onemin === 0) {
         handlePlaySound();
@@ -274,7 +276,6 @@ function Home() {
     const handleOneMinrolletresult = (onemin) => {
       spinFunction(onemin);
       // this is latest
-      localStorage?.setItem("rollet_bet_placed", false);
 
       localStorage.setItem("result_rollet", onemin);
       setTimeout(() => {
@@ -288,6 +289,7 @@ function Home() {
         client.refetchQueries("history_rollet_result");
         speakMessage(onemin);
         addWinCap(onemin);
+        getWinPopup();
       }, 10000);
     };
     socket.on("oneminrollet", handleOneMin);
@@ -302,25 +304,54 @@ function Home() {
     if (one_min_time <= 10) setisOpenPreRoundDialogBox(true);
   }, []);
 
-  useEffect(() => {
+  async function getWinPopup() {
     let isPlaced = localStorage.getItem("rollet_bet_placed");
+    let betlen = localStorage.getItem("betlen");
     let win_amount = 0;
-    for (let i = 0; i < bet?.length; i++) {
-      win_amount += Number(bet_history?.data?.data?.[i]?.win || 0) || 0;
+    try {
+      const response = await axios.get(
+        endpoint?.rollet?.history + `?userid=${user_id}&limit=0`
+      );
+
+      const newupdatedArray = response?.data?.data?.slice(0, betlen) || [];
+      console.log(betlen, newupdatedArray, "This is updated array");
+      win_amount =
+        newupdatedArray?.reduce((a, b) => a + Number(b?.win || 0), 0) || 0;
+
+      console.log(isPlaced, win_amount, "THis is win ammount");
+      if (win_amount > 0 && isPlaced === "true") {
+        setOpenDialogBox(win_amount);
+        setTimeout(() => {
+          // setOpenDialogBox(false);
+          localStorage?.setItem("rollet_bet_placed", false);
+          localStorage?.setItem("betlen", 0);
+        }, 2000);
+      }
+    } catch (e) {
+      toast(e?.message);
+      console.log(e);
     }
-    console.log(win_amount, "THis is win ammount");
-    if (win_amount > 0 && isPlaced === "true") {
-      setOpenDialogBox(true);
-      setTimeout(() => {
-        setOpenDialogBox(false);
-        localStorage?.setItem("rollet_bet_placed", false);
-      }, 2000);
-    }
-  }, [
-    Number(
-      bet_history_Data?.reduce((a, b) => a + Number(b?.win || 0), 0) || 0
-    )?.toFixed(2),
-  ]);
+  }
+
+  // useEffect(() => {
+  //   let isPlaced = localStorage.getItem("rollet_bet_placed");
+  //   let win_amount = 0;
+  //   for (let i = 0; i < bet?.length; i++) {
+  //     win_amount += Number(bet_history?.data?.data?.[i]?.win || 0) || 0;
+  //   }
+  //   console.log(win_amount, "THis is win ammount");
+  //   if (win_amount > 0 && isPlaced === "true") {
+  //     setOpenDialogBox(true);
+  //     setTimeout(() => {
+  //       setOpenDialogBox(false);
+  //       localStorage?.setItem("rollet_bet_placed", false);
+  //     }, 2000);
+  //   }
+  // }, [
+  //   Number(
+  //     bet_history_Data?.reduce((a, b) => a + Number(b?.win || 0), 0) || 0
+  //   )?.toFixed(2),
+  // ]);
 
   const handleConfirm = () => {
     setOpen1(false);
@@ -590,9 +621,7 @@ function Home() {
                 >
                   You Win :{" "}
                   <span style={{ color: "#15158F !important" }}>
-                    {(openDialogBox &&
-                      Number(bet_history?.data?.data?.[0]?.win || 0)) ||
-                      0}
+                    {openDialogBox ? openDialogBox : 0}
                   </span>
                 </Typography>
               </Box>
@@ -1084,7 +1113,7 @@ function Home() {
               setOpen={setOpen}
             />
           </div>
-          <Drawer
+          {/* <Drawer
             sx={{
               "&>div": {
                 background: "transparent",
@@ -1116,7 +1145,7 @@ function Home() {
                 {"You Have Win"}
               </div>
             </Box>
-          </Drawer>
+          </Drawer> */}
 
           <Drawer
             sx={{
