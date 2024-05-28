@@ -1,5 +1,5 @@
 import CryptoJS from "crypto-js";
-import { Route, Routes } from "react-router-dom";
+import { Navigate, Route, Routes } from "react-router-dom";
 import "../src/index.css";
 import "./App.css";
 import "./assets/styles/main.css";
@@ -29,6 +29,7 @@ const App = () => {
     <Routes>
       <Route path="/" element={<Login />} />
       <Route path="/forget-password" element={<ForgetPassword />} />
+      <Route path="/*" element={<Navigate to={"/"} replace/>} />
       <Route path="/register" element={<Register />} />
       {isAuthenticated ? (
         routes?.map((route, index) => {

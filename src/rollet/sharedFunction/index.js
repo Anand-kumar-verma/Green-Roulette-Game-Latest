@@ -121,12 +121,13 @@ export const confirmBet = async (
         {`Your bet amount is Rs. ${
           Number(total_amount_bet || 0) -
           Number(wallet_amount_data?.wallet || 0)
-        }, grater than your wallet amount.`}
+        }, greater than your wallet amount.`}
       </span>
     );
   try {
     const res = await axios.post(endpoint?.rollet?.bet_now, reqbody);
 
+    console.log(res);
     toast(
       <span
         className="!bg-blue-800 !py-2 !px-4 !text-white !border-2 !border-red-800 !rounded-full"
@@ -145,6 +146,7 @@ export const confirmBet = async (
         }
       });
       setBet([]);
+      localStorage.setItem("total_amount_bet",total_amount_bet);
       localStorage?.setItem("rollet_bet_placed", true);
       localStorage?.setItem("isPreBet", true);
     }

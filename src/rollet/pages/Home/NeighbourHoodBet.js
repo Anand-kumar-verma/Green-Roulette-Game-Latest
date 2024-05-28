@@ -15,8 +15,11 @@ const NeighbourHoodBet = ({
   removeSingleBetFunction,
 }) => {
   return (
-    <Box sx={{ width: "100%", height: "100%", position: "relative" }}>
-      <Box
+    <Box
+      className={"!bg-black"}
+      sx={{ width: "100%", height: "100%", position: "relative" }}
+    >
+      {/* <Box
         sx={{
           position: "absolute",
           right: "20px",
@@ -31,27 +34,40 @@ const NeighbourHoodBet = ({
         >
           <CloseIcon sx={{ color: "white", fontSize: "40px" }} />
         </NavLink>
-      </Box>
+      </Box> */}
+
       <Box sx={{ width: "100%", height: "100%", position: "relative" }}>
         <Box
           sx={{
             position: "absolute",
             transform: "rotate(90deg)",
-            width: 500,
-            height: 173,
+            width: 600,
+            height: 300,
             top: "35%",
             left: "-14%",
+            background: "black",
+          }}
+          className={"!flex !justify-center !items-center !rounded-lg"}
+        >
+        <div className="!text-white !z-50 !absolute !top-0 !right-0 !px-5 !py-4">
+        <NavLink
+          onClick={() => {
+            setOpen(!open);
           }}
         >
-          <Box component="img" src={rollatesidebar}></Box>
+          <CloseIcon sx={{ color: "white", fontSize: "40px" }} />
+        </NavLink>
+        </div>
+
+          <Box component="img" src={rollatesidebar} className="!px-[10%]"></Box>
           <Box
             // component={NavLink}
             sx={{
               width: "143px",
               height: "62px",
               position: "absolute",
-              top: "12%",
-              left: "7%",
+              top: "40%",
+              left: "15%",
               clipPath: "polygon(0 0, 65% 0, 100% 100%, 0% 100%)",
               // background: 'red',
             }}
@@ -73,7 +89,7 @@ const NeighbourHoodBet = ({
                     isContainsPre?.amount < 2
                   ) {
                     return toast(
-                      "Bet must be grater than 2 and less that 5000 Rupees"
+                      "Bet must be greater than 2 and less that 5000 Rupees"
                     );
                   } else {
                     setBetFuncton(
@@ -95,8 +111,8 @@ const NeighbourHoodBet = ({
               width: 133,
               height: 62,
               position: "absolute",
-              top: "12%",
-              left: "26%",
+              top: "40%",
+              left: "32%",
               clipPath: "polygon(0 0, 100% 0, 100% 100%, 35% 100%)",
               WebkitClipPath: "polygon(0 0, 100% 0, 100% 100%, 35% 100%)",
               // backgroundColor: 'green',
@@ -119,7 +135,7 @@ const NeighbourHoodBet = ({
                     isContainsPre?.amount < 2
                   ) {
                     return toast(
-                      "Bet must be grater than 2 and less that 5000 Rupees"
+                      "Bet must be greater than 2 and less that 5000 Rupees"
                     );
                   } else {
                     setBetFuncton(
@@ -141,8 +157,8 @@ const NeighbourHoodBet = ({
               width: 125,
               height: 62,
               position: "absolute",
-              top: "12%",
-              left: "53%",
+              top: "40%",
+              left: "51%",
               // backgroundColor: 'yellow',
             }}
             className={"!flex !justify-center !items-center"}
@@ -163,7 +179,7 @@ const NeighbourHoodBet = ({
                     isContainsPre?.amount < 2
                   ) {
                     return toast(
-                      "Bet must be grater than 2 and less that 5000 Rupees"
+                      "Bet must be greater than 2 and less that 5000 Rupees"
                     );
                   } else {
                     setBetFuncton(
@@ -185,9 +201,9 @@ const NeighbourHoodBet = ({
               width: 73,
               height: 62,
               position: "absolute",
-              top: "12%",
-              right: "7%",
-              // backgroundColor: 'black',
+              top: "40%",
+              right: "15%",
+              // backgroundColor: 'blue',
               borderRadius: "25px",
             }}
             className={"!flex !justify-center !items-center"}
@@ -208,7 +224,7 @@ const NeighbourHoodBet = ({
                     isContainsPre?.amount < 2
                   ) {
                     return toast(
-                      "Bet must be grater than 2 and less that 5000 Rupees"
+                      "Bet must be greater than 2 and less that 5000 Rupees"
                     );
                   } else {
                     setBetFuncton(

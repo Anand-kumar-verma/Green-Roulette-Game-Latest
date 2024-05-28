@@ -51,7 +51,7 @@ const Zero = ({
                   isContainsPre?.amount < 2
                 ) {
                   return toast(
-                    "Bet must be grater than 2 and less that 5000 Rupees"
+                    "Bet must be greater than 2 and less that 5000 Rupees"
                   );
                 } else {
                   setBetFuncton(

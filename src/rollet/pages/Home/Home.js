@@ -41,6 +41,7 @@ import table from "../../assets/images/table.png";
 function Home() {
   let interval_music;
   let isPreBet = localStorage.getItem("isPreBet");
+  let total_amount_bet = localStorage.getItem("total_amount_bet") || 0;
   const client = useQueryClient();
   const socket = useSocket();
   const audioRefMusic = useRef();
@@ -87,7 +88,6 @@ function Home() {
   );
 
   const wallet_amount_data = wallet_amount?.data?.data || 0;
-  console.log(wallet_amount_data);
 
   const { isLoading, data } = useQuery(
     ["profile_rollet"],
@@ -131,14 +131,12 @@ function Home() {
   }
 
   function setBetFuncton(id, number, amount) {
-    console.log(id, number, amount, "all data");
     if (one_min_time <= 10) return;
     const obj = {
       id: id,
       number: number,
       amount: amount,
     };
-    console.log(obj);
     let isContainsPre = bet?.find((i) => i?.id === id);
     if (isContainsPre) {
       console.log("inside if");
@@ -245,9 +243,13 @@ function Home() {
     const handleOneMin = (onemin) => {
       setOne_min_time(onemin);
 
-      if (onemin === 58 || onemin === 57) setIsPreBetHandle(true);
+      if (onemin === 58 || onemin === 57) {
+        setIsPreBetHandle(true);
+        localStorage.setItem("total_amount_bet", 0);
+      }
       if (onemin === 0) {
         handlePlaySound();
+
         interval_music = setInterval(() => {
           handlePlaySound();
         }, 1000);
@@ -258,7 +260,7 @@ function Home() {
         let element = document.getElementById(`${String(id)}_rotate`);
 
         element?.classList.add("hidden");
-        setresult_rollet(0);
+        setresult_rollet("");
       }
       if (onemin > 10) {
         setisOpenPreRoundDialogBox(false);
@@ -306,7 +308,7 @@ function Home() {
     for (let i = 0; i < bet?.length; i++) {
       win_amount += Number(bet_history?.data?.data?.[i]?.win || 0) || 0;
     }
-    console.log(win_amount);
+    console.log(win_amount, "THis is win ammount");
     if (win_amount > 0 && isPlaced === "true") {
       setOpenDialogBox(true);
       setTimeout(() => {
@@ -418,6 +420,7 @@ function Home() {
           backgroundImage: `url(${table})`,
           backgroundSize: "100%",
           backgroundPosition: "bottom",
+          backgroundRepeat: "no-repeat",
         }}
       >
         <Box
@@ -426,6 +429,7 @@ function Home() {
             height: "100%",
             backgroundImage: `url(${table2})`,
             backgroundSize: "100%",
+            backgroundRepeat: "no-repeat",
           }}
         >
           {useMemo(() => {
@@ -574,14 +578,9 @@ function Home() {
                   color="initial"
                   sx={{ color: "red" }}
                 >
-                  Total bet amount: {" "}
+                  Total bet amount:{" "}
                   <span style={{ color: "red" }}>
-                    {(
-                      bet_history_Data?.reduce(
-                        (a, b) => a + Number(b?.amount || 0),
-                        0
-                      ) || 0
-                    ).toFixed(2)}
+                    {total_amount_bet ? total_amount_bet || 0 : 0}
                   </span>
                 </Typography>
                 <Typography
@@ -589,14 +588,11 @@ function Home() {
                   color="initial"
                   sx={{ color: "red" }}
                 >
-                  You Win : {" "}
+                  You Win :{" "}
                   <span style={{ color: "#15158F !important" }}>
-                    {Number(
-                      bet_history_Data?.reduce(
-                        (a, b) => a + Number(b?.win || 0),
-                        0
-                      ) || 0
-                    )?.toFixed(2)}
+                    {(openDialogBox &&
+                      Number(bet_history?.data?.data?.[0]?.win || 0)) ||
+                      0}
                   </span>
                 </Typography>
               </Box>
@@ -682,7 +678,7 @@ function Home() {
                           return;
                         }
                         if (amount < 10 || amount > 50000)
-                          return toast("Please select amount grater than 10");
+                          return toast("Please select amount greater than 10");
                         let isContainsPre = bet?.find((i) => i?.id === 336);
                         if (isContainsPre) {
                           // setOpenDialogBox(336);
@@ -691,7 +687,7 @@ function Home() {
                             isContainsPre?.amount < 10
                           ) {
                             return toast(
-                              "Bet must be grater than 10 and less that 50000 Rupees"
+                              "Bet must be greater than 10 and less that 50000 Rupees"
                             );
                           } else {
                             setBetFuncton(
@@ -718,7 +714,7 @@ function Home() {
                           return;
                         }
                         if (amount < 10 || amount > 50000)
-                          return toast("Please select amount grater than 10");
+                          return toast("Please select amount greater than 10");
                         let isContainsPre = bet?.find((i) => i?.id === 235);
                         if (isContainsPre) {
                           // setOpenDialogBox(235);
@@ -727,7 +723,7 @@ function Home() {
                             isContainsPre?.amount < 10
                           ) {
                             return toast(
-                              "Bet must be grater than 10 and less that 50000 Rupees"
+                              "Bet must be greater than 10 and less that 50000 Rupees"
                             );
                           } else {
                             setBetFuncton(
@@ -754,7 +750,7 @@ function Home() {
                           return;
                         }
                         if (amount < 10 || amount > 50000)
-                          return toast("Please select amount grater than 10");
+                          return toast("Please select amount greater than 10");
                         let isContainsPre = bet?.find((i) => i?.id === 134);
                         if (isContainsPre) {
                           // setOpenDialogBox(134);
@@ -763,7 +759,7 @@ function Home() {
                             isContainsPre?.amount < 10
                           ) {
                             return toast(
-                              "Bet must be grater than 10 and less that 50000 Rupees"
+                              "Bet must be greater than 10 and less that 50000 Rupees"
                             );
                           } else {
                             setBetFuncton(
@@ -870,7 +866,7 @@ function Home() {
               sx={style.naiming6}
               component={NavLink}
               onClick={() => {
-                one_min_time > 10 && setOpen(true);
+                one_min_time > 10 && setOpen(!open);
               }}
             >
               <Typography variant="body1" color="initial">
@@ -983,36 +979,40 @@ function Home() {
                     CONFIRM
                   </Typography>
                 </Box>
-                <Box sx={style.naiming8} className={"!flex !gap-3"}>
-                  <Typography
-                    className="!bg-[#FF0000] !p-1 !text-white"
-                    sx={{
-                      display: "flex",
-                      alignItems: "center",
-                      justifyContent: "center",
-                      fontSize: "11px",
-                      borderRadius: "5px",
-                    }}
-                    onClick={() => {
-                      setisSelectedDropBet(true);
-                    }}
-                    variant="body1"
-                    color="initial"
-                  >
-                    Remove
-                  </Typography>
-                </Box>
+                {bet?.length > 0 && (
+                  <>
+                    <Box sx={style.naiming8} className={"!flex !gap-3"}>
+                      <Typography
+                        className="!bg-[#FF0000] !p-1 !text-white"
+                        sx={{
+                          display: "flex",
+                          alignItems: "center",
+                          justifyContent: "center",
+                          fontSize: "11px",
+                          borderRadius: "5px",
+                        }}
+                        onClick={() => {
+                          setisSelectedDropBet(true);
+                        }}
+                        variant="body1"
+                        color="initial"
+                      >
+                        Remove
+                      </Typography>
+                    </Box>
+                    <Box sx={style.naiming7} className={"!flex "}>
+                      <Typography
+                        onClick={() => removeBetFunctonAll()}
+                        variant="body1"
+                        color="initial"
+                      >
+                        CLEAR BET
+                      </Typography>
+                    </Box>
+                  </>
+                )}
               </>
             )}
-            <Box sx={style.naiming7} className={"!flex "}>
-              <Typography
-                onClick={() => removeBetFunctonAll()}
-                variant="body1"
-                color="initial"
-              >
-                CLEAR BET
-              </Typography>
-            </Box>
           </Box>
 
           <Box
@@ -1043,7 +1043,7 @@ function Home() {
     </Box> */}
             <SvgCircle />
           </Box>
-          <Drawer
+          {/* <Drawer
             sx={{
               "&>div": {
                 background: "#0000009e",
@@ -1067,7 +1067,23 @@ function Home() {
               open={open}
               setOpen={setOpen}
             />
-          </Drawer>
+          </Drawer> */}
+          <div
+            className={`${
+              open ? "!z-50" : "!-z-50"
+            } !absolute !bg-red-900 !top-[25%] !-left-[32%] `}
+          >
+            <NeighbourHoodBet
+              isSelectedDropBet={isSelectedDropBet}
+              removeSingleBetFunction={removeSingleBetFunction}
+              setOpenDialogBox={setOpenDialogBox}
+              bet={bet}
+              setBetFuncton={setBetFuncton}
+              amount={amount}
+              open={open}
+              setOpen={setOpen}
+            />
+          </div>
           <Drawer
             sx={{
               "&>div": {

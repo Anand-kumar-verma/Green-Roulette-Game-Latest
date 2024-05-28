@@ -25,7 +25,7 @@ const Third12 = ({ isSelectedDropBet, removeSingleBetFunction, setOpenDialogBox,
                   return
                 }
                 if (amount < 10 || amount > 50000)
-                  return toast("Please select amount grater than 10");
+                  return toast("Please select amount greater than 10");
                 let isContainsPre = bet?.find((i) => i?.id === 1936);
                 if (isContainsPre) {
                   // setOpenDialogBox(1936);
@@ -34,7 +34,7 @@ const Third12 = ({ isSelectedDropBet, removeSingleBetFunction, setOpenDialogBox,
                     isContainsPre?.amount < 10
                   ) {
                     return toast(
-                      "Bet must be grater than 10 and less that 50000 Rupees"
+                      "Bet must be greater than 10 and less that 50000 Rupees"
                     );
                   } else {
                     setBetFuncton(
@@ -67,7 +67,7 @@ const Third12 = ({ isSelectedDropBet, removeSingleBetFunction, setOpenDialogBox,
                   return
                 }
                 if (amount < 10 || amount > 50000)
-                  return toast("Please select amount grater than 10");
+                  return toast("Please select amount greater than 10");
                 let isContainsPre = bet?.find((i) => i?.id === 202);
                 if (isContainsPre) {
                   // setOpenDialogBox(202);
@@ -76,7 +76,7 @@ const Third12 = ({ isSelectedDropBet, removeSingleBetFunction, setOpenDialogBox,
                     isContainsPre?.amount < 10
                   ) {
                     return toast(
-                      "Bet must be grater than 10 and less that 50000 Rupees"
+                      "Bet must be greater than 10 and less that 50000 Rupees"
                     );
                   } else {
                     setBetFuncton(
@@ -111,7 +111,7 @@ const Third12 = ({ isSelectedDropBet, removeSingleBetFunction, setOpenDialogBox,
                   return
                 }
                 if (amount < 10 || amount > 50000)
-                  return toast("Please select amount grater than 10");
+                  return toast("Please select amount greater than 10");
                 let isContainsPre = bet?.find((i) => i?.id === 312);
                 if (isContainsPre) {
                   // setOpenDialogBox(312);
@@ -120,7 +120,7 @@ const Third12 = ({ isSelectedDropBet, removeSingleBetFunction, setOpenDialogBox,
                     isContainsPre?.amount < 10
                   ) {
                     return toast(
-                      "Bet must be grater than 10 and less that 50000 Rupees"
+                      "Bet must be greater than 10 and less that 50000 Rupees"
                     );
                   } else {
                     setBetFuncton(
@@ -166,7 +166,7 @@ const Third12 = ({ isSelectedDropBet, removeSingleBetFunction, setOpenDialogBox,
                     isContainsPre?.amount < 2
                   ) {
                     return toast(
-                      "Bet must be grater than 2 and less that 5000 Rupees"
+                      "Bet must be greater than 2 and less that 5000 Rupees"
                     );
                   } else {
                     setBetFuncton(
@@ -195,7 +195,7 @@ const Third12 = ({ isSelectedDropBet, removeSingleBetFunction, setOpenDialogBox,
                   return
                 }
                 if (amount < 10 || amount > 50000)
-                  return toast("Please select amount grater than 10");
+                  return toast("Please select amount greater than 10");
                 let isContainsPre = bet?.find((i) => i?.id === 361000);
                 if (isContainsPre) {
                   // setOpenDialogBox(361000);
@@ -204,7 +204,7 @@ const Third12 = ({ isSelectedDropBet, removeSingleBetFunction, setOpenDialogBox,
                     isContainsPre?.amount < 10
                   ) {
                     return toast(
-                      "Bet must be grater than 10 and less that 50000 Rupees"
+                      "Bet must be greater than 10 and less that 50000 Rupees"
                     );
                   } else {
                     setBetFuncton(
@@ -231,7 +231,7 @@ const Third12 = ({ isSelectedDropBet, removeSingleBetFunction, setOpenDialogBox,
                   return
                 }
                 if (amount < 10 || amount > 50000)
-                  return toast("Please select amount grater than 10");
+                  return toast("Please select amount greater than 10");
                 let isContainsPre = bet?.find((i) => i?.id === 362000);
                 if (isContainsPre) {
                   // setOpenDialogBox(362000);
@@ -240,7 +240,7 @@ const Third12 = ({ isSelectedDropBet, removeSingleBetFunction, setOpenDialogBox,
                     isContainsPre?.amount < 10
                   ) {
                     return toast(
-                      "Bet must be grater than 10 and less that 50000 Rupees"
+                      "Bet must be greater than 10 and less that 50000 Rupees"
                     );
                   } else {
                     setBetFuncton(
@@ -267,7 +267,7 @@ const Third12 = ({ isSelectedDropBet, removeSingleBetFunction, setOpenDialogBox,
                   return
                 }
                 if (amount < 10 || amount > 50000)
-                  return toast("Please select amount grater than 10");
+                  return toast("Please select amount greater than 10");
                 let isContainsPre = bet?.find((i) => i?.id === 363000);
                 if (isContainsPre) {
                   // setOpenDialogBox(363000);
@@ -276,7 +276,7 @@ const Third12 = ({ isSelectedDropBet, removeSingleBetFunction, setOpenDialogBox,
                     isContainsPre?.amount < 10
                   ) {
                     return toast(
-                      "Bet must be grater than 10 and less that 50000 Rupees"
+                      "Bet must be greater than 10 and less that 50000 Rupees"
                     );
                   } else {
                     setBetFuncton(
@@ -308,7 +308,7 @@ const Third12 = ({ isSelectedDropBet, removeSingleBetFunction, setOpenDialogBox,
                     isContainsPre?.amount < 2
                   ) {
                     return toast(
-                      "Bet must be grater than 2 and less that 5000 Rupees"
+                      "Bet must be greater than 2 and less that 5000 Rupees"
                     );
                   } else {
                     setBetFuncton(
@@ -337,7 +337,7 @@ const Third12 = ({ isSelectedDropBet, removeSingleBetFunction, setOpenDialogBox,
                   return
                 }
                 if (amount < 10 || amount > 50000)
-                  return toast("Please select amount grater than 10");
+                  return toast("Please select amount greater than 10");
                 let isContainsPre = bet?.find((i) => i?.id === 331000);
                 if (isContainsPre) {
                   // setOpenDialogBox(331000);
@@ -346,7 +346,7 @@ const Third12 = ({ isSelectedDropBet, removeSingleBetFunction, setOpenDialogBox,
                     isContainsPre?.amount < 10
                   ) {
                     return toast(
-                      "Bet must be grater than 10 and less that 50000 Rupees"
+                      "Bet must be greater than 10 and less that 50000 Rupees"
                     );
                   } else {
                     setBetFuncton(
@@ -373,7 +373,7 @@ const Third12 = ({ isSelectedDropBet, removeSingleBetFunction, setOpenDialogBox,
                   return
                 }
                 if (amount < 10 || amount > 50000)
-                  return toast("Please select amount grater than 10");
+                  return toast("Please select amount greater than 10");
                 let isContainsPre = bet?.find((i) => i?.id === 332000);
                 if (isContainsPre) {
                   // setOpenDialogBox(332000);
@@ -382,7 +382,7 @@ const Third12 = ({ isSelectedDropBet, removeSingleBetFunction, setOpenDialogBox,
                     isContainsPre?.amount < 10
                   ) {
                     return toast(
-                      "Bet must be grater than 10 and less that 50000 Rupees"
+                      "Bet must be greater than 10 and less that 50000 Rupees"
                     );
                   } else {
                     setBetFuncton(
@@ -409,7 +409,7 @@ const Third12 = ({ isSelectedDropBet, removeSingleBetFunction, setOpenDialogBox,
                   return
                 }
                 if (amount < 10 || amount > 50000)
-                  return toast("Please select amount grater than 10");
+                  return toast("Please select amount greater than 10");
                 let isContainsPre = bet?.find((i) => i?.id === 333000);
                 if (isContainsPre) {
                   // setOpenDialogBox(333000);
@@ -418,7 +418,7 @@ const Third12 = ({ isSelectedDropBet, removeSingleBetFunction, setOpenDialogBox,
                     isContainsPre?.amount < 10
                   ) {
                     return toast(
-                      "Bet must be grater than 10 and less that 50000 Rupees"
+                      "Bet must be greater than 10 and less that 50000 Rupees"
                     );
                   } else {
                     setBetFuncton(
@@ -450,7 +450,7 @@ const Third12 = ({ isSelectedDropBet, removeSingleBetFunction, setOpenDialogBox,
                     isContainsPre?.amount < 2
                   ) {
                     return toast(
-                      "Bet must be grater than 2 and less that 5000 Rupees"
+                      "Bet must be greater than 2 and less that 5000 Rupees"
                     );
                   } else {
                     setBetFuncton(
@@ -479,7 +479,7 @@ const Third12 = ({ isSelectedDropBet, removeSingleBetFunction, setOpenDialogBox,
                   return
                 }
                 if (amount < 10 || amount > 50000)
-                  return toast("Please select amount grater than 10");
+                  return toast("Please select amount greater than 10");
                 let isContainsPre = bet?.find((i) => i?.id === 301000);
                 if (isContainsPre) {
                   // setOpenDialogBox(301000);
@@ -488,7 +488,7 @@ const Third12 = ({ isSelectedDropBet, removeSingleBetFunction, setOpenDialogBox,
                     isContainsPre?.amount < 10
                   ) {
                     return toast(
-                      "Bet must be grater than 10 and less that 50000 Rupees"
+                      "Bet must be greater than 10 and less that 50000 Rupees"
                     );
                   } else {
                     setBetFuncton(
@@ -515,7 +515,7 @@ const Third12 = ({ isSelectedDropBet, removeSingleBetFunction, setOpenDialogBox,
                   return
                 }
                 if (amount < 10 || amount > 50000)
-                  return toast("Please select amount grater than 10");
+                  return toast("Please select amount greater than 10");
                 let isContainsPre = bet?.find((i) => i?.id === 302000);
                 if (isContainsPre) {
                   // setOpenDialogBox(302000);
@@ -524,7 +524,7 @@ const Third12 = ({ isSelectedDropBet, removeSingleBetFunction, setOpenDialogBox,
                     isContainsPre?.amount < 10
                   ) {
                     return toast(
-                      "Bet must be grater than 10 and less that 50000 Rupees"
+                      "Bet must be greater than 10 and less that 50000 Rupees"
                     );
                   } else {
                     setBetFuncton(
@@ -551,7 +551,7 @@ const Third12 = ({ isSelectedDropBet, removeSingleBetFunction, setOpenDialogBox,
                   return
                 }
                 if (amount < 10 || amount > 50000)
-                  return toast("Please select amount grater than 10");
+                  return toast("Please select amount greater than 10");
                 let isContainsPre = bet?.find((i) => i?.id === 303000);
                 if (isContainsPre) {
                   // setOpenDialogBox(303000);
@@ -560,7 +560,7 @@ const Third12 = ({ isSelectedDropBet, removeSingleBetFunction, setOpenDialogBox,
                     isContainsPre?.amount < 10
                   ) {
                     return toast(
-                      "Bet must be grater than 10 and less that 50000 Rupees"
+                      "Bet must be greater than 10 and less that 50000 Rupees"
                     );
                   } else {
                     setBetFuncton(
@@ -592,7 +592,7 @@ const Third12 = ({ isSelectedDropBet, removeSingleBetFunction, setOpenDialogBox,
                     isContainsPre?.amount < 2
                   ) {
                     return toast(
-                      "Bet must be grater than 2 and less that 5000 Rupees"
+                      "Bet must be greater than 2 and less that 5000 Rupees"
                     );
                   } else {
                     setBetFuncton(
@@ -621,7 +621,7 @@ const Third12 = ({ isSelectedDropBet, removeSingleBetFunction, setOpenDialogBox,
                   return
                 }
                 if (amount < 10 || amount > 50000)
-                  return toast("Please select amount grater than 10");
+                  return toast("Please select amount greater than 10");
                 let isContainsPre = bet?.find((i) => i?.id === 271000);
                 if (isContainsPre) {
                   // setOpenDialogBox(271000);
@@ -630,7 +630,7 @@ const Third12 = ({ isSelectedDropBet, removeSingleBetFunction, setOpenDialogBox,
                     isContainsPre?.amount < 10
                   ) {
                     return toast(
-                      "Bet must be grater than 10 and less that 50000 Rupees"
+                      "Bet must be greater than 10 and less that 50000 Rupees"
                     );
                   } else {
                     setBetFuncton(
@@ -657,7 +657,7 @@ const Third12 = ({ isSelectedDropBet, removeSingleBetFunction, setOpenDialogBox,
                   return
                 }
                 if (amount < 10 || amount > 50000)
-                  return toast("Please select amount grater than 10");
+                  return toast("Please select amount greater than 10");
                 let isContainsPre = bet?.find((i) => i?.id === 272000);
                 if (isContainsPre) {
                   // setOpenDialogBox(272000);
@@ -666,7 +666,7 @@ const Third12 = ({ isSelectedDropBet, removeSingleBetFunction, setOpenDialogBox,
                     isContainsPre?.amount < 10
                   ) {
                     return toast(
-                      "Bet must be grater than 10 and less that 50000 Rupees"
+                      "Bet must be greater than 10 and less that 50000 Rupees"
                     );
                   } else {
                     setBetFuncton(
@@ -693,7 +693,7 @@ const Third12 = ({ isSelectedDropBet, removeSingleBetFunction, setOpenDialogBox,
                   return
                 }
                 if (amount < 10 || amount > 50000)
-                  return toast("Please select amount grater than 10");
+                  return toast("Please select amount greater than 10");
                 let isContainsPre = bet?.find((i) => i?.id === 273000);
                 if (isContainsPre) {
                   // setOpenDialogBox(273000);
@@ -702,7 +702,7 @@ const Third12 = ({ isSelectedDropBet, removeSingleBetFunction, setOpenDialogBox,
                     isContainsPre?.amount < 10
                   ) {
                     return toast(
-                      "Bet must be grater than 10 and less that 50000 Rupees"
+                      "Bet must be greater than 10 and less that 50000 Rupees"
                     );
                   } else {
                     setBetFuncton(
@@ -736,7 +736,7 @@ const Third12 = ({ isSelectedDropBet, removeSingleBetFunction, setOpenDialogBox,
                     isContainsPre?.amount < 2
                   ) {
                     return toast(
-                      "Bet must be grater than 2 and less that 5000 Rupees"
+                      "Bet must be greater than 2 and less that 5000 Rupees"
                     );
                   } else {
                     setBetFuncton(
@@ -765,7 +765,7 @@ const Third12 = ({ isSelectedDropBet, removeSingleBetFunction, setOpenDialogBox,
                   return
                 }
                 if (amount < 10 || amount > 50000)
-                  return toast("Please select amount grater than 10");
+                  return toast("Please select amount greater than 10");
                 let isContainsPre = bet?.find((i) => i?.id === 351000);
                 if (isContainsPre) {
                   // setOpenDialogBox(351000);
@@ -774,7 +774,7 @@ const Third12 = ({ isSelectedDropBet, removeSingleBetFunction, setOpenDialogBox,
                     isContainsPre?.amount < 10
                   ) {
                     return toast(
-                      "Bet must be grater than 10 and less that 50000 Rupees"
+                      "Bet must be greater than 10 and less that 50000 Rupees"
                     );
                   } else {
                     setBetFuncton(
@@ -801,7 +801,7 @@ const Third12 = ({ isSelectedDropBet, removeSingleBetFunction, setOpenDialogBox,
                   return
                 }
                 if (amount < 10 || amount > 50000)
-                  return toast("Please select amount grater than 10");
+                  return toast("Please select amount greater than 10");
                 let isContainsPre = bet?.find((i) => i?.id === 352000);
                 if (isContainsPre) {
                   // setOpenDialogBox(352000);
@@ -810,7 +810,7 @@ const Third12 = ({ isSelectedDropBet, removeSingleBetFunction, setOpenDialogBox,
                     isContainsPre?.amount < 10
                   ) {
                     return toast(
-                      "Bet must be grater than 10 and less that 50000 Rupees"
+                      "Bet must be greater than 10 and less that 50000 Rupees"
                     );
                   } else {
                     setBetFuncton(
@@ -837,7 +837,7 @@ const Third12 = ({ isSelectedDropBet, removeSingleBetFunction, setOpenDialogBox,
                   return
                 }
                 if (amount < 10 || amount > 50000)
-                  return toast("Please select amount grater than 10");
+                  return toast("Please select amount greater than 10");
                 let isContainsPre = bet?.find((i) => i?.id === 353000);
                 if (isContainsPre) {
                   // setOpenDialogBox(353000);
@@ -846,7 +846,7 @@ const Third12 = ({ isSelectedDropBet, removeSingleBetFunction, setOpenDialogBox,
                     isContainsPre?.amount < 10
                   ) {
                     return toast(
-                      "Bet must be grater than 10 and less that 50000 Rupees"
+                      "Bet must be greater than 10 and less that 50000 Rupees"
                     );
                   } else {
                     setBetFuncton(
@@ -878,7 +878,7 @@ const Third12 = ({ isSelectedDropBet, removeSingleBetFunction, setOpenDialogBox,
                     isContainsPre?.amount < 2
                   ) {
                     return toast(
-                      "Bet must be grater than 2 and less that 5000 Rupees"
+                      "Bet must be greater than 2 and less that 5000 Rupees"
                     );
                   } else {
                     setBetFuncton(
@@ -907,7 +907,7 @@ const Third12 = ({ isSelectedDropBet, removeSingleBetFunction, setOpenDialogBox,
                   return
                 }
                 if (amount < 10 || amount > 50000)
-                  return toast("Please select amount grater than 10");
+                  return toast("Please select amount greater than 10");
                 let isContainsPre = bet?.find((i) => i?.id === 321000);
                 if (isContainsPre) {
                   // setOpenDialogBox(321000);
@@ -916,7 +916,7 @@ const Third12 = ({ isSelectedDropBet, removeSingleBetFunction, setOpenDialogBox,
                     isContainsPre?.amount < 10
                   ) {
                     return toast(
-                      "Bet must be grater than 10 and less that 50000 Rupees"
+                      "Bet must be greater than 10 and less that 50000 Rupees"
                     );
                   } else {
                     setBetFuncton(
@@ -943,7 +943,7 @@ const Third12 = ({ isSelectedDropBet, removeSingleBetFunction, setOpenDialogBox,
                   return
                 }
                 if (amount < 10 || amount > 50000)
-                  return toast("Please select amount grater than 10");
+                  return toast("Please select amount greater than 10");
                 let isContainsPre = bet?.find((i) => i?.id === 322000);
                 if (isContainsPre) {
                   // setOpenDialogBox(322000);
@@ -952,7 +952,7 @@ const Third12 = ({ isSelectedDropBet, removeSingleBetFunction, setOpenDialogBox,
                     isContainsPre?.amount < 10
                   ) {
                     return toast(
-                      "Bet must be grater than 10 and less that 50000 Rupees"
+                      "Bet must be greater than 10 and less that 50000 Rupees"
                     );
                   } else {
                     setBetFuncton(
@@ -979,7 +979,7 @@ const Third12 = ({ isSelectedDropBet, removeSingleBetFunction, setOpenDialogBox,
                   return
                 }
                 if (amount < 10 || amount > 50000)
-                  return toast("Please select amount grater than 10");
+                  return toast("Please select amount greater than 10");
                 let isContainsPre = bet?.find((i) => i?.id === 323000);
                 if (isContainsPre) {
                   // setOpenDialogBox(323000);
@@ -988,7 +988,7 @@ const Third12 = ({ isSelectedDropBet, removeSingleBetFunction, setOpenDialogBox,
                     isContainsPre?.amount < 10
                   ) {
                     return toast(
-                      "Bet must be grater than 10 and less that 50000 Rupees"
+                      "Bet must be greater than 10 and less that 50000 Rupees"
                     );
                   } else {
                     setBetFuncton(
@@ -1020,7 +1020,7 @@ const Third12 = ({ isSelectedDropBet, removeSingleBetFunction, setOpenDialogBox,
                     isContainsPre?.amount < 2
                   ) {
                     return toast(
-                      "Bet must be grater than 2 and less that 5000 Rupees"
+                      "Bet must be greater than 2 and less that 5000 Rupees"
                     );
                   } else {
                     setBetFuncton(
@@ -1049,7 +1049,7 @@ const Third12 = ({ isSelectedDropBet, removeSingleBetFunction, setOpenDialogBox,
                   return
                 }
                 if (amount < 10 || amount > 50000)
-                  return toast("Please select amount grater than 10");
+                  return toast("Please select amount greater than 10");
                 let isContainsPre = bet?.find((i) => i?.id === 291000);
                 if (isContainsPre) {
                   // setOpenDialogBox(291000);
@@ -1058,7 +1058,7 @@ const Third12 = ({ isSelectedDropBet, removeSingleBetFunction, setOpenDialogBox,
                     isContainsPre?.amount < 10
                   ) {
                     return toast(
-                      "Bet must be grater than 10 and less that 50000 Rupees"
+                      "Bet must be greater than 10 and less that 50000 Rupees"
                     );
                   } else {
                     setBetFuncton(
@@ -1085,7 +1085,7 @@ const Third12 = ({ isSelectedDropBet, removeSingleBetFunction, setOpenDialogBox,
                   return
                 }
                 if (amount < 10 || amount > 50000)
-                  return toast("Please select amount grater than 10");
+                  return toast("Please select amount greater than 10");
                 let isContainsPre = bet?.find((i) => i?.id === 292000);
                 if (isContainsPre) {
                   // setOpenDialogBox(292000);
@@ -1094,7 +1094,7 @@ const Third12 = ({ isSelectedDropBet, removeSingleBetFunction, setOpenDialogBox,
                     isContainsPre?.amount < 10
                   ) {
                     return toast(
-                      "Bet must be grater than 10 and less that 50000 Rupees"
+                      "Bet must be greater than 10 and less that 50000 Rupees"
                     );
                   } else {
                     setBetFuncton(
@@ -1121,7 +1121,7 @@ const Third12 = ({ isSelectedDropBet, removeSingleBetFunction, setOpenDialogBox,
                   return
                 }
                 if (amount < 10 || amount > 50000)
-                  return toast("Please select amount grater than 10");
+                  return toast("Please select amount greater than 10");
                 let isContainsPre = bet?.find((i) => i?.id === 293000);
                 if (isContainsPre) {
                   // setOpenDialogBox(293000);
@@ -1130,7 +1130,7 @@ const Third12 = ({ isSelectedDropBet, removeSingleBetFunction, setOpenDialogBox,
                     isContainsPre?.amount < 10
                   ) {
                     return toast(
-                      "Bet must be grater than 10 and less that 50000 Rupees"
+                      "Bet must be greater than 10 and less that 50000 Rupees"
                     );
                   } else {
                     setBetFuncton(
@@ -1162,7 +1162,7 @@ const Third12 = ({ isSelectedDropBet, removeSingleBetFunction, setOpenDialogBox,
                     isContainsPre?.amount < 2
                   ) {
                     return toast(
-                      "Bet must be grater than 2 and less that 5000 Rupees"
+                      "Bet must be greater than 2 and less that 5000 Rupees"
                     );
                   } else {
                     setBetFuncton(
@@ -1191,7 +1191,7 @@ const Third12 = ({ isSelectedDropBet, removeSingleBetFunction, setOpenDialogBox,
                   return
                 }
                 if (amount < 10 || amount > 50000)
-                  return toast("Please select amount grater than 10");
+                  return toast("Please select amount greater than 10");
                 let isContainsPre = bet?.find((i) => i?.id === 261000);
                 if (isContainsPre) {
                   // setOpenDialogBox(261000);
@@ -1200,7 +1200,7 @@ const Third12 = ({ isSelectedDropBet, removeSingleBetFunction, setOpenDialogBox,
                     isContainsPre?.amount < 10
                   ) {
                     return toast(
-                      "Bet must be grater than 10 and less that 50000 Rupees"
+                      "Bet must be greater than 10 and less that 50000 Rupees"
                     );
                   } else {
                     setBetFuncton(
@@ -1227,7 +1227,7 @@ const Third12 = ({ isSelectedDropBet, removeSingleBetFunction, setOpenDialogBox,
                   return
                 }
                 if (amount < 10 || amount > 50000)
-                  return toast("Please select amount grater than 10");
+                  return toast("Please select amount greater than 10");
                 let isContainsPre = bet?.find((i) => i?.id === 262000);
                 if (isContainsPre) {
                   // setOpenDialogBox(262000);
@@ -1236,7 +1236,7 @@ const Third12 = ({ isSelectedDropBet, removeSingleBetFunction, setOpenDialogBox,
                     isContainsPre?.amount < 10
                   ) {
                     return toast(
-                      "Bet must be grater than 10 and less that 50000 Rupees"
+                      "Bet must be greater than 10 and less that 50000 Rupees"
                     );
                   } else {
                     setBetFuncton(
@@ -1263,7 +1263,7 @@ const Third12 = ({ isSelectedDropBet, removeSingleBetFunction, setOpenDialogBox,
                   return
                 }
                 if (amount < 10 || amount > 50000)
-                  return toast("Please select amount grater than 10");
+                  return toast("Please select amount greater than 10");
                 let isContainsPre = bet?.find((i) => i?.id === 263000);
                 if (isContainsPre) {
                   // setOpenDialogBox(263000);
@@ -1272,7 +1272,7 @@ const Third12 = ({ isSelectedDropBet, removeSingleBetFunction, setOpenDialogBox,
                     isContainsPre?.amount < 10
                   ) {
                     return toast(
-                      "Bet must be grater than 10 and less that 50000 Rupees"
+                      "Bet must be greater than 10 and less that 50000 Rupees"
                     );
                   } else {
                     setBetFuncton(
@@ -1306,7 +1306,7 @@ const Third12 = ({ isSelectedDropBet, removeSingleBetFunction, setOpenDialogBox,
                     isContainsPre?.amount < 2
                   ) {
                     return toast(
-                      "Bet must be grater than 2 and less that 5000 Rupees"
+                      "Bet must be greater than 2 and less that 5000 Rupees"
                     );
                   } else {
                     setBetFuncton(
@@ -1335,7 +1335,7 @@ const Third12 = ({ isSelectedDropBet, removeSingleBetFunction, setOpenDialogBox,
                   return
                 }
                 if (amount < 10 || amount > 50000)
-                  return toast("Please select amount grater than 10");
+                  return toast("Please select amount greater than 10");
                 let isContainsPre = bet?.find((i) => i?.id === 341000);
                 if (isContainsPre) {
                   // setOpenDialogBox(341000);
@@ -1344,7 +1344,7 @@ const Third12 = ({ isSelectedDropBet, removeSingleBetFunction, setOpenDialogBox,
                     isContainsPre?.amount < 10
                   ) {
                     return toast(
-                      "Bet must be grater than 10 and less that 50000 Rupees"
+                      "Bet must be greater than 10 and less that 50000 Rupees"
                     );
                   } else {
                     setBetFuncton(
@@ -1371,7 +1371,7 @@ const Third12 = ({ isSelectedDropBet, removeSingleBetFunction, setOpenDialogBox,
                   return
                 }
                 if (amount < 10 || amount > 50000)
-                  return toast("Please select amount grater than 10");
+                  return toast("Please select amount greater than 10");
                 let isContainsPre = bet?.find((i) => i?.id === 342000);
                 if (isContainsPre) {
                   // setOpenDialogBox(342000);
@@ -1380,7 +1380,7 @@ const Third12 = ({ isSelectedDropBet, removeSingleBetFunction, setOpenDialogBox,
                     isContainsPre?.amount < 10
                   ) {
                     return toast(
-                      "Bet must be grater than 10 and less that 50000 Rupees"
+                      "Bet must be greater than 10 and less that 50000 Rupees"
                     );
                   } else {
                     setBetFuncton(
@@ -1412,7 +1412,7 @@ const Third12 = ({ isSelectedDropBet, removeSingleBetFunction, setOpenDialogBox,
                     isContainsPre?.amount < 2
                   ) {
                     return toast(
-                      "Bet must be grater than 2 and less that 5000 Rupees"
+                      "Bet must be greater than 2 and less that 5000 Rupees"
                     );
                   } else {
                     setBetFuncton(
@@ -1441,7 +1441,7 @@ const Third12 = ({ isSelectedDropBet, removeSingleBetFunction, setOpenDialogBox,
                   return
                 }
                 if (amount < 10 || amount > 50000)
-                  return toast("Please select amount grater than 10");
+                  return toast("Please select amount greater than 10");
                 let isContainsPre = bet?.find((i) => i?.id === 311000);
                 if (isContainsPre) {
                   // setOpenDialogBox(311000);
@@ -1450,7 +1450,7 @@ const Third12 = ({ isSelectedDropBet, removeSingleBetFunction, setOpenDialogBox,
                     isContainsPre?.amount < 10
                   ) {
                     return toast(
-                      "Bet must be grater than 10 and less that 50000 Rupees"
+                      "Bet must be greater than 10 and less that 50000 Rupees"
                     );
                   } else {
                     setBetFuncton(
@@ -1477,7 +1477,7 @@ const Third12 = ({ isSelectedDropBet, removeSingleBetFunction, setOpenDialogBox,
                   return
                 }
                 if (amount < 10 || amount > 50000)
-                  return toast("Please select amount grater than 10");
+                  return toast("Please select amount greater than 10");
                 let isContainsPre = bet?.find((i) => i?.id === 312000);
                 if (isContainsPre) {
                   // setOpenDialogBox(312000);
@@ -1486,7 +1486,7 @@ const Third12 = ({ isSelectedDropBet, removeSingleBetFunction, setOpenDialogBox,
                     isContainsPre?.amount < 10
                   ) {
                     return toast(
-                      "Bet must be grater than 10 and less that 50000 Rupees"
+                      "Bet must be greater than 10 and less that 50000 Rupees"
                     );
                   } else {
                     setBetFuncton(
@@ -1518,7 +1518,7 @@ const Third12 = ({ isSelectedDropBet, removeSingleBetFunction, setOpenDialogBox,
                     isContainsPre?.amount < 2
                   ) {
                     return toast(
-                      "Bet must be grater than 2 and less that 5000 Rupees"
+                      "Bet must be greater than 2 and less that 5000 Rupees"
                     );
                   } else {
                     setBetFuncton(
@@ -1547,7 +1547,7 @@ const Third12 = ({ isSelectedDropBet, removeSingleBetFunction, setOpenDialogBox,
                   return
                 }
                 if (amount < 10 || amount > 50000)
-                  return toast("Please select amount grater than 10");
+                  return toast("Please select amount greater than 10");
                 let isContainsPre = bet?.find((i) => i?.id === 281000);
                 if (isContainsPre) {
                   // setOpenDialogBox(281000);
@@ -1556,7 +1556,7 @@ const Third12 = ({ isSelectedDropBet, removeSingleBetFunction, setOpenDialogBox,
                     isContainsPre?.amount < 10
                   ) {
                     return toast(
-                      "Bet must be grater than 10 and less that 50000 Rupees"
+                      "Bet must be greater than 10 and less that 50000 Rupees"
                     );
                   } else {
                     setBetFuncton(
@@ -1583,7 +1583,7 @@ const Third12 = ({ isSelectedDropBet, removeSingleBetFunction, setOpenDialogBox,
                   return
                 }
                 if (amount < 10 || amount > 50000)
-                  return toast("Please select amount grater than 10");
+                  return toast("Please select amount greater than 10");
                 let isContainsPre = bet?.find((i) => i?.id === 282000);
                 if (isContainsPre) {
                   // setOpenDialogBox(282000);
@@ -1592,7 +1592,7 @@ const Third12 = ({ isSelectedDropBet, removeSingleBetFunction, setOpenDialogBox,
                     isContainsPre?.amount < 10
                   ) {
                     return toast(
-                      "Bet must be grater than 10 and less that 50000 Rupees"
+                      "Bet must be greater than 10 and less that 50000 Rupees"
                     );
                   } else {
                     setBetFuncton(
@@ -1624,7 +1624,7 @@ const Third12 = ({ isSelectedDropBet, removeSingleBetFunction, setOpenDialogBox,
                     isContainsPre?.amount < 2
                   ) {
                     return toast(
-                      "Bet must be grater than 2 and less that 5000 Rupees"
+                      "Bet must be greater than 2 and less that 5000 Rupees"
                     );
                   } else {
                     setBetFuncton(
@@ -1653,7 +1653,7 @@ const Third12 = ({ isSelectedDropBet, removeSingleBetFunction, setOpenDialogBox,
                   return
                 }
                 if (amount < 10 || amount > 50000)
-                  return toast("Please select amount grater than 10");
+                  return toast("Please select amount greater than 10");
                 let isContainsPre = bet?.find((i) => i?.id === 251000);
                 if (isContainsPre) {
                   // setOpenDialogBox(251000);
@@ -1662,7 +1662,7 @@ const Third12 = ({ isSelectedDropBet, removeSingleBetFunction, setOpenDialogBox,
                     isContainsPre?.amount < 10
                   ) {
                     return toast(
-                      "Bet must be grater than 10 and less that 50000 Rupees"
+                      "Bet must be greater than 10 and less that 50000 Rupees"
                     );
                   } else {
                     setBetFuncton(
@@ -1689,7 +1689,7 @@ const Third12 = ({ isSelectedDropBet, removeSingleBetFunction, setOpenDialogBox,
                   return
                 }
                 if (amount < 10 || amount > 50000)
-                  return toast("Please select amount grater than 10");
+                  return toast("Please select amount greater than 10");
                 let isContainsPre = bet?.find((i) => i?.id === 252000);
                 if (isContainsPre) {
                   // setOpenDialogBox(252000);
@@ -1698,7 +1698,7 @@ const Third12 = ({ isSelectedDropBet, removeSingleBetFunction, setOpenDialogBox,
                     isContainsPre?.amount < 10
                   ) {
                     return toast(
-                      "Bet must be grater than 10 and less that 50000 Rupees"
+                      "Bet must be greater than 10 and less that 50000 Rupees"
                     );
                   } else {
                     setBetFuncton(

@@ -618,7 +618,7 @@
 //                     return;
 //                   }
 //                   if (amount < 10 || amount > 50000)
-//                     return toast("Please select amount grater than 10");
+//                     return toast("Please select amount greater than 10");
 //                   let isContainsPre = bet?.find((i) => i?.id === 336);
 //                   if (isContainsPre) {
 //                     // setOpenDialogBox(336);
@@ -627,7 +627,7 @@
 //                       isContainsPre?.amount < 10
 //                     ) {
 //                       return toast(
-//                         "Bet must be grater than 10 and less that 50000 Rupees"
+//                         "Bet must be greater than 10 and less that 50000 Rupees"
 //                       );
 //                     } else {
 //                       setBetFuncton(
@@ -654,7 +654,7 @@
 //                     return;
 //                   }
 //                   if (amount < 10 || amount > 50000)
-//                     return toast("Please select amount grater than 10");
+//                     return toast("Please select amount greater than 10");
 //                   let isContainsPre = bet?.find((i) => i?.id === 235);
 //                   if (isContainsPre) {
 //                     // setOpenDialogBox(235);
@@ -663,7 +663,7 @@
 //                       isContainsPre?.amount < 10
 //                     ) {
 //                       return toast(
-//                         "Bet must be grater than 10 and less that 50000 Rupees"
+//                         "Bet must be greater than 10 and less that 50000 Rupees"
 //                       );
 //                     } else {
 //                       setBetFuncton(
@@ -690,7 +690,7 @@
 //                     return;
 //                   }
 //                   if (amount < 10 || amount > 50000)
-//                     return toast("Please select amount grater than 10");
+//                     return toast("Please select amount greater than 10");
 //                   let isContainsPre = bet?.find((i) => i?.id === 134);
 //                   if (isContainsPre) {
 //                     // setOpenDialogBox(134);
@@ -699,7 +699,7 @@
 //                       isContainsPre?.amount < 10
 //                     ) {
 //                       return toast(
-//                         "Bet must be grater than 10 and less that 50000 Rupees"
+//                         "Bet must be greater than 10 and less that 50000 Rupees"
 //                       );
 //                     } else {
 //                       setBetFuncton(

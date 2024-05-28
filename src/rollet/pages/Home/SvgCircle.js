@@ -79,7 +79,7 @@ const SvgCircle = () => {
       if (onemin === 30) {
         handlePlaySound();
       }
-      if (onemin === 59) {
+      if (onemin === 57) {
         handlePlaySoundPlaceBet();
       }
     };

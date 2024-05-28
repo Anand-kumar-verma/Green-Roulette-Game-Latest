@@ -313,7 +313,7 @@ export const style = {
     padding: "10px",
     border: "2px solid #C9A553",
     position: "absolute",
-    right: "-16%",
+    right: "-8%",
     transform: "rotate(90deg)",
     bottom: "42%",
     // width: "120px",
