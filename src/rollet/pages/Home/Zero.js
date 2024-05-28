@@ -15,7 +15,7 @@ const Zero = ({
       <Box
         sx={{
           background: "white",
-          width: "71%",
+          width: "64%",
           border: "2px solid white",
           transform: "rotate(180deg)",
           position: "relative",

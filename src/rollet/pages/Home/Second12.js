@@ -7,7 +7,7 @@ import toast from 'react-hot-toast';
 const Second12 = ({ isSelectedDropBet, removeSingleBetFunction, setOpenDialogBox, bet, setBetFuncton, amount }) => {
   return (
     <Stack direction="row" justifyContent="end" sx={{ height: "28.56%" }}>
-      <div className="w-[14%]   " style={{ border: '1px solid white', background: 'yellow' }}>
+      <div className="w-[18%]   " style={{ border: '1px solid white', background: 'yellow' }}>
         <Box sx={{ width: '100%', height: '50%', background: 'red', ...style.flex }} >
           <NavLink
             id="200"
@@ -79,7 +79,7 @@ const Second12 = ({ isSelectedDropBet, removeSingleBetFunction, setOpenDialogBox
         </Box>
 
       </div>
-      <div className="w-[14%] !grid grid-rows-1  !border-white !place-items-center" style={{ ...style.flex, border: '1px solid white' }}>
+      <div className="w-[18%] !grid grid-rows-1  !border-white !place-items-center" style={{ ...style.flex, border: '1px solid white' }}>
         <IconButton
           className="!p-0"
           style={{ transform: "rotate(-270deg)" }}
@@ -128,10 +128,11 @@ const Second12 = ({ isSelectedDropBet, removeSingleBetFunction, setOpenDialogBox
       </div>
       <Stack
         sx={{
-          width: "60%",
+          width: "64% !important",
           height: "100%",
+          borderRight: "2px solid white",
         }}
-        className="!w-full !h-full !grid !grid-cols-3 "
+        className=" !h-full !grid !grid-cols-3 "
       >
         <span className="!grid grid-rows-4 !w-full !h-full relative">
           <IconButton sx={{ ...style.btn2, ...style.black }}>
