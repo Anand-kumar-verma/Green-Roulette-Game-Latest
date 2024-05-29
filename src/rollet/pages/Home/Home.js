@@ -237,19 +237,7 @@ function Home() {
   };
 
   const handlePlaySound = async () => {
-    // try {
-    //   if (audioRefMusic.current) {
-    //     if (isPlaying) {
-    //       await audioRefMusic.current.pause();
-    //     } else {
-    //       await audioRefMusic.current.play();
-    //     }
-    //     setIsPlaying(!isPlaying);
-    //   }
-    // } catch (error) {
-    //   // Handle any errors during play/pause
-    //   console.error("Error during play/pause:", error);
-    // }
+
     try {
       if (audioRefMusic?.current?.pause) {
         await audioRefMusic?.current?.play();
@@ -637,7 +625,9 @@ function Home() {
                 >
                   Bet amount:{" "}
                   <span style={{ color: "red" }}>
-                    {total_amount_bet ? total_amount_bet || 0 : 0}
+                    {total_amount_bet
+                      ? Number(total_amount_bet || 0)?.toFixed(2)
+                      : 0}
                   </span>
                 </Typography>
                 <Typography
@@ -647,7 +637,7 @@ function Home() {
                 >
                   You Win :{" "}
                   <span style={{ color: "#15158F !important" }}>
-                    {openDialogBox ? openDialogBox : 0}
+                    {openDialogBox ? Number(openDialogBox || 0)?.toFixed(2) : 0}
                   </span>
                 </Typography>
               </Box>
