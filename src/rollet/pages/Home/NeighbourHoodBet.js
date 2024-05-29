@@ -89,7 +89,9 @@ const NeighbourHoodBet = ({
                     isContainsPre?.amount < 2
                   ) {
                     return toast(
-                      "Bet must be greater than 2 and less that 5000 Rupees"
+                    <span className="!p-2" style={{ marginTop:'100% ', transform: "rotate(90deg)", backgroundColor: 'black' }}>
+                                Bet must be greater than 10 and less that 50000 Rupees
+                              </span>
                     );
                   } else {
                     setBetFuncton(
@@ -135,7 +137,9 @@ const NeighbourHoodBet = ({
                     isContainsPre?.amount < 2
                   ) {
                     return toast(
-                      "Bet must be greater than 2 and less that 5000 Rupees"
+                    <span className="!p-2" style={{ marginTop:'100% ', transform: "rotate(90deg)", backgroundColor: 'black' }}>
+                                Bet must be greater than 10 and less that 50000 Rupees
+                              </span>
                     );
                   } else {
                     setBetFuncton(
@@ -179,7 +183,9 @@ const NeighbourHoodBet = ({
                     isContainsPre?.amount < 2
                   ) {
                     return toast(
-                      "Bet must be greater than 2 and less that 5000 Rupees"
+                    <span className="!p-2" style={{ marginTop:'100% ', transform: "rotate(90deg)", backgroundColor: 'black' }}>
+                                Bet must be greater than 10 and less that 50000 Rupees
+                              </span>
                     );
                   } else {
                     setBetFuncton(
@@ -224,7 +230,9 @@ const NeighbourHoodBet = ({
                     isContainsPre?.amount < 2
                   ) {
                     return toast(
-                      "Bet must be greater than 2 and less that 5000 Rupees"
+                    <span className="!p-2" style={{ marginTop:'100% ', transform: "rotate(90deg)", backgroundColor: 'black' }}>
+                                Bet must be greater than 10 and less that 50000 Rupees
+                              </span>
                     );
                   } else {
                     setBetFuncton(

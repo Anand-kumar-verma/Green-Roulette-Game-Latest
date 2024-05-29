@@ -90,7 +90,7 @@ function Home() {
 
   const wallet_amount_data = wallet_amount?.data?.data || 0;
 
-  
+
   const { isLoading, data } = useQuery(
     ["profile_rollet"],
     () => getProfileRollet(),
@@ -700,7 +700,11 @@ function Home() {
                           return;
                         }
                         if (amount < 10 || amount > 50000)
-                          return toast("Please select amount greater than 10");
+                          return toast(
+                            <span style={{ marginTop:'100% ',  transform: "rotate(90deg)", backgroundColor: 'black' }}>
+                              Please select amount greater than 10
+                            </span>
+                          );
                         let isContainsPre = bet?.find((i) => i?.id === 336);
                         if (isContainsPre) {
                           // setOpenDialogBox(336);
@@ -709,7 +713,9 @@ function Home() {
                             isContainsPre?.amount < 10
                           ) {
                             return toast(
-                              "Bet must be greater than 10 and less that 50000 Rupees"
+                              <span className="p-2" style={{ marginTop:'100% ', transform: "rotate(90deg)", backgroundColor: 'black' }}>
+                                Bet must be greater than 10 and less that 50000 Rupees
+                              </span>
                             );
                           } else {
                             setBetFuncton(
@@ -736,7 +742,11 @@ function Home() {
                           return;
                         }
                         if (amount < 10 || amount > 50000)
-                          return toast("Please select amount greater than 10");
+                          return toast(
+                          <span className="p-2" style={{ marginTop:'100%' ,transform: "rotate(90deg)", backgroundColor: 'black'}}>
+                        Please select amount greater than 10
+                      </span>
+                      );
                         let isContainsPre = bet?.find((i) => i?.id === 235);
                         if (isContainsPre) {
                           // setOpenDialogBox(235);
@@ -745,7 +755,9 @@ function Home() {
                             isContainsPre?.amount < 10
                           ) {
                             return toast(
-                              "Bet must be greater than 10 and less that 50000 Rupees"
+                              <span className="p-2" style={{ marginTop:'100% ', transform: "rotate(90deg)", backgroundColor: 'black' }}>
+                              Bet must be greater than 10 and less that 50000 Rupees
+                            </span>
                             );
                           } else {
                             setBetFuncton(
@@ -772,7 +784,10 @@ function Home() {
                           return;
                         }
                         if (amount < 10 || amount > 50000)
-                          return toast("Please select amount greater than 10");
+                          return toast(
+                            <span className="p-2" style={{ marginTop:'100% ',  transform: "rotate(90deg)", backgroundColor: 'black'}}>
+                            Please select amount greater than 10
+                          </span>);
                         let isContainsPre = bet?.find((i) => i?.id === 134);
                         if (isContainsPre) {
                           // setOpenDialogBox(134);
@@ -781,7 +796,9 @@ function Home() {
                             isContainsPre?.amount < 10
                           ) {
                             return toast(
-                              "Bet must be greater than 10 and less that 50000 Rupees"
+                              <span className="!p-2" style={{ marginTop:'100% ',alignItems:'center',  transform: "rotate(90deg)", backgroundColor: 'black' }}>
+                              Bet must be greater than 10 and less that 50000 Rupees
+                            </span>
                             );
                           } else {
                             setBetFuncton(
