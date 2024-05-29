@@ -68,7 +68,7 @@ export const endpoint = {
   cash_out: `${baseUrl}/api/aviator/cash_out`,
 
   rollet: {
-    logout:baseUrl + "/roulette-logout",
+    logout:baseUrl + "/api/roulette-logout",
     login: baseUrl + "/api/roulette-login",
     bet_now: baseUrl + "/api/bet-now",
     profile: baseUrl + "/api/roulette-profile",
