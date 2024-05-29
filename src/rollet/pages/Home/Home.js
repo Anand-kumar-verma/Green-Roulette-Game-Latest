@@ -21,7 +21,9 @@ import {
   walletamount,
 } from "../../../services/apicalling";
 // import roulette from "../../assets/images/rolette.png";
-import wheel_roulette from "../../assets/images/roulettewheel.mp3";
+import mouse_click from "../../assets/images/mouse_click.mp3";
+import wheel_roulette from "../../assets/images/rotate_wheel_ball_music.mp3";
+import stop_ball_music from "../../assets/images/stop_ball_music.mp3";
 import watch from "../../assets/images/watch.png";
 import { addWinCap, confirmBet, spinFunction } from "../../sharedFunction";
 import Rolletball from "../Rolletball";
@@ -40,6 +42,7 @@ import table2 from "../../assets/images/table2.png";
 import table from "../../assets/images/table.png";
 import axios from "axios";
 import { endpoint } from "../../../services/urls";
+import placebetmusic from "../../assets/images/applybet_music.mp3";
 function Home() {
   let interval_music;
   let isPreBet = localStorage.getItem("isPreBet");
@@ -47,6 +50,9 @@ function Home() {
   const client = useQueryClient();
   const socket = useSocket();
   const audioRefMusic = useRef();
+  const audioRefMusicStopBall = useRef();
+  const mouseClickSoundref = useRef();
+  const placeBetMusic = useRef();
   const value =
     (localStorage.getItem("logindataen") &&
       CryptoJS.AES.decrypt(
@@ -133,6 +139,7 @@ function Home() {
 
   function setBetFuncton(id, number, amount) {
     if (one_min_time <= 10) return;
+    handlePlaySoundPlacebet();
     const obj = {
       id: id,
       number: number,
@@ -230,18 +237,52 @@ function Home() {
   };
 
   const handlePlaySound = async () => {
+    // try {
+    //   if (audioRefMusic.current) {
+    //     if (isPlaying) {
+    //       await audioRefMusic.current.pause();
+    //     } else {
+    //       await audioRefMusic.current.play();
+    //     }
+    //     setIsPlaying(!isPlaying);
+    //   }
+    // } catch (error) {
+    //   // Handle any errors during play/pause
+    //   console.error("Error during play/pause:", error);
+    // }
     try {
-      if (audioRefMusic.current) {
-        if (isPlaying) {
-          await audioRefMusic.current.pause();
-        } else {
-          await audioRefMusic.current.play();
-        }
-        setIsPlaying(!isPlaying);
+      if (audioRefMusic?.current?.pause) {
+        await audioRefMusic?.current?.play();
+      } else {
+        await audioRefMusic?.current?.pause();
       }
     } catch (error) {
-      // Handle any errors during play/pause
-      console.error("Error during play/pause:", error);
+      // Handle any errors during play
+      console.error("Error during play:", error);
+    }
+  };
+  const handlePlaySoundStopBall = async () => {
+    try {
+      if (audioRefMusicStopBall?.current?.pause) {
+        await audioRefMusicStopBall?.current?.play();
+      } else {
+        await audioRefMusicStopBall?.current?.pause();
+      }
+    } catch (error) {
+      // Handle any errors during play
+      console.error("Error during play:", error);
+    }
+  };
+  const mouseClickSound = async () => {
+    try {
+      if (mouseClickSoundref?.current?.pause) {
+        await mouseClickSoundref?.current?.play();
+      } else {
+        await mouseClickSoundref?.current?.pause();
+      }
+    } catch (error) {
+      // Handle any errors during play
+      console.error("Error during play:", error);
     }
   };
 
@@ -255,11 +296,11 @@ function Home() {
         localStorage?.setItem("rollet_bet_placed", false);
       }
       if (onemin === 0) {
+        // handlePlaySound();
         handlePlaySound();
-
-        interval_music = setInterval(() => {
-          handlePlaySound();
-        }, 1000);
+        // interval_music = setInterval(() => {
+        //   handlePlaySound();
+        // }, 1000);
       }
 
       if (onemin === 10) {
@@ -286,7 +327,9 @@ function Home() {
 
       localStorage.setItem("result_rollet", onemin);
       setTimeout(() => {
-        interval_music && clearInterval(interval_music);
+        // interval_music && clearInterval(interval_music);
+        handlePlaySound();
+        handlePlaySoundStopBall();
       }, 9000);
 
       setTimeout(() => {
@@ -339,26 +382,6 @@ function Home() {
       console.log(e);
     }
   }
-
-  // useEffect(() => {
-  //   let isPlaced = localStorage.getItem("rollet_bet_placed");
-  //   let win_amount = 0;
-  //   for (let i = 0; i < bet?.length; i++) {
-  //     win_amount += Number(bet_history?.data?.data?.[i]?.win || 0) || 0;
-  //   }
-  //   console.log(win_amount, "THis is win ammount");
-  //   if (win_amount > 0 && isPlaced === "true") {
-  //     setOpenDialogBox(true);
-  //     setTimeout(() => {
-  //       setOpenDialogBox(false);
-  //       localStorage?.setItem("rollet_bet_placed", false);
-  //     }, 2000);
-  //   }
-  // }, [
-  //   Number(
-  //     bet_history_Data?.reduce((a, b) => a + Number(b?.win || 0), 0) || 0
-  //   )?.toFixed(2),
-  // ]);
 
   const handleConfirm = () => {
     setOpen1(false);
@@ -449,8 +472,29 @@ function Home() {
     setBet(newUpdateAmountArray);
   }
 
+  const handlePlaySoundPlacebet = async () => {
+    try {
+      if (placeBetMusic?.current?.pause) {
+        await placeBetMusic?.current?.play();
+      } else {
+        await placeBetMusic?.current?.pause();
+      }
+    } catch (error) {
+      // Handle any errors during play
+      console.error("Error during play:", error);
+    }
+  };
   return (
     <Box className="home" sx={style.root}>
+      {useMemo(() => {
+        return (
+          <>
+            <audio ref={placeBetMusic} hidden>
+              <source src={`${placebetmusic}`} type="audio/mp3" />
+            </audio>
+          </>
+        );
+      }, [placeBetMusic])}
       <Box
         sx={{
           width: "100%",
@@ -476,12 +520,27 @@ function Home() {
                 <audio ref={audioRefMusic} hidden>
                   <source src={`${wheel_roulette}`} type="audio/mp3" />
                 </audio>
-                {/* <audio ref={audioRefMusicPlaceBet} hidden>
-            <source src={`${place_your_bet}`} type="audio/mp3" />
-          </audio> */}
               </>
             );
           }, [audioRefMusic])}
+          {useMemo(() => {
+            return (
+              <>
+                <audio ref={audioRefMusicStopBall} hidden>
+                  <source src={`${stop_ball_music}`} type="audio/mp3" />
+                </audio>
+              </>
+            );
+          }, [audioRefMusicStopBall])}
+          {useMemo(() => {
+            return (
+              <>
+                <audio ref={mouseClickSoundref} hidden>
+                  <source src={`${mouse_click}`} type="audio/mp3" />
+                </audio>
+              </>
+            );
+          }, [mouseClickSoundref])}
           <Box
             sx={{
               width: "100%",
@@ -1023,6 +1082,7 @@ function Home() {
               </Typography>
             </Box>
             <Coin
+              mouseClickSound={mouseClickSound}
               setAmount={setAmount}
               amount={amount}
               setisSelectedDropBet={setisSelectedDropBet}
@@ -1031,15 +1091,22 @@ function Home() {
               <Typography
                 variant="body1"
                 color="initial"
-                onClick={() =>
-                  one_min_time > 10 && setopenDialogBoxhistory(true)
-                }
+                onClick={() => {
+                  mouseClickSound();
+                  one_min_time > 10 && setopenDialogBoxhistory(true);
+                }}
               >
                 GAME HISTORY
               </Typography>
             </Box>
 
-            <Box sx={style.naiming4} onClick={() => setOpen1(true)}>
+            <Box
+              sx={style.naiming4}
+              onClick={() => {
+                mouseClickSound();
+                setOpen1(true);
+              }}
+            >
               <Typography variant="body1" color="initial">
                 LEAVE TABLE
               </Typography>
@@ -1056,7 +1123,8 @@ function Home() {
                       fontSize: "11px",
                       borderRadius: "5px",
                     }}
-                    onClick={() =>
+                    onClick={() => {
+                      mouseClickSound();
                       confirmBet(
                         rebet,
                         setrebet,
@@ -1065,8 +1133,8 @@ function Home() {
                         user_id,
                         wallet_amount_data,
                         client
-                      )
-                    }
+                      );
+                    }}
                     variant="body1"
                     color="initial"
                   >

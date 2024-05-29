@@ -20,7 +20,7 @@ import g3k from '../../assets/images/3k.png'
 
 import { NavLink } from 'react-router-dom'
 
-const Coin = ({ setAmount, amount, setisSelectedDropBet }) => {
+const Coin = ({ mouseClickSound,setAmount, amount, setisSelectedDropBet }) => {
   return (
     <Box className=" !absolute transform rotate-90 "
       sx={{
@@ -33,48 +33,56 @@ const Coin = ({ setAmount, amount, setisSelectedDropBet }) => {
         transform: 'rotate(59deg)',
       }}>
       <NavLink onClick={() => {
+        mouseClickSound()
         setisSelectedDropBet(false);
         setAmount(2)
       }}>
         <Box component='img' src={amount === 2 ? g2 : two} width={30} ></Box>
       </NavLink>
       <NavLink onClick={() => {
+        mouseClickSound()
         setisSelectedDropBet(false);
         setAmount(5)
       }}>
         <Box component='img' src={amount === 5 ? g5 : five} width={30} ></Box>
       </NavLink>
       <NavLink onClick={() => {
+        mouseClickSound()
         setisSelectedDropBet(false);
         setAmount(10)
       }}>
         <Box component='img' src={amount === 10 ? g10 : ten} width={30} ></Box>
       </NavLink>
       <NavLink onClick={() => {
+        mouseClickSound()
         setisSelectedDropBet(false);
         setAmount(50)
       }}>
         <Box component='img' src={amount === 50 ? g50 : pachas} width={30} ></Box>
       </NavLink>
       <NavLink onClick={() => {
+        mouseClickSound()
         setisSelectedDropBet(false);
         setAmount(100)
       }}>
         <Box component='img' src={amount === 100 ? g100 : soo} width={30} ></Box>
       </NavLink>
       <NavLink onClick={() => {
+        mouseClickSound()
         setisSelectedDropBet(false);
         setAmount(500)
       }}>
         <Box component='img' src={amount === 500 ? g500 : panso} width={30} ></Box>
       </NavLink>
       <NavLink onClick={() => {
+        mouseClickSound()
         setisSelectedDropBet(false);
         setAmount(1000)
       }}>
         <Box component='img' src={amount === 1000 ? g1k : hazar} width={30} ></Box>
       </NavLink>
       <NavLink onClick={() => {
+        mouseClickSound()
         setisSelectedDropBet(false);
         setAmount(3000)
       }}>
