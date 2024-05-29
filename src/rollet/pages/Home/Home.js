@@ -95,7 +95,7 @@ function Home() {
   );
 
   const wallet_amount_data = wallet_amount?.data?.data || 0;
-
+  useMemo(()=>{console.log(wallet_amount_data)},[wallet_amount?.data?.data])
   const { isLoading, data } = useQuery(
     ["profile_rollet"],
     () => getProfileRollet(),
@@ -284,16 +284,10 @@ function Home() {
         localStorage?.setItem("rollet_bet_placed", false);
       }
       if (onemin === 0) {
-        // handlePlaySound();
         handlePlaySound();
-        // interval_music = setInterval(() => {
-        //   handlePlaySound();
-        // }, 1000);
       }
 
       if (onemin === 10) {
-        // removeBetFunctonAll()
-        console.log(bet);
         let id = localStorage.getItem("result_rollet");
         let element = document.getElementById(`${String(id)}_rotate`);
 
@@ -317,10 +311,11 @@ function Home() {
       setTimeout(() => {
         // interval_music && clearInterval(interval_music);
         handlePlaySound();
-        handlePlaySoundStopBall();
+        
       }, 9000);
 
       setTimeout(() => {
+        handlePlaySoundStopBall();
         setresult_rollet(onemin);
         client.refetchQueries("history_rollet");
         client.refetchQueries("walletamount");
