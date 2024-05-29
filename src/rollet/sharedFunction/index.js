@@ -134,6 +134,7 @@ export const confirmBet = async (
   } else {
     try {
       const res = await axios.post(endpoint?.rollet?.bet_now, reqbody);
+      console.log(res);
       toast(
         <span
           className="!bg-blue-800 !py-2 !px-4 !text-white !border-2 !border-red-800 !rounded-full"

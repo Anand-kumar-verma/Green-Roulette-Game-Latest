@@ -90,7 +90,6 @@ function Home() {
 
   const wallet_amount_data = wallet_amount?.data?.data || 0;
 
-
   const { isLoading, data } = useQuery(
     ["profile_rollet"],
     () => getProfileRollet(),
@@ -153,14 +152,15 @@ function Home() {
       console.log("inside else");
       setBet([...bet, obj]);
     }
-    console.log(bet);
+
     let element = document.getElementById(`${id}`);
     element.style.position = "relative"; // Ensure the parent is positioned relatively
     let newelement = element.querySelector("span");
 
     if (newelement) {
-      newelement.innerHTML = `${amount >= 1000 ? String(amount / 1000) + "k" : amount
-        }`;
+      newelement.innerHTML = `${
+        amount >= 1000 ? String(amount / 1000) + "k" : amount
+      }`;
     } else {
       newelement = document.createElement("span");
       let vlaue = `${amount >= 1000 ? String(amount / 1000) + "k" : amount}`;
@@ -186,7 +186,12 @@ function Home() {
     element.appendChild(newelement);
   }
 
+  useEffect(() => {
+    if (one_min_time <= 10 && bet?.length > 0) removeBetFunctonAll();
+  }, [one_min_time]);
+
   function removeBetFunctonAll() {
+    console.log(bet, "before 10 sec");
     bet?.forEach((ele) => {
       let element = document.getElementById(`${ele?.id}`);
       let span = element.querySelector("span");
@@ -258,6 +263,8 @@ function Home() {
       }
 
       if (onemin === 10) {
+        // removeBetFunctonAll()
+        console.log(bet);
         let id = localStorage.getItem("result_rollet");
         let element = document.getElementById(`${String(id)}_rotate`);
 
@@ -386,8 +393,9 @@ function Home() {
     let newelement = element.querySelector("span");
 
     if (newelement) {
-      newelement.innerHTML = `${amount >= 1000 ? String(amount / 1000) + "k" : amount
-        }`;
+      newelement.innerHTML = `${
+        amount >= 1000 ? String(amount / 1000) + "k" : amount
+      }`;
     } else {
       newelement = document.createElement("span");
       let vlaue = `${amount >= 1000 ? String(amount / 1000) + "k" : amount}`;
@@ -430,8 +438,8 @@ function Home() {
             ? ele?.amount
             : Number(ele?.amount) * 2
           : Number(ele?.amount) * 2 > 50000
-            ? ele?.amount
-            : Number(ele?.amount) * 2,
+          ? ele?.amount
+          : Number(ele?.amount) * 2,
       };
     });
     console.log(newUpdateAmountArray, "update array");
@@ -542,9 +550,9 @@ function Home() {
               }}
               anchor="top"
               open={isOpenPreRoundDialogBox}
-            // onClose={() => {
-            //   setopenDialogBoxhistory(!openDialogBoxhistory);
-            // }}
+              // onClose={() => {
+              //   setopenDialogBoxhistory(!openDialogBoxhistory);
+              // }}
             >
               <Box
                 className="!text-yellow-500 !font-extrabold  "
@@ -568,7 +576,7 @@ function Home() {
                   color="initial"
                   sx={{ color: "red" }}
                 >
-                  Total bet amount:{" "}
+                  Bet amount:{" "}
                   <span style={{ color: "red" }}>
                     {total_amount_bet ? total_amount_bet || 0 : 0}
                   </span>
@@ -580,9 +588,7 @@ function Home() {
                 >
                   You Win :{" "}
                   <span style={{ color: "#15158F !important" }}>
-                    {openDialogBox ? openDialogBox :
-
-                      0}
+                    {openDialogBox ? openDialogBox : 0}
                   </span>
                 </Typography>
               </Box>
@@ -690,7 +696,10 @@ function Home() {
                 direction="row"
                 justifyContent="end"
               >
-                <span className="!grid !grid-cols-3  !w-[64%] !h-[30px]" style={{ border: '3px solid white' }}>
+                <span
+                  className="!grid !grid-cols-3  !w-[64%] !h-[30px]"
+                  style={{ border: "3px solid white" }}
+                >
                   <IconButton sx={style.btn1}>
                     <p
                       id="336"
@@ -701,7 +710,13 @@ function Home() {
                         }
                         if (amount < 10 || amount > 50000)
                           return toast(
-                            <span style={{ marginTop:'100% ',  transform: "rotate(90deg)", backgroundColor: 'black' }}>
+                            <span
+                              style={{
+                                marginTop: "100% ",
+                                transform: "rotate(90deg)",
+                                backgroundColor: "black",
+                              }}
+                            >
                               Please select amount greater than 10
                             </span>
                           );
@@ -713,8 +728,16 @@ function Home() {
                             isContainsPre?.amount < 10
                           ) {
                             return toast(
-                              <span className="p-2" style={{ marginTop:'100% ', transform: "rotate(90deg)", backgroundColor: 'black' }}>
-                                Bet must be greater than 10 and less that 50000 Rupees
+                              <span
+                                className="p-2"
+                                style={{
+                                  marginTop: "100% ",
+                                  transform: "rotate(90deg)",
+                                  backgroundColor: "black",
+                                }}
+                              >
+                                Bet must be greater than 10 and less that 50000
+                                Rupees
                               </span>
                             );
                           } else {
@@ -743,10 +766,17 @@ function Home() {
                         }
                         if (amount < 10 || amount > 50000)
                           return toast(
-                          <span className="p-2" style={{ marginTop:'100%' ,transform: "rotate(90deg)", backgroundColor: 'black'}}>
-                        Please select amount greater than 10
-                      </span>
-                      );
+                            <span
+                              className="p-2"
+                              style={{
+                                marginTop: "100%",
+                                transform: "rotate(90deg)",
+                                backgroundColor: "black",
+                              }}
+                            >
+                              Please select amount greater than 10
+                            </span>
+                          );
                         let isContainsPre = bet?.find((i) => i?.id === 235);
                         if (isContainsPre) {
                           // setOpenDialogBox(235);
@@ -755,9 +785,17 @@ function Home() {
                             isContainsPre?.amount < 10
                           ) {
                             return toast(
-                              <span className="p-2" style={{ marginTop:'100% ', transform: "rotate(90deg)", backgroundColor: 'black' }}>
-                              Bet must be greater than 10 and less that 50000 Rupees
-                            </span>
+                              <span
+                                className="p-2"
+                                style={{
+                                  marginTop: "100% ",
+                                  transform: "rotate(90deg)",
+                                  backgroundColor: "black",
+                                }}
+                              >
+                                Bet must be greater than 10 and less that 50000
+                                Rupees
+                              </span>
                             );
                           } else {
                             setBetFuncton(
@@ -785,9 +823,17 @@ function Home() {
                         }
                         if (amount < 10 || amount > 50000)
                           return toast(
-                            <span className="p-2" style={{ marginTop:'100% ',  transform: "rotate(90deg)", backgroundColor: 'black'}}>
-                            Please select amount greater than 10
-                          </span>);
+                            <span
+                              className="p-2"
+                              style={{
+                                marginTop: "100% ",
+                                transform: "rotate(90deg)",
+                                backgroundColor: "black",
+                              }}
+                            >
+                              Please select amount greater than 10
+                            </span>
+                          );
                         let isContainsPre = bet?.find((i) => i?.id === 134);
                         if (isContainsPre) {
                           // setOpenDialogBox(134);
@@ -796,9 +842,18 @@ function Home() {
                             isContainsPre?.amount < 10
                           ) {
                             return toast(
-                              <span className="!p-2" style={{ marginTop:'100% ',alignItems:'center',  transform: "rotate(90deg)", backgroundColor: 'black' }}>
-                              Bet must be greater than 10 and less that 50000 Rupees
-                            </span>
+                              <span
+                                className="!p-2"
+                                style={{
+                                  marginTop: "100% ",
+                                  alignItems: "center",
+                                  transform: "rotate(90deg)",
+                                  backgroundColor: "black",
+                                }}
+                              >
+                                Bet must be greater than 10 and less that 50000
+                                Rupees
+                              </span>
                             );
                           } else {
                             setBetFuncton(
@@ -924,7 +979,7 @@ function Home() {
                     variant="body1"
                     color="initial"
                   >
-                    2 X
+                    Double
                   </Typography>
                 </Box>
                 <Box
@@ -949,7 +1004,7 @@ function Home() {
               <Typography variant="body1" color="initial">
                 {Number(
                   Number(wallet_amount_data?.wallet || 0) +
-                  Number(wallet_amount_data?.winning || 0)
+                    Number(wallet_amount_data?.winning || 0)
                 )?.toFixed(2)}
               </Typography>
             </Box>
@@ -1108,8 +1163,9 @@ function Home() {
             />
           </Drawer> */}
           <div
-            className={`${open ? "!z-50" : "!-z-50"
-              } !absolute !bg-red-900 !top-[25%] !-left-[32%] `}
+            className={`${
+              open ? "!z-50" : "!-z-50"
+            } !absolute !bg-red-900 !top-[25%] !-left-[32%] `}
           >
             <NeighbourHoodBet
               isSelectedDropBet={isSelectedDropBet}

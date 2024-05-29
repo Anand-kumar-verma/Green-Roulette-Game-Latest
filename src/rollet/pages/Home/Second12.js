@@ -309,6 +309,44 @@ const Second12 = ({ isSelectedDropBet, removeSingleBetFunction, setOpenDialogBox
               }}
             ></span>
           </p>
+          <p className="absolute top-[5%] left-[-20%] h-4 w-4 !rounded-full !z-50 !cursor-pointer !flex !justify-center !items-center">
+            <span
+              id="222000"
+              className="!z-100 h-full w-full !text-[10px]"
+              onClick={(e) => {
+                if (isSelectedDropBet) {
+                  removeSingleBetFunction(222000)
+                  return
+                }
+                if (amount < 10 || amount > 50000)
+                  return toast(<span style={{ marginTop:'100% ',  transform: "rotate(90deg)", backgroundColor: 'black' }}>
+                              Please select amount greater than 10
+                            </span>);
+                let isContainsPre = bet?.find((i) => i?.id === 222000);
+                if (isContainsPre) {
+                  // setOpenDialogBox(222000);
+                  if (
+                    isContainsPre?.amount + amount > 50000 ||
+                    isContainsPre?.amount < 10
+                  ) {
+                    return toast(
+                    <span className="!p-2" style={{ marginTop:'100% ', transform: "rotate(90deg)", backgroundColor: 'black' }}>
+                                Bet must be greater than 10 and less that 50000 Rupees
+                              </span>
+                    );
+                  } else {
+                    setBetFuncton(
+                      222000, [22, 23, 24],
+                      Number(isContainsPre?.amount) + amount
+                    );
+                  }
+                } else {
+                  setBetFuncton(222000, [22, 23, 24], amount);
+                }
+                e.stopPropagation();
+              }}
+            ></span>
+          </p>
           <IconButton sx={{ ...style.btn2, ...style.red }}>
             <p
               id="21"
@@ -454,6 +492,44 @@ const Second12 = ({ isSelectedDropBet, removeSingleBetFunction, setOpenDialogBox
                   }
                 } else {
                   setBetFuncton(213000, [17, 18, 20, 21], amount);
+                }
+                e.stopPropagation();
+              }}
+            ></span>
+          </p>
+          <p className="absolute top-[30%] left-[-20%] h-4 w-4 !rounded-full !z-50 !cursor-pointer !flex !justify-center !items-center">
+            <span
+              id="192000"
+              className="!z-100 h-full w-full !text-[10px]"
+              onClick={(e) => {
+                if (isSelectedDropBet) {
+                  removeSingleBetFunction(192000)
+                  return
+                }
+                if (amount < 10 || amount > 50000)
+                  return toast(<span style={{ marginTop:'100% ',  transform: "rotate(90deg)", backgroundColor: 'black' }}>
+                              Please select amount greater than 10
+                            </span>);
+                let isContainsPre = bet?.find((i) => i?.id === 192000);
+                if (isContainsPre) {
+                  // setOpenDialogBox(192000);
+                  if (
+                    isContainsPre?.amount + amount > 50000 ||
+                    isContainsPre?.amount < 10
+                  ) {
+                    return toast(
+                    <span className="!p-2" style={{ marginTop:'100% ', transform: "rotate(90deg)", backgroundColor: 'black' }}>
+                                Bet must be greater than 10 and less that 50000 Rupees
+                              </span>
+                    );
+                  } else {
+                    setBetFuncton(
+                      192000, [19, 20, 21],
+                      Number(isContainsPre?.amount) + amount
+                    );
+                  }
+                } else {
+                  setBetFuncton(192000, [19, 20, 21], amount);
                 }
                 e.stopPropagation();
               }}
@@ -609,6 +685,44 @@ const Second12 = ({ isSelectedDropBet, removeSingleBetFunction, setOpenDialogBox
               }}
             ></span>
           </p>
+          <p className="absolute top-[55%] left-[-20%] h-4 w-4 !rounded-full !z-50 !cursor-pointer !flex !justify-center !items-center">
+            <span
+              id="162000"
+              className="!z-100 h-full w-full !text-[10px]"
+              onClick={(e) => {
+                if (isSelectedDropBet) {
+                  removeSingleBetFunction(162000)
+                  return
+                }
+                if (amount < 10 || amount > 50000)
+                  return toast(<span style={{ marginTop:'100% ',  transform: "rotate(90deg)", backgroundColor: 'black' }}>
+                              Please select amount greater than 10
+                            </span>);
+                let isContainsPre = bet?.find((i) => i?.id === 162000);
+                if (isContainsPre) {
+                  // setOpenDialogBox(162000);
+                  if (
+                    isContainsPre?.amount + amount > 50000 ||
+                    isContainsPre?.amount < 10
+                  ) {
+                    return toast(
+                    <span className="!p-2" style={{ marginTop:'100% ', transform: "rotate(90deg)", backgroundColor: 'black' }}>
+                                Bet must be greater than 10 and less that 50000 Rupees
+                              </span>
+                    );
+                  } else {
+                    setBetFuncton(
+                      162000, [16, 17, 18],
+                      Number(isContainsPre?.amount) + amount
+                    );
+                  }
+                } else {
+                  setBetFuncton(162000, [16, 17, 18], amount);
+                }
+                e.stopPropagation();
+              }}
+            ></span>
+          </p>
           <IconButton sx={{ ...style.btn2, ...style.black }}>
             <p
               id="15"
@@ -754,6 +868,44 @@ const Second12 = ({ isSelectedDropBet, removeSingleBetFunction, setOpenDialogBox
                   }
                 } else {
                   setBetFuncton(153000, [11, 12, 14, 15], amount);
+                }
+                e.stopPropagation();
+              }}
+            ></span>
+          </p>
+          <p className="absolute top-[80%] left-[-20%] h-4 w-4 !rounded-full !z-50 !cursor-pointer !flex !justify-center !items-center">
+            <span
+              id="132000"
+              className="!z-100 h-full w-full !text-[10px]"
+              onClick={(e) => {
+                if (isSelectedDropBet) {
+                  removeSingleBetFunction(132000)
+                  return
+                }
+                if (amount < 10 || amount > 50000)
+                  return toast(<span style={{ marginTop:'100% ',  transform: "rotate(90deg)", backgroundColor: 'black' }}>
+                              Please select amount greater than 10
+                            </span>);
+                let isContainsPre = bet?.find((i) => i?.id === 132000);
+                if (isContainsPre) {
+                  // setOpenDialogBox(132000);
+                  if (
+                    isContainsPre?.amount + amount > 50000 ||
+                    isContainsPre?.amount < 10
+                  ) {
+                    return toast(
+                    <span className="!p-2" style={{ marginTop:'100% ', transform: "rotate(90deg)", backgroundColor: 'black' }}>
+                                Bet must be greater than 10 and less that 50000 Rupees
+                              </span>
+                    );
+                  } else {
+                    setBetFuncton(
+                      132000, [13, 14, 15],
+                      Number(isContainsPre?.amount) + amount
+                    );
+                  }
+                } else {
+                  setBetFuncton(132000, [13, 14, 15], amount);
                 }
                 e.stopPropagation();
               }}
@@ -1437,44 +1589,7 @@ const Second12 = ({ isSelectedDropBet, removeSingleBetFunction, setOpenDialogBox
               }}
             ></span>
           </p>
-          <p className="absolute top-[5%] left-[82%] h-4 w-4 !rounded-full !z-50 !cursor-pointer !flex !justify-center !items-center">
-            <span
-              id="222000"
-              className="!z-100 h-full w-full !text-[10px]"
-              onClick={(e) => {
-                if (isSelectedDropBet) {
-                  removeSingleBetFunction(222000)
-                  return
-                }
-                if (amount < 10 || amount > 50000)
-                  return toast(<span style={{ marginTop:'100% ',  transform: "rotate(90deg)", backgroundColor: 'black' }}>
-                              Please select amount greater than 10
-                            </span>);
-                let isContainsPre = bet?.find((i) => i?.id === 222000);
-                if (isContainsPre) {
-                  // setOpenDialogBox(222000);
-                  if (
-                    isContainsPre?.amount + amount > 50000 ||
-                    isContainsPre?.amount < 10
-                  ) {
-                    return toast(
-                    <span className="!p-2" style={{ marginTop:'100% ', transform: "rotate(90deg)", backgroundColor: 'black' }}>
-                                Bet must be greater than 10 and less that 50000 Rupees
-                              </span>
-                    );
-                  } else {
-                    setBetFuncton(
-                      222000, [22, 23, 24],
-                      Number(isContainsPre?.amount) + amount
-                    );
-                  }
-                } else {
-                  setBetFuncton(222000, [22, 23, 24], amount);
-                }
-                e.stopPropagation();
-              }}
-            ></span>
-          </p>
+         
           <IconButton sx={{ ...style.btn2, ...style.red }}>
             <p
               id="19"
@@ -1549,44 +1664,7 @@ const Second12 = ({ isSelectedDropBet, removeSingleBetFunction, setOpenDialogBox
               }}
             ></span>
           </p>
-          <p className="absolute top-[30%] left-[82%] h-4 w-4 !rounded-full !z-50 !cursor-pointer !flex !justify-center !items-center">
-            <span
-              id="192000"
-              className="!z-100 h-full w-full !text-[10px]"
-              onClick={(e) => {
-                if (isSelectedDropBet) {
-                  removeSingleBetFunction(192000)
-                  return
-                }
-                if (amount < 10 || amount > 50000)
-                  return toast(<span style={{ marginTop:'100% ',  transform: "rotate(90deg)", backgroundColor: 'black' }}>
-                              Please select amount greater than 10
-                            </span>);
-                let isContainsPre = bet?.find((i) => i?.id === 192000);
-                if (isContainsPre) {
-                  // setOpenDialogBox(192000);
-                  if (
-                    isContainsPre?.amount + amount > 50000 ||
-                    isContainsPre?.amount < 10
-                  ) {
-                    return toast(
-                    <span className="!p-2" style={{ marginTop:'100% ', transform: "rotate(90deg)", backgroundColor: 'black' }}>
-                                Bet must be greater than 10 and less that 50000 Rupees
-                              </span>
-                    );
-                  } else {
-                    setBetFuncton(
-                      192000, [19, 20, 21],
-                      Number(isContainsPre?.amount) + amount
-                    );
-                  }
-                } else {
-                  setBetFuncton(192000, [19, 20, 21], amount);
-                }
-                e.stopPropagation();
-              }}
-            ></span>
-          </p>
+        
           <IconButton sx={{ ...style.btn2, ...style.red }}>
             <p
               id="16"
@@ -1661,44 +1739,7 @@ const Second12 = ({ isSelectedDropBet, removeSingleBetFunction, setOpenDialogBox
               }}
             ></span>
           </p>
-          <p className="absolute top-[55%] left-[82%] h-4 w-4 !rounded-full !z-50 !cursor-pointer !flex !justify-center !items-center">
-            <span
-              id="162000"
-              className="!z-100 h-full w-full !text-[10px]"
-              onClick={(e) => {
-                if (isSelectedDropBet) {
-                  removeSingleBetFunction(162000)
-                  return
-                }
-                if (amount < 10 || amount > 50000)
-                  return toast(<span style={{ marginTop:'100% ',  transform: "rotate(90deg)", backgroundColor: 'black' }}>
-                              Please select amount greater than 10
-                            </span>);
-                let isContainsPre = bet?.find((i) => i?.id === 162000);
-                if (isContainsPre) {
-                  // setOpenDialogBox(162000);
-                  if (
-                    isContainsPre?.amount + amount > 50000 ||
-                    isContainsPre?.amount < 10
-                  ) {
-                    return toast(
-                    <span className="!p-2" style={{ marginTop:'100% ', transform: "rotate(90deg)", backgroundColor: 'black' }}>
-                                Bet must be greater than 10 and less that 50000 Rupees
-                              </span>
-                    );
-                  } else {
-                    setBetFuncton(
-                      162000, [16, 17, 18],
-                      Number(isContainsPre?.amount) + amount
-                    );
-                  }
-                } else {
-                  setBetFuncton(162000, [16, 17, 18], amount);
-                }
-                e.stopPropagation();
-              }}
-            ></span>
-          </p>
+         
           <IconButton sx={{ ...style.btn2, ...style.black }}>
             <p
               id="13"
@@ -1773,44 +1814,7 @@ const Second12 = ({ isSelectedDropBet, removeSingleBetFunction, setOpenDialogBox
               }}
             ></span>
           </p>
-          <p className="absolute top-[80%] left-[82%] h-4 w-4 !rounded-full !z-50 !cursor-pointer !flex !justify-center !items-center">
-            <span
-              id="132000"
-              className="!z-100 h-full w-full !text-[10px]"
-              onClick={(e) => {
-                if (isSelectedDropBet) {
-                  removeSingleBetFunction(132000)
-                  return
-                }
-                if (amount < 10 || amount > 50000)
-                  return toast(<span style={{ marginTop:'100% ',  transform: "rotate(90deg)", backgroundColor: 'black' }}>
-                              Please select amount greater than 10
-                            </span>);
-                let isContainsPre = bet?.find((i) => i?.id === 132000);
-                if (isContainsPre) {
-                  // setOpenDialogBox(132000);
-                  if (
-                    isContainsPre?.amount + amount > 50000 ||
-                    isContainsPre?.amount < 10
-                  ) {
-                    return toast(
-                    <span className="!p-2" style={{ marginTop:'100% ', transform: "rotate(90deg)", backgroundColor: 'black' }}>
-                                Bet must be greater than 10 and less that 50000 Rupees
-                              </span>
-                    );
-                  } else {
-                    setBetFuncton(
-                      132000, [13, 14, 15],
-                      Number(isContainsPre?.amount) + amount
-                    );
-                  }
-                } else {
-                  setBetFuncton(132000, [13, 14, 15], amount);
-                }
-                e.stopPropagation();
-              }}
-            ></span>
-          </p>
+         
         </span>
       </Stack>
     </Stack>
