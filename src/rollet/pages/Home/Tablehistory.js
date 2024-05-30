@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { TableContainer, Paper, Table, TableHead, TableRow, TableCell, TableBody, Pagination } from '@mui/material';
+import moment from 'moment';
 
 const MyTableComponent = ({ bet_history_Data }) => {
   const [page, setPage] = useState(1);
@@ -21,6 +22,7 @@ const MyTableComponent = ({ bet_history_Data }) => {
               <TableCell align="center">Number</TableCell>
               <TableCell align="center">Amount</TableCell>
               <TableCell align="center">Win</TableCell>
+              <TableCell align="center">Date/Time</TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
@@ -30,6 +32,7 @@ const MyTableComponent = ({ bet_history_Data }) => {
                 <TableCell align="center">{row?.number || 0}</TableCell>
                 <TableCell align="center">{row?.amount || 0}</TableCell>
                 <TableCell align="center">{row?.win || 0}</TableCell>
+                <TableCell align="center">{moment(row?.datetime)?.format("DD-MM-YYYY")} {moment(row?.datetime)?.format("HH:mm:ss")}</TableCell>
               </TableRow>
             ))}
           </TableBody>

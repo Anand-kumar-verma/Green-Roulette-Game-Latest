@@ -3,7 +3,6 @@ import {
   Box,
   CircularProgress,
   Drawer,
-  IconButton,
   Stack,
   Typography,
 } from "@mui/material";
@@ -11,7 +10,7 @@ import CryptoJS from "crypto-js";
 import { useEffect, useMemo, useRef, useState } from "react";
 import toast from "react-hot-toast";
 import { useQuery, useQueryClient } from "react-query";
-import { NavLink, useNavigate } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import { checkTokenValidity } from "../../../Shared/CookieStorage";
 import { useSocket } from "../../../Shared/SocketContext";
 import {
@@ -21,29 +20,35 @@ import {
   walletamount,
 } from "../../../services/apicalling";
 // import roulette from "../../assets/images/rolette.png";
-import mouse_click from "../../assets/images/mouse_click.mp3";
-import wheel_roulette from "../../assets/images/rotate_wheel_ball_music.mp3";
-import stop_ball_music from "../../assets/images/stop_ball_music.mp3";
-import watch from "../../assets/images/watch.png";
-import { addWinCap, confirmBet, spinFunction } from "../../sharedFunction";
-import Rolletball from "../Rolletball";
-import Coin from "./Coin";
-import { style } from "./CommonCss";
-import First12 from "./First12";
-import NeighbourHoodBet from "./NeighbourHoodBet";
-import Second12 from "./Second12";
-import SvgCircle from "./SvgCircle";
-import MyTableComponent from "./Tablehistory";
-import Third12 from "./Third12";
-import Zero from "./Zero";
-import roulette from "../../assets/images/roulette-wheel-vector-89242.png";
-import roulettebg from "../../assets/images/roulettebg.png";
-import table2 from "../../assets/images/table2.png";
-import table from "../../assets/images/table.png";
 import axios from "axios";
 import { endpoint } from "../../../services/urls";
 import placebetmusic from "../../assets/images/applybet_music.mp3";
+import mouse_click from "../../assets/images/mouse_click.mp3";
+import wheel_roulette from "../../assets/images/rotate_wheel_ball_music.mp3";
+import roulette from "../../assets/images/roulette-wheel-vector-89242.png";
+import roulettebg from "../../assets/images/roulettebg.png";
+import stop_ball_music from "../../assets/images/stop_ball_music.mp3";
+import table from "../../assets/images/table.png";
+import table2 from "../../assets/images/table2.png";
+import watch from "../../assets/images/watch.png";
+import {
+  addWinCap,
+  black_array,
+  confirmBet,
+  justDouble,
+  rebetFuncton,
+  red_array,
+  spinFunction,
+} from "../../sharedFunction";
+import Rolletball from "../Rolletball";
+import Coin from "./Coin";
+import { style } from "./CommonCss";
 import ConfirmationDialogBox from "./ConfirmationDialogBox";
+import NeighbourHoodBet from "./NeighbourHoodBet";
+import Rule from "./Rule";
+import SvgCircle from "./SvgCircle";
+import MyTableComponent from "./Tablehistory";
+import TwoToOne from "./TwoToOne";
 function Home() {
   let interval_music;
   let isPreBet = localStorage.getItem("isPreBet");
@@ -61,12 +66,6 @@ function Home() {
         "anand"
       )?.toString(CryptoJS.enc.Utf8)) ||
     null;
-  const red_array = [
-    1, 3, 5, 7, 9, 12, 14, 16, 18, 19, 21, 23, 25, 27, 30, 32, 34, 36,
-  ];
-  const black_array = [
-    2, 4, 6, 8, 10, 11, 13, 15, 17, 20, 22, 24, 26, 28, 29, 31, 33, 35,
-  ];
 
   const [open1, setOpen1] = useState();
   // const [total_bet_amount, settotal_bet_amount] = useState(0);
@@ -78,6 +77,7 @@ function Home() {
   const [result_rollet, setresult_rollet] = useState(0);
   const show_this_one_min_time = String(one_min_time).padStart(2, "0");
   const [open, setOpen] = useState(false);
+  const [open2, setOpen2] = useState(false);
   const [bet, setBet] = useState([]);
   const [openDialogBox, setOpenDialogBox] = useState("");
   const [amount, setAmount] = useState(10);
@@ -371,85 +371,6 @@ function Home() {
     window.location.href = "/dashboard";
   };
 
-  function rebetFuncton() {
-    // setBet([]);
-    bet?.forEach((ele) => {
-      let element = document.getElementById(`${ele?.id}`);
-      let span = element.querySelector("span");
-      if (span) {
-        element.removeChild(span);
-      }
-    });
-    console.log(rebet, "his is");
-    rebet?.forEach((ele) => {
-      forPlaceCoin(ele?.id, ele?.amount);
-    });
-    setBet(rebet);
-    // setrebet
-  }
-
-  function forPlaceCoin(id, amount) {
-    let element = document.getElementById(`${id}`);
-    element.style.position = "relative"; // Ensure the parent is positioned relatively
-    let newelement = element.querySelector("span");
-
-    if (newelement) {
-      newelement.innerHTML = `${
-        amount >= 1000 ? String(amount / 1000) + "k" : amount
-      }`;
-    } else {
-      newelement = document.createElement("span");
-      let vlaue = `${amount >= 1000 ? String(amount / 1000) + "k" : amount}`;
-      newelement.innerHTML = `${vlaue}`;
-      newelement.style.position = "absolute"; // Make the span position absolute
-      newelement.style.top = "50%"; // Center vertically
-      newelement.style.left = "50%"; // Center horizontally
-      newelement.style.transform = "translate(-50%, -50%)"; // Adjust position to center
-      newelement.style.display = "flex"; // Use flexbox for centering content
-      newelement.style.alignItems = "center"; // Center content vertically
-      newelement.style.justifyContent = "center"; // Center content horizontally
-      newelement.style.textAlign = "center";
-      newelement.style.height = "15px"; // Ensure height is sufficient
-      newelement.style.width = "15px"; // Ensure width is sufficient
-      newelement.style.backgroundColor = "white";
-      newelement.style.color = "black";
-      newelement.style.border = "1px solid blue";
-      newelement.style.borderRadius = "50%";
-      newelement.style.padding = "3px";
-      newelement.style.fontSize = "8px"; // Adjust font size for better visibility
-    }
-
-    element.appendChild(newelement);
-  }
-
-  function justDouble() {
-    bet?.forEach((ele) => {
-      let element = document.getElementById(`${ele?.id}`);
-      let span = element.querySelector("span");
-      if (span) {
-        element.removeChild(span);
-      }
-    });
-
-    let newUpdateAmountArray = bet?.map((ele) => {
-      return {
-        ...ele,
-        amount: [...black_array, ...red_array]?.includes(Number(ele?.id))
-          ? Number(ele?.amount) * 2 > 5000
-            ? ele?.amount
-            : Number(ele?.amount) * 2
-          : Number(ele?.amount) * 2 > 50000
-          ? ele?.amount
-          : Number(ele?.amount) * 2,
-      };
-    });
-    console.log(newUpdateAmountArray, "update array");
-    newUpdateAmountArray?.forEach((ele) => {
-      forPlaceCoin(ele?.id, ele?.amount);
-    });
-    setBet(newUpdateAmountArray);
-  }
-
   const handlePlaySoundPlacebet = async () => {
     try {
       if (placeBetMusic?.current?.pause) {
@@ -473,6 +394,7 @@ function Home() {
           </>
         );
       }, [placeBetMusic])}
+      <Rule setOpen2={setOpen2} open2={open2} style={style} />
       <Box
         sx={{
           width: "100%",
@@ -498,27 +420,17 @@ function Home() {
                 <audio ref={audioRefMusic} hidden>
                   <source src={`${wheel_roulette}`} type="audio/mp3" />
                 </audio>
-              </>
-            );
-          }, [audioRefMusic])}
-          {useMemo(() => {
-            return (
-              <>
                 <audio ref={audioRefMusicStopBall} hidden>
                   <source src={`${stop_ball_music}`} type="audio/mp3" />
                 </audio>
-              </>
-            );
-          }, [audioRefMusicStopBall])}
-          {useMemo(() => {
-            return (
-              <>
                 <audio ref={mouseClickSoundref} hidden>
                   <source src={`${mouse_click}`} type="audio/mp3" />
                 </audio>
               </>
             );
-          }, [mouseClickSoundref])}
+          }, [audioRefMusic, audioRefMusicStopBall, mouseClickSoundref])}
+
+          <Rule setOpen2={setOpen2} open2={open2} style={style} />
           <Box
             sx={{
               width: "100%",
@@ -527,10 +439,10 @@ function Home() {
             }}
           >
             <ConfirmationDialogBox
-            style={style}
-            handleConfirm={handleConfirm}
+              style={style}
+              handleConfirm={handleConfirm}
               open1={open1}
-              setOpen1={{ setOpen1 }}
+              setOpen1={setOpen1}
               isOpenPreRoundDialogBox={isOpenPreRoundDialogBox}
             />
             <Box direction={"row"} sx={style.winnerlooserouter}>
@@ -540,7 +452,7 @@ function Home() {
                   color="initial"
                   sx={{ color: "red" }}
                 >
-                  Bet amount:{" "}
+                  Bet Amount:{" "}
                   <span style={{ color: "red" }}>
                     {bet?.reduce((a, b) => a + Number(b?.amount), 0) ||
                       Number(total_amount_bet)?.toFixed(2)}
@@ -621,225 +533,41 @@ function Home() {
               </Box>
             </Box>
           </Box>
-
-          <Box>
-            <Box sx={style.bettable} className={""}>
-              <Stack
-                className={"!w-[100%]"}
-                direction="row"
-                justifyContent="end"
-              >
-                <span
-                  className="!grid !grid-cols-3  !w-[64%] !h-[30px]"
-                  style={{ border: "3px solid white" }}
+          <Box
+            sx={{
+              width: "100%",
+              height: "100%",
+              position: "absolute",
+            }}
+          >
+            <Box
+              direction={"row"}
+              sx={style.winnerlooserouter33}
+              className=" "
+              onClick={() => {
+                setOpen2(true);
+              }}
+            >
+              <Box sx={style.winnerLooserList33}>
+                <Typography
+                  variant="body1"
+                  color="initial"
+                  sx={{ color: "red" }}
                 >
-                  <IconButton sx={style.btn1}>
-                    <p
-                      id="336"
-                      onClick={(e) => {
-                        if (isSelectedDropBet) {
-                          removeSingleBetFunction(336);
-                          return;
-                        }
-                        if (amount < 10 || amount > 50000)
-                          return toast(
-                            <span
-                              style={{
-                                marginTop: "100% ",
-                                transform: "rotate(90deg)",
-                                backgroundColor: "black",
-                              }}
-                            >
-                              Please select amount greater than 10
-                            </span>
-                          );
-                        let isContainsPre = bet?.find((i) => i?.id === 336);
-                        if (isContainsPre) {
-                          // setOpenDialogBox(336);
-                          if (
-                            isContainsPre?.amount + amount > 50000 ||
-                            isContainsPre?.amount < 10
-                          ) {
-                            return toast(
-                              <span
-                                className="p-2"
-                                style={{
-                                  marginTop: "100% ",
-                                  transform: "rotate(90deg)",
-                                  backgroundColor: "black",
-                                }}
-                              >
-                                Bet must be greater than 10 and less that 50000
-                                Rupees
-                              </span>
-                            );
-                          } else {
-                            setBetFuncton(
-                              336,
-                              [336],
-                              Number(isContainsPre?.amount) + amount
-                            );
-                          }
-                        } else {
-                          setBetFuncton(336, [336], amount);
-                        }
-                        e.stopPropagation();
-                      }}
-                    >
-                      2 to 1
-                    </p>
-                  </IconButton>
-                  <IconButton sx={style.btn1}>
-                    <p
-                      id="235"
-                      onClick={(e) => {
-                        if (isSelectedDropBet) {
-                          removeSingleBetFunction(235);
-                          return;
-                        }
-                        if (amount < 10 || amount > 50000)
-                          return toast(
-                            <span
-                              className="p-2"
-                              style={{
-                                marginTop: "100%",
-                                transform: "rotate(90deg)",
-                                backgroundColor: "black",
-                              }}
-                            >
-                              Please select amount greater than 10
-                            </span>
-                          );
-                        let isContainsPre = bet?.find((i) => i?.id === 235);
-                        if (isContainsPre) {
-                          // setOpenDialogBox(235);
-                          if (
-                            isContainsPre?.amount + amount > 50000 ||
-                            isContainsPre?.amount < 10
-                          ) {
-                            return toast(
-                              <span
-                                className="p-2"
-                                style={{
-                                  marginTop: "100% ",
-                                  transform: "rotate(90deg)",
-                                  backgroundColor: "black",
-                                }}
-                              >
-                                Bet must be greater than 10 and less that 50000
-                                Rupees
-                              </span>
-                            );
-                          } else {
-                            setBetFuncton(
-                              235,
-                              [235],
-                              Number(isContainsPre?.amount) + amount
-                            );
-                          }
-                        } else {
-                          setBetFuncton(235, [235], amount);
-                        }
-                        e.stopPropagation();
-                      }}
-                    >
-                      2 to 1
-                    </p>
-                  </IconButton>
-                  <IconButton sx={style.btn1}>
-                    <p
-                      id="134"
-                      onClick={(e) => {
-                        if (isSelectedDropBet) {
-                          removeSingleBetFunction(134);
-                          return;
-                        }
-                        if (amount < 10 || amount > 50000)
-                          return toast(
-                            <span
-                              className="p-2"
-                              style={{
-                                marginTop: "100% ",
-                                transform: "rotate(90deg)",
-                                backgroundColor: "black",
-                              }}
-                            >
-                              Please select amount greater than 10
-                            </span>
-                          );
-                        let isContainsPre = bet?.find((i) => i?.id === 134);
-                        if (isContainsPre) {
-                          // setOpenDialogBox(134);
-                          if (
-                            isContainsPre?.amount + amount > 50000 ||
-                            isContainsPre?.amount < 10
-                          ) {
-                            return toast(
-                              <span
-                                className="!p-2"
-                                style={{
-                                  marginTop: "100% ",
-                                  alignItems: "center",
-                                  transform: "rotate(90deg)",
-                                  backgroundColor: "black",
-                                }}
-                              >
-                                Bet must be greater than 10 and less that 50000
-                                Rupees
-                              </span>
-                            );
-                          } else {
-                            setBetFuncton(
-                              134,
-                              [134],
-                              Number(isContainsPre?.amount) + amount
-                            );
-                          }
-                        } else {
-                          setBetFuncton(134, [134], amount);
-                        }
-                        e.stopPropagation();
-                      }}
-                    >
-                      2 to 1
-                    </p>
-                  </IconButton>
-                </span>
-              </Stack>
-              <Third12
-                isSelectedDropBet={isSelectedDropBet}
-                removeSingleBetFunction={removeSingleBetFunction}
-                // setOpenDialogBox={setOpenDialogBox}
-                bet={bet}
-                setBetFuncton={setBetFuncton}
-                amount={amount}
-              />
-              <Second12
-                isSelectedDropBet={isSelectedDropBet}
-                removeSingleBetFunction={removeSingleBetFunction}
-                // setOpenDialogBox={setOpenDialogBox}
-                bet={bet}
-                setBetFuncton={setBetFuncton}
-                amount={amount}
-              />
-              <First12
-                isSelectedDropBet={isSelectedDropBet}
-                removeSingleBetFunction={removeSingleBetFunction}
-                // setOpenDialogBox={setOpenDialogBox}
-                bet={bet}
-                setBetFuncton={setBetFuncton}
-                amount={amount}
-              />
-              <Zero
-                isSelectedDropBet={isSelectedDropBet}
-                removeSingleBetFunction={removeSingleBetFunction}
-                // setOpenDialogBox={setOpenDialogBox}
-                bet={bet}
-                setBetFuncton={setBetFuncton}
-                amount={amount}
-              />
+                  Game Rule
+                </Typography>
+              </Box>
             </Box>
           </Box>
+
+          <TwoToOne
+            isSelectedDropBet={isSelectedDropBet}
+            removeSingleBetFunction={removeSingleBetFunction}
+            // setOpenDialogBox={setOpenDialogBox}
+            bet={bet}
+            setBetFuncton={setBetFuncton}
+            amount={amount}
+          />
 
           {useMemo(() => {
             return (
@@ -908,7 +636,7 @@ function Home() {
                   className={"!ml-10"}
                 >
                   <Typography
-                    onClick={() => justDouble()}
+                    onClick={() => justDouble(bet, setBet)}
                     variant="body1"
                     color="initial"
                   >
@@ -921,7 +649,7 @@ function Home() {
                   className={"!ml-16"}
                 >
                   <Typography
-                    onClick={() => rebetFuncton()}
+                    onClick={() => rebetFuncton(bet, rebet, setBet)}
                     variant="body1"
                     color="initial"
                   >
@@ -1072,38 +800,8 @@ function Home() {
               Time Left: {show_this_one_min_time}
             </div>
 
-            {/* <Box className="wrapper">
-      <Box className="pie spinner"></Box>
-      <Box className="pie filler"></Box>
-      <Box className="mask"></Box>
-    </Box> */}
             <SvgCircle />
           </Box>
-          {/* <Drawer
-            sx={{
-              "&>div": {
-                background: "#0000009e",
-                width: "400px",
-                height: "85vh",
-              },
-            }}
-            anchor="top"
-            open={open}
-            onClose={() => {
-              setOpen(!open);
-            }}
-          >
-            <NeighbourHoodBet
-              isSelectedDropBet={isSelectedDropBet}
-              removeSingleBetFunction={removeSingleBetFunction}
-              setOpenDialogBox={setOpenDialogBox}
-              bet={bet}
-              setBetFuncton={setBetFuncton}
-              amount={amount}
-              open={open}
-              setOpen={setOpen}
-            />
-          </Drawer> */}
           <div
             className={`${
               open ? "!z-50" : "!-z-50"
@@ -1120,40 +818,6 @@ function Home() {
               setOpen={setOpen}
             />
           </div>
-          {/* <Drawer
-            sx={{
-              "&>div": {
-                background: "transparent",
-                width: "400px",
-                height: "85vh",
-                ...style.flex,
-              },
-            }}
-            anchor="top"
-            open={openDialogBox}
-            onClose={() => {
-              setOpenDialogBox(!openDialogBox);
-            }}
-          >
-            <Box
-              sx={{
-                width: "350px",
-                height: "200px",
-                background: "white",
-                transform: "rotate(90deg)",
-                borderRadius: "10px",
-                padding: "20px",
-              }}
-            >
-              <Stack direction="row" sx={{ float: "right" }}>
-                <CloseIcon onClick={() => setOpenDialogBox("")} />
-              </Stack>
-              <div className="!mt-4 !w-full !h-full !flex !justify-center !items-center">
-                {"You Have Win"}
-              </div>
-            </Box>
-          </Drawer> */}
-
           <Drawer
             sx={{
               "&>div": {

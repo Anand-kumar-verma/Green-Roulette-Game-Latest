@@ -3,6 +3,14 @@ import win_cap from "../assets/images/pwin.png";
 import axios from "axios";
 import { endpoint } from "../../services/urls";
 
+
+export const red_array = [
+  1, 3, 5, 7, 9, 12, 14, 16, 18, 19, 21, 23, 25, 27, 30, 32, 34, 36,
+];
+export const black_array = [
+  2, 4, 6, 8, 10, 11, 13, 15, 17, 20, 22, 24, 26, 28, 29, 31, 33, 35,
+];
+
 export const addWinCap = (id) => {
   let element = document.getElementById(`${String(id)}`);
   if (element) {
@@ -166,3 +174,83 @@ export const confirmBet = async (
     }
   }
 };
+
+export const forPlaceCoin = (id, amount) =>{
+  let element = document.getElementById(`${id}`);
+  element.style.position = "relative"; // Ensure the parent is positioned relatively
+  let newelement = element.querySelector("span");
+
+  if (newelement) {
+    newelement.innerHTML = `${
+      amount >= 1000 ? String(amount / 1000) + "k" : amount
+    }`;
+  } else {
+    newelement = document.createElement("span");
+    let vlaue = `${amount >= 1000 ? String(amount / 1000) + "k" : amount}`;
+    newelement.innerHTML = `${vlaue}`;
+    newelement.style.position = "absolute"; // Make the span position absolute
+    newelement.style.top = "50%"; // Center vertically
+    newelement.style.left = "50%"; // Center horizontally
+    newelement.style.transform = "translate(-50%, -50%)"; // Adjust position to center
+    newelement.style.display = "flex"; // Use flexbox for centering content
+    newelement.style.alignItems = "center"; // Center content vertically
+    newelement.style.justifyContent = "center"; // Center content horizontally
+    newelement.style.textAlign = "center";
+    newelement.style.height = "15px"; // Ensure height is sufficient
+    newelement.style.width = "15px"; // Ensure width is sufficient
+    newelement.style.backgroundColor = "white";
+    newelement.style.color = "black";
+    newelement.style.border = "1px solid blue";
+    newelement.style.borderRadius = "50%";
+    newelement.style.padding = "3px";
+    newelement.style.fontSize = "8px"; // Adjust font size for better visibility
+  }
+
+  element.appendChild(newelement);
+}
+
+
+export const  justDouble = (bet,setBet) => {
+  bet?.forEach((ele) => {
+    let element = document.getElementById(`${ele?.id}`);
+    let span = element.querySelector("span");
+    if (span) {
+      element.removeChild(span);
+    }
+  });
+
+  let newUpdateAmountArray = bet?.map((ele) => {
+    return {
+      ...ele,
+      amount: [...black_array, ...red_array]?.includes(Number(ele?.id))
+        ? Number(ele?.amount) * 2 > 5000
+          ? ele?.amount
+          : Number(ele?.amount) * 2
+        : Number(ele?.amount) * 2 > 50000
+        ? ele?.amount
+        : Number(ele?.amount) * 2,
+    };
+  });
+  console.log(newUpdateAmountArray, "update array");
+  newUpdateAmountArray?.forEach((ele) => {
+    forPlaceCoin(ele?.id, ele?.amount);
+  });
+  setBet(newUpdateAmountArray);
+}
+
+export const  rebetFuncton = (bet,rebet,setBet) => {
+  // setBet([]);
+  bet?.forEach((ele) => {
+    let element = document.getElementById(`${ele?.id}`);
+    let span = element.querySelector("span");
+    if (span) {
+      element.removeChild(span);
+    }
+  });
+  console.log(rebet, "his is");
+  rebet?.forEach((ele) => {
+    forPlaceCoin(ele?.id, ele?.amount);
+  });
+  setBet(rebet);
+  // setrebet
+}
