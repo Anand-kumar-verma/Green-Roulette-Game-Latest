@@ -13,108 +13,6 @@ const First12 = ({
 }) => {
   return (
     <Stack direction="row" justifyContent="end" sx={{ height: "28.56%" }}>
-      {/* <div
-        className="w-[18%]  !grid grid-rows-2 !place-items-center "
-        style={{
-          borderBottom: '3.5px solid white',
-          borderTop: '3.5px solid white',
-          borderLeft: '3.5px solid white',
-          ...style.flex
-        }}
-      >
-        <div className="!p-0" style={{ width: "75%", height: '100%', border: '1px solid white' }}>
-          <div variant="body1" color="initial" className="!flex !justify-center !items-center ">
-            <span
-              style={{ fontWeight: 700, transform: 'rotate(90deg)', marginTop: '100%' }}
-              className="whitespace-nowrap !text-[12px] !text-white  "
-              id="119"
-              onClick={(e) => {
-                if (isSelectedDropBet) {
-                  removeSingleBetFunction(119);
-                  return;
-                }
-                if (amount < 10 || amount > 50000)
-                  return toast(<span  className="!p-2" style={{ marginTop:'100% ',  transform: "rotate(90deg)", backgroundColor: 'black' }}>
-                              Please select amount greater than 10
-                            </span>);
-                let isContainsPre = bet?.find((i) => i?.id === 119);
-                if (isContainsPre) {
-                  // setOpenDialogBox(119);
-                  if (
-                    isContainsPre?.amount + amount > 50000 ||
-                    isContainsPre?.amount < 10
-                  ) {
-                    return toast(
-                    <span  className="!p-2" style={{ marginTop:'100% ', transform: "rotate(90deg)", backgroundColor: 'black' }}>
-                                Bet must be greater than 10 and less that 50000 Rupees
-                              </span>
-                    );
-                  } else {
-                    setBetFuncton(
-                      119,
-                      [119],
-                      Number(isContainsPre?.amount) + amount
-                    );
-                  }
-                } else {
-                  setBetFuncton(119, [119], amount);
-                }
-                e.stopPropagation();
-              }}
-            >
-              Even
-            </span>
-          </div>
-        </div>
-        <div
-          className="!p-0"
-          style={{ ...style.flex, transform: "rotate(-270deg)" }}
-        >
-          <div variant="body1" color="initial">
-            <span
-              style={{ color: "white", fontWeight: 700 }}
-              className="whitespace-nowrap !text-[12px] !text-white "
-              id="118"
-              onClick={(e) => {
-                if (isSelectedDropBet) {
-                  removeSingleBetFunction(118);
-                  return;
-                }
-                if (amount < 10 || amount > 50000)
-                  return toast(<span  className="!p-2" style={{ marginTop:'100% ',  transform: "rotate(90deg)", backgroundColor: 'black' }}>
-                              Please select amount greater than 10
-                            </span>);
-                let isContainsPre = bet?.find((i) => i?.id === 118);
-                if (isContainsPre) {
-                  // setOpenDialogBox(118);
-                  if (
-                    isContainsPre?.amount + amount > 50000 ||
-                    isContainsPre?.amount < 10
-                  ) {
-                    return toast(
-                    <span  className="!p-2" style={{ marginTop:'100% ', transform: "rotate(90deg)", backgroundColor: 'black' }}>
-                                Bet must be greater than 10 and less that 50000 Rupees
-                              </span>
-                    );
-                  } else {
-                    setBetFuncton(
-                      118,
-                      [118],
-                      Number(isContainsPre?.amount) + amount
-                    );
-                  }
-                } else {
-                  setBetFuncton(118, [118], amount);
-                }
-                e.stopPropagation();
-              }}
-            >
-              1to 18
-            </span>
-          </div>
-        </div>
-      </div> */}
-
       <div
         className="w-[18%]   "
         style={{
@@ -143,7 +41,7 @@ const First12 = ({
                   <span
                     className="!p-2"
                     style={{
-                      marginTop: "100% ",
+                      marginTop: "10% ",
                       transform: "rotate(90deg)",
                       backgroundColor: "black",
                     }}
@@ -162,7 +60,7 @@ const First12 = ({
                     <span
                       className="!p-2"
                       style={{
-                        marginTop: "100% ",
+                        marginTop: "10% ",
                         transform: "rotate(90deg)",
                         backgroundColor: "black",
                       }}
@@ -213,7 +111,7 @@ const First12 = ({
                   <span
                     className="!p-2"
                     style={{
-                      marginTop: "100% ",
+                      marginTop: "10% ",
                       transform: "rotate(90deg)",
                       backgroundColor: "black",
                     }}
@@ -232,7 +130,7 @@ const First12 = ({
                     <span
                       className="!p-2"
                       style={{
-                        marginTop: "100% ",
+                        marginTop: "10% ",
                         transform: "rotate(90deg)",
                         backgroundColor: "black",
                       }}
@@ -297,7 +195,7 @@ const First12 = ({
                     <span
                       className="!p-2"
                       style={{
-                        marginTop: "100% ",
+                        marginTop: "10% ",
                         transform: "rotate(90deg)",
                         backgroundColor: "black",
                       }}
@@ -316,7 +214,7 @@ const First12 = ({
                       <span
                         className="!p-2"
                         style={{
-                          marginTop: "100% ",
+                          marginTop: "10% ",
                           transform: "rotate(90deg)",
                           backgroundColor: "black",
                         }}
@@ -365,7 +263,7 @@ const First12 = ({
                     <span
                       className="!p-2"
                       style={{
-                        marginTop: "100% ",
+                        marginTop: "10% ",
                         transform: "rotate(90deg)",
                         backgroundColor: "black",
                       }}
@@ -384,7 +282,7 @@ const First12 = ({
                       <span
                         className="!p-2"
                         style={{
-                          marginTop: "100% ",
+                          marginTop: "10% ",
                           transform: "rotate(90deg)",
                           backgroundColor: "black",
                         }}
@@ -422,7 +320,7 @@ const First12 = ({
                     <span
                       className="!p-2"
                       style={{
-                        marginTop: "100% ",
+                        marginTop: "10% ",
                         transform: "rotate(90deg)",
                         backgroundColor: "black",
                       }}
@@ -441,7 +339,7 @@ const First12 = ({
                       <span
                         className="!p-2"
                         style={{
-                          marginTop: "100% ",
+                          marginTop: "10% ",
                           transform: "rotate(90deg)",
                           backgroundColor: "black",
                         }}
@@ -477,7 +375,7 @@ const First12 = ({
                     <span
                       className="!p-2"
                       style={{
-                        marginTop: "100% ",
+                        marginTop: "10% ",
                         transform: "rotate(90deg)",
                         backgroundColor: "black",
                       }}
@@ -496,7 +394,7 @@ const First12 = ({
                       <span
                         className="!p-2"
                         style={{
-                          marginTop: "100% ",
+                          marginTop: "10% ",
                           transform: "rotate(90deg)",
                           backgroundColor: "black",
                         }}
@@ -532,7 +430,7 @@ const First12 = ({
                     <span
                       className="!p-2"
                       style={{
-                        marginTop: "100% ",
+                        marginTop: "10% ",
                         transform: "rotate(90deg)",
                         backgroundColor: "black",
                       }}
@@ -551,7 +449,7 @@ const First12 = ({
                       <span
                         className="!p-2"
                         style={{
-                          marginTop: "100% ",
+                          marginTop: "10% ",
                           transform: "rotate(90deg)",
                           backgroundColor: "black",
                         }}
@@ -587,7 +485,7 @@ const First12 = ({
                     <span
                       className="!p-2"
                       style={{
-                        marginTop: "100% ",
+                        marginTop: "10% ",
                         transform: "rotate(90deg)",
                         backgroundColor: "black",
                       }}
@@ -606,7 +504,7 @@ const First12 = ({
                       <span
                         className="!p-2"
                         style={{
-                          marginTop: "100% ",
+                          marginTop: "10% ",
                           transform: "rotate(90deg)",
                           backgroundColor: "black",
                         }}
@@ -647,7 +545,7 @@ const First12 = ({
                       <span
                         className="!p-2"
                         style={{
-                          marginTop: "100% ",
+                          marginTop: "10% ",
                           transform: "rotate(90deg)",
                           backgroundColor: "black",
                         }}
@@ -685,7 +583,7 @@ const First12 = ({
                     <span
                       className="!p-2"
                       style={{
-                        marginTop: "100% ",
+                        marginTop: "10% ",
                         transform: "rotate(90deg)",
                         backgroundColor: "black",
                       }}
@@ -704,7 +602,7 @@ const First12 = ({
                       <span
                         className="!p-2"
                         style={{
-                          marginTop: "100% ",
+                          marginTop: "10% ",
                           transform: "rotate(90deg)",
                           backgroundColor: "black",
                         }}
@@ -740,7 +638,7 @@ const First12 = ({
                     <span
                       className="!p-2"
                       style={{
-                        marginTop: "100% ",
+                        marginTop: "10% ",
                         transform: "rotate(90deg)",
                         backgroundColor: "black",
                       }}
@@ -759,7 +657,7 @@ const First12 = ({
                       <span
                         className="!p-2"
                         style={{
-                          marginTop: "100% ",
+                          marginTop: "10% ",
                           transform: "rotate(90deg)",
                           backgroundColor: "black",
                         }}
@@ -795,7 +693,7 @@ const First12 = ({
                     <span
                       className="!p-2"
                       style={{
-                        marginTop: "100% ",
+                        marginTop: "10% ",
                         transform: "rotate(90deg)",
                         backgroundColor: "black",
                       }}
@@ -814,7 +712,7 @@ const First12 = ({
                       <span
                         className="!p-2"
                         style={{
-                          marginTop: "100% ",
+                          marginTop: "10% ",
                           transform: "rotate(90deg)",
                           backgroundColor: "black",
                         }}
@@ -850,7 +748,7 @@ const First12 = ({
                     <span
                       className="!p-2"
                       style={{
-                        marginTop: "100% ",
+                        marginTop: "10% ",
                         transform: "rotate(90deg)",
                         backgroundColor: "black",
                       }}
@@ -869,7 +767,7 @@ const First12 = ({
                       <span
                         className="!p-2"
                         style={{
-                          marginTop: "100% ",
+                          marginTop: "10% ",
                           transform: "rotate(90deg)",
                           backgroundColor: "black",
                         }}
@@ -910,7 +808,7 @@ const First12 = ({
                       <span
                         className="!p-2"
                         style={{
-                          marginTop: "100% ",
+                          marginTop: "10% ",
                           transform: "rotate(90deg)",
                           backgroundColor: "black",
                         }}
@@ -948,7 +846,7 @@ const First12 = ({
                     <span
                       className="!p-2"
                       style={{
-                        marginTop: "100% ",
+                        marginTop: "10% ",
                         transform: "rotate(90deg)",
                         backgroundColor: "black",
                       }}
@@ -967,7 +865,7 @@ const First12 = ({
                       <span
                         className="!p-2"
                         style={{
-                          marginTop: "100% ",
+                          marginTop: "10% ",
                           transform: "rotate(90deg)",
                           backgroundColor: "black",
                         }}
@@ -1003,7 +901,7 @@ const First12 = ({
                     <span
                       className="!p-2"
                       style={{
-                        marginTop: "100% ",
+                        marginTop: "10% ",
                         transform: "rotate(90deg)",
                         backgroundColor: "black",
                       }}
@@ -1022,7 +920,7 @@ const First12 = ({
                       <span
                         className="!p-2"
                         style={{
-                          marginTop: "100% ",
+                          marginTop: "10% ",
                           transform: "rotate(90deg)",
                           backgroundColor: "black",
                         }}
@@ -1058,7 +956,7 @@ const First12 = ({
                     <span
                       className="!p-2"
                       style={{
-                        marginTop: "100% ",
+                        marginTop: "10% ",
                         transform: "rotate(90deg)",
                         backgroundColor: "black",
                       }}
@@ -1077,7 +975,7 @@ const First12 = ({
                       <span
                         className="!p-2"
                         style={{
-                          marginTop: "100% ",
+                          marginTop: "10% ",
                           transform: "rotate(90deg)",
                           backgroundColor: "black",
                         }}
@@ -1113,7 +1011,7 @@ const First12 = ({
                     <span
                       className="!p-2"
                       style={{
-                        marginTop: "100% ",
+                        marginTop: "10% ",
                         transform: "rotate(90deg)",
                         backgroundColor: "black",
                       }}
@@ -1132,7 +1030,7 @@ const First12 = ({
                       <span
                         className="!p-2"
                         style={{
-                          marginTop: "100% ",
+                          marginTop: "10% ",
                           transform: "rotate(90deg)",
                           backgroundColor: "black",
                         }}
@@ -1173,7 +1071,7 @@ const First12 = ({
                       <span
                         className="!p-2"
                         style={{
-                          marginTop: "100% ",
+                          marginTop: "10% ",
                           transform: "rotate(90deg)",
                           backgroundColor: "black",
                         }}
@@ -1211,7 +1109,7 @@ const First12 = ({
                     <span
                       className="!p-2"
                       style={{
-                        marginTop: "100% ",
+                        marginTop: "10% ",
                         transform: "rotate(90deg)",
                         backgroundColor: "black",
                       }}
@@ -1230,7 +1128,7 @@ const First12 = ({
                       <span
                         className="!p-2"
                         style={{
-                          marginTop: "100% ",
+                          marginTop: "10% ",
                           transform: "rotate(90deg)",
                           backgroundColor: "black",
                         }}
@@ -1266,7 +1164,7 @@ const First12 = ({
                     <span
                       className="!p-2"
                       style={{
-                        marginTop: "100% ",
+                        marginTop: "10% ",
                         transform: "rotate(90deg)",
                         backgroundColor: "black",
                       }}
@@ -1285,7 +1183,7 @@ const First12 = ({
                       <span
                         className="!p-2"
                         style={{
-                          marginTop: "100% ",
+                          marginTop: "10% ",
                           transform: "rotate(90deg)",
                           backgroundColor: "black",
                         }}
@@ -1329,7 +1227,7 @@ const First12 = ({
                       <span
                         className="!p-2"
                         style={{
-                          marginTop: "100% ",
+                          marginTop: "10% ",
                           transform: "rotate(90deg)",
                           backgroundColor: "black",
                         }}
@@ -1367,7 +1265,7 @@ const First12 = ({
                     <span
                       className="!p-2"
                       style={{
-                        marginTop: "100% ",
+                        marginTop: "10% ",
                         transform: "rotate(90deg)",
                         backgroundColor: "black",
                       }}
@@ -1386,7 +1284,7 @@ const First12 = ({
                       <span
                         className="!p-2"
                         style={{
-                          marginTop: "100% ",
+                          marginTop: "10% ",
                           transform: "rotate(90deg)",
                           backgroundColor: "black",
                         }}
@@ -1422,7 +1320,7 @@ const First12 = ({
                     <span
                       className="!p-2"
                       style={{
-                        marginTop: "100% ",
+                        marginTop: "10% ",
                         transform: "rotate(90deg)",
                         backgroundColor: "black",
                       }}
@@ -1441,7 +1339,7 @@ const First12 = ({
                       <span
                         className="!p-2"
                         style={{
-                          marginTop: "100% ",
+                          marginTop: "10% ",
                           transform: "rotate(90deg)",
                           backgroundColor: "black",
                         }}
@@ -1477,7 +1375,7 @@ const First12 = ({
                     <span
                       className="!p-2"
                       style={{
-                        marginTop: "100% ",
+                        marginTop: "10% ",
                         transform: "rotate(90deg)",
                         backgroundColor: "black",
                       }}
@@ -1496,7 +1394,7 @@ const First12 = ({
                       <span
                         className="!p-2"
                         style={{
-                          marginTop: "100% ",
+                          marginTop: "10% ",
                           transform: "rotate(90deg)",
                           backgroundColor: "black",
                         }}
@@ -1537,7 +1435,7 @@ const First12 = ({
                       <span
                         className="!p-2"
                         style={{
-                          marginTop: "100% ",
+                          marginTop: "10% ",
                           transform: "rotate(90deg)",
                           backgroundColor: "black",
                         }}
@@ -1575,7 +1473,7 @@ const First12 = ({
                     <span
                       className="!p-2"
                       style={{
-                        marginTop: "100% ",
+                        marginTop: "10% ",
                         transform: "rotate(90deg)",
                         backgroundColor: "black",
                       }}
@@ -1594,7 +1492,7 @@ const First12 = ({
                       <span
                         className="!p-2"
                         style={{
-                          marginTop: "100% ",
+                          marginTop: "10% ",
                           transform: "rotate(90deg)",
                           backgroundColor: "black",
                         }}
@@ -1630,7 +1528,7 @@ const First12 = ({
                     <span
                       className="!p-2"
                       style={{
-                        marginTop: "100% ",
+                        marginTop: "10% ",
                         transform: "rotate(90deg)",
                         backgroundColor: "black",
                       }}
@@ -1649,7 +1547,7 @@ const First12 = ({
                       <span
                         className="!p-2"
                         style={{
-                          marginTop: "100% ",
+                          marginTop: "10% ",
                           transform: "rotate(90deg)",
                           backgroundColor: "black",
                         }}
@@ -1685,7 +1583,7 @@ const First12 = ({
                     <span
                       className="!p-2"
                       style={{
-                        marginTop: "100% ",
+                        marginTop: "10% ",
                         transform: "rotate(90deg)",
                         backgroundColor: "black",
                       }}
@@ -1704,7 +1602,7 @@ const First12 = ({
                       <span
                         className="!p-2"
                         style={{
-                          marginTop: "100% ",
+                          marginTop: "10% ",
                           transform: "rotate(90deg)",
                           backgroundColor: "black",
                         }}
@@ -1745,7 +1643,7 @@ const First12 = ({
                       <span
                         className="!p-2"
                         style={{
-                          marginTop: "100% ",
+                          marginTop: "10% ",
                           transform: "rotate(90deg)",
                           backgroundColor: "black",
                         }}
@@ -1783,7 +1681,7 @@ const First12 = ({
                     <span
                       className="!p-2"
                       style={{
-                        marginTop: "100% ",
+                        marginTop: "10% ",
                         transform: "rotate(90deg)",
                         backgroundColor: "black",
                       }}
@@ -1802,7 +1700,7 @@ const First12 = ({
                       <span
                         className="!p-2"
                         style={{
-                          marginTop: "100% ",
+                          marginTop: "10% ",
                           transform: "rotate(90deg)",
                           backgroundColor: "black",
                         }}
@@ -1838,7 +1736,7 @@ const First12 = ({
                     <span
                       className="!p-2"
                       style={{
-                        marginTop: "100% ",
+                        marginTop: "10% ",
                         transform: "rotate(90deg)",
                         backgroundColor: "black",
                       }}
@@ -1857,7 +1755,7 @@ const First12 = ({
                       <span
                         className="!p-2"
                         style={{
-                          marginTop: "100% ",
+                          marginTop: "10% ",
                           transform: "rotate(90deg)",
                           backgroundColor: "black",
                         }}
@@ -1893,7 +1791,7 @@ const First12 = ({
                     <span
                       className="!p-2"
                       style={{
-                        marginTop: "100% ",
+                        marginTop: "10% ",
                         transform: "rotate(90deg)",
                         backgroundColor: "black",
                       }}
@@ -1912,7 +1810,7 @@ const First12 = ({
                       <span
                         className="!p-2"
                         style={{
-                          marginTop: "100% ",
+                          marginTop: "10% ",
                           transform: "rotate(90deg)",
                           backgroundColor: "black",
                         }}
@@ -1953,7 +1851,7 @@ const First12 = ({
                       <span
                         className="!p-2"
                         style={{
-                          marginTop: "100% ",
+                          marginTop: "10% ",
                           transform: "rotate(90deg)",
                           backgroundColor: "black",
                         }}
@@ -1992,7 +1890,7 @@ const First12 = ({
                     <span
                       className="!p-2"
                       style={{
-                        marginTop: "100% ",
+                        marginTop: "10% ",
                         transform: "rotate(90deg)",
                         backgroundColor: "black",
                       }}
@@ -2011,7 +1909,7 @@ const First12 = ({
                       <span
                         className="!p-2"
                         style={{
-                          marginTop: "100% ",
+                          marginTop: "10% ",
                           transform: "rotate(90deg)",
                           backgroundColor: "black",
                         }}
@@ -2055,7 +1953,7 @@ const First12 = ({
                       <span
                         className="!p-2"
                         style={{
-                          marginTop: "100% ",
+                          marginTop: "10% ",
                           transform: "rotate(90deg)",
                           backgroundColor: "black",
                         }}
@@ -2093,7 +1991,7 @@ const First12 = ({
                     <span
                       className="!p-2"
                       style={{
-                        marginTop: "100% ",
+                        marginTop: "10% ",
                         transform: "rotate(90deg)",
                         backgroundColor: "black",
                       }}
@@ -2112,7 +2010,7 @@ const First12 = ({
                       <span
                         className="!p-2"
                         style={{
-                          marginTop: "100% ",
+                          marginTop: "10% ",
                           transform: "rotate(90deg)",
                           backgroundColor: "black",
                         }}
@@ -2154,7 +2052,7 @@ const First12 = ({
                       <span
                         className="!p-2"
                         style={{
-                          marginTop: "100% ",
+                          marginTop: "10% ",
                           transform: "rotate(90deg)",
                           backgroundColor: "black",
                         }}
@@ -2192,7 +2090,7 @@ const First12 = ({
                     <span
                       className="!p-2"
                       style={{
-                        marginTop: "100% ",
+                        marginTop: "10% ",
                         transform: "rotate(90deg)",
                         backgroundColor: "black",
                       }}
@@ -2211,7 +2109,7 @@ const First12 = ({
                       <span
                         className="!p-2"
                         style={{
-                          marginTop: "100% ",
+                          marginTop: "10% ",
                           transform: "rotate(90deg)",
                           backgroundColor: "black",
                         }}
@@ -2253,7 +2151,7 @@ const First12 = ({
                       <span
                         className="!p-2"
                         style={{
-                          marginTop: "100% ",
+                          marginTop: "10% ",
                           transform: "rotate(90deg)",
                           backgroundColor: "black",
                         }}
@@ -2291,7 +2189,7 @@ const First12 = ({
                     <span
                       className="!p-2"
                       style={{
-                        marginTop: "100% ",
+                        marginTop: "10% ",
                         transform: "rotate(90deg)",
                         backgroundColor: "black",
                       }}
@@ -2310,7 +2208,7 @@ const First12 = ({
                       <span
                         className="!p-2"
                         style={{
-                          marginTop: "100% ",
+                          marginTop: "10% ",
                           transform: "rotate(90deg)",
                           backgroundColor: "black",
                         }}
@@ -2352,7 +2250,7 @@ const First12 = ({
                       <span
                         className="!p-2"
                         style={{
-                          marginTop: "100% ",
+                          marginTop: "10% ",
                           transform: "rotate(90deg)",
                           backgroundColor: "black",
                         }}

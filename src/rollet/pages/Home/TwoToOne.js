@@ -33,7 +33,7 @@ const TwoToOne = ({
                     return toast(
                       <span
                         style={{
-                          marginTop: "100% ",
+                          marginTop: "10% ",
                           transform: "rotate(90deg)",
                           backgroundColor: "black",
                         }}
@@ -52,7 +52,7 @@ const TwoToOne = ({
                         <span
                           className="p-2"
                           style={{
-                            marginTop: "100% ",
+                            marginTop: "10% ",
                             transform: "rotate(90deg)",
                             backgroundColor: "black",
                           }}
@@ -108,7 +108,7 @@ const TwoToOne = ({
                         <span
                           className="p-2"
                           style={{
-                            marginTop: "100% ",
+                            marginTop: "10% ",
                             transform: "rotate(90deg)",
                             backgroundColor: "black",
                           }}
@@ -145,7 +145,7 @@ const TwoToOne = ({
                       <span
                         className="p-2"
                         style={{
-                          marginTop: "100% ",
+                          marginTop: "10% ",
                           transform: "rotate(90deg)",
                           backgroundColor: "black",
                         }}
@@ -164,7 +164,7 @@ const TwoToOne = ({
                         <span
                           className="!p-2"
                           style={{
-                            marginTop: "100% ",
+                            marginTop: "10% ",
                             alignItems: "center",
                             transform: "rotate(90deg)",
                             backgroundColor: "black",

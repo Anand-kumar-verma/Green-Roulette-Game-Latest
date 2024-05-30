@@ -298,8 +298,10 @@ function Home() {
         setisOpenPreRoundDialogBox(false);
       }
       if (onemin <= 10) {
+        setisSelectedDropBet(false);
         setopenDialogBoxhistory(false);
         setOpen(false);
+        setOpen2(false)
         setOpenDialogBox(false);
       }
     };
@@ -822,8 +824,9 @@ function Home() {
             sx={{
               "&>div": {
                 background: "#0000009e",
-                width: "400px",
-                height: "85vh",
+                height: "90vh",width:'100%',
+                
+              //  minWidth:'80% important',
                 ...style.flex,
               },
             }}
@@ -832,10 +835,11 @@ function Home() {
             onClose={() => {
               setopenDialogBoxhistory(!openDialogBoxhistory);
             }}
+
           >
             <Box
               sx={{
-                width: "100%",
+                width: "150%",
                 height: "50%",
                 background: "white",
                 transform: "rotate(90deg)",

@@ -13,108 +13,7 @@ const Third12 = ({
 }) => {
   return (
     <Stack direction="row" justifyContent="end" sx={{ height: "28.56%" }}>
-      {/* <div
-        className="w-[18%]  !grid grid-rows-2 !place-items-center "
-        style={{
-          ...style.flex, borderTop: '3.5px solid white',
-          borderLeft: '3.5px solid white',
-        }}
-      >
 
-        <div className="!p-0" style={{ width: "52%", height: '100%', }}>
-          <div
-            variant="body1"
-            color="initial"
-            className="!flex !justify-center !items-center "
-          >
-            <span
-              id="1936"
-              style={{ fontWeight: 700, transform: 'rotate(90deg)', marginTop: '100%' }}
-              className="whitespace-nowrap !text-[12px] !text-white "
-              onClick={(e) => {
-                if (isSelectedDropBet) {
-                  removeSingleBetFunction(1936)
-                  return
-                }
-                if (amount < 10 || amount > 50000)
-                  return toast( <span className="!p-2" style={{ marginTop:'100% ',  transform: "rotate(90deg)", backgroundColor: 'black' }}>
-                              Please select amount greater than 10
-                            </span>);
-                let isContainsPre = bet?.find((i) => i?.id === 1936);
-                if (isContainsPre) {
-                  // setOpenDialogBox(1936);
-                  if (
-                    isContainsPre?.amount + amount > 50000 ||
-                    isContainsPre?.amount < 10
-                  ) {
-                    return toast(
-                      <span className="!p-2" style={{ marginTop:'100% ', transform: "rotate(90deg)", backgroundColor: 'black' }}>
-                                Bet must be greater than 10 and less that 50000 Rupees
-                              </span>
-                    );
-                  } else {
-                    setBetFuncton(
-                      1936, [1936],
-                      Number(isContainsPre?.amount) + amount
-                    );
-                  }
-                } else {
-                  setBetFuncton(1936, [1936], amount);
-                }
-                e.stopPropagation();
-              }}
-            >
-              19 to 36
-            </span>
-          </div>
-        </div>
-        <div
-          className="!p-0"
-          style={{ transform: "rotate(-270deg)", ...style.flex }}
-        >
-          <div variant="body1" color="initial">
-            <span
-              style={{ fontWeight: 700 }}
-              id="202"
-              className="whitespace-nowrap !text-[12px]  !text-white"
-              onClick={(e) => {
-                if (isSelectedDropBet) {
-                  removeSingleBetFunction(202)
-                  return
-                }
-                if (amount < 10 || amount > 50000)
-                  return toast( <span className="!p-2" style={{ marginTop:'100% ',  transform: "rotate(90deg)", backgroundColor: 'black' }}>
-                              Please select amount greater than 10
-                            </span>);
-                let isContainsPre = bet?.find((i) => i?.id === 202);
-                if (isContainsPre) {
-                  // setOpenDialogBox(202);
-                  if (
-                    isContainsPre?.amount + amount > 50000 ||
-                    isContainsPre?.amount < 10
-                  ) {
-                    return toast(
-                      <span className="!p-2" style={{ marginTop:'100% ', transform: "rotate(90deg)", backgroundColor: 'black' }}>
-                                Bet must be greater than 10 and less that 50000 Rupees
-                              </span>
-                    );
-                  } else {
-                    setBetFuncton(
-                      202, [202],
-                      Number(isContainsPre?.amount) + amount
-                    );
-                  }
-                } else {
-                  setBetFuncton(202, [202], amount);
-                }
-                e.stopPropagation();
-              }}
-            >
-              ODD
-            </span>
-          </div>
-        </div>
-      </div> */}
       <div
         className="w-[18%]   "
         style={{
@@ -142,7 +41,7 @@ const Third12 = ({
                   <span
                     className="!p-2"
                     style={{
-                      marginTop: "100% ",
+                      marginTop: "10% ",
                       transform: "rotate(90deg)",
                       backgroundColor: "black",
                     }}
@@ -161,7 +60,7 @@ const Third12 = ({
                     <span
                       className="!p-2"
                       style={{
-                        marginTop: "100% ",
+                        marginTop: "10% ",
                         transform: "rotate(90deg)",
                         backgroundColor: "black",
                       }}
@@ -211,7 +110,7 @@ const Third12 = ({
                   <span
                     className="!p-2"
                     style={{
-                      marginTop: "100% ",
+                      marginTop: "10% ",
                       transform: "rotate(90deg)",
                       backgroundColor: "black",
                     }}
@@ -230,7 +129,7 @@ const Third12 = ({
                     <span
                       className="!p-2"
                       style={{
-                        marginTop: "100% ",
+                        marginTop: "10% ",
                         transform: "rotate(90deg)",
                         backgroundColor: "black",
                       }}
@@ -290,7 +189,7 @@ const Third12 = ({
                     <span
                       className="!p-2"
                       style={{
-                        marginTop: "100% ",
+                        marginTop: "10% ",
                         transform: "rotate(90deg)",
                         backgroundColor: "black",
                       }}
@@ -309,7 +208,7 @@ const Third12 = ({
                       <span
                         className="!p-2"
                         style={{
-                          marginTop: "100% ",
+                          marginTop: "10% ",
                           transform: "rotate(90deg)",
                           backgroundColor: "black",
                         }}
@@ -365,7 +264,7 @@ const Third12 = ({
                       <span
                         className="!p-2"
                         style={{
-                          marginTop: "100% ",
+                          marginTop: "10% ",
                           transform: "rotate(90deg)",
                           backgroundColor: "black",
                         }}
@@ -404,7 +303,7 @@ const Third12 = ({
                     <span
                       className="!p-2"
                       style={{
-                        marginTop: "100% ",
+                        marginTop: "10% ",
                         transform: "rotate(90deg)",
                         backgroundColor: "black",
                       }}
@@ -423,7 +322,7 @@ const Third12 = ({
                       <span
                         className="!p-2"
                         style={{
-                          marginTop: "100% ",
+                          marginTop: "10% ",
                           transform: "rotate(90deg)",
                           backgroundColor: "black",
                         }}
@@ -460,7 +359,7 @@ const Third12 = ({
                     <span
                       className="!p-2"
                       style={{
-                        marginTop: "100% ",
+                        marginTop: "10% ",
                         transform: "rotate(90deg)",
                         backgroundColor: "black",
                       }}
@@ -479,7 +378,7 @@ const Third12 = ({
                       <span
                         className="!p-2"
                         style={{
-                          marginTop: "100% ",
+                          marginTop: "10% ",
                           transform: "rotate(90deg)",
                           backgroundColor: "black",
                         }}
@@ -516,7 +415,7 @@ const Third12 = ({
                     <span
                       className="!p-2"
                       style={{
-                        marginTop: "100% ",
+                        marginTop: "10% ",
                         transform: "rotate(90deg)",
                         backgroundColor: "black",
                       }}
@@ -535,7 +434,7 @@ const Third12 = ({
                       <span
                         className="!p-2"
                         style={{
-                          marginTop: "100% ",
+                          marginTop: "10% ",
                           transform: "rotate(90deg)",
                           backgroundColor: "black",
                         }}
@@ -571,7 +470,7 @@ const Third12 = ({
                     <span
                       className="!p-2"
                       style={{
-                        marginTop: "100% ",
+                        marginTop: "10% ",
                         transform: "rotate(90deg)",
                         backgroundColor: "black",
                       }}
@@ -590,7 +489,7 @@ const Third12 = ({
                       <span
                         className="!p-2"
                         style={{
-                          marginTop: "100% ",
+                          marginTop: "10% ",
                           transform: "rotate(90deg)",
                           backgroundColor: "black",
                         }}
@@ -631,7 +530,7 @@ const Third12 = ({
                       <span
                         className="!p-2"
                         style={{
-                          marginTop: "100% ",
+                          marginTop: "10% ",
                           transform: "rotate(90deg)",
                           backgroundColor: "black",
                         }}
@@ -670,7 +569,7 @@ const Third12 = ({
                     <span
                       className="!p-2"
                       style={{
-                        marginTop: "100% ",
+                        marginTop: "10% ",
                         transform: "rotate(90deg)",
                         backgroundColor: "black",
                       }}
@@ -689,7 +588,7 @@ const Third12 = ({
                       <span
                         className="!p-2"
                         style={{
-                          marginTop: "100% ",
+                          marginTop: "10% ",
                           transform: "rotate(90deg)",
                           backgroundColor: "black",
                         }}
@@ -726,7 +625,7 @@ const Third12 = ({
                     <span
                       className="!p-2"
                       style={{
-                        marginTop: "100% ",
+                        marginTop: "10% ",
                         transform: "rotate(90deg)",
                         backgroundColor: "black",
                       }}
@@ -745,7 +644,7 @@ const Third12 = ({
                       <span
                         className="!p-2"
                         style={{
-                          marginTop: "100% ",
+                          marginTop: "10% ",
                           transform: "rotate(90deg)",
                           backgroundColor: "black",
                         }}
@@ -782,7 +681,7 @@ const Third12 = ({
                     <span
                       className="!p-2"
                       style={{
-                        marginTop: "100% ",
+                        marginTop: "10% ",
                         transform: "rotate(90deg)",
                         backgroundColor: "black",
                       }}
@@ -801,7 +700,7 @@ const Third12 = ({
                       <span
                         className="!p-2"
                         style={{
-                          marginTop: "100% ",
+                          marginTop: "10% ",
                           transform: "rotate(90deg)",
                           backgroundColor: "black",
                         }}
@@ -837,7 +736,7 @@ const Third12 = ({
                     <span
                       className="!p-2"
                       style={{
-                        marginTop: "100% ",
+                        marginTop: "10% ",
                         transform: "rotate(90deg)",
                         backgroundColor: "black",
                       }}
@@ -856,7 +755,7 @@ const Third12 = ({
                       <span
                         className="!p-2"
                         style={{
-                          marginTop: "100% ",
+                          marginTop: "10% ",
                           transform: "rotate(90deg)",
                           backgroundColor: "black",
                         }}
@@ -897,7 +796,7 @@ const Third12 = ({
                       <span
                         className="!p-2"
                         style={{
-                          marginTop: "100% ",
+                          marginTop: "10% ",
                           transform: "rotate(90deg)",
                           backgroundColor: "black",
                         }}
@@ -936,7 +835,7 @@ const Third12 = ({
                     <span
                       className="!p-2"
                       style={{
-                        marginTop: "100% ",
+                        marginTop: "10% ",
                         transform: "rotate(90deg)",
                         backgroundColor: "black",
                       }}
@@ -955,7 +854,7 @@ const Third12 = ({
                       <span
                         className="!p-2"
                         style={{
-                          marginTop: "100% ",
+                          marginTop: "10% ",
                           transform: "rotate(90deg)",
                           backgroundColor: "black",
                         }}
@@ -992,7 +891,7 @@ const Third12 = ({
                     <span
                       className="!p-2"
                       style={{
-                        marginTop: "100% ",
+                        marginTop: "10% ",
                         transform: "rotate(90deg)",
                         backgroundColor: "black",
                       }}
@@ -1011,7 +910,7 @@ const Third12 = ({
                       <span
                         className="!p-2"
                         style={{
-                          marginTop: "100% ",
+                          marginTop: "10% ",
                           transform: "rotate(90deg)",
                           backgroundColor: "black",
                         }}
@@ -1048,7 +947,7 @@ const Third12 = ({
                     <span
                       className="!p-2"
                       style={{
-                        marginTop: "100% ",
+                        marginTop: "10% ",
                         transform: "rotate(90deg)",
                         backgroundColor: "black",
                       }}
@@ -1067,7 +966,7 @@ const Third12 = ({
                       <span
                         className="!p-2"
                         style={{
-                          marginTop: "100% ",
+                          marginTop: "10% ",
                           transform: "rotate(90deg)",
                           backgroundColor: "black",
                         }}
@@ -1103,7 +1002,7 @@ const Third12 = ({
                     <span
                       className="!p-2"
                       style={{
-                        marginTop: "100% ",
+                        marginTop: "10% ",
                         transform: "rotate(90deg)",
                         backgroundColor: "black",
                       }}
@@ -1122,7 +1021,7 @@ const Third12 = ({
                       <span
                         className="!p-2"
                         style={{
-                          marginTop: "100% ",
+                          marginTop: "10% ",
                           transform: "rotate(90deg)",
                           backgroundColor: "black",
                         }}
@@ -1163,7 +1062,7 @@ const Third12 = ({
                       <span
                         className="!p-2"
                         style={{
-                          marginTop: "100% ",
+                          marginTop: "10% ",
                           transform: "rotate(90deg)",
                           backgroundColor: "black",
                         }}
@@ -1202,7 +1101,7 @@ const Third12 = ({
                     <span
                       className="!p-2"
                       style={{
-                        marginTop: "100% ",
+                        marginTop: "10% ",
                         transform: "rotate(90deg)",
                         backgroundColor: "black",
                       }}
@@ -1221,7 +1120,7 @@ const Third12 = ({
                       <span
                         className="!p-2"
                         style={{
-                          marginTop: "100% ",
+                          marginTop: "10% ",
                           transform: "rotate(90deg)",
                           backgroundColor: "black",
                         }}
@@ -1258,7 +1157,7 @@ const Third12 = ({
                     <span
                       className="!p-2"
                       style={{
-                        marginTop: "100% ",
+                        marginTop: "10% ",
                         transform: "rotate(90deg)",
                         backgroundColor: "black",
                       }}
@@ -1277,7 +1176,7 @@ const Third12 = ({
                       <span
                         className="!p-2"
                         style={{
-                          marginTop: "100% ",
+                          marginTop: "10% ",
                           transform: "rotate(90deg)",
                           backgroundColor: "black",
                         }}
@@ -1314,7 +1213,7 @@ const Third12 = ({
                     <span
                       className="!p-2"
                       style={{
-                        marginTop: "100% ",
+                        marginTop: "10% ",
                         transform: "rotate(90deg)",
                         backgroundColor: "black",
                       }}
@@ -1333,7 +1232,7 @@ const Third12 = ({
                       <span
                         className="!p-2"
                         style={{
-                          marginTop: "100% ",
+                          marginTop: "10% ",
                           transform: "rotate(90deg)",
                           backgroundColor: "black",
                         }}
@@ -1369,7 +1268,7 @@ const Third12 = ({
                     <span
                       className="!p-2"
                       style={{
-                        marginTop: "100% ",
+                        marginTop: "10% ",
                         transform: "rotate(90deg)",
                         backgroundColor: "black",
                       }}
@@ -1388,7 +1287,7 @@ const Third12 = ({
                       <span
                         className="!p-2"
                         style={{
-                          marginTop: "100% ",
+                          marginTop: "10% ",
                           transform: "rotate(90deg)",
                           backgroundColor: "black",
                         }}
@@ -1431,7 +1330,7 @@ const Third12 = ({
                       <span
                         className="!p-2"
                         style={{
-                          marginTop: "100% ",
+                          marginTop: "10% ",
                           transform: "rotate(90deg)",
                           backgroundColor: "black",
                         }}
@@ -1470,7 +1369,7 @@ const Third12 = ({
                     <span
                       className="!p-2"
                       style={{
-                        marginTop: "100% ",
+                        marginTop: "10% ",
                         transform: "rotate(90deg)",
                         backgroundColor: "black",
                       }}
@@ -1489,7 +1388,7 @@ const Third12 = ({
                       <span
                         className="!p-2"
                         style={{
-                          marginTop: "100% ",
+                          marginTop: "10% ",
                           transform: "rotate(90deg)",
                           backgroundColor: "black",
                         }}
@@ -1526,7 +1425,7 @@ const Third12 = ({
                     <span
                       className="!p-2"
                       style={{
-                        marginTop: "100% ",
+                        marginTop: "10% ",
                         transform: "rotate(90deg)",
                         backgroundColor: "black",
                       }}
@@ -1545,7 +1444,7 @@ const Third12 = ({
                       <span
                         className="!p-2"
                         style={{
-                          marginTop: "100% ",
+                          marginTop: "10% ",
                           transform: "rotate(90deg)",
                           backgroundColor: "black",
                         }}
@@ -1582,7 +1481,7 @@ const Third12 = ({
                     <span
                       className="!p-2"
                       style={{
-                        marginTop: "100% ",
+                        marginTop: "10% ",
                         transform: "rotate(90deg)",
                         backgroundColor: "black",
                       }}
@@ -1601,7 +1500,7 @@ const Third12 = ({
                       <span
                         className="!p-2"
                         style={{
-                          marginTop: "100% ",
+                          marginTop: "10% ",
                           transform: "rotate(90deg)",
                           backgroundColor: "black",
                         }}
@@ -1642,7 +1541,7 @@ const Third12 = ({
                       <span
                         className="!p-2"
                         style={{
-                          marginTop: "100% ",
+                          marginTop: "10% ",
                           transform: "rotate(90deg)",
                           backgroundColor: "black",
                         }}
@@ -1681,7 +1580,7 @@ const Third12 = ({
                     <span
                       className="!p-2"
                       style={{
-                        marginTop: "100% ",
+                        marginTop: "10% ",
                         transform: "rotate(90deg)",
                         backgroundColor: "black",
                       }}
@@ -1700,7 +1599,7 @@ const Third12 = ({
                       <span
                         className="!p-2"
                         style={{
-                          marginTop: "100% ",
+                          marginTop: "10% ",
                           transform: "rotate(90deg)",
                           backgroundColor: "black",
                         }}
@@ -1737,7 +1636,7 @@ const Third12 = ({
                     <span
                       className="!p-2"
                       style={{
-                        marginTop: "100% ",
+                        marginTop: "10% ",
                         transform: "rotate(90deg)",
                         backgroundColor: "black",
                       }}
@@ -1756,7 +1655,7 @@ const Third12 = ({
                       <span
                         className="!p-2"
                         style={{
-                          marginTop: "100% ",
+                          marginTop: "10% ",
                           transform: "rotate(90deg)",
                           backgroundColor: "black",
                         }}
@@ -1793,7 +1692,7 @@ const Third12 = ({
                     <span
                       className="!p-2"
                       style={{
-                        marginTop: "100% ",
+                        marginTop: "10% ",
                         transform: "rotate(90deg)",
                         backgroundColor: "black",
                       }}
@@ -1812,7 +1711,7 @@ const Third12 = ({
                       <span
                         className="!p-2"
                         style={{
-                          marginTop: "100% ",
+                          marginTop: "10% ",
                           transform: "rotate(90deg)",
                           backgroundColor: "black",
                         }}
@@ -1853,7 +1752,7 @@ const Third12 = ({
                       <span
                         className="!p-2"
                         style={{
-                          marginTop: "100% ",
+                          marginTop: "10% ",
                           transform: "rotate(90deg)",
                           backgroundColor: "black",
                         }}
@@ -1892,7 +1791,7 @@ const Third12 = ({
                     <span
                       className="!p-2"
                       style={{
-                        marginTop: "100% ",
+                        marginTop: "10% ",
                         transform: "rotate(90deg)",
                         backgroundColor: "black",
                       }}
@@ -1911,7 +1810,7 @@ const Third12 = ({
                       <span
                         className="!p-2"
                         style={{
-                          marginTop: "100% ",
+                          marginTop: "10% ",
                           transform: "rotate(90deg)",
                           backgroundColor: "black",
                         }}
@@ -1948,7 +1847,7 @@ const Third12 = ({
                     <span
                       className="!p-2"
                       style={{
-                        marginTop: "100% ",
+                        marginTop: "10% ",
                         transform: "rotate(90deg)",
                         backgroundColor: "black",
                       }}
@@ -1967,7 +1866,7 @@ const Third12 = ({
                       <span
                         className="!p-2"
                         style={{
-                          marginTop: "100% ",
+                          marginTop: "10% ",
                           transform: "rotate(90deg)",
                           backgroundColor: "black",
                         }}
@@ -2004,7 +1903,7 @@ const Third12 = ({
                     <span
                       className="!p-2"
                       style={{
-                        marginTop: "100% ",
+                        marginTop: "10% ",
                         transform: "rotate(90deg)",
                         backgroundColor: "black",
                       }}
@@ -2023,7 +1922,7 @@ const Third12 = ({
                       <span
                         className="!p-2"
                         style={{
-                          marginTop: "100% ",
+                          marginTop: "10% ",
                           transform: "rotate(90deg)",
                           backgroundColor: "black",
                         }}
@@ -2064,7 +1963,7 @@ const Third12 = ({
                       <span
                         className="!p-2"
                         style={{
-                          marginTop: "100% ",
+                          marginTop: "10% ",
                           transform: "rotate(90deg)",
                           backgroundColor: "black",
                         }}
@@ -2103,7 +2002,7 @@ const Third12 = ({
                     <span
                       className="!p-2"
                       style={{
-                        marginTop: "100% ",
+                        marginTop: "10% ",
                         transform: "rotate(90deg)",
                         backgroundColor: "black",
                       }}
@@ -2122,7 +2021,7 @@ const Third12 = ({
                       <span
                         className="!p-2"
                         style={{
-                          marginTop: "100% ",
+                          marginTop: "10% ",
                           transform: "rotate(90deg)",
                           backgroundColor: "black",
                         }}
@@ -2159,7 +2058,7 @@ const Third12 = ({
                     <span
                       className="!p-2"
                       style={{
-                        marginTop: "100% ",
+                        marginTop: "10% ",
                         transform: "rotate(90deg)",
                         backgroundColor: "black",
                       }}
@@ -2178,7 +2077,7 @@ const Third12 = ({
                       <span
                         className="!p-2"
                         style={{
-                          marginTop: "100% ",
+                          marginTop: "10% ",
                           transform: "rotate(90deg)",
                           backgroundColor: "black",
                         }}
@@ -2215,7 +2114,7 @@ const Third12 = ({
                     <span
                       className="!p-2"
                       style={{
-                        marginTop: "100% ",
+                        marginTop: "10% ",
                         transform: "rotate(90deg)",
                         backgroundColor: "black",
                       }}
@@ -2234,7 +2133,7 @@ const Third12 = ({
                       <span
                         className="!p-2"
                         style={{
-                          marginTop: "100% ",
+                          marginTop: "10% ",
                           transform: "rotate(90deg)",
                           backgroundColor: "black",
                         }}
@@ -2277,7 +2176,7 @@ const Third12 = ({
                       <span
                         className="!p-2"
                         style={{
-                          marginTop: "100% ",
+                          marginTop: "10% ",
                           transform: "rotate(90deg)",
                           backgroundColor: "black",
                         }}
@@ -2316,7 +2215,7 @@ const Third12 = ({
                     <span
                       className="!p-2"
                       style={{
-                        marginTop: "100% ",
+                        marginTop: "10% ",
                         transform: "rotate(90deg)",
                         backgroundColor: "black",
                       }}
@@ -2335,7 +2234,7 @@ const Third12 = ({
                       <span
                         className="!p-2"
                         style={{
-                          marginTop: "100% ",
+                          marginTop: "10% ",
                           transform: "rotate(90deg)",
                           backgroundColor: "black",
                         }}
@@ -2378,7 +2277,7 @@ const Third12 = ({
                       <span
                         className="!p-2"
                         style={{
-                          marginTop: "100% ",
+                          marginTop: "10% ",
                           transform: "rotate(90deg)",
                           backgroundColor: "black",
                         }}
@@ -2417,7 +2316,7 @@ const Third12 = ({
                     <span
                       className="!p-2"
                       style={{
-                        marginTop: "100% ",
+                        marginTop: "10% ",
                         transform: "rotate(90deg)",
                         backgroundColor: "black",
                       }}
@@ -2436,7 +2335,7 @@ const Third12 = ({
                       <span
                         className="!p-2"
                         style={{
-                          marginTop: "100% ",
+                          marginTop: "10% ",
                           transform: "rotate(90deg)",
                           backgroundColor: "black",
                         }}
@@ -2479,7 +2378,7 @@ const Third12 = ({
                       <span
                         className="!p-2"
                         style={{
-                          marginTop: "100% ",
+                          marginTop: "10% ",
                           transform: "rotate(90deg)",
                           backgroundColor: "black",
                         }}
@@ -2518,7 +2417,7 @@ const Third12 = ({
                     <span
                       className="!p-2"
                       style={{
-                        marginTop: "100% ",
+                        marginTop: "10% ",
                         transform: "rotate(90deg)",
                         backgroundColor: "black",
                       }}
@@ -2537,7 +2436,7 @@ const Third12 = ({
                       <span
                         className="!p-2"
                         style={{
-                          marginTop: "100% ",
+                          marginTop: "10% ",
                           transform: "rotate(90deg)",
                           backgroundColor: "black",
                         }}
@@ -2580,7 +2479,7 @@ const Third12 = ({
                       <span
                         className="!p-2"
                         style={{
-                          marginTop: "100% ",
+                          marginTop: "10% ",
                           transform: "rotate(90deg)",
                           backgroundColor: "black",
                         }}
@@ -2619,7 +2518,7 @@ const Third12 = ({
                     <span
                       className="!p-2"
                       style={{
-                        marginTop: "100% ",
+                        marginTop: "10% ",
                         transform: "rotate(90deg)",
                         backgroundColor: "black",
                       }}
@@ -2638,7 +2537,7 @@ const Third12 = ({
                       <span
                         className="!p-2"
                         style={{
-                          marginTop: "100% ",
+                          marginTop: "10% ",
                           transform: "rotate(90deg)",
                           backgroundColor: "black",
                         }}

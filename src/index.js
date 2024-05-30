@@ -24,7 +24,9 @@ root.render(
         <ThemeProvider theme={theme}>
           <App />
           <Toaster
+           position="top-right"
               toastOptions={{
+                duration: 1000,
                 className: "",
                 style: {
                   // border: `1px solid ${zubgback}`,
@@ -34,9 +36,12 @@ root.render(
                   borderRadius: "50px",
                   background:"transparent"
                   // background: zubgmid,
+                  
                 },
+                
               }}
               limit={1}
+              
             />
         </ThemeProvider>
       </BrowserRouter>
