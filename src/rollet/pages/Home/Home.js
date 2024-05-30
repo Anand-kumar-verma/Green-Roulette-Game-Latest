@@ -43,6 +43,7 @@ import table from "../../assets/images/table.png";
 import axios from "axios";
 import { endpoint } from "../../../services/urls";
 import placebetmusic from "../../assets/images/applybet_music.mp3";
+import ConfirmationDialogBox from "./ConfirmationDialogBox";
 function Home() {
   let interval_music;
   let isPreBet = localStorage.getItem("isPreBet");
@@ -370,8 +371,6 @@ function Home() {
     window.location.href = "/dashboard";
   };
 
-
-
   function rebetFuncton() {
     // setBet([]);
     bet?.forEach((ele) => {
@@ -527,86 +526,13 @@ function Home() {
               position: "absolute",
             }}
           >
-            <Drawer
-              sx={{
-                "&>div": {
-                  background: "transparent",
-                  width: "400px",
-                  height: "85vh",
-                  ...style.flex,
-                },
-              }}
-              anchor="top"
-              open={open1}
-              onClose={() => {
-                setOpen1(open1);
-              }}
-            >
-              <Box
-                sx={{
-                  width: "350px",
-                  height: "150px",
-                  background: "black",
-                  transform: "rotate(90deg)",
-                  borderRadius: "10px",
-                  padding: "20px",
-                  color: "yellow",
-                  borderColor: "yellow  !important",
-                }}
-              >
-                <div className=" !flex flex-col !justify-center !items-center mt-4">
-                  <div>
-                    <p className="text-2xl font-bold ">
-                      Are you sure want to exit
-                    </p>
-                  </div>
-                  <div className="!flex !justify-center gap-12 mt-4">
-                    <button
-                      onClick={handleConfirm}
-                      className="font-bold text-xl rounded border border-yellow-300 px-4"
-                    >
-                      OK
-                    </button>
-                    <button
-                      onClick={()=> setOpen1(false)}
-                      className="font-bold text-xl rounded border border-yellow-300 px-4"
-                    >
-                      Cancel
-                    </button>
-                  </div>
-                </div>
-              </Box>
-            </Drawer>
-            <Drawer
-              sx={{
-                "&>div": {
-                  background: "transparent",
-                  width: "400px",
-                  height: "85vh",
-                  ...style.flex,
-                },
-              }}
-              anchor="top"
-              open={isOpenPreRoundDialogBox}
-              // onClose={() => {
-              //   setopenDialogBoxhistory(!openDialogBoxhistory);
-              // }}
-            >
-              <Box
-                className="!text-yellow-500 !font-extrabold  "
-                sx={{
-                  // width: "100%",
-                  // height: "50%",
-                  background: "black !important ",
-                  transform: "rotate(90deg)",
-                  borderRadius: "10px",
-                  padding: "10px",
-                }}
-              >
-                PLEASE &nbsp; WAIT&nbsp; TO &nbsp;COMPLETE &nbsp; LAST &nbsp;
-                GAME
-              </Box>
-            </Drawer>
+            <ConfirmationDialogBox
+            style={style}
+            handleConfirm={handleConfirm}
+              open1={open1}
+              setOpen1={{ setOpen1 }}
+              isOpenPreRoundDialogBox={isOpenPreRoundDialogBox}
+            />
             <Box direction={"row"} sx={style.winnerlooserouter}>
               <Box sx={style.winnerLooserList2}>
                 <Typography
@@ -617,8 +543,7 @@ function Home() {
                   Bet amount:{" "}
                   <span style={{ color: "red" }}>
                     {bet?.reduce((a, b) => a + Number(b?.amount), 0) ||
-                      Number(total_amount_bet)?.toFixed(2)
-                    }
+                      Number(total_amount_bet)?.toFixed(2)}
                   </span>
                 </Typography>
                 <Typography
@@ -634,38 +559,6 @@ function Home() {
               </Box>
             </Box>
           </Box>
-          {/* <Box
-            sx={{
-              width: "100%",
-              height: "100%",
-              position: "absolute",
-            }}
-          >
-            <Box direction={"row"} sx={style.wunningamount}>
-              <Box sx={style.winnerLooserList4}>
-                <Typography
-                  variant="body1"
-                  color="initial"
-                  sx={{ color: "red" }}
-                >
-                  Total bet amount:{" "}
-                  <span style={{ color: "red" }}>
-                    {total_amount_bet ? total_amount_bet || 0 : 0}
-                  </span>
-                </Typography>
-                <Typography
-                  variant="body1"
-                  color="initial"
-                  sx={{ color: "red" }}
-                >
-                  You Win :{" "}
-                  <span style={{ color: "#15158F !important" }}>
-                    {openDialogBox ? openDialogBox : 0}
-                  </span>
-                </Typography>
-              </Box>
-            </Box>
-          </Box> */}
           <Box
             sx={{
               width: "100%",
