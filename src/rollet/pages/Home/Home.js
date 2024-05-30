@@ -149,7 +149,7 @@ function Home() {
     };
     let isContainsPre = bet?.find((i) => i?.id === id);
     if (isContainsPre) {
-      const updatedArray = bet.map((item) => {
+      const updatedArray = bet?.map((item) => {
         if (item.id === id) {
           return { ...item, amount: amount };
         }
@@ -370,9 +370,7 @@ function Home() {
     window.location.href = "/dashboard";
   };
 
-  const handleCancel = () => {
-    setOpen1(false);
-  };
+
 
   function rebetFuncton() {
     // setBet([]);
@@ -570,7 +568,7 @@ function Home() {
                       OK
                     </button>
                     <button
-                      onClick={handleCancel}
+                      onClick={()=> setOpen1(false)}
                       className="font-bold text-xl rounded border border-yellow-300 px-4"
                     >
                       Cancel
