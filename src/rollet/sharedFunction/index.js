@@ -154,14 +154,14 @@ export const confirmBet = async (
       if (res?.data?.msg === "Bet Successfully") {
         setrebet(bet);
         localStorage.setItem("betlen", bet?.length || 0);
-        bet?.forEach((ele) => {
-          let element = document.getElementById(`${ele?.id}`);
-          let span = element.querySelector("span");
-          if (span) {
-            element.removeChild(span);
-          }
-        });
-        setBet([]);
+        // bet?.forEach((ele) => {
+        //   let element = document.getElementById(`${ele?.id}`);
+        //   let span = element.querySelector("span");
+        //   if (span) {
+        //     element.removeChild(span);
+        //   }
+        // });
+        // setBet([]);
         localStorage.setItem("total_amount_bet", total_amount_bet);
         localStorage?.setItem("rollet_bet_placed", true);
         localStorage?.setItem("isPreBet", true);

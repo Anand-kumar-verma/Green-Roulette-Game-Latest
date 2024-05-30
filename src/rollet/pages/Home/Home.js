@@ -10,13 +10,14 @@ import CryptoJS from "crypto-js";
 import { useEffect, useMemo, useRef, useState } from "react";
 import toast from "react-hot-toast";
 import { useQuery, useQueryClient } from "react-query";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import { checkTokenValidity } from "../../../Shared/CookieStorage";
 import { useSocket } from "../../../Shared/SocketContext";
 import {
   getHistoryRollet,
   getProfileRollet,
   getResultOfRollet,
+  logOutFunctoinRoulette,
   walletamount,
 } from "../../../services/apicalling";
 // import roulette from "../../assets/images/rolette.png";
@@ -50,7 +51,8 @@ import SvgCircle from "./SvgCircle";
 import MyTableComponent from "./Tablehistory";
 import TwoToOne from "./TwoToOne";
 function Home() {
-  let interval_music;
+  const navigate =  useNavigate()
+  const isAlreadyAppliedBet = localStorage?.getItem("rollet_bet_placed");
   let isPreBet = localStorage.getItem("isPreBet");
   let total_amount_bet = localStorage.getItem("total_amount_bet") || 0;
   const client = useQueryClient();
@@ -196,7 +198,23 @@ function Home() {
   }
 
   useEffect(() => {
-    if (one_min_time <= 10 && bet?.length > 0) removeBetFunctonAll();
+    if (one_min_time === 10 && bet?.length > 0) {
+      if (isAlreadyAppliedBet === "false") {
+        mouseClickSound();
+        confirmBet(
+          rebet,
+          setrebet,
+          bet,
+          setBet,
+          user_id,
+          wallet_amount_data,
+          client
+        );
+      }
+    }
+    if (one_min_time === 59 && bet?.length > 0) {
+      removeBetFunctonAll();
+    }
   }, [one_min_time]);
 
   function removeBetFunctonAll() {
@@ -212,11 +230,16 @@ function Home() {
 
   useEffect(() => {
     if (!checkTokenValidity()) {
+      logOutFunctoinRoulette(navigate)
       localStorage.clear();
       sessionStorage.clear();
       window.location.href = "/"; // Redirect to login page
     }
   }, []);
+
+  useEffect(() => {
+    if (bet?.length > 0) setOpenDialogBox(false);
+  }, [bet]);
 
   const speakMessage = (message) => {
     if ("speechSynthesis" in window) {
@@ -301,7 +324,7 @@ function Home() {
         setisSelectedDropBet(false);
         setopenDialogBoxhistory(false);
         setOpen(false);
-        setOpen2(false)
+        setOpen2(false);
         setOpenDialogBox(false);
       }
     };
@@ -824,9 +847,9 @@ function Home() {
             sx={{
               "&>div": {
                 background: "#0000009e",
-                height: "90vh",width:'100%',
-                
-              //  minWidth:'80% important',
+                height: "90vh",
+                width: "100%",
+                //  minWidth:'80% important',
                 ...style.flex,
               },
             }}
@@ -835,7 +858,6 @@ function Home() {
             onClose={() => {
               setopenDialogBoxhistory(!openDialogBoxhistory);
             }}
-
           >
             <Box
               sx={{

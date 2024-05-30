@@ -58,6 +58,7 @@ import {
   MyProfileDataFn,
   allWithdrawlCashUserFn,
   get_user_data_fn,
+  logOutFunctoinRoulette,
   walletamount,
 } from "../../services/apicalling";
 import {
@@ -101,6 +102,7 @@ function Dashboard() {
 
   useEffect(() => {
     if (!checkTokenValidity()) {
+      logOutFunctoinRoulette(navigate)
       localStorage.clear();
       sessionStorage.clear();
       window.location.href = "/"; // Redirect to login page
