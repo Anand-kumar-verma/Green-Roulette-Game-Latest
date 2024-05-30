@@ -68,7 +68,7 @@ function Home() {
   ];
 
   const [open1, setOpen1] = useState();
-  const [isPlaying, setIsPlaying] = useState(false);
+  // const [total_bet_amount, settotal_bet_amount] = useState(0);
   const [isOpenPreRoundDialogBox, setisOpenPreRoundDialogBox] = useState(false);
   const [isSelectedDropBet, setisSelectedDropBet] = useState(false);
   const user_id = value && JSON.parse(value)?.UserID;
@@ -95,7 +95,9 @@ function Home() {
   );
 
   const wallet_amount_data = wallet_amount?.data?.data || 0;
-  useMemo(()=>{console.log(wallet_amount_data)},[wallet_amount?.data?.data])
+  useMemo(() => {
+    console.log(wallet_amount_data);
+  }, [wallet_amount?.data?.data]);
   const { isLoading, data } = useQuery(
     ["profile_rollet"],
     () => getProfileRollet(),
@@ -147,7 +149,6 @@ function Home() {
     };
     let isContainsPre = bet?.find((i) => i?.id === id);
     if (isContainsPre) {
-      console.log("inside if");
       const updatedArray = bet.map((item) => {
         if (item.id === id) {
           return { ...item, amount: amount };
@@ -198,7 +199,6 @@ function Home() {
   }, [one_min_time]);
 
   function removeBetFunctonAll() {
-    console.log(bet, "before 10 sec");
     bet?.forEach((ele) => {
       let element = document.getElementById(`${ele?.id}`);
       let span = element.querySelector("span");
@@ -237,7 +237,6 @@ function Home() {
   };
 
   const handlePlaySound = async () => {
-
     try {
       if (audioRefMusic?.current?.pause) {
         await audioRefMusic?.current?.play();
@@ -306,12 +305,11 @@ function Home() {
     const handleOneMinrolletresult = (onemin) => {
       spinFunction(onemin);
       // this is latest
-
+      console.log(onemin, "anand");
       localStorage.setItem("result_rollet", onemin);
       setTimeout(() => {
         // interval_music && clearInterval(interval_music);
         handlePlaySound();
-        
       }, 9000);
 
       setTimeout(() => {
@@ -620,9 +618,9 @@ function Home() {
                 >
                   Bet amount:{" "}
                   <span style={{ color: "red" }}>
-                    {total_amount_bet
-                      ? Number(total_amount_bet || 0)?.toFixed(2)
-                      : 0}
+                    {bet?.reduce((a, b) => a + Number(b?.amount), 0) ||
+                      Number(total_amount_bet)?.toFixed(2)
+                    }
                   </span>
                 </Typography>
                 <Typography
