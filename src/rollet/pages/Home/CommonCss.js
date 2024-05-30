@@ -302,11 +302,11 @@ export const style = {
     position: "absolute",
     right: "0%",
     transform: "rotate(90deg)",
-    top: "11%",
-    width: "131px",
+    top: "12%",
+    width: "115px",
     borderRadius: "5px",
     background: 'black',
-    height: '118px',
+    height: '100px',
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
@@ -346,6 +346,29 @@ export const style = {
 
 
   },
+  winnerlooserouter33: {
+    padding: "0px",
+    border: "2px solid #C9A553",
+    position: "absolute",
+    right: "12.5%",
+    left: "55%",
+    transform: "rotate(90deg)",
+    top: "16.5%",
+    width: "100px",
+    height: "25px",
+    borderRadius: "5px",
+    background: "black",
+  },
+  winnerLooserList33: {
+    width: "100%",
+    "&>p": {
+      fontSize: "10px",
+      fontWeight: "600",
+      color: "yellow",
+      textAlign: "center",
+    },
+  },
+
   winnerLooserList: {
     display: "flex",
     justifyContent: "space-around",
@@ -363,7 +386,7 @@ export const style = {
     "&>p:nth-child(3)": { fontSize: "12px", fontWeight: "900", color: "red" },
   },
   winnerLooserList2: {
-    width: "100%",
+    width: "80%",
     "&>p": {
       fontSize: "12px",
       fontWeight: "600",
