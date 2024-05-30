@@ -694,7 +694,7 @@ function Home() {
                 )?.toFixed(2)}
               </Typography>
             </Box>
-            <Box sx={style.naiming2}>
+            {/* <Box sx={style.naiming2}>
               <Typography variant="body1" color="initial">
                 Name
               </Typography>
@@ -707,7 +707,7 @@ function Home() {
                   "*****"
                 )}
               </Typography>
-            </Box>
+            </Box> */}
             <Coin
               mouseClickSound={mouseClickSound}
               setAmount={setAmount}
@@ -771,8 +771,7 @@ function Home() {
                 {bet?.length > 0 && (
                   <>
                     <Box sx={style.naiming12} className={"!flex !gap-3"}>
-                      <Typography
-                        className="!bg-[#FF0000] !p-1 !text-white"
+                      <Typography 
                         sx={{
                           display: "flex",
                           alignItems: "center",
