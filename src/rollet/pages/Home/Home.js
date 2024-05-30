@@ -2,6 +2,7 @@ import CloseIcon from "@mui/icons-material/Close";
 import {
   Box,
   CircularProgress,
+  Dialog,
   Drawer,
   IconButton,
   Stack,
@@ -43,6 +44,8 @@ import table from "../../assets/images/table.png";
 import axios from "axios";
 import { endpoint } from "../../../services/urls";
 import placebetmusic from "../../assets/images/applybet_music.mp3";
+import Close from "@mui/icons-material/Close";
+import Rule from "./Rule";
 function Home() {
   let interval_music;
   let isPreBet = localStorage.getItem("isPreBet");
@@ -66,7 +69,7 @@ function Home() {
   const black_array = [
     2, 4, 6, 8, 10, 11, 13, 15, 17, 20, 22, 24, 26, 28, 29, 31, 33, 35,
   ];
-
+ 
   const [open1, setOpen1] = useState();
   const [isPlaying, setIsPlaying] = useState(false);
   const [isOpenPreRoundDialogBox, setisOpenPreRoundDialogBox] = useState(false);
@@ -77,6 +80,7 @@ function Home() {
   const [result_rollet, setresult_rollet] = useState(0);
   const show_this_one_min_time = String(one_min_time).padStart(2, "0");
   const [open, setOpen] = useState(false);
+  const [open2, setOpen2] = useState(false);
   const [bet, setBet] = useState([]);
   const [openDialogBox, setOpenDialogBox] = useState("");
   const [amount, setAmount] = useState(10);
@@ -95,7 +99,7 @@ function Home() {
   );
 
   const wallet_amount_data = wallet_amount?.data?.data || 0;
-  useMemo(()=>{console.log(wallet_amount_data)},[wallet_amount?.data?.data])
+  useMemo(() => { console.log(wallet_amount_data) }, [wallet_amount?.data?.data])
   const { isLoading, data } = useQuery(
     ["profile_rollet"],
     () => getProfileRollet(),
@@ -165,9 +169,8 @@ function Home() {
     let newelement = element.querySelector("span");
 
     if (newelement) {
-      newelement.innerHTML = `${
-        amount >= 1000 ? String(amount / 1000) + "k" : amount
-      }`;
+      newelement.innerHTML = `${amount >= 1000 ? String(amount / 1000) + "k" : amount
+        }`;
     } else {
       newelement = document.createElement("span");
       let vlaue = `${amount >= 1000 ? String(amount / 1000) + "k" : amount}`;
@@ -311,7 +314,7 @@ function Home() {
       setTimeout(() => {
         // interval_music && clearInterval(interval_music);
         handlePlaySound();
-        
+
       }, 9000);
 
       setTimeout(() => {
@@ -399,9 +402,8 @@ function Home() {
     let newelement = element.querySelector("span");
 
     if (newelement) {
-      newelement.innerHTML = `${
-        amount >= 1000 ? String(amount / 1000) + "k" : amount
-      }`;
+      newelement.innerHTML = `${amount >= 1000 ? String(amount / 1000) + "k" : amount
+        }`;
     } else {
       newelement = document.createElement("span");
       let vlaue = `${amount >= 1000 ? String(amount / 1000) + "k" : amount}`;
@@ -444,8 +446,8 @@ function Home() {
             ? ele?.amount
             : Number(ele?.amount) * 2
           : Number(ele?.amount) * 2 > 50000
-          ? ele?.amount
-          : Number(ele?.amount) * 2,
+            ? ele?.amount
+            : Number(ele?.amount) * 2,
       };
     });
     console.log(newUpdateAmountArray, "update array");
@@ -524,6 +526,8 @@ function Home() {
               </>
             );
           }, [mouseClickSoundref])}
+
+        <Rule setOpen2={setOpen2} open2={open2} style={style}/>
           <Box
             sx={{
               width: "100%",
@@ -531,6 +535,7 @@ function Home() {
               position: "absolute",
             }}
           >
+
             <Drawer
               sx={{
                 "&>div": {
@@ -592,9 +597,9 @@ function Home() {
               }}
               anchor="top"
               open={isOpenPreRoundDialogBox}
-              // onClose={() => {
-              //   setopenDialogBoxhistory(!openDialogBoxhistory);
-              // }}
+            // onClose={() => {
+            //   setopenDialogBoxhistory(!openDialogBoxhistory);
+            // }}
             >
               <Box
                 className="!text-yellow-500 !font-extrabold  "
@@ -618,7 +623,7 @@ function Home() {
                   color="initial"
                   sx={{ color: "red" }}
                 >
-                  Bet amount:{" "}
+                  Bet Amount:{" "}
                   <span style={{ color: "red" }}>
                     {total_amount_bet
                       ? Number(total_amount_bet || 0)?.toFixed(2)
@@ -636,7 +641,9 @@ function Home() {
                   </span>
                 </Typography>
               </Box>
+
             </Box>
+
           </Box>
           {/* <Box
             sx={{
@@ -728,6 +735,30 @@ function Home() {
                   sx={{ color: "red" }}
                 >
                   {result_rollet}
+                </Typography>
+              </Box>
+
+            </Box>
+          </Box>
+          <Box
+            sx={{
+              width: "100%",
+              height: "100%",
+              position: "absolute",
+            }}
+          >
+            <Box direction={"row"} sx={style.winnerlooserouter33}
+              className=" "
+              onClick={() => {
+                setOpen2(true);
+              }}>
+              <Box sx={style.winnerLooserList33}>
+                <Typography
+                  variant="body1"
+                  color="initial"
+                  sx={{ color: "red" }}
+                >
+                  Game Rule
                 </Typography>
               </Box>
             </Box>
@@ -1048,7 +1079,7 @@ function Home() {
               <Typography variant="body1" color="initial">
                 {Number(
                   Number(wallet_amount_data?.wallet || 0) +
-                    Number(wallet_amount_data?.winning || 0)
+                  Number(wallet_amount_data?.winning || 0)
                 )?.toFixed(2)}
               </Typography>
             </Box>
@@ -1216,9 +1247,8 @@ function Home() {
             />
           </Drawer> */}
           <div
-            className={`${
-              open ? "!z-50" : "!-z-50"
-            } !absolute !bg-red-900 !top-[25%] !-left-[32%] `}
+            className={`${open ? "!z-50" : "!-z-50"
+              } !absolute !bg-red-900 !top-[25%] !-left-[32%] `}
           >
             <NeighbourHoodBet
               isSelectedDropBet={isSelectedDropBet}
