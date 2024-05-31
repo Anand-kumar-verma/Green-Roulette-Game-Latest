@@ -29,7 +29,7 @@ const MyTableComponent = ({ bet_history_Data }) => {
             {paginatedData?.map((row, index) => (
               <TableRow key={index} sx={{ "&:last-child td, &:last-child th": { border: 0 } }}>
                 <TableCell align="center">{(page - 1) * itemsPerPage + index + 1}</TableCell>
-                <TableCell align="center">{row?.color || 0}</TableCell>
+                <TableCell align="center">{row?.number_result || " "}</TableCell>
                 <TableCell align="center">{row?.amount || 0}</TableCell>
                 <TableCell align="center">{Number(row?.win)?.toFixed(2) || 0}</TableCell>
                 <TableCell align="center" className='!whitespace-nowrap'>{moment(row?.datetime)?.format("DD-MM-YYYY")} {moment(row?.datetime)?.format("HH:mm:ss")}</TableCell>

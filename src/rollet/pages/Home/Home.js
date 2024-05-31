@@ -51,7 +51,7 @@ import SvgCircle from "./SvgCircle";
 import MyTableComponent from "./Tablehistory";
 import TwoToOne from "./TwoToOne";
 function Home() {
-  const navigate =  useNavigate()
+  const navigate = useNavigate();
   const isAlreadyAppliedBet = localStorage?.getItem("rollet_bet_placed");
   let isPreBet = localStorage.getItem("isPreBet");
   let total_amount_bet = localStorage.getItem("total_amount_bet") || 0;
@@ -111,7 +111,6 @@ function Home() {
   );
 
   const profileData = data?.data?.data || 0;
-
   const { isLoading: bet_history_loding, data: bet_history } = useQuery(
     ["history_rollet"],
     () => getHistoryRollet(),
@@ -122,6 +121,7 @@ function Home() {
   );
 
   const bet_history_Data = bet_history?.data?.data || [];
+
   const { isLoading: bet_result_history_loding, data: bet_result_history } =
     useQuery(["history_rollet_result"], () => getResultOfRollet(), {
       refetchOnMount: false,
@@ -133,6 +133,7 @@ function Home() {
   }, [bet_result_history]);
 
   function removeSingleBetFunction(id) {
+   
     let filterArray = bet?.filter((i) => i?.id !== id);
     setBet(filterArray);
     let element = document.getElementById(`${id}`);
@@ -143,8 +144,10 @@ function Home() {
   }
 
   function setBetFuncton(id, number, amount) {
+    if (isAlreadyAppliedBet === "true") return;
     if (one_min_time <= 10) return;
     handlePlaySoundPlacebet();
+
     const obj = {
       id: id,
       number: number,
@@ -198,7 +201,7 @@ function Home() {
   }
 
   useEffect(() => {
-    if (one_min_time === 10 && bet?.length > 0) {
+    if (one_min_time === 12 && bet?.length > 0) {
       if (isAlreadyAppliedBet === "false") {
         mouseClickSound();
         confirmBet(
@@ -230,7 +233,7 @@ function Home() {
 
   useEffect(() => {
     if (!checkTokenValidity()) {
-      logOutFunctoinRoulette(navigate)
+      logOutFunctoinRoulette(navigate);
       localStorage.clear();
       sessionStorage.clear();
       window.location.href = "/"; // Redirect to login page
@@ -370,10 +373,11 @@ function Home() {
         endpoint?.rollet?.history + `?userid=${user_id}&limit=0`
       );
 
-      const newupdatedArray = response?.data?.data?.slice(0, betlen) || [];
+      // const newupdatedArray = response?.data?.data?.slice(0, betlen) || [];
+      const newupdatedArray = response?.data?.data?.[0] || [];
       // console.log(betlen, newupdatedArray, "This is updated array");
-      win_amount =
-        newupdatedArray?.reduce((a, b) => a + Number(b?.win || 0), 0) || 0;
+      win_amount = newupdatedArray?.win || 0;
+      // newupdatedArray?.reduce((a, b) => a + Number(b?.win || 0), 0) || 0;
 
       // console.log(isPlaced, win_amount, "THis is win ammount");
       if (win_amount > 0 && isPlaced === "true") {
@@ -472,6 +476,13 @@ function Home() {
             />
             <Box direction={"row"} sx={style.winnerlooserouter}>
               <Box sx={style.winnerLooserList2}>
+                <Typography
+                  variant="body1"
+                  color="initial"
+                  sx={{ color: "red" }}
+                >
+                  ID: {profileData?.username}
+                </Typography>
                 <Typography
                   variant="body1"
                   color="initial"
@@ -768,10 +779,10 @@ function Home() {
                     CONFIRM
                   </Typography>
                 </Box>
-                {bet?.length > 0 && (
+                {bet?.length > 0 && isAlreadyAppliedBet === "false" && (
                   <>
                     <Box sx={style.naiming12} className={"!flex !gap-3"}>
-                      <Typography 
+                      <Typography
                         sx={{
                           display: "flex",
                           alignItems: "center",

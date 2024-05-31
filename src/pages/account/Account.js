@@ -103,7 +103,7 @@ function Account() {
               {result?.full_name}
             </Typography>
             <Typography variant="body1" color="initial">
-              UID | {result?.custid || 0}
+              UID | {result?.username || 0}
             </Typography>
           </Box>
           <Box sx={style.rankImage}>
@@ -127,7 +127,10 @@ function Account() {
                 ) || 0
               )?.toFixed(0)}
             </Typography>
-            <CachedIcon sx={style.cachedIcon} />
+            <CachedIcon
+              onClick={() => client.refetchQueries("myprofile")}
+              sx={style.cachedIcon}
+            />
           </Stack>
           <Stack
             direction="row"
