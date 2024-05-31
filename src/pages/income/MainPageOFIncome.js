@@ -1,11 +1,5 @@
-import AccountBalanceIcon from "@mui/icons-material/AccountBalance";
-import CardGiftcardIcon from "@mui/icons-material/CardGiftcard";
 import CurrencyExchangeIcon from "@mui/icons-material/CurrencyExchange";
 import Diversity2Icon from "@mui/icons-material/Diversity2";
-import LocalConvenienceStoreIcon from "@mui/icons-material/LocalConvenienceStore";
-import PriceCheckIcon from "@mui/icons-material/PriceCheck";
-import RedeemIcon from "@mui/icons-material/Redeem";
-import StoreIcon from "@mui/icons-material/Store";
 import { Box, Container, Typography } from "@mui/material";
 import * as React from "react";
 import { NavLink, useNavigate } from "react-router-dom";
@@ -13,9 +7,6 @@ import { zubgback, zubgbackgrad, zubgmid } from "../../Shared/color";
 import Layout from "../../component/Layout/Layout";
 function MainPageOFIncome() {
   const navigate = useNavigate();
-  const goBack = () => {
-    navigate(-1);
-  };
 
   const data_array = [
     {
