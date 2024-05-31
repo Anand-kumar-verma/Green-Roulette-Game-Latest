@@ -69,7 +69,6 @@ function LoginWithEmail() {
       });
 
       toast.success(response?.data?.msg);
-      console.log(response);
       if (response?.data?.error === "200") {
         const value = CryptoJS.AES.encrypt(JSON.stringify(response?.data), "anand")?.toString();
         localStorage.setItem("logindataen", value);

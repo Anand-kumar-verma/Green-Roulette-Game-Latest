@@ -19,7 +19,7 @@ input::-webkit-inner-spin-button {
   margin-top: 0.2rem;
 }
 .no-error {
-  color: #FDB03C;
+  color: #fdb03c;
   font-size: 0.8rem;
   margin-top: 0.2rem;
 }
@@ -43,7 +43,6 @@ input::-webkit-inner-spin-button {
   -ms-overflow-style: none; /* IE and Edge */
   scrollbar-width: none; /* Firefox */
 }
-
 
 /* ////////////crackers   */
 .github {
@@ -75,7 +74,6 @@ input::-webkit-inner-spin-button {
   font-weight: bold;
   vertical-align: bottom;
 }
-
 
 .dot-slider-container1 {
   background: #267bad;
@@ -735,8 +733,7 @@ input::-webkit-inner-spin-button {
   }
 }
 
-
-.animation_image{
+.animation_image {
   animation: rotatemain 24s reverse linear infinite;
 }
 
@@ -748,10 +745,10 @@ input::-webkit-inner-spin-button {
     transform: rotate(0deg);
   }
 }
-.animation_image_30{
-  animation: rotatemainnumber 2s reverse linear 5;
+.animation_image_30 {
+  animation: rotatemainnumber 3s reverse linear 3;
 }
-.animation_image_20{
+.animation_image_20 {
   animation: rotatemainnumber 3s reverse linear 5;
 }
 

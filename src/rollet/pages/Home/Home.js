@@ -333,13 +333,10 @@ function Home() {
     };
     const handleOneMinrolletresult = (onemin) => {
       spinFunction(onemin);
-      // this is latest
-      console.log(onemin, "anand");
       localStorage.setItem("result_rollet", onemin);
       setTimeout(() => {
-        // interval_music && clearInterval(interval_music);
         handlePlaySound();
-      }, 9000);
+      }, 8000);
 
       setTimeout(() => {
         handlePlaySoundStopBall();
@@ -350,7 +347,7 @@ function Home() {
         speakMessage(onemin);
         addWinCap(onemin);
         getWinPopup();
-      }, 10000);
+      }, 9000);
     };
     socket.on("oneminrollet", handleOneMin);
     socket.on("rolletresult", handleOneMinrolletresult);
@@ -365,25 +362,21 @@ function Home() {
   }, []);
 
   async function getWinPopup() {
+    
     let isPlaced = localStorage.getItem("rollet_bet_placed");
-    let betlen = localStorage.getItem("betlen");
     let win_amount = 0;
     try {
       const response = await axios.get(
         endpoint?.rollet?.history + `?userid=${user_id}&limit=0`
       );
 
-      // const newupdatedArray = response?.data?.data?.slice(0, betlen) || [];
-      const newupdatedArray = response?.data?.data?.[0] || [];
-      // console.log(betlen, newupdatedArray, "This is updated array");
-      win_amount = newupdatedArray?.win || 0;
-      // newupdatedArray?.reduce((a, b) => a + Number(b?.win || 0), 0) || 0;
 
-      // console.log(isPlaced, win_amount, "THis is win ammount");
+      const newupdatedArray = response?.data?.data?.[0] || [];
+      win_amount = newupdatedArray?.win || 0;
+      console.log(response,response?.data?.data,newupdatedArray,win_amount,isPlaced,"THis is updated value")
       if (win_amount > 0 && isPlaced === "true") {
         setOpenDialogBox(win_amount);
         setTimeout(() => {
-          // setOpenDialogBox(false);
           localStorage?.setItem("rollet_bet_placed", false);
           localStorage?.setItem("betlen", 0);
         }, 2000);
