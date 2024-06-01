@@ -3,7 +3,6 @@ import win_cap from "../assets/images/pwin.png";
 import axios from "axios";
 import { endpoint } from "../../services/urls";
 
-
 export const red_array = [
   1, 3, 5, 7, 9, 12, 14, 16, 18, 19, 21, 23, 25, 27, 30, 32, 34, 36,
 ];
@@ -44,14 +43,125 @@ export const addWinCap = (id) => {
 };
 
 export const spinFunction = (id) => {
+  const angle =
+    String(id) === "8"
+      ? "9"
+      : String(id) === "23"
+      ? "19"
+      : String(id) === "10"
+      ? "28"
+      : String(id) === "5"
+      ? "39"
+      : String(id) === "24"
+      ? "49"
+      : String(id) === "16"
+      ? "59"
+      : String(id) === "33"
+      ? "69"
+      : String(id) === "1"
+      ? "78"
+      : String(id) === "20"
+      ? "88"
+      : String(id) === "14"
+      ? "98"
+      : String(id) === "31"
+      ? "108"
+      : String(id) === "9"
+      ? "118"
+      : String(id) === "22"
+      ? "128"
+      : String(id) === "18"
+      ? "137"
+      : String(id) === "29"
+      ? "147"
+      : String(id) === "7"
+      ? "157"
+      : String(id) === "28"
+      ? "167"
+      : String(id) === "12"
+      ? "176"
+      : String(id) === "35"
+      ? "186"
+      : String(id) === "3"
+      ? "196"
+      : String(id) === "26"
+      ? "206"
+      : String(id) === "0"
+      ? "215"
+      : String(id) === "32"
+      ? "225"
+      : String(id) === "15"
+      ? "235"
+      : String(id) === "15"
+      ? "235"
+      : String(id) === "19"
+      ? "245"
+      : String(id) === "4"
+      ? "255"
+      : String(id) === "21"
+      ? "264"
+      : String(id) === "2"
+      ? "274"
+      : String(id) === "25"
+      ? "283"
+      : String(id) === "17"
+      ? "293"
+      : String(id) === "34"
+      ? "302"
+      : String(id) === "6"
+      ? "312"
+      : String(id) === "27"
+      ? "322"
+      : String(id) === "13"
+      ? "331"
+      : String(id) === "36"
+      ? "340"
+      : String(id) === "11"
+      ? "350"
+      : "0";
   let element = document.getElementById(`${String(id)}_rotate`);
+
   element.classList.remove("hidden");
-  element.classList.add("animation_image_30");
-  setTimeout(() => {
-    element.classList.remove("animation_image_30");
-    // element.classList.add("hidden");
-    // setresult_rollet(0);
-  }, 50 * 1000);
+
+  const animation30 = document.createElement("style");
+  animation30.type = "text/css";
+  const keyframes30 = `
+    @keyframes rotatemainnumber30 {
+      0% { transform: rotate(${0 + Number(angle)}deg); }
+      100% { transform: rotate(${360 + Number(angle)}deg); }
+    }
+  `;
+  animation30.innerHTML = keyframes30;
+  document.getElementsByTagName("head")[0].appendChild(animation30);
+
+  element.style.animation = "rotatemainnumber30 2s reverse linear 2 forwards";
+
+  const handleAnimationEnd = (event) => {
+    if (event.animationName === "rotatemainnumber30") {
+      element.style.animation = "";
+
+      const animation20 = document.createElement("style");
+      animation20.type = "text/css";
+      const keyframes20 = `
+        @keyframes rotatemainnumber20 {
+          0% { transform: rotate(${0 + Number(angle)}deg); }
+          100% { transform: rotate(${360 + Number(angle)}deg); }
+        }
+      `;
+      animation20.innerHTML = keyframes20;
+      document.getElementsByTagName("head")[0].appendChild(animation20);
+
+      element.style.animation =
+        "rotatemainnumber20 3s reverse linear 2 forwards";
+    } else if (event.animationName === "rotatemainnumber20") {
+      element.style.animation = "";
+      // element.classList.add("hidden");
+
+      element.removeEventListener("animationend", handleAnimationEnd);
+    }
+  };
+
+  element.addEventListener("animationend", handleAnimationEnd);
 };
 
 export const confirmBet = async (
@@ -175,7 +285,7 @@ export const confirmBet = async (
   }
 };
 
-export const forPlaceCoin = (id, amount) =>{
+export const forPlaceCoin = (id, amount) => {
   let element = document.getElementById(`${id}`);
   element.style.position = "relative"; // Ensure the parent is positioned relatively
   let newelement = element.querySelector("span");
@@ -207,18 +317,9 @@ export const forPlaceCoin = (id, amount) =>{
   }
 
   element.appendChild(newelement);
-}
+};
 
-
-export const  justDouble = (bet,setBet) => {
-  bet?.forEach((ele) => {
-    let element = document.getElementById(`${ele?.id}`);
-    let span = element.querySelector("span");
-    if (span) {
-      element.removeChild(span);
-    }
-  });
-
+export const justDouble = (bet, setBet, wallet_amount_data) => {
   let newUpdateAmountArray = bet?.map((ele) => {
     return {
       ...ele,
@@ -231,14 +332,42 @@ export const  justDouble = (bet,setBet) => {
         : Number(ele?.amount) * 2,
     };
   });
-  console.log(newUpdateAmountArray, "update array");
+  const total_bet_amont = newUpdateAmountArray?.reduce(
+    (a, b) => a + Number(b?.amount),
+    0
+  );
+
+  if (
+    total_bet_amont >
+    Number(
+      Number(wallet_amount_data?.wallet || 0) +
+        Number(wallet_amount_data?.winning || 0)
+    )?.toFixed(2)
+  )
+    return toast(
+      <span
+        className="!bg-blue-800 !py-2 !px-4 !text-white !border-2 !border-red-800 !rounded-full"
+        style={{ display: "inline-block", transform: "rotate(90deg)" }}
+      >
+        Insufficient Wallet Amount
+      </span>
+    );
+
+  bet?.forEach((ele) => {
+    let element = document.getElementById(`${ele?.id}`);
+    let span = element.querySelector("span");
+    if (span) {
+      element.removeChild(span);
+    }
+  });
+
   newUpdateAmountArray?.forEach((ele) => {
     forPlaceCoin(ele?.id, ele?.amount);
   });
   setBet(newUpdateAmountArray);
-}
+};
 
-export const  rebetFuncton = (bet,rebet,setBet) => {
+export const rebetFuncton = (bet, rebet, setBet, wallet_amount_data) => {
   // setBet([]);
   bet?.forEach((ele) => {
     let element = document.getElementById(`${ele?.id}`);
@@ -247,10 +376,28 @@ export const  rebetFuncton = (bet,rebet,setBet) => {
       element.removeChild(span);
     }
   });
-  console.log(rebet, "his is");
+
+  const total_bet_amont = rebet?.reduce((a, b) => a + Number(b?.amount), 0);
+
+  if (
+    total_bet_amont >
+    Number(
+      Number(wallet_amount_data?.wallet || 0) +
+        Number(wallet_amount_data?.winning || 0)
+    )?.toFixed(2)
+  )
+    return toast(
+      <span
+        className="!bg-blue-800 !py-2 !px-4 !text-white !border-2 !border-red-800 !rounded-full"
+        style={{ display: "inline-block", transform: "rotate(90deg)" }}
+      >
+        Insufficient Wallet Amount
+      </span>
+    );
+
   rebet?.forEach((ele) => {
     forPlaceCoin(ele?.id, ele?.amount);
   });
   setBet(rebet);
   // setrebet
-}
+};

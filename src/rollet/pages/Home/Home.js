@@ -133,7 +133,6 @@ function Home() {
   }, [bet_result_history]);
 
   function removeSingleBetFunction(id) {
-   
     let filterArray = bet?.filter((i) => i?.id !== id);
     setBet(filterArray);
     let element = document.getElementById(`${id}`);
@@ -148,6 +147,24 @@ function Home() {
     if (one_min_time <= 10) return;
     handlePlaySoundPlacebet();
 
+    const total_bet_amont =
+      bet?.reduce((a, b) => a + Number(b?.amount), 0) + amount;
+
+    if (
+      total_bet_amont >
+      Number(
+        Number(wallet_amount_data?.wallet || 0) +
+          Number(wallet_amount_data?.winning || 0)
+      )?.toFixed(2)
+    )
+      return toast(
+        <span
+          className="!bg-blue-800 !py-2 !px-4 !text-white !border-2 !border-red-800 !rounded-full"
+          style={{ display: "inline-block", transform: "rotate(90deg)" }}
+        >
+          Insufficient Wallet Amount
+        </span>
+      );
     const obj = {
       id: id,
       number: number,
@@ -334,9 +351,10 @@ function Home() {
     const handleOneMinrolletresult = (onemin) => {
       spinFunction(onemin);
       localStorage.setItem("result_rollet", onemin);
+
       setTimeout(() => {
         handlePlaySound();
-      }, 8000);
+      }, 9000);
 
       setTimeout(() => {
         handlePlaySoundStopBall();
@@ -347,7 +365,7 @@ function Home() {
         speakMessage(onemin);
         addWinCap(onemin);
         getWinPopup();
-      }, 9000);
+      }, 10000);
     };
     socket.on("oneminrollet", handleOneMin);
     socket.on("rolletresult", handleOneMinrolletresult);
@@ -362,7 +380,6 @@ function Home() {
   }, []);
 
   async function getWinPopup() {
-    
     let isPlaced = localStorage.getItem("rollet_bet_placed");
     let win_amount = 0;
     try {
@@ -370,10 +387,16 @@ function Home() {
         endpoint?.rollet?.history + `?userid=${user_id}&limit=0`
       );
 
-
       const newupdatedArray = response?.data?.data?.[0] || [];
       win_amount = newupdatedArray?.win || 0;
-      console.log(response,response?.data?.data,newupdatedArray,win_amount,isPlaced,"THis is updated value")
+      console.log(
+        response,
+        response?.data?.data,
+        newupdatedArray,
+        win_amount,
+        isPlaced,
+        "THis is updated value"
+      );
       if (win_amount > 0 && isPlaced === "true") {
         setOpenDialogBox(win_amount);
         setTimeout(() => {
@@ -622,7 +645,7 @@ function Home() {
                     }}
                   >
                     <div
-                      style={{
+                      style={{                                       
                         width: "156px",
                         height: "165px",
                         position: "absolute",
@@ -633,7 +656,7 @@ function Home() {
                         src={roulette}
                         className="!h-full !w-full !bg-no-repeat "
                       />
-                      <Rolletball />
+                      <Rolletball />                                                                           
                     </div>
                   </Box>
                 </Box>
@@ -665,7 +688,7 @@ function Home() {
                   className={"!ml-10"}
                 >
                   <Typography
-                    onClick={() => justDouble(bet, setBet)}
+                    onClick={() => justDouble(bet, setBet,wallet_amount_data)}
                     variant="body1"
                     color="initial"
                   >
@@ -678,7 +701,7 @@ function Home() {
                   className={"!ml-16"}
                 >
                   <Typography
-                    onClick={() => rebetFuncton(bet, rebet, setBet)}
+                    onClick={() => rebetFuncton(bet, rebet, setBet,wallet_amount_data)}
                     variant="body1"
                     color="initial"
                   >

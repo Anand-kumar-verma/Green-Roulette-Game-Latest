@@ -745,18 +745,30 @@ input::-webkit-inner-spin-button {
     transform: rotate(0deg);
   }
 }
-.animation_image_30 {
-  animation: rotatemainnumber 3s reverse linear 3;
+
+/* ////////////////////// animation /////////////////// */
+/* .animation_image_8_h {
+  animation: rotatemainnumber8h 2s reverse linear 3;
+  animation-fill-mode: forwards;
 }
-.animation_image_20 {
-  animation: rotatemainnumber 3s reverse linear 5;
+.animation_image_8_l {
+  animation: rotatemainnumber8l 3s reverse linear 1;
 }
 
-@keyframes rotatemainnumber {
+@keyframes rotatemainnumber8h {
   0% {
-    transform: rotate(0deg);
+    transform: rotate(9deg); 
   }
   100% {
-    transform: rotate(360deg);
+    transform: rotate(369deg);
   }
 }
+
+@keyframes rotatemainnumber8l {
+  0% {
+    transform: rotate(9deg);
+  }
+  100% {
+    transform: rotate(369deg);
+  }
+} */
