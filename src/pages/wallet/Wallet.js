@@ -247,7 +247,7 @@ function Wallet() {
             >
               <Box component="img" src={wallet} width={50}></Box>
               <Typography variant="h2" color="initial">
-                ₹{" "}
+                {" "}
                 {(
                   Number(
                     Number(result?.winning_wallet || 0) +
@@ -286,7 +286,7 @@ function Wallet() {
                 }}
               >
                 <Typography variant="body1" color="initial">
-                  ₹ {Number(result?.bonus || 0)}
+                   {Number(result?.bonus || 0)}
                 </Typography>
                 <Typography variant="body1" color="initial">
                   Bonus Amount
@@ -307,7 +307,7 @@ function Wallet() {
                 }}
               >
                 <Typography variant="body1" color="initial">
-                  ₹{" "}
+                  {" "}
                   {(Number(Number(result?.winning_wallet || 0)) || 0)?.toFixed(
                     0
                   )}

@@ -119,7 +119,7 @@ function Account() {
           </Stack>
           <Stack direction="row" sx={{ alignItems: "center", mt: "10px" }}>
             <Typography variant="body1" color="initial" sx={style.totalBalance}>
-              ₹
+              
               {(
                 Number(
                   Number(result?.winning_wallet || 0) +

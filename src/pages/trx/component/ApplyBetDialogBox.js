@@ -258,7 +258,7 @@ const ApplyBetDialogBox = ({
       </Box>
       <Stack direction="row" className="total-money-box">
         <Typography variant="body1" color="initial">
-          Total contract money is ₹{" "}
+          Total contract money is {" "}
         </Typography>
         <Typography variant="body1" color="initial">
           {value || "0"}

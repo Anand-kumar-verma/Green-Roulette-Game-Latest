@@ -108,7 +108,7 @@ function Win() {
             </Box>
             <Box>
               <Typography variant="body1" color="initial" className="b-val">
-                ₹{" "}
+                {" "}
                 {Number(
                   Number(amount?.wallet || 0) + Number(amount?.winning || 0) ||
                     0

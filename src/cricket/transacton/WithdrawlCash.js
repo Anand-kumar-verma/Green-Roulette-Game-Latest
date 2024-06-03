@@ -37,7 +37,7 @@ function WithdrawlCash() {
             <Typography variant="body1" color="initial" sx={{ fontSize: '16px ', fontWeight: 500, color: 'white', ml: '10px' }}> Balance</Typography>
           </Stack>
           <Stack direction='row' sx={{ alignItems: 'center', mt: '10px' }}>
-            <Typography variant="body1" color="initial" sx={{ fontSize: '30px ', fontWeight: '600', color: 'white', mr: '10px', }}> ₹3,069.32
+            <Typography variant="body1" color="initial" sx={{ fontSize: '30px ', fontWeight: '600', color: 'white', mr: '10px', }}> 3,069.32
             </Typography>
             <CachedIcon sx={{ color: 'white' }} />
           </Stack>

@@ -143,7 +143,7 @@ function DepositeHistory() {
                       Balance
                     </Typography>
                     <Typography variant="body1" color="initial">
-                      ₹ {i?.tr15_amt}
+                       {i?.tr15_amt}
                     </Typography>
                   </Stack>
                   <Stack

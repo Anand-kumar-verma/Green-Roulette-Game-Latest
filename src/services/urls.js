@@ -1,4 +1,4 @@
-export const rupees = "₹";
+export const rupees = "";
 
 export const baseUrl = "https://web.vegusgain.com";
 // export const baseUrl = "https://admin.sunlottery.fun";

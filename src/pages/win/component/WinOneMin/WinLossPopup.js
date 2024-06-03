@@ -112,7 +112,7 @@ const WinLossPopup = ({ gid }) => {
               status?.status === "1" ? "!text-white" : "!text-white"
             }`}
           >
-            ₹ {Number(status?.amount || 0)?.toFixed(2) || 0}
+             {Number(status?.amount || 0)?.toFixed(2) || 0}
           </Typography>
           <Typography
             variant="body1"

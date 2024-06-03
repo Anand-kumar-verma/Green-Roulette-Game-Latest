@@ -90,7 +90,7 @@ function DepositCash() {
               }}
             >
               {" "}
-              ₹3,069.32
+              3,069.32
             </Typography>
             <CachedIcon sx={{ color: "white" }} />
           </Stack>
@@ -308,12 +308,12 @@ function DepositCash() {
                 mt: "10px",
               }}
             >
-              <Button sx={style.paytmbtn}> ₹ 500</Button>
-              <Button sx={style.paytmbtn}> ₹ 1K</Button>
-              <Button sx={style.paytmbtn}> ₹ 5K</Button>
-              <Button sx={style.paytmbtn}> ₹ 10K</Button>
-              <Button sx={style.paytmbtn}> ₹ 15K</Button>
-              <Button sx={style.paytmbtn}> ₹ 20K</Button>
+              <Button sx={style.paytmbtn}>  500</Button>
+              <Button sx={style.paytmbtn}>  1K</Button>
+              <Button sx={style.paytmbtn}>  5K</Button>
+              <Button sx={style.paytmbtn}>  10K</Button>
+              <Button sx={style.paytmbtn}>  15K</Button>
+              <Button sx={style.paytmbtn}>  20K</Button>
             </Stack>
             <Stack
               direction="row"

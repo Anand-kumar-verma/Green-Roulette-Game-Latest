@@ -345,42 +345,42 @@ function WalletRecharge() {
             onClick={() => fk.setFieldValue("amount", 500)}
           >
             {" "}
-            ₹ 500
+             500
           </Button>
           <Button
             sx={style.paytmbtn}
             onClick={() => fk.setFieldValue("amount", 1000)}
           >
             {" "}
-            ₹ 1K
+             1K
           </Button>
           <Button
             sx={style.paytmbtn}
             onClick={() => fk.setFieldValue("amount", 5000)}
           >
             {" "}
-            ₹ 5K
+             5K
           </Button>
           <Button
             sx={style.paytmbtn}
             onClick={() => fk.setFieldValue("amount", 10000)}
           >
             {" "}
-            ₹ 10K
+             10K
           </Button>
           <Button
             sx={style.paytmbtn}
             onClick={() => fk.setFieldValue("amount", 15000)}
           >
             {" "}
-            ₹ 15K
+             15K
           </Button>
           <Button
             sx={style.paytmbtn}
             onClick={() => fk.setFieldValue("amount", 20000)}
           >
             {" "}
-            ₹ 20K
+             20K
           </Button>
         </Stack>
       </>
@@ -474,7 +474,7 @@ function WalletRecharge() {
               }}
             >
               {" "}
-              ₹{" "}
+              {" "}
               {deposit_amount
                 ? Number(amount?.cricket_wallet || 0)?.toFixed(2)
                 : Number(

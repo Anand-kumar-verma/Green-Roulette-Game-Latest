@@ -197,7 +197,7 @@ function Gamestaticks() {
                 Winning amount
               </Typography>
               <Typography variant="body1" color="initial">
-                ₹
+                
                 {value === "3"
                   ? data
                       ?.reduce(

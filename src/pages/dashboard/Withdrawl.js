@@ -282,7 +282,7 @@ function Withdrawl() {
                 mr: "10px",
               }}
             >
-              ₹{" "}
+              {" "}
               {type
                 ? Number(amount?.cricket_wallet || 0).toFixed(2)
                 : Number(

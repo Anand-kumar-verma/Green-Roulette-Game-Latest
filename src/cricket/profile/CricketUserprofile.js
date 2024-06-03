@@ -120,7 +120,7 @@ function CricketUserprofile() {
             </Stack>
             <Stack direction="row" sx={{ alignItems: "center", mt: "10px" }}>
               <Typography variant="body1" sx={style.totalBalance}>
-                ₹ {Number(amount?.cricket_wallet || 0).toFixed(2)}
+                 {Number(amount?.cricket_wallet || 0).toFixed(2)}
               </Typography>
               <CachedIcon sx={style.cachedIcon} />
             </Stack>
