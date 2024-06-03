@@ -3,7 +3,7 @@ import React from 'react'
 const Rolletball = () => {
   return (
     <>
-      <p id="1_rotate" className="absolute !h-[50%] !w-[50%]  hidden ">
+      <p id="1_rotate" className="absolute !h-[50%] !w-[50%]  hidden">
         <p className="!bg-white !h-2 !w-2 !rounded-full !absolute !bottom-0 !left-0  "></p>
       </p>
        <p
@@ -221,7 +221,7 @@ const Rolletball = () => {
         className=" rotate-[350deg] absolute !h-[50%] !w-[50%]  hidden "
       >
         <p className="!bg-white !h-2 !w-2 !rounded-full !absolute !bottom-0 !left-0 "></p>
-      </p>
+      </p> 
     </>
   );
 }

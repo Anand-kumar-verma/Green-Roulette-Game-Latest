@@ -733,9 +733,9 @@ input::-webkit-inner-spin-button {
   }
 }
 
-/* .animation_image {
+.animation_image {
   animation: rotatemain 24s reverse linear infinite;
-} */
+}
 
 @keyframes rotatemain {
   0% {

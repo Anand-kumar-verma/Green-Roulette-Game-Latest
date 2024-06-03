@@ -377,6 +377,7 @@ function Home() {
   }, []);
 
   useEffect(() => {
+    
     if (one_min_time <= 10) setisOpenPreRoundDialogBox(true);
   }, []);
 
