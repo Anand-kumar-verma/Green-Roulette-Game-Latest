@@ -62,16 +62,18 @@ import {
   walletamount,
 } from "../../services/apicalling";
 import {
+  download_app_url,
   endpoint,
   fron_end_main_domain,
   rupees,
   // telegram_url,
-  telegram_url
+  telegram_url,
 } from "../../services/urls";
 import Lottery from "./DashboadSubcomponent/Lottery";
 import Original from "./DashboadSubcomponent/Original";
 import Sports from "./DashboadSubcomponent/Sports";
 import Notification from "./Notification";
+import taptoplay from "../../rollet/assets/images/taptoplay.png";
 const Transition = React.forwardRef(function Transition(props, ref) {
   return <Slide direction="up" ref={ref} {...props} />;
 });
@@ -102,7 +104,7 @@ function Dashboard() {
 
   useEffect(() => {
     if (!checkTokenValidity()) {
-      logOutFunctoinRoulette(navigate)
+      logOutFunctoinRoulette(navigate);
       localStorage.clear();
       sessionStorage.clear();
       window.location.href = "/"; // Redirect to login page
@@ -302,7 +304,10 @@ function Dashboard() {
                 <FitbitIcon />
                 <span className="text-[14px]">Welcome To Green Roulette</span>
               </div>
-              <div className="flex gap-1 items-center cursor-pointer">
+              <div
+                className="flex gap-1 items-center cursor-pointer"
+                onClick={() => (document.location.href = `${download_app_url}`)}
+              >
                 <CloudDownloadIcon sx={{ color: "white" }} />
                 <span className="text-[12px]" style={{ color: "white" }}>
                   Download App
@@ -533,17 +538,19 @@ function Dashboard() {
                 >
                   <Box sx={{ width: "70%" }}>
                     <p
-                      className=" font-bold"
+                      className=" font-bold !whitespace-nowrap"
                       style={{ color: "#007F15", fontSize: "30px" }}
                     >
                       {i?.name}
                     </p>
-                    <p style={{ color: zubgmid, fontSize: "12px" }}>
+                    <p style={{ color: zubgmid, fontSize: "10px" }}>
                       Take your gaming experience to the next level with new
-                      Roulette – Casino Style.
+                      Roulette.
+                      {/* – Casino Style. */}
                     </p>
+                    <img src={taptoplay} />
                   </Box>
-                  <Box sx={{ width: "30%" }}>
+                  <Box>
                     <img className="w-[100px] h-[100px] " src={game} />
                   </Box>
                 </div>

@@ -26,7 +26,8 @@ import { endpoint } from "../../../services/urls";
 import placebetmusic from "../../assets/images/applybet_music.mp3";
 import mouse_click from "../../assets/images/mouse_click.mp3";
 import wheel_roulette from "../../assets/images/rotate_wheel_ball_music.mp3";
-import roulette from "../../assets/images/roulette-wheel-vector-89242.png";
+// import roulette from "../../assets/images/roulette-wheel-vector-89242.png";
+import roulette from "../../assets/images/realwgeelwith1red.png";
 import roulettebg from "../../assets/images/roulettebg.png";
 import stop_ball_music from "../../assets/images/stop_ball_music.mp3";
 import table from "../../assets/images/table.png";
@@ -639,8 +640,8 @@ function Home() {
                   <Box
                     sx={{
                       position: "absolute",
-                      top: "14%",
-                      left: "34%",
+                      top: "13.5%",
+                      left: "33%",
                       transform: "rotateY(45deg)",
                     }}
                   >

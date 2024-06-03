@@ -9,10 +9,11 @@ export const fron_end_main_domain = "https://vegusgain.com";
 export const domain = "https://rollet-node-backend.onrender.com/";
 // export const domain = "http://localhost:9000/"
 
+
+export const download_app_url = "https://vegusgain.com/VegusGain.apk"
 export const support_mail = "";
 // `support@sunlottrey.fun`;
-export const telegram_url = "";
-// `https://t.me/SunLottaryOfficial`;
+export const telegram_url =`https://t.me/vegusgain`;
 
 export const endpoint = {
   login: `${baseUrl}/api/user_login`,
