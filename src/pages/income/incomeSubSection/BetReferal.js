@@ -41,7 +41,7 @@ function BetReferal() {
             <Box component={NavLink} onClick={goBack}>
               <KeyboardArrowLeftOutlinedIcon />
             </Box>
-            <p>Referral Bet</p>
+            <p>Referral  Bet</p>
           </Box>
           <div>
             <img className="" src={nodatafoundimage} />
@@ -66,7 +66,7 @@ function BetReferal() {
           <Box component={NavLink} onClick={goBack}>
             <KeyboardArrowLeftOutlinedIcon />
           </Box>
-          <p>Referral Bet</p>
+          <p>Referral  Bet</p>
         </Box>
         <div className="no-scrollbar !mb-10">
           {res?.map((i) => {

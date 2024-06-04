@@ -307,7 +307,7 @@ export const referralBonusFn = async () => {
 export const referralBetFn = async () => {
   try {
     const response = await axios.get(
-      `${endpoint.bet_reffral}?user_id=${user_id}`
+      `${endpoint.bet_reffral}?userid=${user_id}`
     );
     return response;
   } catch (e) {
