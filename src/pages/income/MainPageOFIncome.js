@@ -7,6 +7,7 @@ import { zubgback, zubgbackgrad, zubgmid } from "../../Shared/color";
 import Layout from "../../component/Layout/Layout";
 import CurrencyExchange from "@mui/icons-material/CurrencyExchange";
 import { CurrencyBitcoin, CurrencyBitcoinTwoTone } from "@mui/icons-material";
+import { LuBookMinus } from "react-icons/lu";
 function MainPageOFIncome() {
   const navigate = useNavigate();
 
@@ -96,7 +97,7 @@ function MainPageOFIncome() {
       to: "/account/income-main/referral-bet",
       name: "Bet Referral ",
       logo: (
-        <CurrencyBitcoin
+        <LuBookMinus
           className="!w-[40px] !h-[40px] !text-white"
           color="#8f5206"
         />
