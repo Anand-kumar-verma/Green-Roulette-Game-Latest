@@ -133,7 +133,7 @@ function WalletRecharge() {
       fd.append("Name", user_name);
       fd.append("TransactionID", transaction_id);
 
-      return toast("We are upgrading for smooth and fast payin please wait...");
+      // return toast("We are upgrading for smooth and fast payin please wait...");
 
       paymentRequest(fd, fk.values.amount);
       fk.setFieldValue("all_data", {
@@ -171,8 +171,12 @@ function WalletRecharge() {
     }
     try {
       const res = await axios.post(`${endpoint.payment_request}`, fdata);
-      const qr_url = JSON.parse(res?.data?.data)?.payment_link || "";
-      // const qr_url = JSON.parse(res?.data?.data) || "";
+      const all_res = JSON.parse(res?.data?.data);
+      if (all_res?.status_code === 400) {
+        setloding(false);
+        return toast(all_res?.message);
+      }
+      const qr_url = JSON.parse(res?.data?.data)?.upi_deep_link || "";
       if (qr_url) {
         setDeposit_req_data(qr_url);
       } else {
@@ -231,6 +235,8 @@ function WalletRecharge() {
       }
       if (res?.data?.msg === "Successfully Data Found") {
         setCallBackResponse(res?.data);
+        walletamountFn();
+        setDeposit_req_data();
       }
     } catch (e) {
       console.log(e);
@@ -245,6 +251,11 @@ function WalletRecharge() {
   function stopPrintingHello() {
     clearInterval(intervalId); // Clear the interval using its ID
   }
+
+  React.useEffect(() => {
+    callBackResponse?.msg === "Successfully Data Found" &&
+      navigate("/dashboard");
+  }, [callBackResponse]);
 
   const audio = React.useMemo(() => {
     return (
@@ -345,42 +356,42 @@ function WalletRecharge() {
             onClick={() => fk.setFieldValue("amount", 500)}
           >
             {" "}
-             500
+            500
           </Button>
           <Button
             sx={style.paytmbtn}
             onClick={() => fk.setFieldValue("amount", 1000)}
           >
             {" "}
-             1K
+            1K
           </Button>
           <Button
             sx={style.paytmbtn}
             onClick={() => fk.setFieldValue("amount", 5000)}
           >
             {" "}
-             5K
+            5K
           </Button>
           <Button
             sx={style.paytmbtn}
             onClick={() => fk.setFieldValue("amount", 10000)}
           >
             {" "}
-             10K
+            10K
           </Button>
           <Button
             sx={style.paytmbtn}
             onClick={() => fk.setFieldValue("amount", 15000)}
           >
             {" "}
-             15K
+            15K
           </Button>
           <Button
             sx={style.paytmbtn}
             onClick={() => fk.setFieldValue("amount", 20000)}
           >
             {" "}
-             20K
+            20K
           </Button>
         </Stack>
       </>
@@ -473,7 +484,6 @@ function WalletRecharge() {
                 mr: "10px",
               }}
             >
-              {" "}
               {" "}
               {deposit_amount
                 ? Number(amount?.cricket_wallet || 0)?.toFixed(2)
