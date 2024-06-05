@@ -41,6 +41,7 @@ export const endpoint = {
   withdrawl_history: `${baseUrl}/api/withdrawl-history`,
   deposit_bonus: `${baseUrl}/api/deposit-bonus`,
   referral_bonus: `${baseUrl}/api/refral-bonus`,
+  bet_reffral: `${baseUrl}/api/bet-reffral`,
   daily_self_bet_income: `${baseUrl}/api/daily-self-bet-income`,
   daily_wallet_income: `${baseUrl}/api/daily-wallet-income`,
   daily_salary_income: `${baseUrl}/api/daily-salay-income`,

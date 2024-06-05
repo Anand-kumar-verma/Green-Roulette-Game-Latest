@@ -28,6 +28,7 @@ import Dashboard from "../pages/dashboard/Dashboard";
 import FundRequest from "../pages/dashboard/FundRequest";
 import Withdrawl from "../pages/dashboard/Withdrawl";
 import MainPageOFIncome from "../pages/income/MainPageOFIncome";
+import BetReferal from "../pages/income/incomeSubSection/BetReferal";
 import DailyCashBackBonus from "../pages/income/incomeSubSection/DailyCashBackBonus";
 import DailySalaryBonus from "../pages/income/incomeSubSection/DailySalaryBonus";
 import DepositBonus from "../pages/income/incomeSubSection/DepositBonus";
@@ -246,6 +247,10 @@ export const routes = [
     {
         path: "/account/income-main/registration-bonus",
         component: <RegistrationBonus />
+    },
+    {
+        path: "/account/income-main/referral-bet",
+        component: <BetReferal />
     },
     {
         path: "/account/income-main/deposit-bonus",

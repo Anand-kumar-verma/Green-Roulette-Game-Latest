@@ -627,7 +627,8 @@ function Dashboard() {
                       <Box component="img" src={winp4} />
                       <Box>
                         <Typography variant="body1" color="initial">
-                          Receive {Number(i?.win || 0)?.toFixed(2)}
+                          {/* Receive {Number(i?.win || 0)?.toFixed(2)} */}
+                          Receive { Number((Number(i?.win || 0)).toFixed(2)) * 200}
                         </Typography>
                         <Typography variant="body1" color="initial">
                           Winning amount
@@ -765,7 +766,8 @@ function Dashboard() {
                       <Box component="img" src={winp4} />
                       <Box>
                         <Typography variant="body1" color="initial">
-                          Receive {Number(i?.win || 0)?.toFixed(2)}
+                          {/* Receive {Number(i?.win || 0)?.toFixed(2)} */}
+                          Receive { Number((Number(i?.win || 0)).toFixed(2)) * 200}
                         </Typography>
                         <Typography variant="body1" color="initial">
                           Winning amount

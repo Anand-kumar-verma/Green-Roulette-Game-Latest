@@ -5,6 +5,9 @@ import * as React from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 import { zubgback, zubgbackgrad, zubgmid } from "../../Shared/color";
 import Layout from "../../component/Layout/Layout";
+import CurrencyExchange from "@mui/icons-material/CurrencyExchange";
+import { CurrencyBitcoin, CurrencyBitcoinTwoTone, Money } from "@mui/icons-material";
+import { LuBookMinus } from "react-icons/lu";
 function MainPageOFIncome() {
   const navigate = useNavigate();
 
@@ -84,6 +87,17 @@ function MainPageOFIncome() {
       name: "Vegus Bonus",
       logo: (
         <Diversity2Icon
+          className="!w-[40px] !h-[40px] !text-white"
+          color="#8f5206"
+        />
+      ),
+    },
+
+    {
+      to: "/account/income-main/referral-bet",
+      name: "Bet Referral ",
+      logo: (
+        <Money
           className="!w-[40px] !h-[40px] !text-white"
           color="#8f5206"
         />
