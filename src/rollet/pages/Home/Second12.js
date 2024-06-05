@@ -163,10 +163,7 @@ const Second12 = ({ isSelectedDropBet, removeSingleBetFunction, setOpenDialogBox
                   removeSingleBetFunction(24)
                   return
                 }
-                if (amount < 10 || amount > 50000)
-                  return toast(<span style={{ marginTop: "10% ",  transform: "rotate(90deg)", backgroundColor: 'black' }}>
-                              Please select amount greater than 10
-                            </span>);
+              
                 let isContainsPre = bet?.find((i) => i?.id === 24);
                 if (isContainsPre) {
                   // setOpenDialogBox(24);
