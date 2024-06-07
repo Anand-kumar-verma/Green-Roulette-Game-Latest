@@ -51,6 +51,7 @@ import Rule from "./Rule";
 import SvgCircle from "./SvgCircle";
 import MyTableComponent from "./Tablehistory";
 import TwoToOne from "./TwoToOne";
+import CustomCircularProgress from "../../../Shared/CustomCircularProgress";
 function Home() {
   const navigate = useNavigate();
   const isAlreadyAppliedBet = localStorage?.getItem("rollet_bet_placed");
@@ -71,7 +72,7 @@ function Home() {
     null;
 
   const [open1, setOpen1] = useState();
-  // const [total_bet_amount, settotal_bet_amount] = useState(0);
+  const [loding, setloding] = useState(false);
   const [isOpenPreRoundDialogBox, setisOpenPreRoundDialogBox] = useState(false);
   const [isSelectedDropBet, setisSelectedDropBet] = useState(false);
   const user_id = value && JSON.parse(value)?.UserID;
@@ -220,9 +221,10 @@ function Home() {
 
   useEffect(() => {
     if (one_min_time === 12 && bet?.length > 0) {
-      if (isAlreadyAppliedBet === "false") {
+      if (isAlreadyAppliedBet === "false" || !isAlreadyAppliedBet) {
         mouseClickSound();
         confirmBet(
+          setloding,
           rebet,
           setrebet,
           bet,
@@ -366,7 +368,7 @@ function Home() {
         speakMessage(onemin);
         addWinCap(onemin);
         getWinPopup();
-      }, 10000);
+      }, 12000);
     };
     socket.on("oneminrollet", handleOneMin);
     socket.on("rolletresult", handleOneMinrolletresult);
@@ -377,7 +379,6 @@ function Home() {
   }, []);
 
   useEffect(() => {
-    
     if (one_min_time <= 10) setisOpenPreRoundDialogBox(true);
   }, []);
 
@@ -391,14 +392,6 @@ function Home() {
 
       const newupdatedArray = response?.data?.data?.[0] || [];
       win_amount = newupdatedArray?.win || 0;
-      console.log(
-        response,
-        response?.data?.data,
-        newupdatedArray,
-        win_amount,
-        isPlaced,
-        "THis is updated value"
-      );
       if (win_amount > 0 && isPlaced === "true") {
         setOpenDialogBox(win_amount);
         setTimeout(() => {
@@ -432,6 +425,7 @@ function Home() {
   };
   return (
     <Box className="home" sx={style.root}>
+      <CustomCircularProgress isLoading={loding} />
       {useMemo(() => {
         return (
           <>
@@ -498,8 +492,9 @@ function Home() {
                   variant="body1"
                   color="initial"
                   sx={{ color: "red" }}
+                  className="!text-[10px]"
                 >
-                  ID: {profileData?.username}
+                 Name: {profileData?.full_name?profileData?.full_name?.substring(0,10)+"...":"*******"}
                 </Typography>
                 <Typography
                   variant="body1"
@@ -647,7 +642,7 @@ function Home() {
                     }}
                   >
                     <div
-                      style={{                                       
+                      style={{
                         width: "156px",
                         height: "165px",
                         position: "absolute",
@@ -658,7 +653,7 @@ function Home() {
                         src={roulette}
                         className="!h-full !w-full !bg-no-repeat "
                       />
-                      <Rolletball />                                                                           
+                      <Rolletball />
                     </div>
                   </Box>
                 </Box>
@@ -690,7 +685,7 @@ function Home() {
                   className={"!ml-10"}
                 >
                   <Typography
-                    onClick={() => justDouble(bet, setBet,wallet_amount_data)}
+                    onClick={() => justDouble(bet, setBet, wallet_amount_data)}
                     variant="body1"
                     color="initial"
                   >
@@ -703,7 +698,9 @@ function Home() {
                   className={"!ml-16"}
                 >
                   <Typography
-                    onClick={() => rebetFuncton(bet, rebet, setBet,wallet_amount_data)}
+                    onClick={() =>
+                      rebetFuncton(bet, rebet, setBet, wallet_amount_data)
+                    }
                     variant="body1"
                     color="initial"
                   >
@@ -782,6 +779,7 @@ function Home() {
                     onClick={() => {
                       mouseClickSound();
                       confirmBet(
+                        setloding,
                         rebet,
                         setrebet,
                         bet,
