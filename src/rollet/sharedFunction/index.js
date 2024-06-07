@@ -231,7 +231,7 @@ export const confirmBet = async (
     (a, b) => a + Number(b?.amount || 0),
     0
   );
-  
+
   if (
     Number(total_amount_bet || 0) >
     Number(
