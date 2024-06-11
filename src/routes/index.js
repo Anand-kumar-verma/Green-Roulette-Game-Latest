@@ -31,7 +31,7 @@ import MainPageOFIncome from "../pages/income/MainPageOFIncome";
 import BetReferal from "../pages/income/incomeSubSection/BetReferal";
 import DailyCashBackBonus from "../pages/income/incomeSubSection/DailyCashBackBonus";
 import DailySalaryBonus from "../pages/income/incomeSubSection/DailySalaryBonus";
-import DepositBonus from "../pages/income/incomeSubSection/DepositBonus";
+import LevelIncome from "../pages/income/incomeSubSection/DepositBonus";
 import ReferralBonus from "../pages/income/incomeSubSection/ReferralBonus";
 import RegistrationBonus from "../pages/income/incomeSubSection/RegistrationBonus";
 import SelfTradingBonus from "../pages/income/incomeSubSection/SelfTradingBonus";
@@ -253,8 +253,8 @@ export const routes = [
         component: <BetReferal />
     },
     {
-        path: "/account/income-main/deposit-bonus",
-        component: <DepositBonus />
+        path: "/account/income-main/level-income",
+        component: <LevelIncome />
     },
     {
         path: "/account/income-main/referral-bonus",

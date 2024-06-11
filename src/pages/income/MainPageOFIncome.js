@@ -22,16 +22,16 @@ function MainPageOFIncome() {
         />
       ),
     },
-    // {
-    //   to: "/account/income-main/deposit-bonus",
-    //   name: "Deposit Bonus",
-    //   logo: (
-    //     <PriceCheckIcon
-    //       className="!w-[40px] !h-[40px] !text-white"
-    //       color="#8f5206"
-    //     />
-    //   ),
-    // },
+    {
+      to: "/account/income-main/level-income",
+      name: "Level Income",
+      logo: (
+        <CurrencyBitcoinTwoTone
+          className="!w-[40px] !h-[40px] !text-white"
+          color="#8f5206"
+        />
+      ),
+    },
     // {
     //   to: "/account/income-main/referral-bonus",
     //   name: "Referral Bonus",

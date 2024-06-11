@@ -276,7 +276,7 @@ export const confirmBet = async (
         localStorage?.setItem("rollet_bet_placed", true);
         localStorage?.setItem("isPreBet", true);
       }
-      client.refetchQueries("history_rollet_result");
+      client.refetchQueries("history_rollet");
       client.refetchQueries("walletamount");
       // if (res?.data?.error === "200") removeBetFunctonAll();
     } catch (e) {
