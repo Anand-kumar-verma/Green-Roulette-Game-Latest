@@ -168,7 +168,7 @@ export const confirmBet = async (
   setrebet,
   bet,
   setBet,
-  user_id,  
+  user_id,
   wallet_amount_data,
   client
 ) => {
@@ -276,7 +276,10 @@ export const confirmBet = async (
         localStorage?.setItem("rollet_bet_placed", true);
         localStorage?.setItem("isPreBet", true);
       }
-      client.refetchQueries("history_rollet");
+      // setTimeout(() => {
+      //   client.refetchQueries("history_rollet");
+      // }, 5000);
+
       client.refetchQueries("walletamount");
       // if (res?.data?.error === "200") removeBetFunctonAll();
     } catch (e) {
