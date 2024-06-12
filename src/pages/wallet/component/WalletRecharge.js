@@ -13,10 +13,11 @@ import {
   Typography,
 } from "@mui/material";
 import axios from "axios";
+import CryptoJS from "crypto-js";
 import { useFormik } from "formik";
-import moment from "moment";
 import * as React from "react";
 import toast from "react-hot-toast";
+import { useDispatch, useSelector } from "react-redux";
 import { NavLink, useNavigate } from "react-router-dom";
 import CustomCircularProgress from "../../../Shared/CustomCircularProgress";
 import { cashDepositRequestValidationSchema } from "../../../Shared/Validation";
@@ -30,17 +31,11 @@ import balance from "../../../assets/images/send.png";
 import user from "../../../assets/images/user-guide.png";
 import payNameIcon2 from "../../../assets/payNameIcon2.png";
 import Layout from "../../../component/Layout/Layout";
-import { endpoint, rupees } from "../../../services/urls";
-import QRScreen from "./QRScreen";
-import { useDispatch, useSelector } from "react-redux";
 import { get_user_data_fn } from "../../../services/apicalling";
-import CryptoJS from "crypto-js";
+import { endpoint } from "../../../services/urls";
 function WalletRecharge() {
   const [t_id, setT_id] = React.useState();
-  const [callBackResponse, setCallBackResponse] = React.useState({
-    payment_status: "NO",
-  });
-  let intervalId;
+
   const dispatch = useDispatch();
   const aviator_login_data = useSelector(
     (state) => state.aviator.aviator_login_data
@@ -62,9 +57,7 @@ function WalletRecharge() {
   const user_name =
     aviator_login_data && JSON.parse(aviator_login_data)?.username;
   const user_id = login_data && JSON.parse(login_data)?.UserID;
-  const [deposit_req_data, setDeposit_req_data] = React.useState();
   const [loding, setloding] = React.useState(false);
-  const [show_time, set_show_time] = React.useState("0_0");
   const [amount, setAmount] = React.useState({
     wallet: 0,
     winning: 0,
@@ -133,7 +126,7 @@ function WalletRecharge() {
       fd.append("Name", user_name);
       fd.append("TransactionID", transaction_id);
 
-      return toast("We are upgrading for smooth and fast payin please wait...");
+      // return toast("We are upgrading for smooth and fast payin please wait...");
 
       paymentRequest(fd, fk.values.amount);
       fk.setFieldValue("all_data", {
@@ -171,10 +164,17 @@ function WalletRecharge() {
     }
     try {
       const res = await axios.post(`${endpoint.payment_request}`, fdata);
-      const qr_url = JSON.parse(res?.data?.data)?.payment_link || "";
-      // const qr_url = JSON.parse(res?.data?.data) || "";
+
+      console.log(res);
+      console.log(JSON.parse(res?.data?.data));
+      const all_res = JSON.parse(res?.data?.data);
+      if (all_res?.status_code === 400) {
+        setloding(false);
+        return toast(all_res?.message);
+      }
+      const qr_url = JSON.parse(res?.data?.data)?.upi_deep_link || "";
       if (qr_url) {
-        setDeposit_req_data(qr_url);
+        window.open(qr_url);
       } else {
         toast("Something went wrong");
       }
@@ -182,68 +182,6 @@ function WalletRecharge() {
       console.log(e);
     }
     setloding(false);
-  }
-
-  React.useEffect(() => {
-    let x = true;
-    if (deposit_req_data) {
-      let min = 1;
-      let sec = 59;
-      const interval = setInterval(() => {
-        set_show_time(`${min}_${sec}`);
-        if (x) {
-          startGetTimeForCallBack();
-          x = false;
-        }
-        sec--;
-
-        if (sec < 0) {
-          sec = 59;
-          min--;
-
-          if (min < 0) {
-            sec = 59;
-            min = 1;
-            stopPrintingHello();
-            clearInterval(interval);
-            setDeposit_req_data();
-            set_show_time("0_0");
-            setloding(false);
-          }
-        }
-      }, 1000);
-    }
-  }, [deposit_req_data]);
-
-  async function printHello() {
-    try {
-      const res = await axios.get(
-        `${endpoint.recharge_call_bakc}?userid=${user_id}&transectionid=${t_id}`
-      );
-      console.log(res, "Api response");
-      if (res?.data?.payment_status !== "Pending") {
-        setTimeout(() => {
-          setDeposit_req_data();
-          set_show_time("0_0");
-          setloding(false);
-          stopPrintingHello();
-        }, 2000);
-      }
-      if (res?.data?.msg === "Successfully Data Found") {
-        setCallBackResponse(res?.data);
-      }
-    } catch (e) {
-      console.log(e);
-    }
-  }
-
-  function startGetTimeForCallBack() {
-    intervalId = setInterval(printHello, 20000);
-  }
-
-  // Function to stop the interval
-  function stopPrintingHello() {
-    clearInterval(intervalId); // Clear the interval using its ID
   }
 
   const audio = React.useMemo(() => {
@@ -345,59 +283,48 @@ function WalletRecharge() {
             onClick={() => fk.setFieldValue("amount", 500)}
           >
             {" "}
-             500
+            500
           </Button>
           <Button
             sx={style.paytmbtn}
             onClick={() => fk.setFieldValue("amount", 1000)}
           >
             {" "}
-             1K
+            1K
           </Button>
           <Button
             sx={style.paytmbtn}
             onClick={() => fk.setFieldValue("amount", 5000)}
           >
             {" "}
-             5K
+            5K
           </Button>
           <Button
             sx={style.paytmbtn}
             onClick={() => fk.setFieldValue("amount", 10000)}
           >
             {" "}
-             10K
+            10K
           </Button>
           <Button
             sx={style.paytmbtn}
             onClick={() => fk.setFieldValue("amount", 15000)}
           >
             {" "}
-             15K
+            15K
           </Button>
           <Button
             sx={style.paytmbtn}
             onClick={() => fk.setFieldValue("amount", 20000)}
           >
             {" "}
-             20K
+            20K
           </Button>
         </Stack>
       </>
     );
   }, []);
 
-  // deposit_req_data
-  if (deposit_req_data) {
-    window.open(deposit_req_data);
-    // return (
-    //   <QRScreen
-    //     callBackResponse={callBackResponse}
-    //     deposit_req_data={deposit_req_data}
-    //     show_time={show_time}
-    //   />
-    // );
-  }
   return (
     <Layout>
       {audio}
@@ -473,7 +400,6 @@ function WalletRecharge() {
                 mr: "10px",
               }}
             >
-              {" "}
               {" "}
               {deposit_amount
                 ? Number(amount?.cricket_wallet || 0)?.toFixed(2)
@@ -716,53 +642,9 @@ function WalletRecharge() {
               {fk.touched.amount && fk.errors.amount && (
                 <div className="error">{fk.errors.amount}</div>
               )}
-              {!deposit_req_data ? (
-                <Button sx={style.paytmbtntwo} onClick={fk.handleSubmit}>
-                  Deposit
-                </Button>
-              ) : (
-                <div style={style.paytmbtntwo} className="mt-5">
-                  <div className="flex w-full justify-between items-center">
-                    <span>{fk.values.all_data?.t_id}</span>
-                    <div>
-                      <Button
-                        variant="contained"
-                        onClick={() =>
-                          window.open(deposit_req_data?.upi_deep_link, "_blank")
-                        }
-                      >
-                        Pay Now
-                      </Button>
-                      <span>
-                        {" "}
-                        {show_time.split("_")?.[0]}:
-                        {show_time.split("_")?.[1]?.padEnd(2, "0")}
-                      </span>
-                    </div>
-                    <span>
-                      {" "}
-                      {rupees} {fk.values.all_data?.amount}
-                    </span>
-                  </div>
-                  <div className="!h-[1px] w-full !bg-red-500 !mt-2"></div>
-                  <div className="flex w-full justify-between !text-[15px]">
-                    <span>Status</span>
-                    <span className="!text-red-600 ">Pending</span>
-                  </div>
-                  <div className="flex w-full justify-between !text-[12px]">
-                    <span>Date</span>
-                    <span>
-                      {moment(fk.values.all_data?.date).format("DD-MM-YYYY")}
-                    </span>
-                  </div>
-                  <div className="flex w-full justify-between !text-[12px]">
-                    <span>Time</span>
-                    <span>
-                      {moment(fk.values.all_data?.date).format("HH:mm:ss")}
-                    </span>
-                  </div>
-                </div>
-              )}
+              <Button sx={style.paytmbtntwo} onClick={fk.handleSubmit}>
+                Deposit
+              </Button>
             </Stack>
           </Box>
           {rechargeInstruction}

@@ -16,7 +16,7 @@ import {
 } from "../../../services/apicalling";
 import nodatafoundimage from "../../../assets/images/nodatafoundimage.png";
 
-function DepositBonus() {
+function LevelIncome() {
   const navigate = useNavigate();
   const goBack = () => {
     navigate(-1);
@@ -48,7 +48,7 @@ function DepositBonus() {
           <Box component={NavLink} onClick={goBack}>
             <KeyboardArrowLeftOutlinedIcon />
           </Box>
-          <p>Daily Cashback Bonus</p>
+          <p>Level Income</p>
         </Box>
         <div>
           <img className="" src={nodatafoundimage} />
@@ -74,7 +74,7 @@ function DepositBonus() {
           <Box component={NavLink} onClick={goBack}>
             <KeyboardArrowLeftOutlinedIcon />
           </Box>
-          <p>Deposit Bonus</p>
+          <p>Level Income</p>
         </Box>
         <div className="no-scrollbar !mb-10">
           {res?.map((i) => {
@@ -107,7 +107,7 @@ function DepositBonus() {
   );
 }
 
-export default DepositBonus;
+export default LevelIncome;
 
 const style = {
   header: {

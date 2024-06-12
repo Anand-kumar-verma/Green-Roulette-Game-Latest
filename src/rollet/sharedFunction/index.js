@@ -163,11 +163,12 @@ export const spinFunction = (id) => {
 };
 
 export const confirmBet = async (
+  setloding,
   rebet,
   setrebet,
   bet,
   setBet,
-  user_id,
+  user_id,  
   wallet_amount_data,
   client
 ) => {
@@ -231,6 +232,7 @@ export const confirmBet = async (
     (a, b) => a + Number(b?.amount || 0),
     0
   );
+
   if (
     Number(total_amount_bet || 0) >
     Number(
@@ -248,9 +250,9 @@ export const confirmBet = async (
     );
     return;
   } else {
+    setloding(true);
     try {
       const res = await axios.post(endpoint?.rollet?.bet_now, reqbody);
-      console.log(res);
       toast(
         <span
           className="!bg-blue-800 !py-2 !px-4 !text-white !border-2 !border-red-800 !rounded-full"
@@ -274,13 +276,14 @@ export const confirmBet = async (
         localStorage?.setItem("rollet_bet_placed", true);
         localStorage?.setItem("isPreBet", true);
       }
-      client.refetchQueries("history_rollet_result");
+      client.refetchQueries("history_rollet");
       client.refetchQueries("walletamount");
       // if (res?.data?.error === "200") removeBetFunctonAll();
     } catch (e) {
       console.log(e);
     }
   }
+  setloding(false);
 };
 
 export const forPlaceCoin = (id, amount) => {

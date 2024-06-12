@@ -1,4 +1,4 @@
-import rouletteBORD from "../../assets/images/thumbs_bgs.webp";
+import rouletteBORD from "../../assets/images/thumbs_bgs.jpg";
 
 export const style = {
   root: {

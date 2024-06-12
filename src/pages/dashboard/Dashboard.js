@@ -268,20 +268,6 @@ function Dashboard() {
     //   img: "https://ossimg.bdgadminbdg.com/IndiaBDG/gamecategory/gamecategory_20240110061909hwqs.png",
     // },
   ];
-  // const handlePlaySoundLast = async () => {
-  //   try {
-  //     if (audioRefMusiclast?.current?.pause) {
-  //       await audioRefMusiclast?.current?.play();
-  //     } else {
-  //       await audioRefMusiclast?.current?.pause();
-  //     }
-  //   } catch (error) {
-  //     // Handle any errors during play
-  //     console.error("Error during play:", error);
-  //   }
-  // };
-
-  // if (game_data?.[0].name === "Green Roulette") handlePlaySoundLast();
 
   return (
     <Layout>
@@ -628,7 +614,7 @@ function Dashboard() {
                       <Box>
                         <Typography variant="body1" color="initial">
                           {/* Receive {Number(i?.win || 0)?.toFixed(2)} */}
-                          Receive { Number((Number(i?.win || 0)).toFixed(2)) * 200}
+                          Receive { Number((Number(i?.win || 0)) * 200).toFixed(2)}
                         </Typography>
                         <Typography variant="body1" color="initial">
                           Winning amount
@@ -767,7 +753,7 @@ function Dashboard() {
                       <Box>
                         <Typography variant="body1" color="initial">
                           {/* Receive {Number(i?.win || 0)?.toFixed(2)} */}
-                          Receive { Number((Number(i?.win || 0)).toFixed(2)) * 200}
+                          Receive { Number((Number(i?.win || 0)) * 200).toFixed(2)}
                         </Typography>
                         <Typography variant="body1" color="initial">
                           Winning amount

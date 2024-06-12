@@ -1,4 +1,4 @@
-import React from 'react'
+import React from "react";
 
 const Rolletball = () => {
   return (
@@ -6,13 +6,13 @@ const Rolletball = () => {
       <p id="1_rotate" className="absolute !h-[50%] !w-[50%]  hidden">
         <p className="!bg-white !h-2 !w-2 !rounded-full !absolute !bottom-0 !left-0  "></p>
       </p>
-       <p
+      <p
         id="20_rotate"
         className=" rotate-[9deg] absolute !h-[50%] !w-[50%]  hidden "
       >
         <p className="!bg-white !h-2 !w-2 !rounded-full !absolute !bottom-0 !left-0 "></p>
       </p>
-     <p
+      <p
         id="14_rotate"
         className=" rotate-[19deg] absolute !h-[50%] !w-[50%]  hidden "
       >
@@ -221,9 +221,9 @@ const Rolletball = () => {
         className=" rotate-[350deg] absolute !h-[50%] !w-[50%]  hidden "
       >
         <p className="!bg-white !h-2 !w-2 !rounded-full !absolute !bottom-0 !left-0 "></p>
-      </p> 
+      </p>
     </>
   );
-}
+};
 
-export default Rolletball
+export default Rolletball;

@@ -43,11 +43,11 @@ import {
   logOutFunctoinRoulette,
 } from "../../services/apicalling";
 import axios from "axios";
-import { endpoint } from "../../services/urls";
+import { endpoint, fron_end_main_domain } from "../../services/urls";
 function Account() {
   const location = useLocation();
   const searchParams = new URLSearchParams(location.search);
-  const transactionId = searchParams?.get("orderid");
+  const transactionId = searchParams?.get("order_id");
   const client = useQueryClient();
   const navigate = useNavigate();
   const profile_data = localStorage.getItem("profile_data");
@@ -69,12 +69,12 @@ function Account() {
   async function sendUrlCallBackToBackend(transactionId) {
     try {
       const res = await axios.get(
-        `https://admin.sunlottery.fun/api/deposit-collback?orderid=${transactionId}`
+        `${endpoint?.callback_response}?order_id=${transactionId}`
       );
       if (res?.data?.status === "200") {
-        window.location.href = "https://sunlottery.fun/account";
+        client.removeQueries("myprofile");
+        window.location.href = `${fron_end_main_domain}/account`;
       }
-      console.log(res);
     } catch (e) {
       console.log(e);
     }
@@ -119,7 +119,6 @@ function Account() {
           </Stack>
           <Stack direction="row" sx={{ alignItems: "center", mt: "10px" }}>
             <Typography variant="body1" color="initial" sx={style.totalBalance}>
-              
               {(
                 Number(
                   Number(result?.winning_wallet || 0) +
