@@ -327,8 +327,8 @@ function Home() {
       if (onemin === 58 || onemin === 57) {
         setIsPreBetHandle(true);
         localStorage.setItem("total_amount_bet", 0);
-        localStorage?.setItem("rollet_bet_placed", false);
       }
+      if (onemin === 55) localStorage?.setItem("rollet_bet_placed", false);
       if (onemin === 0) {
         handlePlaySound();
       }
@@ -391,6 +391,7 @@ function Home() {
       );
 
       const newupdatedArray = response?.data?.data?.[0] || [];
+      console.log(newupdatedArray, "new array");
       win_amount = newupdatedArray?.win || 0;
       if (win_amount > 0 && isPlaced === "true") {
         setOpenDialogBox(win_amount);
@@ -494,7 +495,10 @@ function Home() {
                   sx={{ color: "red" }}
                   className="!text-[10px]"
                 >
-                 Name: {profileData?.full_name?profileData?.full_name?.substring(0,10)+"...":"*******"}
+                  Name:{" "}
+                  {profileData?.full_name
+                    ? profileData?.full_name?.substring(0, 10) + "..."
+                    : "*******"}
                 </Typography>
                 <Typography
                   variant="body1"
