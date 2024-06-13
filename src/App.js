@@ -7,6 +7,7 @@ import ForgetPassword from "./pages/auth/login/ForgetPassword";
 import Login from "./pages/auth/login/Login";
 import Register from "./pages/auth/register/Register";
 import { routes } from "./routes";
+import { MypromotionDataFn } from "./services/apicalling";
 
 const App = () => {
   const isAuthenticated =
@@ -16,20 +17,16 @@ const App = () => {
         "anand"
       )?.toString(CryptoJS.enc.Utf8)) ||
     null; // Check if the user is authenticated
-    // useQuery(
-    //   ["promotion_data"],
-    //   () => MypromotionDataFn(),
-    //   {
-    //     refetchOnMount: false,
-    //     refetchOnReconnect: true,
-    //   }
-    // );
+  useQuery(["promotion_data"], () => isAuthenticated && MypromotionDataFn(), {
+    refetchOnMount: false,
+    refetchOnReconnect: true,
+  });
 
   return (
     <Routes>
       <Route path="/" element={<Login />} />
       <Route path="/forget-password" element={<ForgetPassword />} />
-      <Route path="/*" element={<Navigate to={"/"} replace/>} />
+      <Route path="/*" element={<Navigate to={"/"} replace />} />
       <Route path="/register" element={<Register />} />
       {isAuthenticated ? (
         routes?.map((route, index) => {
