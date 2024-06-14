@@ -79,7 +79,7 @@ function ReferralBonus() {
                   </span>
                 </div>
                 <div className="!w-full !flex !justify-between">
-                  <span className="!text-white">{i?.lo1_id}</span>
+                  {/* <span className="!text-white">{i?.lo1_id}</span> */}
                   <span className="!text-yellow-400  !text-[12px]">
                     {moment(i?.l01_date)?.format("DD-MM-YYYY")}{" "}
                     {moment(i?.l01_date)?.format("HH:mm:ss")}

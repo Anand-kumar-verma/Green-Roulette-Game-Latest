@@ -13,7 +13,7 @@ function MainPageOFIncome() {
 
   const data_array = [
     {
-      to: "/account/income-main/registration-bonus",
+      to: "/account/income-main/referral-bonus",
       name: "Referral Bonus",
       logo: (
         <CurrencyExchangeIcon
