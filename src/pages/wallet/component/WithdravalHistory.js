@@ -22,6 +22,7 @@ import {
 } from "../../../services/apicalling";
 
 function WithdravalHistory() {
+  const [filter ,setFilter] =React.useState("0")
   const navigate = useNavigate();
   const goBack = () => {
     navigate(-1);
@@ -35,7 +36,10 @@ function WithdravalHistory() {
     }
   );
 
-  const res = data?.data?.data?.filter((i)=>i?.tr15_depo_type === "Winzo")
+  const res = 
+  React.useMemo(()=>{
+    return filter==="0"?data?.data?.data: data?.data?.data?.filter((i)=>i?.status===filter)
+  },[filter,data?.data?.data])
   
   return (
     <Layout>
@@ -71,7 +75,16 @@ function WithdravalHistory() {
               mb: 5,
             }}
           >
-            <Stack direction="row" sx={{ alignItems: "center", mb: "20px" }}>
+           
+         <Stack
+          direction="row"
+          sx={{
+            mb: "10px",
+            alignItems: "center",
+            justifyContent: "space-between",
+          }}
+           >
+             <Stack direction="row" sx={{ alignItems: "center", mb: "20px" }}>
               <Box component="img" src={deposit} width={30}></Box>
               <Typography
                 variant="body1"
@@ -80,7 +93,17 @@ function WithdravalHistory() {
               >
                 Withdrawl history
               </Typography>
-            </Stack>
+              </Stack>
+            
+            <select onChange={(e)=>setFilter(e.target.value)} className="mb-5 px-5 rounded">
+            <option value={"0"}>All</option>
+            <option value={"Pending"}>Pending</option>
+            <option value={"Approve"}>Approved </option>
+            <option value={"Procesing"}>Proccesing</option>
+            <option value={"Reject"}>Reject</option>
+          </select>
+         </Stack>
+            
             {res?.map((i) => {
               return (
                 <Box
@@ -115,14 +138,15 @@ function WithdravalHistory() {
                     <Box>
                       <Button
                         sx={{ color: "green", textTransform: "capitalize" }}
-                        className={`${
-                          i?.tr15_status === "Success"
+                        className={`${i?.status
+                            === "Approved"
                             ? "!text-green-500"
                             : "!text-red-500"
-                        }`}
+                          }`}
                       >
-                        {i?.tr15_status}
+                        {i?.status}
                       </Button>
+                      
                       <IconButton>
                         <ArrowForwardIcon sx={{ color: "white" }} />
                       </IconButton>
@@ -142,7 +166,7 @@ function WithdravalHistory() {
                       Balance
                     </Typography>
                     <Typography variant="body1" color="initial">
-                       {i?.tr15_amt}
+                      {i?.amount}
                     </Typography>
                   </Stack>
                   <Stack
@@ -158,8 +182,8 @@ function WithdravalHistory() {
                       Date/Time
                     </Typography>
                     <Typography variant="body1" color="initial">
-                      {moment(i?.tr15_date)?.format("DD-MM-YYYY")}{" "}
-                      {moment(i?.tr15_date)?.format("HH:mm:ss")}
+                      {moment(i?.date)?.format("DD-MM-YYYY")}{" "}
+                      {moment(i?.date)?.format("HH:mm:ss")}
                     </Typography>
                   </Stack>
                   <Stack
@@ -172,59 +196,15 @@ function WithdravalHistory() {
                     }}
                   >
                     <Typography variant="body1" color="initial">
-                    Status
+                      Status
                     </Typography>
                     <Typography variant="body1" color="initial">
-                      {i?.tr15_status}{" "}
+                      {i?.status
+                      }{" "}
                     </Typography>
                   </Stack>
-                  {i?.success_date !== "" && <Stack
-                    direction="row"
-                    sx={{
-                      mb: "10px",
-                      alignItems: "center",
-                      justifyContent: "space-between",
-                      "&>p": { color: "white" },
-                    }}
-                  >
-                    <Typography variant="body1" color="initial">
-                      Success Date/Time
-                    </Typography>
-                    <Typography variant="body1" color="initial" className="!text-green-500">
-                      {moment(i?.success_date)?.format("DD-MM-YYYY")}{" "}
-                      {moment(i?.success_date)?.format("HH:mm:ss")}
-                    </Typography>
-                  </Stack>}
-                  <Stack
-                    direction="row"
-                    sx={{
-                      mb: "10px",
-                      alignItems: "center",
-                      justifyContent: "space-between",
-                      "&>p": { color: "white" },
-                    }}
-                  >
-                    <Typography variant="body1" color="initial">
-                      Trans number
-                    </Typography>
-                    <Stack
-                      direction="row"
-                      sx={{
-                        mb: "10px",
-                        alignItems: "center",
-                        justifyContent: "space-between",
-                        "&>p": { color: "white" },
-                      }}
-                    >
-                      <Typography variant="body1" color="initial">
-                        {i?.tr15_trans}
-                      </Typography>
-                      <IconButton>
-                        <ContentCopyIcon sx={{ color: "white" }} />
-                      </IconButton>
-                    </Stack>
-                  </Stack>
-                </Box>
+                 
+                 </Box>
               );
             })}
             {/* <Button sx={style.paytmbtntwo}>All history</Button> */}
