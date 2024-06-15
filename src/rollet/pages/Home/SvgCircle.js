@@ -107,9 +107,9 @@ const SvgCircle = () => {
         <path
           d={arcPath}
           fill={
-            (time  <= 30 && time  > 10)
+            (time  <= 30 && time  > 15)
               ? "#ffff0080" // yellow
-              : time  <= 10
+              : time  <= 15
                 ? "#ff000080" // red
                 : "#008000a6" // green
           }
