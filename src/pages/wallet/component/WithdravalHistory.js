@@ -1,5 +1,4 @@
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
-import ContentCopyIcon from "@mui/icons-material/ContentCopy";
 import KeyboardArrowLeftOutlinedIcon from "@mui/icons-material/KeyboardArrowLeftOutlined";
 import {
   Box,
@@ -139,12 +138,12 @@ function WithdravalHistory() {
                       <Button
                         sx={{ color: "green", textTransform: "capitalize" }}
                         className={`${i?.status
-                            === "Approved"
+                            === "Approve"
                             ? "!text-green-500"
                             : "!text-red-500"
                           }`}
                       >
-                        {i?.status}
+                        {i?.status === "Approve"?"Approved":i?.status}
                       </Button>
                       
                       <IconButton>
