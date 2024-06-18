@@ -75,6 +75,7 @@ import Original from "./DashboadSubcomponent/Original";
 import Sports from "./DashboadSubcomponent/Sports";
 import Notification from "./Notification";
 import taptoplay from "../../rollet/assets/images/taptoplay.png";
+import refresh from "../../assets/images/refresh.png";
 const Transition = React.forwardRef(function Transition(props, ref) {
   return <Slide direction="up" ref={ref} {...props} />;
 });
@@ -272,6 +273,27 @@ function Dashboard() {
   ];
 
 
+  function refreshFunctionForRotation() {
+    client.refetchQueries=("walletamount")
+    const item = document.getElementsByClassName("rotate_refresh_image")?.[0]
+
+    const element = document.getElementById("refresh_button");
+    if (!item) {
+      element.classList.add("rotate_refresh_image");
+    }
+    setTimeout(() => {
+      element.classList.remove("rotate_refresh_image")
+    }, 2000);
+
+  }
+  useEffect(() => {
+    const element = document.getElementById("refresh_button");
+    const item = document.getElementsByClassName("rotate_refresh_image")?.[0]
+    if (item) {
+      element.classList.remove("rotate_refresh_image");
+    }
+  }, [])
+
   return (
     <Layout>
       <Box sx={styles.root}>
@@ -325,7 +347,6 @@ function Dashboard() {
               </SwiperSlide>
             </Swiper>
           </Box>
-          
           <Box className="!px-2">
             <Swiper
               spaceBetween={30}
@@ -427,15 +448,18 @@ function Dashboard() {
               </Typography>
             </Box>
             <Box sx={{ textAlign: "center" }}>
-              <Typography variant="body1" color="initial" className="b-val">
+             <div className="!flex !justify-center gap-1">
+             <Typography variant="body1" color="initial" className="b-val">
                 {" "}
                 {Number(
                   Number(newdata?.wallet || 0) + Number(newdata?.winning || 0)
                 )?.toFixed(2)}
-                 <CachedIcon onClick={() => {
-                client.refetchQueries=("walletamount")
+               </Typography>
+               <img className="rotate_refresh_image w-8" id="refresh_button"
+                src={refresh} width={25} ml={2} onClick={() => {
+                refreshFunctionForRotation()
               }} />
-              </Typography>
+             </div>
               <Typography variant="body1" color="initial" className="b-valp">
                 Available Balance
               </Typography>

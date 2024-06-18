@@ -38,6 +38,8 @@ import trans from "../../assets/images/translation.png";
 import s from "../../assets/images/wallet.png";
 import sunlotteryhomebanner from "../../assets/sunlotteryhomebanner.jpg";
 import Layout from "../../component/Layout/Layout";
+import refresh from "../../assets/images/refresh.png";
+
 import {
   MyProfileDataFn,
   logOutFunctoinRoulette,
@@ -98,7 +100,26 @@ function Account() {
   
   const [selectedImages, setselectedImages] = useState("");
   const [opend, setOpend] = useState(false);
+  function refreshFunctionForRotation() {
+    client.refetchQueries=("walletamount")
+    const item = document.getElementsByClassName("rotate_refresh_image")?.[0]
 
+    const element = document.getElementById("refresh_button");
+    if (!item) {
+      element.classList.add("rotate_refresh_image");
+    }
+    setTimeout(() => {
+      element.classList.remove("rotate_refresh_image")
+    }, 2000);
+
+  }
+  useEffect(() => {
+    const element = document.getElementById("refresh_button");
+    const item = document.getElementsByClassName("rotate_refresh_image")?.[0]
+    if (item) {
+      element.classList.remove("rotate_refresh_image");
+    }
+  }, [])
 
   return (
     <Layout>
@@ -143,10 +164,14 @@ function Account() {
                 ) || 0
               )?.toFixed(0)}
             </Typography>
-            <CachedIcon
+            <img className="rotate_refresh_image w-8" id="refresh_button"
+                src={refresh} width={25} ml={2} onClick={() => {
+                refreshFunctionForRotation()
+              }} />
+            {/* <CachedIcon
               onClick={() => client.refetchQueries("myprofile")}
               sx={style.cachedIcon}
-            />
+            /> */}
           </Stack>
           <Stack
             direction="row"

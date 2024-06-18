@@ -9,7 +9,7 @@ import {
 } from "@mui/material";
 import * as React from "react";
 import ReactApexChart from "react-apexcharts";
-import { useQuery } from "react-query";
+import { useQuery, useQueryClient } from "react-query";
 import { useMediaQuery } from "react-responsive";
 import { NavLink, useNavigate } from "react-router-dom";
 import CustomCircularProgress from "../../Shared/CustomCircularProgress";
@@ -23,6 +23,8 @@ import Layout from "../../component/Layout/Layout";
 import { MyProfileDataFn } from "../../services/apicalling";
 import CloseIcon from "@mui/icons-material/Close";
 import sunlotteryhomebanner from "../../assets/sunlotteryhomebanner.jpg";
+import refresh from "../../assets/images/refresh.png";
+
 
 function Wallet() {
   const isMediumScreen = useMediaQuery({ minWidth: 800 });
@@ -194,6 +196,28 @@ console.log(result);
       labels: ["Winning"],
     },
   };
+const client = useQueryClient()
+
+  function refreshFunctionForRotation() {
+    client.refetchQueries=("walletamount")
+    const item = document.getElementsByClassName("rotate_refresh_image")?.[0]
+
+    const element = document.getElementById("refresh_button");
+    if (!item) {
+      element.classList.add("rotate_refresh_image");
+    }
+    setTimeout(() => {
+      element.classList.remove("rotate_refresh_image")
+    }, 2000);
+
+  }
+  React.useEffect(() => {
+    const element = document.getElementById("refresh_button");
+    const item = document.getElementsByClassName("rotate_refresh_image")?.[0]
+    if (item) {
+      element.classList.remove("rotate_refresh_image");
+    }
+  }, [])
 
   return (
     <Layout>
@@ -246,7 +270,8 @@ console.log(result);
               className="walletBox"
             >
               <Box component="img" src={wallet} width={50}></Box>
-              <Typography variant="h2" color="initial">
+             <Box className="!flex justify-center gap-1 walletBox">
+             <Typography variant="h2" color="initial">
                 {" "}
                 {(
                   Number(
@@ -255,6 +280,11 @@ console.log(result);
                   ) || 0
                 )?.toFixed(0)}
               </Typography>
+              <img className="rotate_refresh_image w-5 h-6 mt-5" id="refresh_button"
+                src={refresh} width={25} ml={2} onClick={() => {
+                refreshFunctionForRotation()
+              }} />
+             </Box>
               <Typography variant="body1" color="initial">
                 Total balance
               </Typography>
