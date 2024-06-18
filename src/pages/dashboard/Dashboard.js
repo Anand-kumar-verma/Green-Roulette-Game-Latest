@@ -325,6 +325,7 @@ function Dashboard() {
               </SwiperSlide>
             </Swiper>
           </Box>
+          
           <Box className="!px-2">
             <Swiper
               spaceBetween={30}
