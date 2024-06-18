@@ -2,7 +2,14 @@ import ArrowForwardIosOutlinedIcon from "@mui/icons-material/ArrowForwardIosOutl
 import CloseIcon from "@mui/icons-material/Close";
 import EmojiPeopleOutlinedIcon from "@mui/icons-material/EmojiPeopleOutlined";
 import Groups2OutlinedIcon from "@mui/icons-material/Groups2Outlined";
-import { Box, Container, Dialog, IconButton, Stack, Typography } from "@mui/material";
+import {
+  Box,
+  Container,
+  Dialog,
+  IconButton,
+  Stack,
+  Typography,
+} from "@mui/material";
 import copy from "clipboard-copy";
 import { useState } from "react";
 import toast from "react-hot-toast";
@@ -10,12 +17,8 @@ import { useQuery } from "react-query";
 import { NavLink } from "react-router-dom";
 import CustomCircularProgress from "../../Shared/CustomCircularProgress";
 import { zubgback, zubgmid } from "../../Shared/color";
-import customer from "../../assets/images/24-hours-service.png";
 import copyIimage from "../../assets/images/copy.png";
-import sort from "../../assets/images/data-flow.png";
 import donut from "../../assets/images/database.png";
-import book from "../../assets/images/rules.png";
-import coin from "../../assets/images/settings.png";
 import sunlotteryhomebanner from "../../assets/sunlotteryhomebanner.jpg";
 import Layout from "../../component/Layout/Layout";
 import { MypromotionDataFn } from "../../services/apicalling";
@@ -44,29 +47,12 @@ function Promotion() {
     <Layout>
       <Container>
         <CustomCircularProgress isLoading={isLoading} />
-        <Box sx={style.header}>
-          <Typography variant="body1" color="initial">
-            {" "}
-          </Typography>
+        <Box sx={style.header} className={"!w-full !flex !justify-center"}>
           <Typography variant="body1" color="initial" className="!text-white">
             Agency
           </Typography>
-          <Box component={NavLink} to="/promotion/Subordinate/">
-            <Box component="img" src={sort} width={30}></Box>
-          </Box>
         </Box>
         <Box sx={style.commitionboxOuter}>
-          <Box sx={style.commitionbox}>
-            <Typography variant="body1" color="initial" className="!text-white">
-              {result?.today_turnover}
-            </Typography>
-            <Typography variant="body1" color="initial" className="!text-white">
-              Today's Turnover
-            </Typography>
-            <Typography variant="body1" color="initial" className="!text-white">
-              Upgrade the level to increase turnover
-            </Typography>
-          </Box>
           <Box sx={style.subcordinateBox}>
             <Stack direction="row" sx={{ width: "100%" }}>
               <Box sx={style.subordinatesleft}>
@@ -125,7 +111,7 @@ function Promotion() {
                     color="initial"
                     className="!text-white"
                   >
-                    {result?.deposit_recharge || 0}
+                    {Number(result?.deposit_recharge || 0)?.toFixed(2) || 0}
                   </Typography>
                   <Typography
                     variant="body1"
@@ -176,7 +162,7 @@ function Promotion() {
                 </Box>
                 <Box sx={style.subcordinatelist}>
                   <Typography variant="body1" color="initial">
-                    {result?.deposit_recharge_team || 0}
+                    {Number(result?.deposit_recharge_team || 0)?.toFixed(2) || 0}
                   </Typography>
                   <Typography variant="body1" color="initial">
                     {" "}
@@ -197,7 +183,11 @@ function Promotion() {
             <Box sx={style.invitebtn}>
               <NavLink
                 //  to="/promotion/PromotionShare"
-                onClick={() => functionTOCopy(`${fron_end_main_domain}/register?ref=${result?.referral_code}`)}
+                onClick={() =>
+                  functionTOCopy(
+                    `${fron_end_main_domain}/register?ref=${result?.referral_code}`
+                  )
+                }
               >
                 <Typography sx={{}}>INVITATION LINK</Typography>
               </NavLink>
@@ -279,10 +269,9 @@ function Promotion() {
                 </Stack>
               </Box>
             </NavLink> */}
-            <NavLink to="/promotion/PromotionRule">
+            {/* <NavLink to="/promotion/PromotionRule">
               <Box sx={style.invitbox}>
                 <Stack direction="row">
-                  {/* <Box component='img' src={invite_reg}></Box> */}
                   <Box component="img" src={book}></Box>
                   <Typography variant="body1" color="initial">
                     Invitation rules
@@ -292,11 +281,10 @@ function Promotion() {
                   <ArrowForwardIosOutlinedIcon />
                 </Stack>
               </Box>
-            </NavLink>
-            <NavLink to="/promotion/customerLine/">
+            </NavLink> */}
+            {/* <NavLink to="/promotion/customerLine/">
               <Box sx={style.invitbox}>
                 <Stack direction="row">
-                  {/* <Box component='img' src={server}></Box> */}
                   <Box component="img" src={customer}></Box>
                   <Typography variant="body1" color="initial">
                     Agent line customer service
@@ -306,7 +294,7 @@ function Promotion() {
                   <ArrowForwardIosOutlinedIcon />
                 </Stack>
               </Box>
-            </NavLink>
+            </NavLink> */}
             {/* <NavLink to="/promotion/RebateRatio/">
               <Box sx={style.invitbox}>
                 <Stack direction="row">
@@ -320,59 +308,15 @@ function Promotion() {
                 </Stack>
               </Box>
             </NavLink> */}
-            <Box sx={style.promotionBoxOuter}>
-              <Box sx={style.promotionBox}>
-                <Stack direction="row">
-                  {/* <Box component='img' src={download}></Box> */}
-                  <Box component="img" src={data}></Box>
-                  <Typography variant="body1" color="initial">
-                    Promotion data
-                  </Typography>
-                </Stack>
-              </Box>
-              <Stack direction="row">
-                <Box>
-                  <Typography variant="body1" color="initial">
-                    {Number(Number(result?.turnover || 0) + Number(result?.today_turnover || 0))?.toFixed(2)}
-                  </Typography>
-                  <Typography variant="body1" color="initial">
-                    Total Turnover
-                  </Typography>
-                </Box>
-                <Box>
-                  <Typography variant="body1" color="initial">
-                    {result?.commission || 0}
-                  </Typography>
-                  <Typography variant="body1" color="initial">
-                    Total Commission
-                  </Typography>
-                </Box>
-              </Stack>
-              <Stack direction="row">
-                <Box>
-                  <Typography variant="body1" color="initial">
-                    {result?.count || 0}
-                  </Typography>
-                  <Typography variant="body1" color="initial">
-                    Direct subordinate
-                  </Typography>
-                </Box>
-                <Box>
-                  <Typography variant="body1" color="initial">
-                    {result?.teamcount || 0}
-                  </Typography>
-                  <Typography variant="body1" color="initial">
-                    Total number of <br />
-                    subordinates in the team
-                  </Typography>
-                </Box>
-              </Stack>
-            </Box>
+          
             <Box sx={style.promotionBoxOutertwo}></Box>
           </Box>
         </Box>
         {openDialogBoxHomeBanner && (
-          <Dialog PaperProps={{ width: "500px", height: "500px" }} open={openDialogBoxHomeBanner}>
+          <Dialog
+            PaperProps={{ width: "500px", height: "500px" }}
+            open={openDialogBoxHomeBanner}
+          >
             <div>
               <p>
                 <IconButton onClick={() => setopenDialogBoxHomeBanner(false)}>
@@ -395,7 +339,7 @@ export default Promotion;
 const style = {
   header: {
     padding: "15px 8px",
-    background: '#007F15',
+    background: "#007F15",
     display: "flex",
     alignItems: "center",
     justifyContent: "space-between",
@@ -422,7 +366,7 @@ const style = {
       fontSize: "13px",
       fontWeight: "400",
       padding: "5px 0px",
-      background: '#BA903B',
+      background: "#BA903B",
       borderRadius: "20px",
     },
     "&>p:nth-child(3)": {
@@ -438,7 +382,7 @@ const style = {
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
-    background: '#BA903B',
+    background: "#BA903B",
     borderTopLeftRadius: "10px",
     borderRight: "2px solid black",
     "&>svg": { color: "white", fontSize: "25px", marginRight: "10px" },
@@ -451,7 +395,7 @@ const style = {
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
-    background: '#BA903B',
+    background: "#BA903B",
     borderTopRightRadius: "10px",
     "&>svg": { color: "white", fontSize: "25px", marginRight: "10px" },
     "&>p": { color: "white", fontSize: "14px", fontWeight: "500" },
@@ -491,7 +435,7 @@ const style = {
       borderRadius: "20px",
       textAlign: "center",
       padding: "10px",
-      background: '#BA903B',
+      background: "#BA903B",
       color: "white",
       fontSize: "17px",
       fontWeight: 600,

@@ -6,14 +6,19 @@ import CustomCircularProgress from "../../../../Shared/CustomCircularProgress";
 import Loss from "../../../../assets/images/loss.png";
 import win from "../../../../assets/images/winnner.png";
 import { endpoint } from "../../../../services/urls";
-import CryptoJS from 'crypto-js'
+import CryptoJS from "crypto-js";
 const WinLossPopup = ({ gid }) => {
-  const login_data = localStorage.getItem("logindataen") && CryptoJS.AES.decrypt(localStorage.getItem("logindataen"), "anand")?.toString(CryptoJS.enc.Utf8) || null;
+  const login_data =
+    (localStorage.getItem("logindataen") &&
+      CryptoJS.AES.decrypt(
+        localStorage.getItem("logindataen"),
+        "anand"
+      )?.toString(CryptoJS.enc.Utf8)) ||
+    null;
   const user_id = login_data && JSON.parse(login_data).UserID;
   const [loding, setloding] = useState(false);
   const [status, setstatus] = useState("");
   const [newstatus, setstatusNew] = useState("");
-
 
   const MyHistoryFn = async () => {
     setloding(true);
@@ -21,22 +26,27 @@ const WinLossPopup = ({ gid }) => {
       const response = await axios.get(
         `${endpoint.my_history_all}?userid=${user_id}&limit=0&gameid=${gid}`
       );
-    const firstId =  response?.data?.data?.[0]?.gamesno
-    const winAmnt =  response?.data?.data?.filter((i)=>i?.gamesno === firstId)?.reduce((a,b)=>a+Number(b?.win || 0),0) || 0
-    const amntAmnt =  response?.data?.data?.filter((i)=>i?.gamesno === firstId)?.reduce((a,b)=>a+Number(b?.amount || 0),0) || 0
+      const firstId = response?.data?.data?.[0]?.gamesno;
+      const winAmnt =
+        response?.data?.data
+          ?.filter((i) => i?.gamesno === firstId)
+          ?.reduce((a, b) => a + Number(b?.win || 0), 0) || 0;
+      const amntAmnt =
+        response?.data?.data
+          ?.filter((i) => i?.gamesno === firstId)
+          ?.reduce((a, b) => a + Number(b?.amount || 0), 0) || 0;
 
-    
-     if(winAmnt){
-      setstatus({
-        status: "1",
-        amount:winAmnt
-      });
-    }else{
-      setstatus({
-        status: "2",
-        amount:amntAmnt
-      }); 
-    }
+      if (winAmnt) {
+        setstatus({
+          status: "1",
+          amount: winAmnt,
+        });
+      } else {
+        setstatus({
+          status: "2",
+          amount: amntAmnt,
+        });
+      }
       // setstatus(response?.data?.data?.[0]);
     } catch (e) {
       toast(e?.message);
@@ -53,7 +63,7 @@ const WinLossPopup = ({ gid }) => {
     setstatusNew(status);
   }, [status]);
 
-  console.log(status,"This is status");
+  console.log(status, "This is status");
 
   if (loding) return <CustomCircularProgress isLoading={loding} />;
   return (
@@ -112,7 +122,7 @@ const WinLossPopup = ({ gid }) => {
               status?.status === "1" ? "!text-white" : "!text-white"
             }`}
           >
-             {Number(status?.amount || 0)?.toFixed(2) || 0}
+            {Number(status?.amount || 0)?.toFixed(2) || 0}
           </Typography>
           <Typography
             variant="body1"

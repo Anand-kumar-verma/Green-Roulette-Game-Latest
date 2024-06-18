@@ -1,9 +1,8 @@
 import axios from "axios";
-import { endpoint } from "../urls";
+import CryptoJS from "crypto-js";
 import toast from "react-hot-toast";
 import { aviator_login_data_fn } from "../../redux/slices/counterSlice";
-import CryptoJS from "crypto-js";
-import { Navigate } from "react-router-dom";
+import { endpoint } from "../urls";
 const value =
   (localStorage.getItem("logindataen") &&
     CryptoJS.AES.decrypt(
@@ -20,7 +19,7 @@ export const logOutFunctoinRoulette = async (navigate) => {
     console.log(res);
     if (res?.data?.error === "200") {
       localStorage.clear();
-      navigate("/")
+      navigate("/");
     }
   } catch (e) {
     console.log(e);
@@ -94,7 +93,7 @@ export const Cricket_id_passFunction = async ({ setId_pass_data }) => {
 export const MypromotionDataFn = async () => {
   try {
     const response = await axios.get(
-      `${endpoint.level_team}?userid=${user_id}`
+      `${endpoint.promotion_data}?id=${Number(user_id)}`
     );
     return response;
   } catch (e) {
@@ -102,6 +101,17 @@ export const MypromotionDataFn = async () => {
     console.log(e);
   }
 };
+// export const MypromotionDataFn = async () => {
+//   try {
+//     const response = await axios.get(
+//       `${endpoint.level_team}?userid=${user_id}`
+//     );
+//     return response;
+//   } catch (e) {
+//     toast(e?.message);
+//     console.log(e);
+//   }
+// };
 export const get_user_data_fn = async (dispatch) => {
   try {
     const response = await axios.get(

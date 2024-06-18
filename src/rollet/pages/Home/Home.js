@@ -1,10 +1,9 @@
 import CloseIcon from "@mui/icons-material/Close";
 import {
   Box,
-  CircularProgress,
   Drawer,
   Stack,
-  Typography,
+  Typography
 } from "@mui/material";
 import CryptoJS from "crypto-js";
 import { useEffect, useMemo, useRef, useState } from "react";
@@ -27,6 +26,7 @@ import placebetmusic from "../../assets/images/applybet_music.mp3";
 import mouse_click from "../../assets/images/mouse_click.mp3";
 import wheel_roulette from "../../assets/images/rotate_wheel_ball_music.mp3";
 // import roulette from "../../assets/images/roulette-wheel-vector-89242.png";
+import CustomCircularProgress from "../../../Shared/CustomCircularProgress";
 import roulette from "../../assets/images/realwgeelwith1red.png";
 import roulettebg from "../../assets/images/roulettebg.png";
 import stop_ball_music from "../../assets/images/stop_ball_music.mp3";
@@ -51,7 +51,6 @@ import Rule from "./Rule";
 import SvgCircle from "./SvgCircle";
 import MyTableComponent from "./Tablehistory";
 import TwoToOne from "./TwoToOne";
-import CustomCircularProgress from "../../../Shared/CustomCircularProgress";
 function Home() {
   const navigate = useNavigate();
   const isAlreadyAppliedBet = localStorage?.getItem("rollet_bet_placed");
@@ -220,7 +219,7 @@ function Home() {
   }
 
   useEffect(() => {
-    if (one_min_time === 12 && bet?.length > 0) {
+    if (one_min_time === 16 && bet?.length > 0) {
       if (isAlreadyAppliedBet === "false" || !isAlreadyAppliedBet) {
         mouseClickSound();
         confirmBet(
@@ -333,7 +332,7 @@ function Home() {
         handlePlaySound();
       }
 
-      if (onemin === 10) {
+      if (onemin === 15) {
         let id = localStorage.getItem("result_rollet");
         let element = document.getElementById(`${String(id)}_rotate`);
 

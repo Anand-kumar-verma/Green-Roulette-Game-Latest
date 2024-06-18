@@ -24,7 +24,6 @@ function TeamReports() {
 
   const result = data?.data?.data;
 
-  console.log(result);
   return (
     <Layout>
       <Container
@@ -70,17 +69,17 @@ function TeamReports() {
           <div className="!grid !grid-cols-6 !text-white pl-2 !place-items-center !bg-[#281970] !bg-opacity-5">
                   <span>S.No.</span>
                   <span>User Id</span>
-                  <span className="!col-span-4">Name</span>
-                  {/* <span className="!col-span-2">Mobile No</span> */}
+                  <span className="!col-span-2">Name</span>
+                  <span className="!col-span-2">Mobile No</span>
                 </div>
             <div className="h-[2px] w-full !bg-[#281970]"></div>
-            {result?.map((i,index) => {
+            {result?.directReferrals?.map((i,index) => {
               return (
                 <div className="!grid !grid-cols-6 !text-white pl-2 !place-items-center">
                   <span >{index+1}</span>
-                  <span>{i?.reffralid}</span>
-                  <span className="!text-center !col-span-4">{i?.reffralusername || "No data found"}</span>
-                  {/* <span className="!col-span-2">{i?.mobile || "987654210"}</span> */}
+                  <span>{i?.id}</span>
+                  <span className="!text-center !col-span-2">{i?.user_name || "No data found"}</span>
+                  <span className="!col-span-2">{i?.mobile || "987654210"}</span>
                 </div>
               );
             })}

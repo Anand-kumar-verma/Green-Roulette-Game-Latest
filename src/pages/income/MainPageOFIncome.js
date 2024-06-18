@@ -1,37 +1,33 @@
-import CurrencyExchangeIcon from "@mui/icons-material/CurrencyExchange";
+import { Money } from "@mui/icons-material";
+import AccountTreeIcon from '@mui/icons-material/AccountTree';
 import Diversity2Icon from "@mui/icons-material/Diversity2";
 import { Box, Container, Typography } from "@mui/material";
 import * as React from "react";
-import { NavLink, useNavigate } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import { zubgback, zubgbackgrad, zubgmid } from "../../Shared/color";
 import Layout from "../../component/Layout/Layout";
-import CurrencyExchange from "@mui/icons-material/CurrencyExchange";
-import { CurrencyBitcoin, CurrencyBitcoinTwoTone, Money } from "@mui/icons-material";
-import { LuBookMinus } from "react-icons/lu";
 function MainPageOFIncome() {
-  const navigate = useNavigate();
-
   const data_array = [
     {
-      to: "/account/income-main/registration-bonus",
+      to: "/account/income-main/referral-bonus",
       name: "Referral Bonus",
       logo: (
-        <CurrencyExchangeIcon
+        <AccountTreeIcon
           className="!w-[40px] !h-[40px] !text-white"
           color="#8f5206"
         />
       ),
     },
-    {
-      to: "/account/income-main/level-income",
-      name: "Level Income",
-      logo: (
-        <CurrencyBitcoinTwoTone
-          className="!w-[40px] !h-[40px] !text-white"
-          color="#8f5206"
-        />
-      ),
-    },
+    // {
+    //   to: "/account/income-main/level-income",
+    //   name: "Level Income",
+    //   logo: (
+    //     <StairsIcon
+    //       className="!w-[40px] !h-[40px] !text-white"
+    //       color="#8f5206"
+    //     />
+    //   ),
+    // },
     // {
     //   to: "/account/income-main/referral-bonus",
     //   name: "Referral Bonus",

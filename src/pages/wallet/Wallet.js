@@ -34,9 +34,9 @@ function Wallet() {
     refetchOnReconnect: true,
   });
   const result = data?.data?.data;
-
+console.log(result);
   const main_wallet = {
-    series: [Number(result?.bonus || 0)?.toFixed(0) || 0],
+    series: [Number(result?.wallet || 0)?.toFixed(0) || 0],
     options: {
       chart: {
         height: 350,
@@ -113,11 +113,11 @@ function Wallet() {
       stroke: {
         lineCap: "round",
       },
-      labels: ["Bonus"],
+      labels: ["Deposit"],
     },
   };
   const third_party_wallet = {
-    series: [(Number(Number(result?.winning_wallet || 0)) || 0)?.toFixed(0)],
+    series: [(Number(Number(result?.winning_wallet || 0)) || 0)?.toFixed()],
     options: {
       chart: {
         height: 350,
@@ -191,7 +191,7 @@ function Wallet() {
       stroke: {
         lineCap: "round",
       },
-      labels: ["Amount"],
+      labels: ["Winning"],
     },
   };
 
@@ -286,10 +286,10 @@ function Wallet() {
                 }}
               >
                 <Typography variant="body1" color="initial">
-                   {Number(result?.bonus || 0)}
+                   {Number(result?.wallet || 0)?.toFixed(0)}
                 </Typography>
                 <Typography variant="body1" color="initial">
-                  Bonus Amount
+                 Total Deposit
                 </Typography>
               </Box>
             </Box>
