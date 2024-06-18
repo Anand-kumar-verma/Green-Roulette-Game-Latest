@@ -1,6 +1,7 @@
 import CloudDownloadIcon from "@mui/icons-material/CloudDownload";
 import FitbitIcon from "@mui/icons-material/Fitbit";
 import TelegramIcon from "@mui/icons-material/Telegram";
+import CachedIcon from "@mui/icons-material/Cached";
 import {
   Avatar,
   Box,
@@ -21,7 +22,7 @@ import { useFormik } from "formik";
 import React, { useEffect, useState } from "react";
 import toast from "react-hot-toast";
 import { RxCross2 } from "react-icons/rx";
-import { useQuery } from "react-query";
+import { useQuery, useQueryClient } from "react-query";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import "swiper/css";
@@ -110,6 +111,7 @@ function Dashboard() {
       window.location.href = "/"; // Redirect to login page
     }
   }, []);
+  const client = useQueryClient()
 
   const functionTOCopy = (value) => {
     copy(value);
@@ -269,6 +271,7 @@ function Dashboard() {
     // },
   ];
 
+
   return (
     <Layout>
       <Box sx={styles.root}>
@@ -349,11 +352,11 @@ function Dashboard() {
                               <Avatar alt="Remy Sharp" sizes="large">
                                 {i?.full_name?.substring(0, 1) || ""}
                               </Avatar>
-                              <p className=" !text-white !text-xs !whitespace-nowrap">
-                                {i?.full_name || ""}
+                              <p className=" !text-white !text-sm !whitespace-nowrap">
+                                {i?.full_name ?.substring(0, 11) || ""}.....
                               </p>
                             </div>
-                            <p className=" !text-white text-xs">
+                            <p className=" !text-white text-sm">
                               Withdraw {rupees}{" "}
                               <spna className={"!font-bold !text-[#FB8356]"}>
                                 {Number(i?.amount || 0).toFixed(2)}
@@ -428,6 +431,9 @@ function Dashboard() {
                 {Number(
                   Number(newdata?.wallet || 0) + Number(newdata?.winning || 0)
                 )?.toFixed(2)}
+                 <CachedIcon onClick={() => {
+                client.refetchQueries=("walletamount")
+              }} />
               </Typography>
               <Typography variant="body1" color="initial" className="b-valp">
                 Available Balance

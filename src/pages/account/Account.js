@@ -105,7 +105,6 @@ function Account() {
       <Container sx={style.container}>
         <Stack direction="row" sx={style.header}>
           <Box sx={style.profileBox}    onClick={() => setOpend(true)}>
-          
              <img src={selectedImages[0] ||imge_array[Number(Number(imageNumber) - 1 || 0)]?.img} alt="" className='!rounded-full  w-[72px] h-[72px]' />
                <BorderColor fontSize="small" className="!text-white !-mt-10 !ml-10 !rounded-full !bg-gray-400  " />
            
