@@ -25,7 +25,8 @@ function BetReferal() {
     }
   );
   const res = data?.data?.data;
-  if (!isLoading && !res)
+  console.log(res)
+  if ( res?.length<=0)
     return (
       <Layout>
         <Container

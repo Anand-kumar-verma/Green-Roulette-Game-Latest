@@ -54,7 +54,7 @@ function TeamData() {
               expandIcon={<Star className="!text-white" />}
               aria-controls="panel1-content"
               id="panel1-header"
-              sx={{ background: "#4737BD", color: "white" }}
+              sx={{ background: "#2f6a45", color: "white" }}
             >
               <div className="w-full grid grid-cols-3 pr-2">
                 <span className="!text-center">Levels</span>
@@ -70,7 +70,7 @@ function TeamData() {
               expandIcon={<ArrowDownwardIcon className="!text-white" />}
               aria-controls="panel1-content"
               id="panel1-header"
-              sx={{ background: "#4737BD", color: "white" }}
+              sx={{ background: "#2f6a45", color: "white" }}
             >
               <div className="w-full grid grid-cols-3 pr-2">
                 <span className="!text-center">Level: 1</span>
@@ -116,7 +116,7 @@ function TeamData() {
               expandIcon={<ArrowDownwardIcon className="!text-white" />}
               aria-controls="panel1-content"
               id="panel1-header"
-              sx={{ background: "#4737BD", color: "white" }}
+              sx={{ background: "#2f6a45", color: "white" }}
             >
               <div className="w-full grid grid-cols-3 pr-2">
                 <span className="!text-center">Level: 2</span>
@@ -160,7 +160,7 @@ function TeamData() {
               expandIcon={<ArrowDownwardIcon className="!text-white" />}
               aria-controls="panel1-content"
               id="panel1-header"
-              sx={{ background: "#4737BD", color: "white" }}
+              sx={{ background: "#2f6a45", color: "white" }}
             >
               <div className="w-full grid grid-cols-3 pr-2">
                 <span className="!text-center">Level: 3</span>

@@ -44,6 +44,8 @@ import {
 } from "../../services/apicalling";
 import axios from "axios";
 import { endpoint, fron_end_main_domain } from "../../services/urls";
+import Image from "./Image";
+import { BorderColor } from "@mui/icons-material";
 function Account() {
   const location = useLocation();
   const searchParams = new URLSearchParams(location.search);
@@ -80,24 +82,40 @@ function Account() {
     }
     client.removeQueries("myprofile");
   }
-
+  const images = [
+    "https://mui.com/static/images/avatar/2.jpg",
+    "https://mui.com/static/images/avatar/3.jpg",
+    "https://mui.com/static/images/avatar/4.jpg",
+    "https://mui.com/static/images/avatar/1.jpg" ,
+   "https://mui.com/static/images/avatar/5.jpg"
+  ];
+  
   useEffect(() => {
     if (transactionId) {
       sendUrlCallBackToBackend(transactionId);
     }
   }, []);
+  
+  const [selectedImages, setselectedImages] = useState("");
+  const [opend, setOpend] = useState(false);
+
 
   return (
     <Layout>
       <Container sx={style.container}>
         <Stack direction="row" sx={style.header}>
-          <Box sx={style.profileBox}>
-            <Box
-              component="img"
-              src={imge_array[Number(Number(imageNumber) - 1 || 0)]?.img}
-              sx={style.profileImage}
-            />
+          <Box sx={style.profileBox}    onClick={() => setOpend(true)}>
+          
+             <img src={selectedImages[0] ||imge_array[Number(Number(imageNumber) - 1 || 0)]?.img} alt="" className='!rounded-full  w-[72px] h-[72px]' />
+               <BorderColor fontSize="small" className="!text-white !-mt-10 !ml-10 !rounded-full !bg-gray-400  " />
+           
           </Box>
+          <Image
+              setOpend={setOpend}
+              setselectedImages={setselectedImages}
+              open={opend}
+              onClose={() => setOpend(false)}
+              images={images} />
           <Box sx={style.userInfo}>
             <Typography variant="" color="initial">
               {result?.full_name}

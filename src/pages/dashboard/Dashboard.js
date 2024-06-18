@@ -344,16 +344,16 @@ function Dashboard() {
                     return (
                       <SwiperSlide key={index}>
                         <div className="!h-20 !w-full  !flex !items-center ">
-                          <div className="!w-full grid grid-cols-2 place-items-center !bg-gradient-to-l from-[#0F0232] via-[#4939C1]  to-[#0F0232] !py-6">
-                            <div className="flex items-center justify-between gap-3">
+                          <div className="!w-full grid grid-cols-2 place-items-center !bg-gradient-to-l from-[#212c26] via-[#2f6a45]  to-[#06100d] !py-6">
+                            <div className="flex items-center justify-between gap-1 mx-1">
                               <Avatar alt="Remy Sharp" sizes="large">
                                 {i?.full_name?.substring(0, 1) || ""}
                               </Avatar>
-                              <p className=" !text-white !text-lg !whitespace-nowrap">
+                              <p className=" !text-white !text-xs !whitespace-nowrap">
                                 {i?.full_name || ""}
                               </p>
                             </div>
-                            <p className=" !text-white">
+                            <p className=" !text-white text-xs">
                               Withdraw {rupees}{" "}
                               <spna className={"!font-bold !text-[#FB8356]"}>
                                 {Number(i?.amount || 0).toFixed(2)}
