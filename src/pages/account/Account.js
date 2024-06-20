@@ -188,25 +188,29 @@ function Account() {
           </Stack>
         </Box>
         <Box sx={style.actionContainer}>
-          <Box sx={style.actionBox} component={NavLink} to="/wallet">
+          {/* <Box sx={style.actionBox} component={NavLink} to="/wallet"> */}
+          <Box sx={style.actionBox} >
             <Box component="img" src={s} sx={style.actionImage} />
             <Typography variant="body1" color="initial" sx={style.actionText}>
               Wallet
             </Typography>
           </Box>
-          <Box sx={style.actionBox} component={NavLink} to="/wallet/Recharge">
+          {/* <Box sx={style.actionBox} component={NavLink} to="/wallet/Recharge"> */}
+          <Box sx={style.actionBox} >
             <Box component="img" src={dpt} sx={style.actionImage} />
             <Typography variant="body1" color="initial" sx={style.actionText}>
               Deposit
             </Typography>
           </Box>
-          <Box sx={style.actionBox} component={NavLink} to="/Withdrawal">
+          {/* <Box sx={style.actionBox} component={NavLink} to="/Withdrawal"> */}
+          <Box sx={style.actionBox} >
             <Box component="img" src={wtd} sx={style.actionImage} />
             <Typography variant="body1" color="initial" sx={style.actionText}>
               Withdraw
             </Typography>
           </Box>
-          <Box sx={style.actionBox} component={NavLink} to="/add-bank-details">
+          {/* <Box sx={style.actionBox} component={NavLink} to="/add-bank-details"> */}
+          <Box sx={style.actionBox} >
             <Box component="img" src={edit} sx={style.actionImage} />
             <Typography variant="body1" color="initial" sx={style.actionText}>
               Add Bank

@@ -373,12 +373,12 @@ const client = useQueryClient()
                 mt: "30px",
               }}
             >
-              <NavLink to="/wallet/Recharge">
+              {/* <NavLink to="/wallet/Recharge"> */}
                 <Box component="img" src={rechargeIcon} width={50}></Box>
-                <Typography variant="body1" color="initial" mt={1}>
+                <Typography variant="body1" color="initial" mt={1} className="!text-white">
                   Deposit
                 </Typography>
-              </NavLink>
+              {/* </NavLink> */}
             </Box>
             <Box
               sx={{
@@ -396,12 +396,12 @@ const client = useQueryClient()
                 "&>a>img": { margin: "auto" },
               }}
             >
-              <NavLink to="/Withdrawal">
+              {/* <NavLink to="/Withdrawal"> */}
                 <Box component="img" src={withdrow} width={50}></Box>
-                <Typography variant="body1" color="initial" mt={1}>
+                <Typography variant="body1" color="initial" mt={1} className="!text-white">
                   Withdraw
                 </Typography>
-              </NavLink>
+              {/* </NavLink> */}
             </Box>
             <Box
               sx={{
@@ -419,13 +419,13 @@ const client = useQueryClient()
                 "&>a>img": { margin: "auto" },
               }}
             >
-              <NavLink to="/depositHistory">
+              {/* <NavLink to="/depositHistory"> */}
                 <Box component="img" src={wdhistory} width={50}></Box>
-                <Typography variant="body1" color="initial" mt={1}>
+                <Typography variant="body1" color="initial" mt={1} className="!text-white">
                   Deposit <br />
                   history
                 </Typography>
-              </NavLink>
+              {/* </NavLink> */}
             </Box>
             <Box
               sx={{
@@ -442,12 +442,12 @@ const client = useQueryClient()
                 "&>a>img": { margin: "auto" },
               }}
             >
-              <NavLink to="/withdravalHistory">
+              {/* <NavLink to="/withdravalHistory"> */}
                 <Box component="img" src={deposite} width={50}></Box>
-                <Typography variant="body1" color="initial" mt={1}>
+                <Typography variant="body1" color="initial" mt={1} className="!text-white">
                   Withdrawal history
                 </Typography>
-              </NavLink>
+              {/* </NavLink> */}
             </Box>
           </Stack>
         </Box>
