@@ -421,7 +421,7 @@ function Dashboard() {
             </Box>
           </Box>
 
-          <Stack direction="row" sx={styles.depositWithdrawContainer}>
+          {/* <Stack direction="row" sx={styles.depositWithdrawContainer}>
             <Box
               sx={{
                 display: "flex",
@@ -449,7 +449,7 @@ function Dashboard() {
             </Box>
             <Box sx={{ textAlign: "center" }}>
              <div className="!flex !justify-center gap-1">
-             <Typography variant="body1" color="initial" className="b-val">
+             <Typography variant="body1" color="initial" className="b-val ">
                 {" "}
                 {Number(
                   Number(newdata?.wallet || 0) + Number(newdata?.winning || 0)
@@ -460,7 +460,7 @@ function Dashboard() {
                 refreshFunctionForRotation()
               }} />
              </div>
-              <Typography variant="body1" color="initial" className="b-valp">
+              <Typography variant="body1" color="initial" className="b-valp ">
                 Available Balance
               </Typography>
             </Box>
@@ -485,7 +485,28 @@ function Dashboard() {
                 Withdraw
               </Typography>
             </Box>
-          </Stack>
+          </Stack> */}
+       
+         
+            <Box sx={styles.depositWithdrawContainer}>
+             <div className="!flex !justify-center gap-1">
+             <Typography variant="body1" color="initial" className="b-val ">
+                {" "}
+                {Number(
+                  Number(newdata?.wallet || 0) + Number(newdata?.winning || 0)
+                )?.toFixed(2)}
+               </Typography>
+               <img className="rotate_refresh_image w-8" id="refresh_button"
+                src={refresh} width={25} ml={2} onClick={() => {
+                refreshFunctionForRotation()
+              }} />
+             </div>
+              <Typography variant="body1" color="initial" className="b-valp ">
+                Available Balance
+              </Typography>
+            </Box>
+            
+         
           <Box sx={styles.referralLinkContainer}>
             <Typography variant="body1" sx={styles.referralLinkTitle}>
               Referral Link
