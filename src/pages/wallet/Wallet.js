@@ -378,8 +378,7 @@ const client = useQueryClient()
               <NavLink to="/depositHistory">
                 <Box component="img" src={wdhistory} width={50}></Box>
                 <Typography variant="body1" color="initial" mt={1} className="!text-white">
-                  Deposit <br />
-                  history
+                Deposit / Withdrawal History
                 </Typography>
               </NavLink>
             </Box>

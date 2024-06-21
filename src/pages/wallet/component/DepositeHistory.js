@@ -56,7 +56,7 @@ function DepositeHistory() {
             <KeyboardArrowLeftOutlinedIcon />
           </Box>
           <Typography variant="body1" color="initial">
-            Deposit history
+            Deposit & Withdrawal history
           </Typography>
           <Box></Box>
         </Box>
@@ -79,7 +79,7 @@ function DepositeHistory() {
                 color="initial"
                 sx={{ fontSize: "15px ", color: "white", ml: "10px" }}
               >
-                Deposit history
+                Deposit & Withdrawal history
               </Typography>
             </Stack>
             {res?.map((i) => {
@@ -105,22 +105,22 @@ function DepositeHistory() {
                     <Box>
                       <Button
                         sx={{
-                          background: zubgmid,
-                          color: "white",
+                          // background: zubgmid,
+                          background: "white",
+                          color: i?.type === "Paying" ? "green" : "red",
                           textTransform: "capitalize",
                         }}
-                      >
-                        Deposit
+                      >  {i?.type === "Paying" ? "Deposit" : "Withdrawal"}
+
                       </Button>
                     </Box>
                     <Box>
                       <Button
                         sx={{ color: "green", textTransform: "capitalize" }}
-                        className={`${
-                          i?.tr15_status === "Success"
+                        className={`${i?.tr15_status === "Success"
                             ? "!text-green-500"
                             : "!text-red-500"
-                        }`}
+                          }`}
                       >
                         {i?.tr15_status}
                       </Button>
@@ -143,7 +143,15 @@ function DepositeHistory() {
                       Balance
                     </Typography>
                     <Typography variant="body1" color="initial">
-                       {i?.tr15_amt}
+                      {i?.tr15_amt ? (
+                        i?.type === "Paying" ? (
+                          `${i.tr15_amt}`
+                        ) : (
+                          `-${i.tr15_amt}`
+                        )
+                      ) : (
+                        "N/A"
+                      )}
                     </Typography>
                   </Stack>
                   <Stack
