@@ -348,6 +348,43 @@ const client = useQueryClient()
               </Box>
             </Box>
           </Stack>
+           <Stack
+            direction="row"
+            sx={{
+              width: "100%",
+              justifyContent: "space-between",
+              alignItems: "baseline",
+            }}
+          >
+           
+           
+            <Box
+              sx={{
+                width: "24%",
+                display: "flex",
+                alignItems: "center",
+                flexDirection: "column",
+                justifyContent: "center",
+                "&>a>p": {
+                  fontSize: "12px",
+                  color: "white",
+                  textAlign: "center",
+                },
+                mt: "30px",
+                mb:"40px",
+                "&>a>img": { margin: "auto" },
+              }}
+            >
+              <NavLink to="/depositHistory">
+                <Box component="img" src={wdhistory} width={50}></Box>
+                <Typography variant="body1" color="initial" mt={1} className="!text-white">
+                  Deposit <br />
+                  history
+                </Typography>
+              </NavLink>
+            </Box>
+           
+          </Stack> 
           {/* <Stack
             direction="row"
             sx={{

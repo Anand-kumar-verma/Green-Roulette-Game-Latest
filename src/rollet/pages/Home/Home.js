@@ -585,7 +585,7 @@ function Home() {
               </Box>
             </Box>
           </Box>
-          <Box
+          {/* <Box
             sx={{
               width: "100%",
               height: "100%",
@@ -610,7 +610,7 @@ function Home() {
                 </Typography>
               </Box>
             </Box>
-          </Box>
+          </Box> */}
 
           <TwoToOne
             isSelectedDropBet={isSelectedDropBet}

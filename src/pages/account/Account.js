@@ -187,6 +187,7 @@ function Account() {
             </Typography>
           </Stack>
         </Box>
+        
         {/* <Box sx={style.actionContainer}>
           <Box sx={style.actionBox} component={NavLink} to="/wallet">
         
